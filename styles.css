@@ -156,14 +156,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: end;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 4px;
   margin-top: 28px;
   min-height: 170px;
 }
 
 .hero-player {
   display: block;
-  height: 170px;
+  height: 168px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 14px 22px rgba(29, 42, 47, 0.16));
@@ -171,7 +172,7 @@ body {
 
 .hero-player-left,
 .hero-player-right {
-  height: 170px;
+  height: 168px;
   opacity: 0.96;
 }
 
@@ -179,6 +180,10 @@ body {
 .hero-player-center,
 .hero-player-right {
   transform: none;
+}
+
+.hero-player-mirror {
+  transform: scaleX(-1);
 }
 
 .hidden-badge {
@@ -667,15 +672,16 @@ body {
   .hero-player-strip {
     min-height: 124px;
     margin-top: 22px;
+    gap: 2px;
   }
 
   .hero-player {
-    height: 124px;
+    height: 108px;
   }
 
   .hero-player-left,
   .hero-player-right {
-    height: 124px;
+    height: 108px;
   }
 
   .progress-row,
