@@ -18,17 +18,26 @@ body {
   margin: 0;
   font-family: "Noto Serif SC", serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at top left, rgba(213, 111, 42, 0.14), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(15, 91, 82, 0.14), transparent 24%),
-    linear-gradient(180deg, #efe5d3 0%, var(--bg) 45%, #efe7d9 100%);
+  background: #eef1f4 url("./bg_image.png") center center / cover no-repeat fixed;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: none;
+}
+
+body::after {
+  content: none;
 }
 
 .page-shell {
   width: min(1080px, calc(100% - 32px));
   margin: 0 auto;
   padding: 32px 0 56px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero,
