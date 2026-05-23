@@ -59,7 +59,7 @@ const QUESTIONS = [
     id: "Q1",
     sourceNumber: 1,
     stage: 1,
-    part: "16 题完整版",
+    part: "",
     title: "当国足在印尼客场 0-1 告负，无缘出线时，你的第一反应是什么？",
     options: [
       option("A", "阵容和打法是不是从一开始就错了", ["MOU-R", "DIOR-LA", "CF-BOYs"], ["COLL-NA", "OH-NA", "ANCELO"], { R: 2, N: 1, V: -1 }),
@@ -72,7 +72,7 @@ const QUESTIONS = [
     id: "Q2",
     sourceNumber: 2,
     stage: 1,
-    part: "16 题完整版",
+    part: "",
     title: "第 85 分钟主队还落后，你心里在想什么？",
     options: [
       option("A", "还有定位球和换人，牌没打完呢", ["TENGOD", "MOU-R", "DIOR-LA"], ["OH-NA", "CF-BOYs"], { R: 2, N: 1, V: -1 }),
@@ -85,7 +85,7 @@ const QUESTIONS = [
     id: "Q3",
     sourceNumber: 3,
     stage: 1,
-    part: "16 题完整版",
+    part: "",
     title: "你的主队惊险赢球，但过程确实不好看，你会怎么评价？",
     options: [
       option("A", "能赢就行", ["HAAL-D", "MOU-R", "ROBBEN"], ["ANCELO"], { R: 2, V: -1, N: -1 }),
@@ -98,7 +98,7 @@ const QUESTIONS = [
     id: "Q4",
     sourceNumber: 4,
     stage: 1,
-    part: "16 题完整版",
+    part: "",
     title: "欧冠对阵马竞，热刺门将金斯基首发，17 分钟内两次低级失误丢球随即被换下。你更接近哪种反应？",
     options: [
       option("A", "他怎么应对，比失误本身更重要", ["KOMPANY", "KARIUS", "ANCELO"], ["MAKUI", "TENGOD", "TCHOU"], { E: 1, N: 1, V: -1 }),
@@ -111,7 +111,7 @@ const QUESTIONS = [
     id: "Q5",
     sourceNumber: 5,
     stage: 1,
-    part: "16 题完整版",
+    part: "",
     title: "补时阶段主队落后一球并获得角球机会，本方门将冲进禁区时，你心里第一个念头是什么？",
     options: [
       option("A", "这时候就该赌一把", ["HIGUITA", "NEY-MAR", "CR7"], ["BALO", "KLOPP", "SUA-R"], { V: 2, E: 1, G: 1 }),
@@ -124,7 +124,7 @@ const QUESTIONS = [
     id: "Q9",
     sourceNumber: 9,
     stage: 1,
-    part: "16 题完整版",
+    part: "",
     title: "最让你记住的球员，通常是哪种？",
     options: [
       option("A", "逆境里靠精神感染全队的球队之魂", ["KOMPANY", "KLOPP", "MAKUI"], ["FAN-G", "CR7", "WU7"], { G: 2, E: 1, N: 1 }),
@@ -137,7 +137,7 @@ const QUESTIONS = [
     id: "Q8",
     sourceNumber: 8,
     stage: 1,
-    part: "16 题完整版",
+    part: "",
     title: "你心里最理想的看球搭子，最该擅长哪件事？",
     options: [
       option("A", "帮我跟上大家在聊什么", ["ZZZJ", "BESTATE", "WU7"], ["LAO8", "GOLD-2018", "BALO"], { S: 2, G: 1, E: 1 }),
@@ -150,7 +150,7 @@ const QUESTIONS = [
     id: "Q14",
     sourceNumber: 14,
     stage: 1,
-    part: "16 题完整版",
+    part: "",
     title: "看完一场球，朋友最容易从你这里获得什么？",
     options: [
       option("A", "一股从头到尾都没下来的劲", ["KLOPP", "BALO", "CR7"], ["FAN-G", "LAO8", "SUA-R"], { E: 2, G: 1, S: 1 }),
@@ -163,7 +163,7 @@ const QUESTIONS = [
     id: "Q6",
     sourceNumber: 6,
     stage: 2,
-    part: "16 题完整版",
+    part: "",
     title: "欧冠半决赛巴黎 1-1 拜仁，赛后关于判罚的争议持续发酵。你更接近哪种反应？",
     options: [
       option("A", "裁判吹罚逻辑有没有一致性", ["COLL-NA", "TENGOD", "DIOR-LA"], ["OH-NA", "MOU-R", "HAAL-D"], { R: 2, G: 1, V: -1 }),
@@ -176,7 +176,7 @@ const QUESTIONS = [
     id: "Q7",
     sourceNumber: 7,
     stage: 2,
-    part: "16 题完整版",
+    part: "",
     title: "当武磊在西班牙人上场时间越来越少，“中国球员行不行”的声音开始出现时，你会先往哪个方向想？",
     options: [
       option("A", "先看技术和对抗差在哪", ["DIOR-LA", "OH-NA", "MOU-R"], ["TENGOD", "ROBBEN", "COLL-NA"], { R: 2, N: -1, V: -1 }),
@@ -189,7 +189,7 @@ const QUESTIONS = [
     id: "Q10",
     sourceNumber: 10,
     stage: 2,
-    part: "16 题完整版",
+    part: "",
     title: "看一场球，你最不想错过的是哪种瞬间？",
     options: [
       option("A", "火药味十足、肢体语言爆炸的对抗", ["RUDI", "SUA-R", "TCHOU"], ["FAN-G", "BALO", "CR7"], { E: 1, V: 1, G: 2 }),
@@ -202,7 +202,7 @@ const QUESTIONS = [
     id: "Q11",
     sourceNumber: 11,
     stage: 2,
-    part: "16 题完整版",
+    part: "",
     title: "一场比赛刚结束，你第一个点开的是什么？",
     options: [
       option("A", "球员采访和更衣室反应", ["ZZZJ", "LAO8", "KARIUS"], ["GOLD-2018", "BALO", "CR7"], { S: 1, E: 1, N: 1 }),
@@ -215,7 +215,7 @@ const QUESTIONS = [
     id: "Q12",
     sourceNumber: 12,
     stage: 2,
-    part: "16 题完整版",
+    part: "",
     title: "一支大球队持续低迷时，你更常聊哪一层？",
     options: [
       option("A", "走到今天的根本问题", ["CF-BOYs", "MOU-R", "DIOR-LA"], ["TENGOD", "FAN-G", "PIONEER"], { R: 2, N: 1, G: 1 }),
@@ -228,7 +228,7 @@ const QUESTIONS = [
     id: "Q13",
     sourceNumber: 13,
     stage: 2,
-    part: "16 题完整版",
+    part: "",
     title: "群里你给出一个判断，立刻有人不同意，你接下来会怎么做？",
     options: [
       option("A", "重新讲一遍，事情没那么简单", ["TIE-Z", "MOU-R", "CF-BOYs"], ["GOLD-2018", "OH-NA", "TENGOD"], { R: 1, G: 1, V: 1 }),
@@ -241,7 +241,7 @@ const QUESTIONS = [
     id: "Q15",
     sourceNumber: 15,
     stage: 2,
-    part: "16 题完整版",
+    part: "",
     title: "一个核心球员长期因伤或状态低谷被骂，你怎么想？",
     options: [
       option("A", "该恢复就给时间，别现在踩", ["KOMPANY", "KARIUS", "TENGOD"], ["MAKUI", "ANCELO"], { E: 1, N: 1, V: -1 }),
@@ -254,7 +254,7 @@ const QUESTIONS = [
     id: "Q16",
     sourceNumber: 16,
     stage: 2,
-    part: "16 题完整版",
+    part: "",
     title: "一位老派传奇被网友翻出来当梗讨论，你心里第一感觉是什么？",
     options: [
       option("A", "对老派传奇还是该有起码的敬意", ["PIONEER", "HE-WEI", "CF-BOYs"], ["WU7", "ANCELO"], { R: 1, N: 2, V: -1 }),
@@ -270,6 +270,7 @@ const appState = {
   answers: Array(QUESTIONS.length).fill(null)
 };
 
+const hero = document.querySelector(".hero");
 const startButton = document.querySelector("#start-button");
 const quizPanel = document.querySelector("#quiz-panel");
 const resultPanel = document.querySelector("#result-panel");
@@ -288,8 +289,6 @@ const resultCode = document.querySelector("#result-code");
 const resultTitle = document.querySelector("#result-title");
 const resultGroup = document.querySelector("#result-group");
 const resultShortLabel = document.querySelector("#result-short-label");
-const resultTag = document.querySelector("#result-tag");
-const resultSummary = document.querySelector("#result-summary");
 const dimensionBreakdown = document.querySelector("#dimension-breakdown");
 const roleBreakdown = document.querySelector("#role-breakdown");
 const resultOneliner = document.querySelector("#result-oneliner");
@@ -314,7 +313,8 @@ function renderQuestion(index) {
   const total = QUESTIONS.length;
 
   partLabel.textContent = question.part;
-  questionIndex.textContent = `Q${question.sourceNumber}`;
+  partLabel.classList.toggle("hidden", !question.part);
+  questionIndex.textContent = `Q${index + 1}`;
   progressText.textContent = `${Math.min(getVisibleQuestionNumber(index), total)} / ${total}`;
   progressFill.style.width = `${(getVisibleQuestionNumber(index) / total) * 100}%`;
   questionText.textContent = question.title;
@@ -574,14 +574,13 @@ function applyResultToView(result, phaseLabel) {
   const narrative = buildNarrative(result);
 
   resultPhase.textContent = phaseLabel;
+  resultPhase.classList.toggle("hidden", !phaseLabel);
   resultPortrait.src = result.winner.image;
   resultPortrait.alt = `${result.winner.title} 角色图`;
   resultCode.textContent = result.winner.code;
   resultTitle.textContent = result.winner.title;
   resultGroup.textContent = `所属分组：${result.winner.group}`;
   resultShortLabel.textContent = result.winner.shortLabel;
-  resultTag.textContent = result.winner.tag;
-  resultSummary.textContent = narrative.summary;
   resultOneliner.textContent = narrative.oneliner;
   resultProfile.textContent = narrative.profile;
 
@@ -626,6 +625,7 @@ function showForcedResult(code) {
     return false;
   }
   applyResultToView(result, `调试结果 · ${code}`);
+  hero.classList.add("hidden");
   hideAllPanels();
   resultPanel.classList.remove("hidden");
   resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -639,18 +639,49 @@ function hideAllPanels() {
 
 function showResult(limit, phaseLabel) {
   renderResult(limit, phaseLabel);
+  hero.classList.add("hidden");
   hideAllPanels();
   resultPanel.classList.remove("hidden");
   resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function startQuiz() {
+function resetQuizState() {
   appState.currentIndex = 0;
   appState.answers = Array(QUESTIONS.length).fill(null);
+}
+
+function returnToHome() {
+  resetQuizState();
+  hideAllPanels();
+  hero.classList.remove("hidden");
+  startButton.disabled = false;
+  startButton.textContent = "开始测试";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function openQuizPanel() {
+  startButton.disabled = true;
+  startButton.textContent = "测试进行中";
+  hero.classList.add("hidden");
   hideAllPanels();
   quizPanel.classList.remove("hidden");
   renderQuestion(appState.currentIndex);
   quizPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function startQuiz() {
+  const quizInProgress = !quizPanel.classList.contains("hidden") && appState.currentIndex >= 0;
+  if (quizInProgress) {
+    quizPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+
+  resetQuizState();
+  openQuizPanel();
+}
+
+function restartQuiz() {
+  returnToHome();
 }
 
 function goNext() {
@@ -659,7 +690,7 @@ function goNext() {
   }
 
   if (appState.currentIndex === QUESTIONS.length - 1) {
-    showResult(QUESTIONS.length, "16 题完整版结果");
+    showResult(QUESTIONS.length, "");
     return;
   }
 
@@ -707,7 +738,7 @@ function applyDebugShortcut() {
   }
 
   if (panel === "quiz") {
-    startQuiz();
+    restartQuiz();
   }
 }
 
@@ -715,11 +746,11 @@ startButton.addEventListener("click", startQuiz);
 nextButton.addEventListener("click", goNext);
 prevButton.addEventListener("click", goPrev);
 copyButton.addEventListener("click", async () => {
-  await copyText(buildCopyText(QUESTIONS.length, "16 题完整版结果"));
+  await copyText(buildCopyText(QUESTIONS.length, ""));
 });
-restartButton.addEventListener("click", startQuiz);
+restartButton.addEventListener("click", restartQuiz);
 
 window.debugGoToResult = showForcedResult;
-window.debugStartQuiz = startQuiz;
+window.debugStartQuiz = restartQuiz;
 
 applyDebugShortcut();

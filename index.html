@@ -37,7 +37,7 @@
       </p>
       <div class="hero-meta">
         
-        <span>32 种人格结果</span>
+        <span>32 种看球搭子</span>
         <span>16 道足坛题目</span>
         <span>4  个隐藏人格</span>
       </div>
@@ -46,6 +46,26 @@
 
     <main class="quiz-stage">
       <section id="quiz-panel" class="panel hidden" aria-live="polite">
+        <div class="quiz-brandbar">
+          <a
+            class="quiz-brand-link"
+            href="https://www.matchmate.tv/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="打开 MatchMate 官网"
+          >
+            <img
+              class="quiz-brand-logo"
+              src="./main_logo.png"
+              alt="MatchMate Logo"
+              onerror="this.style.display='none';"
+            >
+            <span class="quiz-brand-copy">
+              <span class="quiz-brand-wordmark">MatchMate · FBTI</span>
+              <span class="quiz-brand-subtitle">你是什么看球搭子？</span>
+            </span>
+          </a>
+        </div>
         <div class="progress-row">
           <div>
             <p id="part-label" class="eyebrow"></p>
@@ -82,14 +102,6 @@
         </div>
 
         <div class="result-grid">
-          <section class="result-card">
-            <h4>角色标签</h4>
-            <p id="result-tag"></p>
-          </section>
-          <section class="result-card">
-            <h4>简短定义</h4>
-            <p id="result-summary"></p>
-          </section>
           <section class="result-card">
             <h4>六维倾向</h4>
             <div id="dimension-breakdown" class="score-list"></div>
