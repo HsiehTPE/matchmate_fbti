@@ -48,7 +48,7 @@ body {
 
 .hero-topbar {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
 }
@@ -120,14 +120,16 @@ body {
   margin: 18px 0 10px;
   font-size: clamp(40px, 7vw, 72px);
   line-height: 1;
+  text-align: center;
 }
 
 .hero-copy {
   max-width: 720px;
-  margin: 0;
+  margin: 0 auto;
   font-size: 17px;
   line-height: 1.75;
   color: var(--muted);
+  text-align: center;
 }
 
 .hero-meta {
@@ -431,6 +433,18 @@ body {
   object-fit: contain;
   object-position: center top;
   display: block;
+  transform: translateY(0);
+}
+
+.result-portrait-shell[data-role-code="BALO"] .result-portrait {
+  transform: translateY(-24px);
+}
+
+.result-portrait-shell[data-role-code="COLL-NA"] .result-portrait {
+  transform: translateY(-24px);
+}
+
+.result-portrait-shell[data-role-code="KARIUS"] .result-portrait {
   transform: translateY(-24px);
 }
 

@@ -284,6 +284,7 @@ const prevButton = document.querySelector("#prev-button");
 const nextButton = document.querySelector("#next-button");
 
 const resultPhase = document.querySelector("#result-phase");
+const resultPortraitShell = document.querySelector(".result-portrait-shell");
 const resultPortrait = document.querySelector("#result-portrait");
 const resultCode = document.querySelector("#result-code");
 const resultTitle = document.querySelector("#result-title");
@@ -575,6 +576,7 @@ function applyResultToView(result, phaseLabel) {
 
   resultPhase.textContent = phaseLabel;
   resultPhase.classList.toggle("hidden", !phaseLabel);
+  resultPortraitShell.dataset.roleCode = result.winner.code;
   resultPortrait.src = result.winner.image;
   resultPortrait.alt = `${result.winner.title} 角色图`;
   resultCode.textContent = result.winner.code;
