@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>看球搭子人格测试 | FBTI Web Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-topbar">
+        <div class="brand-wordmark">MatchMate · FBTI</div>
+        <a
+          class="brand-link"
+          href="https://www.matchmate.tv/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="打开 MatchMate 官网"
+        >
+          <img
+            class="brand-logo"
+            src="./main_logo.png"
+            alt="MatchMate Logo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"
+          >
+          <span class="brand-fallback">MatchMate</span>
+        </a>
+      </div>
+      <!-- <div class="hero-badge">FBTI · Full Quiz · 2026.05</div> -->
+      <h1>看球搭子人格测试</h1>
+      <p class="hero-copy">
+        基于 `web-test-texts` 的 16 题版本重做。现在改为一次答完 16 题，直接生成最终人格结果，并保留隐藏人格触发逻辑。
+      </p>
+      <div class="hero-meta">
+        
+        <span>32 种人格结果</span>
+        <span>16 道足坛题目</span>
+        <span>4  个隐藏人格</span>
+      </div>
+      <button id="start-button" class="primary-button">开始测试</button>
+    </header>
+
+    <main class="quiz-stage">
+      <section id="quiz-panel" class="panel hidden" aria-live="polite">
+        <div class="progress-row">
+          <div>
+            <p id="part-label" class="eyebrow"></p>
+            <h2 id="question-index" class="section-title"></h2>
+          </div>
+          <div class="progress-copy">
+            <span id="progress-text"></span>
+          </div>
+        </div>
+        <div class="progress-bar" aria-hidden="true">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <article class="question-card">
+          <h3 id="question-text" class="question-text"></h3>
+          <div id="options-list" class="options-list"></div>
+        </article>
+        <div class="nav-row">
+          <button id="prev-button" class="ghost-button" type="button">上一题</button>
+          <button id="next-button" class="primary-button" type="button" disabled>下一题</button>
+        </div>
+      </section>
+
+      <section id="result-panel" class="panel hidden" aria-live="polite">
+        <div class="result-header">
+          <p id="result-phase" class="eyebrow"></p>
+          <h2 id="result-code" class="result-code"></h2>
+          <h3 id="result-title" class="result-title"></h3>
+          <p id="result-group" class="result-group"></p>
+          <p id="result-short-label" class="result-short-label"></p>
+          <div id="hidden-badge" class="hidden-badge hidden">隐藏人格</div>
+        </div>
+
+        <div class="result-grid">
+          <section class="result-card">
+            <h4>角色标签</h4>
+            <p id="result-tag"></p>
+          </section>
+          <section class="result-card">
+            <h4>简短定义</h4>
+            <p id="result-summary"></p>
+          </section>
+          <section class="result-card">
+            <h4>六维倾向</h4>
+            <div id="dimension-breakdown" class="score-list"></div>
+          </section>
+          <section class="result-card">
+            <h4>相近人格</h4>
+            <div id="role-breakdown" class="score-list"></div>
+          </section>
+        </div>
+
+        <section class="result-story">
+          <div class="story-lead">
+            <p class="eyebrow">Reading</p>
+            <h4 id="result-oneliner" class="story-oneliner"></h4>
+            <p id="result-profile" class="story-profile"></p>
+          </div>
+          <div class="story-columns">
+            <article class="story-card">
+              <h4>你看球时更容易在意</h4>
+              <div id="result-focus" class="quote-list"></div>
+            </article>
+            <article class="story-card">
+              <h4>适合和你一起看球的人</h4>
+              <div id="result-neighbors" class="people-tags"></div>
+            </article>
+          </div>
+        </section>
+
+        <div class="result-actions">
+          <button id="copy-button" class="ghost-button" type="button">复制结果文案</button>
+          <button id="restart-button" class="primary-button" type="button">重新测试</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
