@@ -135,6 +135,7 @@ body {
   flex-wrap: wrap;
   gap: 12px;
   margin: 24px 0 28px;
+  justify-content: center;
 }
 
 .hero-meta span,
@@ -283,6 +284,11 @@ body {
   flex-wrap: wrap;
 }
 
+#start-button {
+  display: block;
+  margin: 0 auto;
+}
+
 .micro-copy {
   width: 100%;
   margin: 0;
@@ -322,8 +328,33 @@ body {
 }
 
 .result-header {
+  display: grid;
+  justify-items: center;
   padding-bottom: 22px;
   border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.result-portrait-shell {
+  width: min(360px, 78vw);
+  aspect-ratio: 4 / 5;
+  margin-bottom: 12px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top, rgba(213, 111, 42, 0.18), transparent 48%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 239, 229, 0.88));
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 18px;
+}
+
+.result-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .result-code {

@@ -7,38 +7,38 @@ const ROLE_ORDER = [
 ];
 
 const ROLES = {
-  "OH-NA": { code: "OH-NA", title: "奥纳纳", group: "球员系", tag: "高压合理化", shortLabel: "失误现场的解释链专家" },
-  "MAKUI": { code: "MAKUI", title: "马奎", group: "球员系", tag: "逆风韧性", shortLabel: "逆风局里的硬扛型搭子" },
-  "CR7": { code: "CR7", title: "罗总裁", group: "球员系", tag: "英雄叙事驱动", shortLabel: "最后时刻仍在等主角登场" },
-  "LEO": { code: "LEO", title: "梅西", group: "球员系", tag: "低唤醒掌控", shortLabel: "安静观察后的关键判断" },
-  "KARIUS": { code: "KARIUS", title: "卡里乌斯", group: "球员系", tag: "创伤后复原", shortLabel: "失误者的耐心观察员" },
-  "BALO": { code: "BALO", title: "巴神", group: "球员系", tag: "戏剧化表达", shortLabel: "比赛现场的意外变量" },
-  "HAAL-D": { code: "HAAL-D", title: "哈兰德", group: "球员系", tag: "效率结算", shortLabel: "过程之后负责看结果" },
-  "NEY-MAR": { code: "NEY-MAR", title: "内马尔", group: "球员系", tag: "审美型竞争", shortLabel: "赢也要赢得有灵气" },
-  "ROBBEN": { code: "ROBBEN", title: "小飞侠", group: "球员系", tag: "绝活稳定性", shortLabel: "明牌也能打穿的稳定派" },
-  "WU7": { code: "WU7", title: "武球王", group: "球员系", tag: "迁移型奋斗", shortLabel: "愿意把难度往上加的人" },
-  "BESTATE": { code: "BESTATE", title: "施连志", group: "球员系", tag: "松弛复位", shortLabel: "紧张局面里的松弛感来源" },
-  "FAN-G": { code: "FAN-G", title: "范大将军", group: "球员系", tag: "道德激活", shortLabel: "该说重话时不会绕开" },
-  "COLL-NA": { code: "COLL-NA", title: "科里纳", group: "球员系", tag: "秩序仲裁", shortLabel: "争议现场的规则坐标" },
-  "RUDI": { code: "RUDI", title: "吕迪格", group: "球员系", tag: "压迫威慑", shortLabel: "强对抗里的气场型搭子" },
-  "SUA-R": { code: "SUA-R", title: "苏牙", group: "球员系", tag: "生存型掠食", shortLabel: "关键局面里的强烈胜负感" },
-  "QUARESMA": { code: "QUARESMA", title: "夸雷斯马", group: "球员系", tag: "技术执念", shortLabel: "相信技术细节会留下痕迹" },
-  "TCHOU": { code: "TCHOU", title: "楚阿梅尼", group: "球员系", tag: "冲突外化", shortLabel: "对抗和态度都摆在台面上" },
-  "ZIDANE": { code: "ZIDANE", title: "齐玄宗", group: "教练系", tag: "大师叙事", shortLabel: "相信大场面有自己的秩序" },
-  "MOU-R": { code: "MOU-R", title: "穆帅", group: "教练系", tag: "权谋沟通", shortLabel: "把比赛和舆论一起看" },
-  "TENGOD": { code: "TENGOD", title: "滕圣", group: "教练系", tag: "控制变量", shortLabel: "先拆问题，再谈结论" },
-  "DIOR-LA": { code: "DIOR-LA", title: "瓜秃", group: "教练系", tag: "结构完美主义", shortLabel: "所有混乱都想被还原成结构" },
-  "KOMPANY": { code: "KOMPANY", title: "孔帕尼", group: "教练系", tag: "团结领导", shortLabel: "低谷时先把队伍拢住" },
-  "ANCELO": { code: "ANCELO", title: "安胖", group: "教练系", tag: "稳态调度", shortLabel: "知道什么时候该等" },
-  "KLOPP": { code: "KLOPP", title: "渣叔", group: "教练系", tag: "情绪点火", shortLabel: "把比赛看成一股热度" },
-  "ZZZJ": { code: "ZZZJ", title: "詹张", group: "解说与内容系", tag: "双核共振", shortLabel: "内容密度和陪伴感都要有" },
-  "HE-WEI": { code: "HE-WEI", title: "贺炜", group: "解说与内容系", tag: "语言建模", shortLabel: "把瞬间讲出余味" },
-  "CF-BOYs": { code: "CF-BOYs", title: "董路", group: "解说与内容系", tag: "长期主义青训", shortLabel: "习惯把一场球放到更长周期里" },
-  "LAO8": { code: "LAO8", title: "李老八", group: "解说与内容系", tag: "草根表达", shortLabel: "烂场面也能讲成现场" },
-  "TIE-Z": { code: "TIE-Z", title: "铁子", group: "隐藏人格", tag: "应激表演", shortLabel: "越复杂越想重新组织语言" },
-  "GOLD-2018": { code: "GOLD-2018", title: "淇楚·王", group: "隐藏人格", tag: "转型适应", shortLabel: "同时看比赛、内容和传播" },
-  "PIONEER": { code: "PIONEER", title: "李惠堂", group: "隐藏人格", tag: "时代先驱", shortLabel: "会记得路是怎么走出来的" },
-  "HIGUITA": { code: "HIGUITA", title: "伊基塔", group: "隐藏人格", tag: "反常规创造", shortLabel: "稳定之外也要留给传奇一点空间" }
+  "OH-NA": { code: "OH-NA", title: "奥纳纳", group: "球员系", tag: "高压合理化", shortLabel: "失误现场的解释链专家", image: "./images/oh-na-onana.png" },
+  "MAKUI": { code: "MAKUI", title: "马奎", group: "球员系", tag: "逆风韧性", shortLabel: "逆风局里的硬扛型搭子", image: "./images/magui-maguire.png" },
+  "CR7": { code: "CR7", title: "罗总裁", group: "球员系", tag: "英雄叙事驱动", shortLabel: "最后时刻仍在等主角登场", image: "./images/cr7-ronaldo.png" },
+  "LEO": { code: "LEO", title: "梅西", group: "球员系", tag: "低唤醒掌控", shortLabel: "安静观察后的关键判断", image: "./images/leo-messi.png" },
+  "KARIUS": { code: "KARIUS", title: "卡里乌斯", group: "球员系", tag: "创伤后复原", shortLabel: "失误者的耐心观察员", image: "./images/karius.png" },
+  "BALO": { code: "BALO", title: "巴神", group: "球员系", tag: "戏剧化表达", shortLabel: "比赛现场的意外变量", image: "./images/balo-balotelli.png" },
+  "HAAL-D": { code: "HAAL-D", title: "哈兰德", group: "球员系", tag: "效率结算", shortLabel: "过程之后负责看结果", image: "./images/haal-d-haaland.png" },
+  "NEY-MAR": { code: "NEY-MAR", title: "内马尔", group: "球员系", tag: "审美型竞争", shortLabel: "赢也要赢得有灵气", image: "./images/ney-mar-neymar.png" },
+  "ROBBEN": { code: "ROBBEN", title: "小飞侠", group: "球员系", tag: "绝活稳定性", shortLabel: "明牌也能打穿的稳定派", image: "./images/robben.png" },
+  "WU7": { code: "WU7", title: "武球王", group: "球员系", tag: "迁移型奋斗", shortLabel: "愿意把难度往上加的人", image: "./images/wu7-wulei.png" },
+  "BESTATE": { code: "BESTATE", title: "施连志", group: "球员系", tag: "松弛复位", shortLabel: "紧张局面里的松弛感来源", image: "./images/bestate-shilianzhi.png" },
+  "FAN-G": { code: "FAN-G", title: "范大将军", group: "球员系", tag: "道德激活", shortLabel: "该说重话时不会绕开", image: "./images/fan-g-fanzhiyi.png" },
+  "COLL-NA": { code: "COLL-NA", title: "科里纳", group: "球员系", tag: "秩序仲裁", shortLabel: "争议现场的规则坐标", image: "./images/fede-valverde.png" },
+  "RUDI": { code: "RUDI", title: "吕迪格", group: "球员系", tag: "压迫威慑", shortLabel: "强对抗里的气场型搭子", image: "./images/rudi-rudiger.png" },
+  "SUA-R": { code: "SUA-R", title: "苏牙", group: "球员系", tag: "生存型掠食", shortLabel: "关键局面里的强烈胜负感", image: "./images/sua-r-suarez.png" },
+  "QUARESMA": { code: "QUARESMA", title: "夸雷斯马", group: "球员系", tag: "技术执念", shortLabel: "相信技术细节会留下痕迹", image: "./images/quaresma.png" },
+  "TCHOU": { code: "TCHOU", title: "楚阿梅尼", group: "球员系", tag: "冲突外化", shortLabel: "对抗和态度都摆在台面上", image: "./images/tchou-tchouameni.png" },
+  "ZIDANE": { code: "ZIDANE", title: "齐玄宗", group: "教练系", tag: "大师叙事", shortLabel: "相信大场面有自己的秩序", image: "./images/zidane.png" },
+  "MOU-R": { code: "MOU-R", title: "穆帅", group: "教练系", tag: "权谋沟通", shortLabel: "把比赛和舆论一起看", image: "./images/mou-r-mourinho.png" },
+  "TENGOD": { code: "TENGOD", title: "滕圣", group: "教练系", tag: "控制变量", shortLabel: "先拆问题，再谈结论", image: "./images/tengod-tenhag.png" },
+  "DIOR-LA": { code: "DIOR-LA", title: "瓜秃", group: "教练系", tag: "结构完美主义", shortLabel: "所有混乱都想被还原成结构", image: "./images/guatu-guardiola.png" },
+  "KOMPANY": { code: "KOMPANY", title: "孔帕尼", group: "教练系", tag: "团结领导", shortLabel: "低谷时先把队伍拢住", image: "./images/kompany.png" },
+  "ANCELO": { code: "ANCELO", title: "安胖", group: "教练系", tag: "稳态调度", shortLabel: "知道什么时候该等", image: "./images/ancelo-ancelotti.png" },
+  "KLOPP": { code: "KLOPP", title: "渣叔", group: "教练系", tag: "情绪点火", shortLabel: "把比赛看成一股热度", image: "./images/klopp.png" },
+  "ZZZJ": { code: "ZZZJ", title: "詹张", group: "解说与内容系", tag: "双核共振", shortLabel: "内容密度和陪伴感都要有", image: "./images/jj-hh-zhanzhang.png" },
+  "HE-WEI": { code: "HE-WEI", title: "贺炜", group: "解说与内容系", tag: "语言建模", shortLabel: "把瞬间讲出余味", image: "./images/he-wei.png" },
+  "CF-BOYs": { code: "CF-BOYs", title: "董路", group: "解说与内容系", tag: "长期主义青训", shortLabel: "习惯把一场球放到更长周期里", image: "./images/dong-donglu.png" },
+  "LAO8": { code: "LAO8", title: "李老八", group: "解说与内容系", tag: "草根表达", shortLabel: "烂场面也能讲成现场", image: "./images/lao8.png" },
+  "TIE-Z": { code: "TIE-Z", title: "铁子", group: "隐藏人格", tag: "应激表演", shortLabel: "越复杂越想重新组织语言", image: "./images/tie-z-li-tie.png" },
+  "GOLD-2018": { code: "GOLD-2018", title: "淇楚·王", group: "隐藏人格", tag: "转型适应", shortLabel: "同时看比赛、内容和传播", image: "./images/wcq-wangchuqi.png" },
+  "PIONEER": { code: "PIONEER", title: "李惠堂", group: "隐藏人格", tag: "时代先驱", shortLabel: "会记得路是怎么走出来的", image: "./images/li-hui-lihuitang.png" },
+  "HIGUITA": { code: "HIGUITA", title: "伊基塔", group: "隐藏人格", tag: "反常规创造", shortLabel: "稳定之外也要留给传奇一点空间", image: "./images/higuita.png" }
 };
 
 const DIMENSION_META = {
@@ -283,6 +283,7 @@ const prevButton = document.querySelector("#prev-button");
 const nextButton = document.querySelector("#next-button");
 
 const resultPhase = document.querySelector("#result-phase");
+const resultPortrait = document.querySelector("#result-portrait");
 const resultCode = document.querySelector("#result-code");
 const resultTitle = document.querySelector("#result-title");
 const resultGroup = document.querySelector("#result-group");
@@ -539,6 +540,8 @@ function renderResult(limit, phaseLabel) {
   const narrative = buildNarrative(result);
 
   resultPhase.textContent = phaseLabel;
+  resultPortrait.src = result.winner.image;
+  resultPortrait.alt = `${result.winner.title} 角色图`;
   resultCode.textContent = result.winner.code;
   resultTitle.textContent = result.winner.title;
   resultGroup.textContent = `所属分组：${result.winner.group}`;
