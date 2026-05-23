@@ -280,6 +280,7 @@ const progressText = document.querySelector("#progress-text");
 const progressFill = document.querySelector("#progress-fill");
 const questionText = document.querySelector("#question-text");
 const optionsList = document.querySelector("#options-list");
+const homeButton = document.querySelector("#home-button");
 const prevButton = document.querySelector("#prev-button");
 const nextButton = document.querySelector("#next-button");
 
@@ -745,6 +746,7 @@ function applyDebugShortcut() {
 }
 
 startButton.addEventListener("click", startQuiz);
+homeButton.addEventListener("click", returnToHome);
 nextButton.addEventListener("click", goNext);
 prevButton.addEventListener("click", goPrev);
 copyButton.addEventListener("click", async () => {
