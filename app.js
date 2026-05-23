@@ -516,6 +516,36 @@ function buildNarrative(result) {
   };
 }
 
+function buildForcedResult(code) {
+  const matchedCode = Object.keys(ROLES).find((item) => item.toUpperCase() === String(code).toUpperCase());
+  const winner = matchedCode ? ROLES[matchedCode] : null;
+  if (!winner) {
+    return null;
+  }
+
+  const rankedRoles = [winner.code, ...ROLE_ORDER.filter((item) => item !== winner.code)];
+  const roleScores = {};
+  ROLE_ORDER.forEach((item, index) => {
+    roleScores[item] = Math.max(0, 100 - index * 3);
+  });
+  roleScores[winner.code] = 120;
+
+  return {
+    winner,
+    isHidden: winner.group === "隐藏人格",
+    roleScores,
+    rankedRoles,
+    dimensions: [
+      { code: "E", name: DIMENSION_META.E, value: 82 },
+      { code: "R", name: DIMENSION_META.R, value: 76 },
+      { code: "S", name: DIMENSION_META.S, value: 68 },
+      { code: "N", name: DIMENSION_META.N, value: 74 },
+      { code: "V", name: DIMENSION_META.V, value: 71 },
+      { code: "G", name: DIMENSION_META.G, value: 66 }
+    ]
+  };
+}
+
 function renderBreakdown(container, rows) {
   container.innerHTML = "";
   rows.forEach((row) => {
@@ -537,6 +567,10 @@ function renderBreakdown(container, rows) {
 
 function renderResult(limit, phaseLabel) {
   const result = buildResult(limit);
+  applyResultToView(result, phaseLabel);
+}
+
+function applyResultToView(result, phaseLabel) {
   const narrative = buildNarrative(result);
 
   resultPhase.textContent = phaseLabel;
@@ -584,6 +618,18 @@ function renderResult(limit, phaseLabel) {
     item.textContent = textValue;
     resultNeighbors.appendChild(item);
   });
+}
+
+function showForcedResult(code) {
+  const result = buildForcedResult(code);
+  if (!result) {
+    return false;
+  }
+  applyResultToView(result, `调试结果 · ${code}`);
+  hideAllPanels();
+  resultPanel.classList.remove("hidden");
+  resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  return true;
 }
 
 function hideAllPanels() {
@@ -649,6 +695,22 @@ function buildCopyText(limit, phaseLabel) {
   ].join("\n");
 }
 
+function applyDebugShortcut() {
+  const params = new URLSearchParams(window.location.search);
+  const forcedCode = params.get("result");
+  const panel = params.get("panel");
+
+  if (forcedCode) {
+    if (showForcedResult(forcedCode)) {
+      return;
+    }
+  }
+
+  if (panel === "quiz") {
+    startQuiz();
+  }
+}
+
 startButton.addEventListener("click", startQuiz);
 nextButton.addEventListener("click", goNext);
 prevButton.addEventListener("click", goPrev);
@@ -656,3 +718,8 @@ copyButton.addEventListener("click", async () => {
   await copyText(buildCopyText(QUESTIONS.length, "16 题完整版结果"));
 });
 restartButton.addEventListener("click", startQuiz);
+
+window.debugGoToResult = showForcedResult;
+window.debugStartQuiz = startQuiz;
+
+applyDebugShortcut();

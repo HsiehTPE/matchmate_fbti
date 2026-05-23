@@ -284,6 +284,20 @@ body {
   flex-wrap: wrap;
 }
 
+.result-cta-link {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  color: var(--accent);
+  font-size: 15px;
+  line-height: 1.7;
+  text-decoration: none;
+}
+
+.result-cta-link:hover {
+  text-decoration: underline;
+}
+
 #start-button {
   display: block;
   margin: 0 auto;
