@@ -1,53 +1,48 @@
 const ROLE_ORDER = [
-  "OH-NA", "MAKUI", "CR7", "LEO", "KARIUS", "BALO", "HAAL-D", "NEY-MAR",
-  "ROBBEN", "WU7", "BESTATE", "FAN-G", "COLL-NA", "RUDI", "SUA-R",
-  "QUARESMA", "TCHOU", "ZIDANE", "MOU-R", "TENGOD", "DIOR-LA", "KOMPANY",
-  "ANCELO", "KLOPP", "ZZZJ", "HE-WEI", "CF-BOYs", "LAO8", "TIE-Z",
-  "GOLD-2018", "PIONEER", "HIGUITA"
+  "RAGE", "NPC", "TANK", "WAIT", "CHESS", "RUN!", "FLIP",
+  "GOAT", "xG", "REPLAY", "LORE", "MEME", "YAPP",
+  "HYPE", "SALT", "OJBK", "ROAST", "HUMBL-E", "W-L", "TSUKK",
+  "BEAUT", "W", "1100", "VAR",
+  "LEGEND", "CHAOS", "SCORP"
 ];
 
 const ROLES = {
-  "OH-NA": { code: "OH-NA", title: "奥纳纳", group: "球员系", tag: "高压合理化", shortLabel: "失误现场的解释链专家", image: "./images/oh-na-onana.png" },
-  "MAKUI": { code: "MAKUI", title: "马奎", group: "球员系", tag: "逆风韧性", shortLabel: "逆风局里的硬扛型搭子", image: "./images/magui-maguire.png" },
-  "CR7": { code: "CR7", title: "罗总裁", group: "球员系", tag: "英雄叙事驱动", shortLabel: "最后时刻仍在等主角登场", image: "./images/cr7-ronaldo.png" },
-  "LEO": { code: "LEO", title: "梅西", group: "球员系", tag: "低唤醒掌控", shortLabel: "安静观察后的关键判断", image: "./images/leo-messi.png" },
-  "KARIUS": { code: "KARIUS", title: "卡里乌斯", group: "球员系", tag: "创伤后复原", shortLabel: "失误者的耐心观察员", image: "./images/karius.png" },
-  "BALO": { code: "BALO", title: "巴神", group: "球员系", tag: "戏剧化表达", shortLabel: "比赛现场的意外变量", image: "./images/balo-balotelli.png" },
-  "HAAL-D": { code: "HAAL-D", title: "哈兰德", group: "球员系", tag: "效率结算", shortLabel: "过程之后负责看结果", image: "./images/haal-d-haaland.png" },
-  "NEY-MAR": { code: "NEY-MAR", title: "内马尔", group: "球员系", tag: "审美型竞争", shortLabel: "赢也要赢得有灵气", image: "./images/ney-mar-neymar.png" },
-  "ROBBEN": { code: "ROBBEN", title: "小飞侠", group: "球员系", tag: "绝活稳定性", shortLabel: "明牌也能打穿的稳定派", image: "./images/robben.png" },
-  "WU7": { code: "WU7", title: "武球王", group: "球员系", tag: "迁移型奋斗", shortLabel: "愿意把难度往上加的人", image: "./images/wu7-wulei.png" },
-  "BESTATE": { code: "BESTATE", title: "施连志", group: "球员系", tag: "松弛复位", shortLabel: "紧张局面里的松弛感来源", image: "./images/bestate-shilianzhi.png" },
-  "FAN-G": { code: "FAN-G", title: "范大将军", group: "球员系", tag: "道德激活", shortLabel: "该说重话时不会绕开", image: "./images/fan-g-fanzhiyi.png" },
-  "COLL-NA": { code: "COLL-NA", title: "科里纳", group: "球员系", tag: "秩序仲裁", shortLabel: "争议现场的规则坐标", image: "./images/fede-valverde.png" },
-  "RUDI": { code: "RUDI", title: "吕迪格", group: "球员系", tag: "压迫威慑", shortLabel: "强对抗里的气场型搭子", image: "./images/rudi-rudiger.png" },
-  "SUA-R": { code: "SUA-R", title: "苏牙", group: "球员系", tag: "生存型掠食", shortLabel: "关键局面里的强烈胜负感", image: "./images/sua-r-suarez.png" },
-  "QUARESMA": { code: "QUARESMA", title: "夸雷斯马", group: "球员系", tag: "技术执念", shortLabel: "相信技术细节会留下痕迹", image: "./images/quaresma.png" },
-  "TCHOU": { code: "TCHOU", title: "楚阿梅尼", group: "球员系", tag: "冲突外化", shortLabel: "对抗和态度都摆在台面上", image: "./images/tchou-tchouameni.png" },
-  "ZIDANE": { code: "ZIDANE", title: "齐玄宗", group: "教练系", tag: "大师叙事", shortLabel: "相信大场面有自己的秩序", image: "./images/zidane.png" },
-  "MOU-R": { code: "MOU-R", title: "穆帅", group: "教练系", tag: "权谋沟通", shortLabel: "把比赛和舆论一起看", image: "./images/mou-r-mourinho.png" },
-  "TENGOD": { code: "TENGOD", title: "滕圣", group: "教练系", tag: "控制变量", shortLabel: "先拆问题，再谈结论", image: "./images/tengod-tenhag.png" },
-  "DIOR-LA": { code: "DIOR-LA", title: "瓜秃", group: "教练系", tag: "结构完美主义", shortLabel: "所有混乱都想被还原成结构", image: "./images/guatu-guardiola.png" },
-  "KOMPANY": { code: "KOMPANY", title: "孔帕尼", group: "教练系", tag: "团结领导", shortLabel: "低谷时先把队伍拢住", image: "./images/kompany.png" },
-  "ANCELO": { code: "ANCELO", title: "安胖", group: "教练系", tag: "稳态调度", shortLabel: "知道什么时候该等", image: "./images/ancelo-ancelotti.png" },
-  "KLOPP": { code: "KLOPP", title: "渣叔", group: "教练系", tag: "情绪点火", shortLabel: "把比赛看成一股热度", image: "./images/klopp.png" },
-  "ZZZJ": { code: "ZZZJ", title: "詹张", group: "解说与内容系", tag: "双核共振", shortLabel: "内容密度和陪伴感都要有", image: "./images/jj-hh-zhanzhang.png" },
-  "HE-WEI": { code: "HE-WEI", title: "贺炜", group: "解说与内容系", tag: "语言建模", shortLabel: "把瞬间讲出余味", image: "./images/he-wei.png" },
-  "CF-BOYs": { code: "CF-BOYs", title: "董路", group: "解说与内容系", tag: "长期主义青训", shortLabel: "习惯把一场球放到更长周期里", image: "./images/dong-donglu.png" },
-  "LAO8": { code: "LAO8", title: "李老八", group: "解说与内容系", tag: "草根表达", shortLabel: "烂场面也能讲成现场", image: "./images/lao8.png" },
-  "TIE-Z": { code: "TIE-Z", title: "铁子", group: "隐藏人格", tag: "应激表演", shortLabel: "越复杂越想重新组织语言", image: "./images/tie-z-li-tie.png" },
-  "GOLD-2018": { code: "GOLD-2018", title: "淇楚·王", group: "隐藏人格", tag: "转型适应", shortLabel: "同时看比赛、内容和传播", image: "./images/wcq-wangchuqi.png" },
-  "PIONEER": { code: "PIONEER", title: "李惠堂", group: "隐藏人格", tag: "时代先驱", shortLabel: "会记得路是怎么走出来的", image: "./images/li-hui-lihuitang.png" },
-  "HIGUITA": { code: "HIGUITA", title: "伊基塔", group: "隐藏人格", tag: "反常规创造", shortLabel: "稳定之外也要留给传奇一点空间", image: "./images/higuita.png" }
+  "RAGE":   { code: "RAGE",   title: "狂人",     group: "看球反应组", tag: "嘴上骂裁判手上砸遥控器",     shortLabel: "情绪来得快去得也快，骂完三分钟又在群里发哈哈哈哈", quote: "我就是特殊的那个", image: "./images_new/rage.png" },
+  "NPC":    { code: "NPC",    title: "沉默者",   group: "看球反应组", tag: "全场最安静但脑子里在跑弹幕",   shortLabel: "不说话不代表没想法，赛后能给你复盘每个细节", quote: "Let Me Talk", image: "./images_new/npc.png" },
+  "TANK":   { code: "TANK",   title: "坦克",     group: "看球反应组", tag: "落后三球还在发还有机会",       shortLabel: "逆风局的精神支柱（自封的），被骂也不改", quote: "图赫尔是个外行", image: "./images_new/tank.png" },
+  "WAIT":   { code: "WAIT",   title: "等等党",   group: "看球反应组", tag: "等一个进球等到花都谢了",       shortLabel: "全场就等那一脚，进了一起飞没进原地去世", quote: "韩国可以拿下，晋级不成问题", image: "./images_new/wait.png" },
+  "CHESS":  { code: "CHESS",  title: "下棋人",   group: "看球反应组", tag: "看球时自动脑补战术板",         shortLabel: "这个球应该分边是他的口头禅，看球像在下棋", quote: "Nobody Talk!", image: "./images_new/chess.png" },
+  "RUN!":   { code: "RUN!",   title: "起飞型",   group: "看球反应组", tag: "边路一过人他就站起来",         shortLabel: "看球时坐不住，进球会从沙发上弹起来", quote: "这是我的时代？", image: "./images_new/run.png" },
+  "FLIP":   { code: "FLIP",   title: "倒钩",     group: "看球反应组", tag: "比赛可以输但花活不能少",       shortLabel: "0-4落后还在等一个倒钩，觉得足球是艺术不是战争", quote: "世界上只有两种人：兹拉坦和其他人", image: "./images_new/flip.png" },
+  "GOAT":   { code: "GOAT",   title: "山羊",     group: "赛后话题组", tag: "聊着聊着就开始排历史前十",     shortLabel: "任何话题都能拐到那两位呢，永恒辩论发起者", quote: "永恒的辩题", image: "./images_new/goat_2.png", imageAlt: "./images_new/goat.png", imageAltChance: 0.15 },
+  "xG":     { code: "xG",     title: "数据怪",   group: "赛后话题组", tag: "赛后第一件事打开MatchMate看数据", shortLabel: "用MatchMate的评分说服你那个进球其实是运气", quote: "这个数据很有意思", image: "./images_new/xg.png" },
+  "REPLAY": { code: "REPLAY", title: "回放侠",   group: "赛后话题组", tag: "你再看一遍这个球",             shortLabel: "喜欢反复看关键画面，能从一个犯规里看出三层含义", quote: "意大利万岁！", image: "./images_new/replay.png" },
+  "LORE":   { code: "LORE",   title: "考据党",   group: "赛后话题组", tag: "聊球自动附赠球员生平",         shortLabel: "你知道他当年在乌迪内斯的时候能把任何球员聊成传记", quote: "足球就是足球", image: "./images_new/lore.png" },
+  "MEME":   { code: "MEME",   title: "梗王",     group: "赛后话题组", tag: "比赛还没结束梗图已经做好了",   shortLabel: "看球不是为了看球，是为了第一时间截到能发群的表情包", quote: "我就是我", image: "./images_new/meme.png" },
+  "YAPP":   { code: "YAPP",   title: "碎嘴子",   group: "赛后话题组", tag: "赛后能聊到凌晨三点",           shortLabel: "别人说睡了他还能再发二十条语音，看球是社交不是运动", quote: "我跟你说啊", image: "./images_new/yapp.png" },
+  "HYPE":   { code: "HYPE",   title: "气氛组",   group: "搭子风格组", tag: "一个人就是一支啦啦队",         shortLabel: "和他看球永远不会冷场，进球时比球员还激动", quote: "下一场一定赢", image: "./images_new/hype.png" },
+  "SALT":   { code: "SALT",   title: "老咸鱼",   group: "搭子风格组", tag: "输了赢了都骂",                 shortLabel: "嘴上永远不满意，但每场都不落，是最忠实的黑粉", quote: "脸都不要了", image: "./images_new/salt.png" },
+  "OJBK":   { code: "OJBK",   title: "点头侠",   group: "搭子风格组", tag: "对对对你说得对",               shortLabel: "擅长附和，让每个人都觉得自己说得有道理", quote: "大家都很好", image: "./images_new/ojbk.png" },
+  "ROAST":  { code: "ROAST",  title: "毒舌",     group: "搭子风格组", tag: "该说的难听话一句不少",         shortLabel: "不怕得罪人，觉得真话比好话有用，骂球员从不手软", quote: "真话不好听", image: "./images_new/roast.png" },
+  "HUMBL-E": { code: "HUMBL-E", title: "谦逊者",   group: "搭子风格组", tag: "进了球也不庆祝，发个STAY HUMBLE就完事", shortLabel: "进球后比谁都平静，但赛后默默把数据截图发群里", quote: "STAY HUMBLE", image: "./images_new/humbl-e.png" },
+  "W-L":    { code: "W-L",    title: "陪骂侠",   group: "搭子风格组", tag: "输了一起骂赢了一起吹",         shortLabel: "情绪价值拉满的看球搭子，你需要什么他就给什么", quote: "我xxx，退钱！", image: "./images_new/wl.png" },
+  "TSUKK":  { code: "TSUKK",  title: "捧哏",     group: "搭子风格组", tag: "你讲他接你冷他暖",             shortLabel: "永远知道什么时候该接梗什么时候该捧场，气氛永远到位", quote: "嘿嘿", image: "./images_new/tsukk.png" },
+  "BEAUT":  { code: "BEAUT",  title: "漂亮主义", group: "足球哲学组", tag: "宁可输也不能踢得丑",           shortLabel: "对丑陋赢球的容忍度为零，看球审美至上", quote: "足球是艺术", image: "./images_new/beaut.png" },
+  "W":      { code: "W",      title: "赢学家",   group: "足球哲学组", tag: "能赢就行要什么自行车",         shortLabel: "结果导向，过程不重要，3分到手就是好球", quote: "我们踢得不错", image: "./images_new/w.png" },
+  "1100":   { code: "1100",   displayCode: "1100(宋)",   title: "怀旧派",   group: "足球哲学组", tag: "以前的足球才叫足球",           shortLabel: "觉得现在什么都差点意思，聊球必提以前", quote: "我刚开始看足球的那个时候...", image: "./images_new/1100.png" },
+  "VAR":    { code: "VAR",    title: "规则怪",   group: "足球哲学组", tag: "争议第一反应翻规则手册",       shortLabel: "看VAR比看进球认真，觉得公平是足球的底线", quote: "规则就是规则", image: "./images_new/var.png" },
+  "LEGEND": { code: "LEGEND", title: "传奇",     group: "特殊人格",   tag: "被时间封印的名字",             shortLabel: "总能在老比赛里找到新东西，聊球自带历史纵深", quote: "足球之神有两个名字", image: "./images_new/legend.png" },
+  "CHAOS":  { code: "CHAOS",  title: "混沌",     group: "特殊人格",   tag: "越乱越来劲",                   shortLabel: "别人看球怕意外，他看球就盼意外", quote: "Why Always Me", image: "./images_new/chaos.png" },
+  "SCORP":  { code: "SCORP",  title: "蝎子",     group: "特殊人格",   tag: "稳定之外也要留给传奇空间",     shortLabel: "正经分析他也会，但他更愿意等那个不可能的瞬间", quote: "规则是用来打破的", image: "./images_new/scorp.png" }
 };
 
 const DIMENSION_META = {
-  E: "情绪外显",
-  R: "战术理性",
-  S: "社交连接",
-  N: "叙事投射",
-  V: "风险偏好",
-  G: "群体感应"
+  E: "上头指数",
+  R: "战术脑",
+  S: "群聊活跃度",
+  N: "戏精程度",
+  V: "赌狗倾向",
+  G: "跟风系数"
 };
 
 function option(label, text, primary, secondary, dimensions) {
@@ -60,12 +55,12 @@ const QUESTIONS = [
     sourceNumber: 1,
     stage: 1,
     part: "",
-    title: "当国足在印尼客场 0-1 告负，无缘出线时，你的第一反应是什么？",
+    title: "2022卡塔尔世界杯决赛，阿根廷被法国97秒连扳两球追平，你的第一反应？",
     options: [
-      option("A", "阵容和打法是不是从一开始就错了", ["MOU-R", "DIOR-LA", "CF-BOYs"], ["COLL-NA", "OH-NA", "ANCELO"], { R: 2, N: 1, V: -1 }),
-      option("B", "这结果说不上意外，但真的很难受", ["WU7", "HE-WEI", "ANCELO"], ["PIONEER", "KARIUS", "MAKUI"], { N: 2, E: 1, V: -1 }),
-      option("C", "球员怎么反应，最能看出队伍气质", ["FAN-G", "KLOPP", "MAKUI"], ["KOMPANY", "CR7", "WU7"], { G: 2, E: 1, N: 1 }),
-      option("D", "球迷群里是不是已经炸了", ["LAO8", "BALO"], ["ZZZJ", "BESTATE", "GOLD-2018", "TIE-Z"], { S: 2, G: 1, E: 1 })
+      option("A", "直接站起来骂出声，差点把手机摔了", ["RAGE", "HYPE"], ["MEME", "RUN!"], { E: 2, V: 1 }),
+      option("B", "心里一沉，但没说什么，默默继续看", ["NPC", "TANK"], ["OJBK", "CHESS"], { E: -1, R: 1 }),
+      option("C", "发了一条朋友圈：'我不看了'，但其实还在看", ["SALT", "MEME"], ["YAPP", "ROAST"], { E: 1, S: 1 }),
+      option("D", "虽然难受，但已经开始想'这场决赛可以聊一辈子'", ["YAPP", "LORE"], ["GOAT", "W-L"], { N: 2, S: 1 })
     ]
   },
   {
@@ -73,12 +68,12 @@ const QUESTIONS = [
     sourceNumber: 2,
     stage: 1,
     part: "",
-    title: "第 85 分钟主队还落后，你心里在想什么？",
+    title: "世界杯上看到一个让你激动的进球，你通常怎么表达？",
     options: [
-      option("A", "还有定位球和换人，牌没打完呢", ["TENGOD", "MOU-R", "DIOR-LA"], ["OH-NA", "CF-BOYs"], { R: 2, N: 1, V: -1 }),
-      option("B", "这种时刻，某个人会站出来的", ["CR7", "LEO", "SUA-R"], ["HAAL-D", "KLOPP", "KOMPANY"], { N: 2, G: 1, V: 1 }),
-      option("C", "都这时候了还在落后，看得才过瘾", ["BALO", "HIGUITA", "NEY-MAR"], ["RUDI", "TCHOU", "QUARESMA"], { V: 2, E: 1, N: 1 }),
-      option("D", "很难翻盘了，看最后怎么收场", ["HE-WEI", "KARIUS", "WU7"], ["ANCELO", "PIONEER", "ZIDANE"], { N: 2, E: 1, V: -1 })
+      option("A", "大喊一声，不管旁边有没有人", ["HYPE", "RUN!"], ["RAGE", "FLIP"], { E: 2, G: 1 }),
+      option("B", "心里很激动，但表面不动声色", ["NPC", "OJBK"], ["TANK", "CHESS"], { E: -1, R: 1 }),
+      option("C", "马上发群里：'快看这个球！'", ["W-L", "HUMBL-E"], ["YAPP", "TSUKK"], { S: 2, E: 1 }),
+      option("D", "默默倒回去再看一遍", ["REPLAY", "xG"], ["CHESS", "NPC"], { R: 2, S: -1 })
     ]
   },
   {
@@ -86,12 +81,12 @@ const QUESTIONS = [
     sourceNumber: 3,
     stage: 1,
     part: "",
-    title: "你的主队惊险赢球，但过程确实不好看，你会怎么评价？",
+    title: "看世界杯比赛时，你更关注什么？",
     options: [
-      option("A", "能赢就行", ["HAAL-D", "MOU-R", "ROBBEN"], ["ANCELO"], { R: 2, V: -1, N: -1 }),
-      option("B", "赢了，但过程问题不能就这么算", ["DIOR-LA", "FAN-G", "CF-BOYs"], ["COLL-NA", "OH-NA"], { R: 2, G: 1, N: 1 }),
-      option("C", "赢得不够漂亮，看着有点憋屈", ["NEY-MAR", "QUARESMA"], ["HIGUITA", "LEO", "HE-WEI"], { V: 1, N: 2, E: 1 }),
-      option("D", "难看的赢球，赛后反而更有得聊", ["LAO8", "ZZZJ", "BALO"], ["GOLD-2018", "BESTATE", "TIE-Z"], { S: 2, G: 1, E: 1 })
+      option("A", "谁进了球，比分多少就行", ["W", "WAIT"], ["TANK", "OJBK"], { R: 1, N: -1 }),
+      option("B", "球队的整体打法和配合", ["VAR", "xG"], ["REPLAY", "LORE"], { R: 2, N: 1 }),
+      option("C", "精彩的个人技术和过人", ["FLIP", "BEAUT"], ["RUN!", "SCORP"], { N: 2, V: 1 }),
+      option("D", "场上的气氛和球员的情绪", ["HYPE", "RAGE"], ["MEME", "W-L"], { E: 2, G: 1 })
     ]
   },
   {
@@ -99,12 +94,12 @@ const QUESTIONS = [
     sourceNumber: 4,
     stage: 1,
     part: "",
-    title: "欧冠对阵马竞，热刺门将金斯基首发，17 分钟内两次低级失误丢球随即被换下。你更接近哪种反应？",
+    title: "2022卡塔尔世界杯巴西被克罗地亚淘汰出局，赛后你更想聊什么？",
     options: [
-      option("A", "他怎么应对，比失误本身更重要", ["KOMPANY", "KARIUS", "ANCELO"], ["MAKUI", "TENGOD", "TCHOU"], { E: 1, N: 1, V: -1 }),
-      option("B", "这两个球，批评他不冤", ["RUDI", "FAN-G", "HAAL-D"], ["COLL-NA", "DIOR-LA", "TIE-Z"], { R: 1, G: 1, E: 1 }),
-      option("C", "“金斯基”和“灾难”已经绑死了", ["GOLD-2018", "BESTATE", "BALO"], ["LAO8", "ZZZJ", "NEY-MAR"], { S: 2, N: 1, E: 1 }),
-      option("D", "维卡里奥都闹离队了，金斯基哪扛得动", ["WU7", "TCHOU", "MAKUI"], ["CF-BOYs", "HE-WEI", "TENGOD"], { R: 1, N: 2, V: -1 })
+      option("A", "'巴西到底输在哪？'", ["CHESS", "xG"], ["ROAST", "VAR"], { R: 2, G: 1 }),
+      option("B", "'内马尔那个进球我以为稳了啊'", ["REPLAY", "ROAST"], ["WAIT", "SALT"], { N: 2, E: 1 }),
+      option("C", "点球大战太刺激了", ["FLIP", "RAGE"], ["HYPE", "MEME"], { V: 2, E: 1 }),
+      option("D", "巴西又要等下一届了，四年真快", ["LORE", "1100"], ["LEGEND", "HUMBL-E"], { N: 2, R: 1 })
     ]
   },
   {
@@ -112,25 +107,38 @@ const QUESTIONS = [
     sourceNumber: 5,
     stage: 1,
     part: "",
-    title: "补时阶段主队落后一球并获得角球机会，本方门将冲进禁区时，你心里第一个念头是什么？",
+    title: "世界杯期间你更喜欢怎么看球？",
     options: [
-      option("A", "这时候就该赌一把", ["HIGUITA", "NEY-MAR", "CR7"], ["BALO", "KLOPP", "SUA-R"], { V: 2, E: 1, G: 1 }),
-      option("B", "先看第二点有没有保护", ["ROBBEN", "OH-NA", "KOMPANY"], ["DIOR-LA", "COLL-NA", "TENGOD"], { R: 2, V: -1, N: -1 }),
-      option("C", "这画面，不管进不进都值得记住", ["QUARESMA", "ZIDANE", "LEO"], ["NEY-MAR", "HE-WEI", "PIONEER"], { N: 2, V: 1, E: 1 }),
-      option("D", "千万别被打反击，打回来就彻底完了", ["MAKUI", "TCHOU", "ANCELO"], ["MOU-R", "KARIUS", "HAAL-D"], { R: 1, V: -1, E: 1 })
+      option("A", "一个人安静看，不想被打扰", ["NPC", "OJBK"], ["REPLAY", "xG"], { S: -1, R: 1 }),
+      option("B", "约几个朋友一起看，边看边聊", ["HYPE", "W-L"], ["TSUKK", "TANK"], { S: 1, E: 1 }),
+      option("C", "去球迷广场的大屏前，和陌生人一起喊", ["RUN!", "RAGE"], ["CHAOS", "FLIP"], { E: 2, V: 1 }),
+      option("D", "群里一起刷屏，消息比球赛还热闹", ["YAPP", "MEME"], ["SALT", "HUMBL-E"], { S: 2, G: 1 })
     ]
   },
   {
-    id: "Q9",
-    sourceNumber: 9,
+    id: "Q6",
+    sourceNumber: 6,
     stage: 1,
     part: "",
-    title: "最让你记住的球员，通常是哪种？",
+    title: "2022卡塔尔世界杯梅西夺冠后，你第一件事做什么？",
     options: [
-      option("A", "逆境里靠精神感染全队的球队之魂", ["KOMPANY", "KLOPP", "MAKUI"], ["FAN-G", "CR7", "WU7"], { G: 2, E: 1, N: 1 }),
-      option("B", "关键时刻绝不掉链子的定海神针", ["ROBBEN", "TCHOU", "LEO"], ["HAAL-D", "ANCELO", "ZIDANE"], { R: 1, V: -1, N: 1 }),
-      option("C", "技术细腻、有创造力的球场精灵", ["NEY-MAR", "QUARESMA", "HIGUITA"], ["LEO", "HE-WEI", "BALO"], { N: 2, V: 1, E: 1 }),
-      option("D", "场内场外都是焦点的话题人物", ["BALO", "CR7", "MOU-R"], ["SUA-R", "LAO8", "BESTATE"], { G: 2, E: 1, S: 1 })
+      option("A", "自己消化一下，发个朋友圈", ["NPC", "TANK"], ["OJBK", "BEAUT"], { S: -1, N: 1 }),
+      option("B", "打开群聊开聊，消息已经99+了", ["YAPP", "W-L"], ["HYPE", "SALT"], { S: 2, E: 1 }),
+      option("C", "去MatchMate上看梅西的决赛评分", ["xG", "REPLAY"], ["CHESS", "VAR"], { R: 2, S: -1 }),
+      option("D", "给朋友安利'你必须看这场回放'", ["HUMBL-E", "TSUKK"], ["LORE", "W"], { S: 1, N: 1 })
+    ]
+  },
+  {
+    id: "Q7",
+    sourceNumber: 7,
+    stage: 1,
+    part: "",
+    title: "以下哪个世界杯瞬间最让你有代入感？",
+    options: [
+      option("A", "弱队爆冷赢球，赛后全国放假庆祝", ["W", "GOAT"], ["LORE", "1100"], { N: 2, G: 1 }),
+      option("B", "加时赛最后一分钟绝杀晋级", ["WAIT", "RAGE"], ["HYPE", "FLIP"], { V: 2, N: 1 }),
+      option("C", "年轻球员一战成名，身价暴涨", ["HUMBL-E", "SALT"], ["RUN!", "MEME"], { N: 1, E: 1 }),
+      option("D", "传奇球星最后一届世界杯的告别", ["1100", "LORE"], ["BEAUT", "W-L"], { N: 2, V: -1 })
     ]
   },
   {
@@ -138,51 +146,25 @@ const QUESTIONS = [
     sourceNumber: 8,
     stage: 1,
     part: "",
-    title: "你心里最理想的看球搭子，最该擅长哪件事？",
+    title: "你觉得世界杯最大的魅力是什么？",
     options: [
-      option("A", "帮我跟上大家在聊什么", ["ZZZJ", "BESTATE", "WU7"], ["LAO8", "GOLD-2018", "BALO"], { S: 2, G: 1, E: 1 }),
-      option("B", "帮我拆解战术", ["DIOR-LA", "MOU-R", "TENGOD"], ["COLL-NA", "OH-NA", "CF-BOYs"], { R: 2, N: -1, V: -1 }),
-      option("C", "补充场外知识和八卦", ["HE-WEI", "CF-BOYs", "PIONEER"], ["GOLD-2018", "ZZZJ", "BALO"], { N: 2, S: 1, R: 1 }),
-      option("D", "输了陪骂，赢了一起爽", ["KLOPP", "LAO8", "SUA-R"], ["CR7", "BALO", "FAN-G"], { E: 2, G: 1, S: 1 })
+      option("A", "四年一次的仪式感，错过要再等四年", ["1100", "LORE"], ["W", "BEAUT"], { N: 2, R: 1 }),
+      option("B", "什么都可能发生，强队也可能翻车", ["WAIT", "TANK"], ["FLIP", "RAGE"], { V: 2, N: 1 }),
+      option("C", "全世界的人都在看同一件事", ["HYPE", "HUMBL-E"], ["YAPP", "W-L"], { S: 2, G: 1 }),
+      option("D", "能见证历史性的时刻", ["GOAT", "W-L"], ["1100", "REPLAY"], { N: 2, R: 1 })
     ]
   },
   {
-    id: "Q14",
-    sourceNumber: 14,
-    stage: 1,
-    part: "",
-    title: "看完一场球，朋友最容易从你这里获得什么？",
-    options: [
-      option("A", "一股从头到尾都没下来的劲", ["KLOPP", "BALO", "CR7"], ["FAN-G", "LAO8", "SUA-R"], { E: 2, G: 1, S: 1 }),
-      option("B", "聊不完的赛后话题", ["MOU-R", "HE-WEI", "BESTATE"], ["CR7", "ZZZJ", "CF-BOYs"], { S: 2, N: 1, G: 1 }),
-      option("C", "把场上局势讲清楚的判断", ["DIOR-LA", "COLL-NA", "OH-NA"], ["TENGOD", "ROBBEN", "HAAL-D"], { R: 2, N: 1, V: -1 }),
-      option("D", "一起看球时才有的参与感", ["ZZZJ", "KOMPANY", "WU7"], ["LAO8", "BESTATE", "MAKUI"], { S: 2, G: 1, E: 1 })
-    ]
-  },
-  {
-    id: "Q6",
-    sourceNumber: 6,
+    id: "Q9",
+    sourceNumber: 9,
     stage: 2,
     part: "",
-    title: "欧冠半决赛巴黎 1-1 拜仁，赛后关于判罚的争议持续发酵。你更接近哪种反应？",
+    title: "世界杯决赛点球大战，你支持的队第三个罚，之前已经罚丢一个，你怎么想？",
     options: [
-      option("A", "裁判吹罚逻辑有没有一致性", ["COLL-NA", "TENGOD", "DIOR-LA"], ["OH-NA", "MOU-R", "HAAL-D"], { R: 2, G: 1, V: -1 }),
-      option("B", "各群观点都不一样，先让子弹飞", ["ANCELO", "LEO", "ZIDANE"], ["KOMPANY", "WU7", "TCHOU"], { R: 1, V: -1, E: -1 }),
-      option("C", "球迷有情绪，本来就不该端着", ["KLOPP", "SUA-R", "CR7"], ["FAN-G", "BALO", "RUDI"], { E: 2, G: 1, S: 1 }),
-      option("D", "这种争议会留在球迷嘴里很久", ["HE-WEI", "CF-BOYs", "MOU-R"], ["ZZZJ", "GOLD-2018", "TCHOU"], { N: 2, S: 1, G: 1 })
-    ]
-  },
-  {
-    id: "Q7",
-    sourceNumber: 7,
-    stage: 2,
-    part: "",
-    title: "当武磊在西班牙人上场时间越来越少，“中国球员行不行”的声音开始出现时，你会先往哪个方向想？",
-    options: [
-      option("A", "先看技术和对抗差在哪", ["DIOR-LA", "OH-NA", "MOU-R"], ["TENGOD", "ROBBEN", "COLL-NA"], { R: 2, N: -1, V: -1 }),
-      option("B", "出去闯本来就不容易", ["WU7", "MAKUI", "KARIUS"], ["HE-WEI", "KOMPANY", "ANCELO"], { E: 1, N: 2, V: 1 }),
-      option("C", "表现不行就是不行", ["RUDI", "HAAL-D", "FAN-G"], ["SUA-R", "COLL-NA", "CR7"], { R: 1, G: 1, E: 1 }),
-      option("D", "绕来绕去还是青训和联赛的老问题", ["CF-BOYs", "PIONEER", "TENGOD"], ["MOU-R", "ZZZJ", "DIOR-LA"], { R: 2, N: 1, V: -1 })
+      option("A", "稳稳罚进就行，别玩花的", ["BEAUT", "CHESS"], ["OJBK", "W"], { V: -1, R: 1 }),
+      option("B", "越紧张越刺激，来吧", ["RAGE", "SCORP"], ["FLIP", "MEME"], { V: 2, E: 1 }),
+      option("C", "紧张到不敢看，但又想看", ["WAIT", "MEME"], ["HYPE", "YAPP"], { V: 1, E: 1 }),
+      option("D", "先看对方门将的站位再判断", ["NPC", "xG"], ["CHESS", "REPLAY"], { R: 2, V: -1 })
     ]
   },
   {
@@ -190,12 +172,12 @@ const QUESTIONS = [
     sourceNumber: 10,
     stage: 2,
     part: "",
-    title: "看一场球，你最不想错过的是哪种瞬间？",
+    title: "世界杯淘汰赛你支持的队落后一球，教练换上三个前锋搏命，你觉得？",
     options: [
-      option("A", "火药味十足、肢体语言爆炸的对抗", ["RUDI", "SUA-R", "TCHOU"], ["FAN-G", "BALO", "CR7"], { E: 1, V: 1, G: 2 }),
-      option("B", "平时不抢戏的人突然挥出关键一击", ["ROBBEN", "KOMPANY", "ANCELO"], ["LEO", "HAAL-D", "MAKUI"], { N: 1, R: 1, V: -1 }),
-      option("C", "看着像要翻车，结果反而踢成了的反常规处理", ["HIGUITA", "BALO", "NEY-MAR"], ["KLOPP", "QUARESMA", "CR7"], { V: 2, N: 1, E: 1 }),
-      option("D", "不影响比分但你愿意反复回看的画面", ["QUARESMA", "ZIDANE", "LEO"], ["NEY-MAR", "HE-WEI", "PIONEER"], { N: 2, V: 1, R: 1 })
+      option("A", "太冒险了，先稳住再说", ["TANK", "CHESS"], ["OJBK", "xG"], { V: -1, R: 2 }),
+      option("B", "必须搏，不搏没机会", ["RUN!", "OJBK"], ["RAGE", "HYPE"], { V: 2, E: 1 }),
+      option("C", "看看效果，不行再调整", ["VAR", "ROAST"], ["TANK", "W"], { R: 1, V: -1 }),
+      option("D", "管他呢，反正好看就行", ["FLIP", "BEAUT"], ["MEME", "SCORP"], { V: 1, N: 1 })
     ]
   },
   {
@@ -203,12 +185,12 @@ const QUESTIONS = [
     sourceNumber: 11,
     stage: 2,
     part: "",
-    title: "一场比赛刚结束，你第一个点开的是什么？",
+    title: "世界杯某场比赛后，全网都在吹一支球队，但你没那么看好，你会？",
     options: [
-      option("A", "球员采访和更衣室反应", ["ZZZJ", "LAO8", "KARIUS"], ["GOLD-2018", "BALO", "CR7"], { S: 1, E: 1, N: 1 }),
-      option("B", "球员评分和战术复盘", ["COLL-NA", "MOU-R", "OH-NA"], ["DIOR-LA", "TENGOD", "ROBBEN"], { R: 2, N: -1, V: -1 }),
-      option("C", "球迷和媒体的赛后评论", ["BESTATE", "CF-BOYs", "TIE-Z"], ["LAO8", "GOLD-2018", "HE-WEI"], { S: 2, G: 1, R: 1 }),
-      option("D", "关键画面和争议瞬间", ["NEY-MAR", "SUA-R", "CR7"], ["QUARESMA", "HIGUITA", "BALO"], { V: 1, N: 2, E: 1 })
+      option("A", "说出来，'别光看结果，他们踢得没那么好'", ["ROAST", "W-L"], ["SALT", "VAR"], { G: 1, E: 1 }),
+      option("B", "先看看别人怎么说再决定要不要表态", ["W", "OJBK"], ["TANK", "CHESS"], { G: -1, R: 1 }),
+      option("C", "算了不说了，说了会被喷", ["TANK", "SALT"], ["WAIT", "OJBK"], { G: -1, E: 1 }),
+      option("D", "换个角度说，'确实不错但别吹过头'", ["TSUKK", "HUMBL-E"], ["YAPP", "LORE"], { G: 1, S: 1 })
     ]
   },
   {
@@ -216,12 +198,12 @@ const QUESTIONS = [
     sourceNumber: 12,
     stage: 2,
     part: "",
-    title: "一支大球队持续低迷时，你更常聊哪一层？",
+    title: "世界杯开赛前，朋友圈全是预测和讨论，你会？",
     options: [
-      option("A", "走到今天的根本问题", ["CF-BOYs", "MOU-R", "DIOR-LA"], ["TENGOD", "FAN-G", "PIONEER"], { R: 2, N: 1, G: 1 }),
-      option("B", "更衣室氛围和球员心态", ["KOMPANY", "KLOPP", "KARIUS"], ["ANCELO", "MAKUI", "WU7"], { E: 1, G: 1, N: 1 }),
-      option("C", "阵容结构和长期规划", ["COLL-NA", "TENGOD", "OH-NA"], ["DIOR-LA", "HAAL-D", "MOU-R"], { R: 2, V: -1, N: -1 }),
-      option("D", "球迷情绪和舆论走向", ["LAO8", "BESTATE", "TIE-Z"], ["GOLD-2018", "ZZZJ", "BALO"], { S: 2, E: 1, G: 1 })
+      option("A", "跟着一起聊，发自己的预测", ["YAPP", "HYPE"], ["W-L", "HUMBL-E"], { G: 2, S: 1 }),
+      option("B", "看看就好，不太参与", ["ROAST", "OJBK"], ["TANK", "CHESS"], { G: -1, S: -1 }),
+      option("C", "发一篇认真的分析长文", ["VAR", "xG"], ["CHESS", "LORE"], { R: 2, G: 1 }),
+      option("D", "发个搞笑的梗图参与一下", ["MEME", "SALT"], ["ROAST", "TSUKK"], { G: 1, E: 1 })
     ]
   },
   {
@@ -229,12 +211,25 @@ const QUESTIONS = [
     sourceNumber: 13,
     stage: 2,
     part: "",
-    title: "群里你给出一个判断，立刻有人不同意，你接下来会怎么做？",
+    title: "2026世界杯在北美三国举办，你最关心的是？",
     options: [
-      option("A", "重新讲一遍，事情没那么简单", ["TIE-Z", "MOU-R", "CF-BOYs"], ["GOLD-2018", "OH-NA", "TENGOD"], { R: 1, G: 1, V: 1 }),
-      option("B", "该说的还是要说，难听就难听吧", ["RUDI", "FAN-G", "KLOPP"], ["COLL-NA", "SUA-R", "HAAL-D"], { E: 1, G: 2, V: 1 }),
-      option("C", "先不争，等比赛走完再说", ["ANCELO", "LEO", "ZIDANE"], ["KOMPANY", "TCHOU", "TENGOD"], { R: 1, V: -1, E: -1 }),
-      option("D", "找几个角度，让两边都能下台", ["HE-WEI", "KARIUS", "GOLD-2018"], ["ZZZJ", "BESTATE", "PIONEER"], { S: 2, G: 1, N: 1 })
+      option("A", "48支球队的新赛制是什么规则", ["CHESS", "xG"], ["VAR", "LORE"], { R: 2, N: 1 }),
+      option("B", "哪些比赛要熬夜，哪些不用", ["WAIT", "SALT"], ["TANK", "OJBK"], { R: 1, V: -1 }),
+      option("C", "有哪些球星可能是最后一届", ["GOAT", "1100"], ["LEGEND", "HUMBL-E"], { N: 2, S: 1 }),
+      option("D", "无所谓，到时候看就行", ["OJBK", "W"], ["NPC", "TANK"], { R: -1, V: -1 })
+    ]
+  },
+  {
+    id: "Q14",
+    sourceNumber: 14,
+    stage: 2,
+    part: "",
+    title: "以下哪种世界杯内容最能吸引你点进去？",
+    options: [
+      option("A", "精彩进球集锦和比赛回顾", ["REPLAY", "BEAUT"], ["RUN!", "FLIP"], { N: 2, V: 1 }),
+      option("B", "争议判罚和裁判讨论", ["VAR", "ROAST"], ["RAGE", "SALT"], { R: 1, G: 1 }),
+      option("C", "球员八卦和场外花絮", ["TSUKK", "MEME"], ["SALT", "YAPP"], { S: 2, E: 1 }),
+      option("D", "战术分析和数据解读", ["CHESS", "xG"], ["LORE", "NPC"], { R: 2, N: -1 })
     ]
   },
   {
@@ -242,12 +237,12 @@ const QUESTIONS = [
     sourceNumber: 15,
     stage: 2,
     part: "",
-    title: "一个核心球员长期因伤或状态低谷被骂，你怎么想？",
+    title: "如果你能去现场看一场世界杯比赛，你选？",
     options: [
-      option("A", "该恢复就给时间，别现在踩", ["KOMPANY", "KARIUS", "TENGOD"], ["MAKUI", "ANCELO"], { E: 1, N: 1, V: -1 }),
-      option("B", "出问题就该问责，球迷不是白看的", ["FAN-G", "COLL-NA", "HAAL-D"], ["DIOR-LA", "CF-BOYs"], { R: 2, G: 1, E: 1 }),
-      option("C", "他自己更难受，先别再加压了", ["MAKUI", "WU7", "HE-WEI"], ["KARIUS", "KOMPANY"], { N: 2, E: 1, V: -1 }),
-      option("D", "争论没用，看他下场怎么踢", ["TCHOU", "LEO", "SUA-R"], ["HAAL-D", "RUDI"], { V: 1, N: 1, E: -1 })
+      option("A", "决赛，不管谁踢都值", ["LEGEND", "HYPE"], ["GOAT", "HUMBL-E"], { N: 2, E: 1 }),
+      option("B", "弱队打强队，等着看冷门", ["CHAOS", "RAGE"], ["SALT", "MEME"], { V: 2, N: 1 }),
+      option("C", "自己国家队的比赛", ["TANK", "W-L"], ["HYPE", "YAPP"], { G: 2, E: 1 }),
+      option("D", "有梅西C罗的那场", ["GOAT", "WAIT"], ["TSUKK", "REPLAY"], { N: 1, S: 1 })
     ]
   },
   {
@@ -255,12 +250,12 @@ const QUESTIONS = [
     sourceNumber: 16,
     stage: 2,
     part: "",
-    title: "一位老派传奇被网友翻出来当梗讨论，你心里第一感觉是什么？",
+    title: "用一个词形容你理想中的看球搭子？",
     options: [
-      option("A", "对老派传奇还是该有起码的敬意", ["PIONEER", "HE-WEI", "CF-BOYs"], ["WU7", "ANCELO"], { R: 1, N: 2, V: -1 }),
-      option("B", "让梗归梗，他自己未必介意", ["BESTATE", "GOLD-2018", "BALO"], ["LAO8", "ZZZJ"], { S: 1, E: 1, V: 1 }),
-      option("C", "时代不一样了，平视就行别神化", ["HAAL-D", "COLL-NA", "MOU-R"], ["DIOR-LA", "TCHOU"], { R: 2, V: -1, N: -1 }),
-      option("D", "但凡被翻出来的，总有原因", ["OH-NA", "TIE-Z", "SUA-R"], ["CF-BOYs", "TENGOD"], { R: 1, N: 1, V: 1 })
+      option("A", "专业——能给我讲战术的", ["CHESS", "VAR"], ["REPLAY", "xG"], { R: 2, S: -1 }),
+      option("B", "搞笑——能一起玩梗的", ["MEME", "YAPP"], ["TSUKK", "SALT"], { S: 2, E: 1 }),
+      option("C", "忠诚——输了也能陪我骂的", ["TANK", "W-L"], ["SALT", "HYPE"], { G: 2, E: 1 }),
+      option("D", "激情——进球时能一起跳起来的", ["HYPE", "RUN!"], ["RAGE", "FLIP"], { E: 2, V: 1 })
     ]
   }
 ];
@@ -290,16 +285,20 @@ const resultPortrait = document.querySelector("#result-portrait");
 const resultCode = document.querySelector("#result-code");
 const resultTitle = document.querySelector("#result-title");
 const resultGroup = document.querySelector("#result-group");
+const resultQuote = document.querySelector("#result-quote");
 const resultShortLabel = document.querySelector("#result-short-label");
-const dimensionBreakdown = document.querySelector("#dimension-breakdown");
+const radarChart = document.querySelector("#radar-chart");
+const dimensionLegend = document.querySelector("#dimension-legend");
 const roleBreakdown = document.querySelector("#role-breakdown");
 const resultOneliner = document.querySelector("#result-oneliner");
 const resultProfile = document.querySelector("#result-profile");
 const resultFocus = document.querySelector("#result-focus");
 const resultNeighbors = document.querySelector("#result-neighbors");
 const hiddenBadge = document.querySelector("#hidden-badge");
+const saveImageButton = document.querySelector("#save-image-button");
 const copyButton = document.querySelector("#copy-button");
 const restartButton = document.querySelector("#restart-button");
+let currentRenderedResult = null;
 
 function hasAnswered(index) {
   return appState.answers[index] !== null;
@@ -439,43 +438,31 @@ function applyHiddenTrigger(summary, limit) {
 
   const hiddenCandidates = [];
 
+  // LEGEND 传奇：进入前5 + Q15选A + N维度≥70
   if (
-    topFive.includes("TIE-Z") &&
-    getAnswerLabel("Q13") === "A" &&
-    getAnswerLabel("Q16") === "D" &&
-    dimensions.V >= 75 &&
-    dimensions.R >= 60
+    topFive.includes("LEGEND") &&
+    getAnswerLabel("Q15") === "A" &&
+    dimensions.N >= 70
   ) {
-    hiddenCandidates.push("TIE-Z");
+    hiddenCandidates.push("LEGEND");
   }
 
+  // CHAOS 混沌：进入前5 + Q9选B或Q10选B + V维度≥80
   if (
-    topFive.includes("GOLD-2018") &&
-    getAnswerLabel("Q4") === "C" &&
-    getAnswerLabel("Q16") === "B" &&
-    dimensions.S >= 70 &&
-    dimensions.R >= 62
+    topFive.includes("CHAOS") &&
+    (getAnswerLabel("Q9") === "B" || getAnswerLabel("Q10") === "B") &&
+    dimensions.V >= 80
   ) {
-    hiddenCandidates.push("GOLD-2018");
+    hiddenCandidates.push("CHAOS");
   }
 
+  // SCORP 蝎子：进入前5 + Q9选C + V维度≥75
   if (
-    topFive.includes("PIONEER") &&
-    getAnswerLabel("Q16") === "A" &&
-    (getAnswerLabel("Q1") === "B" || getAnswerLabel("Q12") === "A") &&
-    dimensions.R >= 85 &&
-    dimensions.V < 50
+    topFive.includes("SCORP") &&
+    getAnswerLabel("Q9") === "C" &&
+    dimensions.V >= 75
   ) {
-    hiddenCandidates.push("PIONEER");
-  }
-
-  if (
-    topFive.includes("HIGUITA") &&
-    getAnswerLabel("Q5") === "A" &&
-    getAnswerLabel("Q10") === "C" &&
-    dimensions.V >= 85
-  ) {
-    hiddenCandidates.push("HIGUITA");
+    hiddenCandidates.push("SCORP");
   }
 
   if (hiddenCandidates.length === 0) {
@@ -498,7 +485,7 @@ function buildResult(limit) {
 
   return {
     winner,
-    isHidden: winner.group === "隐藏人格",
+    isHidden: winner.group === "特殊人格",
     roleScores: summary.roleScores,
     rankedRoles: summary.rankedRoles,
     dimensions: getDimensionRanking(summary.dimensionTotals)
@@ -510,9 +497,9 @@ function buildNarrative(result) {
   const topRoles = result.rankedRoles.filter((code) => code !== result.winner.code).slice(0, 3);
 
   return {
-    summary: `${result.winner.title}型看球搭子，核心特征是“${result.winner.tag}”。`,
+    summary: `${result.winner.title}型看球搭子，核心特征是"${result.winner.tag}"。`,
     oneliner: `你更像${result.winner.title}：${result.winner.shortLabel}`,
-    profile: `这类人看球时通常会优先从“${topDimensions.map((item) => item.name).join(" / ")}”进入比赛，所以你的判断和情绪落点会比较稳定地收束到“${result.winner.tag}”这一类视角。`,
+    profile: `这类人看球时通常会优先从"${topDimensions.map((item) => item.name).join(" / ")}"进入比赛，所以你的判断和情绪落点会比较稳定地收束到"${result.winner.tag}"这一类视角。`,
     focus: topDimensions.map((item) => `${item.name}：${item.value} 分`),
     neighbors: topRoles.map((code) => `${ROLES[code].title} · ${ROLES[code].shortLabel}`)
   };
@@ -534,7 +521,7 @@ function buildForcedResult(code) {
 
   return {
     winner,
-    isHidden: winner.group === "隐藏人格",
+    isHidden: winner.group === "特殊人格",
     roleScores,
     rankedRoles,
     dimensions: [
@@ -567,39 +554,155 @@ function renderBreakdown(container, rows) {
   });
 }
 
+function getDimensionLevel(value) {
+  if (value <= 40) return { level: "L", label: "低", class: "level-low" };
+  if (value <= 70) return { level: "M", label: "中", class: "level-mid" };
+  return { level: "H", label: "高", class: "level-high" };
+}
+
+function getDimensionColor(value) {
+  if (value <= 40) return "#9ca3af";
+  if (value <= 70) return "#b8a88a";
+  return "#0f5b52";
+}
+
+function renderRadarChart(container, legendContainer, dimensions) {
+  const size = 360;
+  const padding = 40;
+  const center = size / 2;
+  const maxRadius = 120;
+  const levels = 3;
+
+  const dimensionOrder = ["E", "R", "S", "N", "V", "G"];
+  const angleStep = (Math.PI * 2) / dimensionOrder.length;
+  const startAngle = -Math.PI / 2;
+
+  let svg = `<svg viewBox="${-padding} ${-padding} ${size + padding * 2} ${size + padding * 2}" xmlns="http://www.w3.org/2000/svg">`;
+
+  // Draw concentric hexagons for L/M/H zones
+  for (let i = levels; i >= 1; i--) {
+    const radius = (maxRadius / levels) * i;
+    const points = dimensionOrder.map((_, idx) => {
+      const angle = startAngle + angleStep * idx;
+      const x = center + radius * Math.cos(angle);
+      const y = center + radius * Math.sin(angle);
+      return `${x},${y}`;
+    }).join(" ");
+
+    const opacity = i === 1 ? 0.15 : i === 2 ? 0.1 : 0.05;
+    svg += `<polygon points="${points}" fill="rgba(15, 91, 82, ${opacity})" stroke="rgba(29, 42, 47, 0.15)" stroke-width="1"/>`;
+  }
+
+  // Draw axis lines
+  dimensionOrder.forEach((_, idx) => {
+    const angle = startAngle + angleStep * idx;
+    const x = center + maxRadius * Math.cos(angle);
+    const y = center + maxRadius * Math.sin(angle);
+    svg += `<line x1="${center}" y1="${center}" x2="${x}" y2="${y}" stroke="rgba(29, 42, 47, 0.1)" stroke-width="1"/>`;
+  });
+
+  // Draw user's data polygon
+  const dataPoints = dimensionOrder.map((code, idx) => {
+    const dim = dimensions.find(d => d.code === code);
+    const value = dim ? dim.value : 50;
+    const radius = (value / 100) * maxRadius;
+    const angle = startAngle + angleStep * idx;
+    const x = center + radius * Math.cos(angle);
+    const y = center + radius * Math.sin(angle);
+    return { x, y, value };
+  });
+
+  const polygonPoints = dataPoints.map(p => `${p.x},${p.y}`).join(" ");
+  svg += `<polygon points="${polygonPoints}" fill="rgba(15, 91, 82, 0.2)" stroke="#0f5b52" stroke-width="2"/>`;
+
+  // Draw data points
+  dataPoints.forEach((p, idx) => {
+    const color = getDimensionColor(p.value);
+    svg += `<circle cx="${p.x}" cy="${p.y}" r="5" fill="${color}" stroke="white" stroke-width="2"/>`;
+  });
+
+  // Draw labels
+  dimensionOrder.forEach((code, idx) => {
+    const angle = startAngle + angleStep * idx;
+    const labelRadius = maxRadius + 28;
+    const x = center + labelRadius * Math.cos(angle);
+    const y = center + labelRadius * Math.sin(angle);
+
+    const dim = dimensions.find(d => d.code === code);
+    const name = dim ? dim.name : DIMENSION_META[code];
+
+    const textAnchor = idx === 0 || idx === 3 ? "middle" : idx < 3 ? "start" : "end";
+    const dominantBaseline = idx === 0 ? "auto" : idx === 3 ? "hanging" : "middle";
+
+    svg += `<text x="${x}" y="${y}" text-anchor="${textAnchor}" dominant-baseline="${dominantBaseline}" font-size="13" font-weight="600" fill="#1d2a2f">${name}</text>`;
+  });
+
+  svg += `</svg>`;
+  container.innerHTML = svg;
+
+  // Render legend
+  legendContainer.innerHTML = "";
+  dimensionOrder.forEach((code) => {
+    const dim = dimensions.find(d => d.code === code);
+    if (!dim) return;
+
+    const levelInfo = getDimensionLevel(dim.value);
+    const color = getDimensionColor(dim.value);
+
+    const item = document.createElement("div");
+    item.className = "legend-item";
+    item.innerHTML = `
+      <div class="legend-dot" style="background: ${color}"></div>
+      <div class="legend-info">
+        <div class="legend-name">${dim.name}</div>
+        <div class="legend-level">${levelInfo.label} · ${dim.value}分</div>
+      </div>
+      <div class="legend-bar">
+        <div class="legend-bar-fill ${levelInfo.class}" style="width: ${dim.value}%"></div>
+      </div>
+    `;
+    legendContainer.appendChild(item);
+  });
+}
+
 function renderResult(limit, phaseLabel) {
   const result = buildResult(limit);
   applyResultToView(result, phaseLabel);
 }
 
 function applyResultToView(result, phaseLabel) {
+  currentRenderedResult = result;
   const narrative = buildNarrative(result);
 
-  resultPhase.textContent = phaseLabel;
-  resultPhase.classList.toggle("hidden", !phaseLabel);
+  resultPhase.textContent = "";
+  resultPhase.classList.add("hidden");
   resultPortraitShell.dataset.roleCode = result.winner.code;
-  resultPortrait.src = result.winner.image;
+  const roleImage = result.winner.imageAlt && Math.random() < result.winner.imageAltChance
+    ? result.winner.imageAlt
+    : result.winner.image;
+  resultPortrait.src = roleImage;
   resultPortrait.alt = `${result.winner.title} 角色图`;
-  resultCode.textContent = result.winner.code;
+  resultCode.textContent = result.winner.displayCode || result.winner.code;
   resultTitle.textContent = result.winner.title;
   resultGroup.textContent = `所属分组：${result.winner.group}`;
+  resultGroup.classList.add("hidden");
+  resultQuote.textContent = result.winner.quote ? `"${result.winner.quote}"` : "";
   resultShortLabel.textContent = result.winner.shortLabel;
   resultOneliner.textContent = narrative.oneliner;
   resultProfile.textContent = narrative.profile;
 
   hiddenBadge.classList.toggle("hidden", !result.isHidden);
 
-  renderBreakdown(
-    dimensionBreakdown,
-    result.dimensions.map((item) => ({
-      name: item.name,
-      value: `${item.value}`
-    }))
-  );
+  renderRadarChart(radarChart, dimensionLegend, result.dimensions);
+
+  // 过滤掉自己的人格，只显示相近人格
+  const similarRoles = result.rankedRoles
+    .filter((code) => code !== result.winner.code)
+    .slice(0, 5);
 
   renderBreakdown(
     roleBreakdown,
-    result.rankedRoles.slice(0, 5).map((code) => ({
+    similarRoles.map((code) => ({
       name: `${ROLES[code].title} · ${ROLES[code].group}`,
       value: `${result.roleScores[code]} 分`
     }))
@@ -725,8 +828,380 @@ function buildCopyText(limit, phaseLabel) {
     `${phaseLabel}`,
     `${result.winner.code} · ${result.winner.title}`,
     `${result.winner.group} / ${result.winner.tag}`,
-    `${result.winner.shortLabel}`
+    `${result.winner.shortLabel}`,
+    ``,
+    `访问MatchMate，认识你的AI看球搭子！`,
+    `https://www.matchmate.tv/`
   ].join("\n");
+}
+
+function buildCopyText(limit, phaseLabel) {
+  const result = currentRenderedResult || buildResult(limit);
+  const displayCode = result.winner.displayCode || result.winner.code;
+
+  return [
+    `看球搭子人格测试`,
+    phaseLabel || ``,
+    `你的看球搭子类型是：`,
+    `${result.winner.title}`,
+    `${displayCode}`,
+    `${result.winner.group} / ${result.winner.tag}`,
+    `${result.winner.shortLabel}`,
+    result.winner.quote ? `“${result.winner.quote}”` : ``,
+    ``,
+    `访问MatchMate，认识你的AI看球搭子！`,
+    `https://www.matchmate.tv/`
+  ].filter(Boolean).join("\n");
+}
+
+function buildCopyText(limit, phaseLabel) {
+  const result = currentRenderedResult || buildResult(limit);
+  const displayCode = result.winner.displayCode || result.winner.code;
+  const quoteLine = result.winner.quote ? `"${result.winner.quote}"` : "";
+
+  return [
+    "\u770b\u7403\u642d\u5b50\u4eba\u683c\u6d4b\u8bd5",
+    phaseLabel || "",
+    "\u4f60\u7684\u770b\u7403\u642d\u5b50\u7c7b\u578b\u662f\uff1a",
+    result.winner.title,
+    displayCode,
+    `${result.winner.group} / ${result.winner.tag}`,
+    result.winner.shortLabel,
+    quoteLine,
+    "",
+    "\u8bbf\u95eeMatchMate\uff0c\u8ba4\u8bc6\u4f60\u7684AI\u770b\u7403\u642d\u5b50\uff01",
+    "https://www.matchmate.tv/"
+  ].filter(Boolean).join("\n");
+}
+
+function loadImageAsset(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+function roundRectPath(ctx, x, y, width, height, radius) {
+  const r = Math.min(radius, width / 2, height / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + width - r, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+  ctx.lineTo(x + width, y + height - r);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+  ctx.lineTo(x + r, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function fillRoundedRect(ctx, x, y, width, height, radius, fillStyle) {
+  ctx.save();
+  ctx.fillStyle = fillStyle;
+  roundRectPath(ctx, x, y, width, height, radius);
+  ctx.fill();
+  ctx.restore();
+}
+
+function strokeRoundedRect(ctx, x, y, width, height, radius, strokeStyle, lineWidth = 1) {
+  ctx.save();
+  ctx.strokeStyle = strokeStyle;
+  ctx.lineWidth = lineWidth;
+  roundRectPath(ctx, x, y, width, height, radius);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight) {
+  const paragraphs = String(text || "").split("\n");
+  let offsetY = y;
+
+  paragraphs.forEach((paragraph, paragraphIndex) => {
+    const chars = Array.from(paragraph || "");
+    let line = "";
+
+    if (!chars.length) {
+      offsetY += lineHeight;
+      return;
+    }
+
+    chars.forEach((char) => {
+      const next = line + char;
+      if (ctx.measureText(next).width > maxWidth && line) {
+        ctx.fillText(line, x, offsetY);
+        offsetY += lineHeight;
+        line = char;
+      } else {
+        line = next;
+      }
+    });
+
+    if (line) {
+      ctx.fillText(line, x, offsetY);
+      offsetY += lineHeight;
+    }
+
+    if (paragraphIndex < paragraphs.length - 1) {
+      offsetY += Math.floor(lineHeight * 0.35);
+    }
+  });
+
+  return offsetY;
+}
+
+function drawContainImage(ctx, img, x, y, width, height) {
+  const scale = Math.min(width / img.width, height / img.height);
+  const drawWidth = img.width * scale;
+  const drawHeight = img.height * scale;
+  const dx = x + (width - drawWidth) / 2;
+  const dy = y + (height - drawHeight) / 2;
+  ctx.drawImage(img, dx, dy, drawWidth, drawHeight);
+}
+
+function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
+  const centerX = x + size / 2;
+  const centerY = y + size / 2;
+  const maxRadius = size * 0.29;
+  const dimensionOrder = ["E", "R", "S", "N", "V", "G"];
+  const angleStep = (Math.PI * 2) / dimensionOrder.length;
+  const startAngle = -Math.PI / 2;
+
+  ctx.save();
+  ctx.translate(0, 0);
+
+  for (let level = 1; level <= 3; level += 1) {
+    const radius = (maxRadius / 3) * level;
+    ctx.beginPath();
+    dimensionOrder.forEach((code, idx) => {
+      const angle = startAngle + angleStep * idx;
+      const px = centerX + radius * Math.cos(angle);
+      const py = centerY + radius * Math.sin(angle);
+      if (idx === 0) {
+        ctx.moveTo(px, py);
+      } else {
+        ctx.lineTo(px, py);
+      }
+    });
+    ctx.closePath();
+    ctx.strokeStyle = "rgba(29, 42, 47, 0.12)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  dimensionOrder.forEach((code, idx) => {
+    const angle = startAngle + angleStep * idx;
+    const px = centerX + maxRadius * Math.cos(angle);
+    const py = centerY + maxRadius * Math.sin(angle);
+    ctx.beginPath();
+    ctx.moveTo(centerX, centerY);
+    ctx.lineTo(px, py);
+    ctx.strokeStyle = "rgba(29, 42, 47, 0.08)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+
+  const points = dimensionOrder.map((code, idx) => {
+    const dim = dimensions.find((item) => item.code === code);
+    const value = dim ? dim.value : 50;
+    const angle = startAngle + angleStep * idx;
+    const radius = (value / 100) * maxRadius;
+    return {
+      code,
+      value,
+      x: centerX + radius * Math.cos(angle),
+      y: centerY + radius * Math.sin(angle)
+    };
+  });
+
+  ctx.beginPath();
+  points.forEach((point, idx) => {
+    if (idx === 0) {
+      ctx.moveTo(point.x, point.y);
+    } else {
+      ctx.lineTo(point.x, point.y);
+    }
+  });
+  ctx.closePath();
+  ctx.fillStyle = "rgba(15, 91, 82, 0.18)";
+  ctx.strokeStyle = "#0f5b52";
+  ctx.lineWidth = 4;
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.font = "600 22px 'Noto Sans SC', sans-serif";
+  ctx.fillStyle = "#1d2a2f";
+
+  points.forEach((point, idx) => {
+    ctx.beginPath();
+    ctx.arc(point.x, point.y, 8, 0, Math.PI * 2);
+    ctx.fillStyle = "#0f5b52";
+    ctx.fill();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "#fffaf2";
+    ctx.stroke();
+
+    const labelRadius = maxRadius + 38;
+    const angle = startAngle + angleStep * idx;
+    const lx = centerX + labelRadius * Math.cos(angle);
+    const ly = centerY + labelRadius * Math.sin(angle);
+    const align = idx === 0 || idx === 3 ? "center" : idx < 3 ? "left" : "right";
+    ctx.textAlign = align;
+    ctx.textBaseline = idx === 0 ? "bottom" : idx === 3 ? "top" : "middle";
+    const dim = dimensions.find((item) => item.code === point.code);
+    ctx.fillStyle = "#1d2a2f";
+    ctx.fillText(dim ? dim.name : point.code, lx, ly);
+  });
+
+  ctx.restore();
+}
+
+async function saveResultImage() {
+  const result = currentRenderedResult;
+  if (!result) {
+    return;
+  }
+
+  const button = saveImageButton;
+  const originalLabel = button ? button.textContent : "";
+  if (button) {
+    button.disabled = true;
+    button.textContent = "生成中...";
+  }
+
+  try {
+    const [portraitImg, logoImg] = await Promise.all([
+      loadImageAsset(resultPortrait.currentSrc || resultPortrait.src),
+      loadImageAsset(new URL("./main_logo.png", window.location.href).href)
+    ]);
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 1400;
+    canvas.height = 1800;
+    const ctx = canvas.getContext("2d");
+
+    const bgGradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    bgGradient.addColorStop(0, "#f7f2e9");
+    bgGradient.addColorStop(1, "#efe7d9");
+    ctx.fillStyle = bgGradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "rgba(15, 91, 82, 0.08)";
+    ctx.beginPath();
+    ctx.arc(1180, 230, 220, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(220, 1480, 260, 0, Math.PI * 2);
+    ctx.fill();
+
+    const cardX = 70;
+    const cardY = 70;
+    const cardW = canvas.width - 140;
+    const cardH = canvas.height - 140;
+
+    fillRoundedRect(ctx, cardX, cardY, cardW, cardH, 42, "rgba(255, 251, 244, 0.9)");
+    strokeRoundedRect(ctx, cardX, cardY, cardW, cardH, 42, "rgba(29, 42, 47, 0.08)", 2);
+
+    const logoMaxWidth = 250;
+    const logoScale = Math.min(logoMaxWidth / logoImg.width, 90 / logoImg.height);
+    const logoW = logoImg.width * logoScale;
+    const logoH = logoImg.height * logoScale;
+    ctx.drawImage(logoImg, cardX + cardW - 56 - logoW, cardY + 46, logoW, logoH);
+
+    ctx.fillStyle = "#54656b";
+    ctx.font = "500 34px 'Noto Sans SC', sans-serif";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+    ctx.fillText("你的看球搭子类型是：", cardX + 70, cardY + 70);
+
+    ctx.fillStyle = "#18262b";
+    ctx.font = "700 92px 'Noto Serif SC', serif";
+    ctx.fillText(result.winner.title, cardX + 70, cardY + 132);
+
+    ctx.fillStyle = "#0f5b52";
+    ctx.font = "700 54px 'Space Grotesk', 'Noto Sans SC', sans-serif";
+    ctx.fillText(result.winner.displayCode || result.winner.code, cardX + 70, cardY + 242);
+
+    const portraitBox = {
+      x: cardX + 60,
+      y: cardY + 330,
+      w: 760,
+      h: 980
+    };
+    fillRoundedRect(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34, "linear-gradient");
+    const portraitGradient = ctx.createLinearGradient(portraitBox.x, portraitBox.y, portraitBox.x, portraitBox.y + portraitBox.h);
+    portraitGradient.addColorStop(0, "rgba(255,255,255,0.92)");
+    portraitGradient.addColorStop(1, "rgba(244,239,229,0.96)");
+    fillRoundedRect(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34, portraitGradient);
+    strokeRoundedRect(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34, "rgba(29, 42, 47, 0.08)", 2);
+
+    ctx.save();
+    roundRectPath(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34);
+    ctx.clip();
+    drawContainImage(ctx, portraitImg, portraitBox.x + 10, portraitBox.y + 20, portraitBox.w - 20, portraitBox.h - 70);
+    ctx.restore();
+
+    if (result.winner.quote) {
+      fillRoundedRect(ctx, portraitBox.x + 38, portraitBox.y + portraitBox.h - 138, portraitBox.w - 76, 88, 22, "rgba(255, 248, 240, 0.92)");
+      strokeRoundedRect(ctx, portraitBox.x + 38, portraitBox.y + portraitBox.h - 138, portraitBox.w - 76, 88, 22, "rgba(213, 111, 42, 0.18)", 2);
+      ctx.fillStyle = "#784f34";
+      ctx.font = "600 28px 'Noto Sans SC', sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(`"${result.winner.quote}"`, portraitBox.x + portraitBox.w / 2, portraitBox.y + portraitBox.h - 94);
+    }
+
+    const radarBox = {
+      x: cardX + 870,
+      y: cardY + 930,
+      w: 390,
+      h: 360
+    };
+    fillRoundedRect(ctx, radarBox.x, radarBox.y, radarBox.w, radarBox.h, 30, "rgba(249, 245, 237, 0.96)");
+    strokeRoundedRect(ctx, radarBox.x, radarBox.y, radarBox.w, radarBox.h, 30, "rgba(29, 42, 47, 0.08)", 2);
+    ctx.fillStyle = "#1d2a2f";
+    ctx.font = "700 28px 'Noto Sans SC', sans-serif";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+    ctx.fillText("看球搭子面板", radarBox.x + 26, radarBox.y + 22);
+    drawResultRadarToCanvas(ctx, radarBox.x + 20, radarBox.y + 54, 320, result.dimensions);
+
+    ctx.fillStyle = "#4c5d63";
+    ctx.font = "500 28px 'Noto Sans SC', sans-serif";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+    drawWrappedText(
+      ctx,
+      result.winner.shortLabel,
+      cardX + 870,
+      cardY + 360,
+      310,
+      42
+    );
+
+    const linkY = cardY + cardH - 92;
+    ctx.fillStyle = "#0f5b52";
+    ctx.font = "600 28px 'Noto Sans SC', sans-serif";
+    ctx.fillText("访问MatchMate，认识你的AI看球搭子！", cardX + 70, linkY);
+    ctx.fillStyle = "#617076";
+    ctx.font = "500 24px 'Space Grotesk', 'Noto Sans SC', sans-serif";
+    ctx.fillText("www.matchmate.tv", cardX + 70, linkY + 42);
+
+    const link = document.createElement("a");
+    const fileCode = String(result.winner.code || "result").toLowerCase().replace(/[^a-z0-9!-]+/g, "-");
+    link.download = `${fileCode}-result-card.png`;
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  } catch (error) {
+    console.error(error);
+  } finally {
+    if (button) {
+      button.disabled = false;
+      button.textContent = originalLabel || "保存结果图案";
+    }
+  }
 }
 
 function applyDebugShortcut() {
@@ -749,6 +1224,9 @@ startButton.addEventListener("click", startQuiz);
 homeButton.addEventListener("click", returnToHome);
 nextButton.addEventListener("click", goNext);
 prevButton.addEventListener("click", goPrev);
+if (saveImageButton) {
+  saveImageButton.addEventListener("click", saveResultImage);
+}
 copyButton.addEventListener("click", async () => {
   await copyText(buildCopyText(QUESTIONS.length, ""));
 });
