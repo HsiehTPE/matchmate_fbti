@@ -22,7 +22,7 @@ http://localhost:8080/index.html
 可以通过 `result` 参数直接打开指定人格结果页：
 
 ```text
-http://localhost:8080/index.html?result=Tintin
+http://localhost:8080/index.html?result=TINTIN
 ```
 
 更多例子：
@@ -76,7 +76,7 @@ Ctrl + F5
 线上地址格式：
 
 ```text
-https://hsiehtpe.github.io/matchmate_fbti/?result=Tintin
+https://hsiehtpe.github.io/matchmate_fbti/?result=TINTIN
 ```
 
 例如：
