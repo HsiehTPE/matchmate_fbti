@@ -1,5 +1,5 @@
 const ROLE_ORDER = [
-  "RAGE", "NPC", "TANK", "WAIT", "CHESS", "RUN!", "FLIP",
+  "RAGE", "NPC", "TANK", "WAIT", "CHESS", "RUN!", "Z-LATAN",
   "GOAT", "xG", "REPLAY", "LORE", "MEME", "YAPP",
   "HYPE", "SALT", "OJBK", "ROAST", "HUMBL-E", "W-L", "TSUKK",
   "BEAUT", "W", "1100", "VAR",
@@ -13,7 +13,7 @@ const ROLES = {
   "WAIT":   { code: "WAIT",   title: "等等党",   group: "看球反应组", tag: "等一个进球等到花都谢了",       shortLabel: "全场就等那一脚，进了一起飞没进原地去世", quote: "韩国可以拿下，晋级不成问题", image: "./images_new/wait.png" },
   "CHESS":  { code: "CHESS",  title: "下棋人",   group: "看球反应组", tag: "看球时自动脑补战术板",         shortLabel: "这个球应该分边是他的口头禅，看球像在下棋", quote: "Nobody Talk!", image: "./images_new/chess.png" },
   "RUN!":   { code: "RUN!",   title: "起飞型",   group: "看球反应组", tag: "边路一过人他就站起来",         shortLabel: "看球时坐不住，进球会从沙发上弹起来", quote: "这是我的时代？", image: "./images_new/run.png" },
-  "FLIP":   { code: "FLIP",   title: "倒钩",     group: "看球反应组", tag: "比赛可以输但花活不能少",       shortLabel: "0-4落后还在等一个倒钩，觉得足球是艺术不是战争", quote: "世界上只有两种人：兹拉坦和其他人", image: "./images_new/flip.png" },
+  "Z-LATAN": { code: "Z-LATAN", title: "奉先",   group: "看球反应组", tag: "比赛可以输但花活不能少",       shortLabel: "0-4落后还在等一个倒钩，觉得足球是艺术不是战争", quote: "世界上只有两种人：兹拉坦和其他人", image: "./images_new/z-latan.png" },
   "GOAT":   { code: "GOAT",   title: "山羊",     group: "赛后话题组", tag: "聊着聊着就开始排历史前十",     shortLabel: "任何话题都能拐到那两位呢，永恒辩论发起者", quote: "永恒的辩题", image: "./images_new/goat_2.png", imageAlt: "./images_new/goat.png", imageAltChance: 0.15 },
   "xG":     { code: "xG",     title: "数据怪",   group: "赛后话题组", tag: "赛后第一件事打开MatchMate看数据", shortLabel: "用MatchMate的评分说服你那个进球其实是运气", quote: "这个数据很有意思", image: "./images_new/xg.png" },
   "REPLAY": { code: "REPLAY", title: "回放侠",   group: "赛后话题组", tag: "你再看一遍这个球",             shortLabel: "喜欢反复看关键画面，能从一个犯规里看出三层含义", quote: "意大利万岁！", image: "./images_new/replay.png" },
@@ -45,6 +45,10 @@ const DIMENSION_META = {
   G: "跟风系数"
 };
 
+DIMENSION_META.R = "\u6218\u672f\u753b\u677f";
+DIMENSION_META.S = "\u7fa4\u804a\u6d3b\u8dc3";
+DIMENSION_META.V = "\u6295\u673a\u5fc3\u6001";
+
 function option(label, text, primary, secondary, dimensions) {
   return { label, text, primary, secondary, dimensions };
 }
@@ -70,7 +74,7 @@ const QUESTIONS = [
     part: "",
     title: "世界杯上看到一个让你激动的进球，你通常怎么表达？",
     options: [
-      option("A", "大喊一声，不管旁边有没有人", ["HYPE", "RUN!"], ["RAGE", "FLIP"], { E: 2, G: 1 }),
+      option("A", "大喊一声，不管旁边有没有人", ["HYPE", "RUN!"], ["RAGE", "Z-LATAN"], { E: 2, G: 1 }),
       option("B", "心里很激动，但表面不动声色", ["NPC", "OJBK"], ["TANK", "CHESS"], { E: -1, R: 1 }),
       option("C", "马上发群里：'快看这个球！'", ["W-L", "HUMBL-E"], ["YAPP", "TSUKK"], { S: 2, E: 1 }),
       option("D", "默默倒回去再看一遍", ["REPLAY", "xG"], ["CHESS", "NPC"], { R: 2, S: -1 })
@@ -85,7 +89,7 @@ const QUESTIONS = [
     options: [
       option("A", "谁进了球，比分多少就行", ["W", "WAIT"], ["TANK", "OJBK"], { R: 1, N: -1 }),
       option("B", "球队的整体打法和配合", ["VAR", "xG"], ["REPLAY", "LORE"], { R: 2, N: 1 }),
-      option("C", "精彩的个人技术和过人", ["FLIP", "BEAUT"], ["RUN!", "SCORP"], { N: 2, V: 1 }),
+      option("C", "精彩的个人技术和过人", ["Z-LATAN", "BEAUT"], ["RUN!", "SCORP"], { N: 2, V: 1 }),
       option("D", "场上的气氛和球员的情绪", ["HYPE", "RAGE"], ["MEME", "W-L"], { E: 2, G: 1 })
     ]
   },
@@ -98,7 +102,7 @@ const QUESTIONS = [
     options: [
       option("A", "'巴西到底输在哪？'", ["CHESS", "xG"], ["ROAST", "VAR"], { R: 2, G: 1 }),
       option("B", "'内马尔那个进球我以为稳了啊'", ["REPLAY", "ROAST"], ["WAIT", "SALT"], { N: 2, E: 1 }),
-      option("C", "点球大战太刺激了", ["FLIP", "RAGE"], ["HYPE", "MEME"], { V: 2, E: 1 }),
+      option("C", "点球大战太刺激了", ["Z-LATAN", "RAGE"], ["HYPE", "MEME"], { V: 2, E: 1 }),
       option("D", "巴西又要等下一届了，四年真快", ["LORE", "1100"], ["LEGEND", "HUMBL-E"], { N: 2, R: 1 })
     ]
   },
@@ -111,7 +115,7 @@ const QUESTIONS = [
     options: [
       option("A", "一个人安静看，不想被打扰", ["NPC", "OJBK"], ["REPLAY", "xG"], { S: -1, R: 1 }),
       option("B", "约几个朋友一起看，边看边聊", ["HYPE", "W-L"], ["TSUKK", "TANK"], { S: 1, E: 1 }),
-      option("C", "去球迷广场的大屏前，和陌生人一起喊", ["RUN!", "RAGE"], ["CHAOS", "FLIP"], { E: 2, V: 1 }),
+      option("C", "去球迷广场的大屏前，和陌生人一起喊", ["RUN!", "RAGE"], ["CHAOS", "Z-LATAN"], { E: 2, V: 1 }),
       option("D", "群里一起刷屏，消息比球赛还热闹", ["YAPP", "MEME"], ["SALT", "HUMBL-E"], { S: 2, G: 1 })
     ]
   },
@@ -136,7 +140,7 @@ const QUESTIONS = [
     title: "以下哪个世界杯瞬间最让你有代入感？",
     options: [
       option("A", "弱队爆冷赢球，赛后全国放假庆祝", ["W", "GOAT"], ["LORE", "1100"], { N: 2, G: 1 }),
-      option("B", "加时赛最后一分钟绝杀晋级", ["WAIT", "RAGE"], ["HYPE", "FLIP"], { V: 2, N: 1 }),
+      option("B", "加时赛最后一分钟绝杀晋级", ["WAIT", "RAGE"], ["HYPE", "Z-LATAN"], { V: 2, N: 1 }),
       option("C", "年轻球员一战成名，身价暴涨", ["HUMBL-E", "SALT"], ["RUN!", "MEME"], { N: 1, E: 1 }),
       option("D", "传奇球星最后一届世界杯的告别", ["1100", "LORE"], ["BEAUT", "W-L"], { N: 2, V: -1 })
     ]
@@ -149,7 +153,7 @@ const QUESTIONS = [
     title: "你觉得世界杯最大的魅力是什么？",
     options: [
       option("A", "四年一次的仪式感，错过要再等四年", ["1100", "LORE"], ["W", "BEAUT"], { N: 2, R: 1 }),
-      option("B", "什么都可能发生，强队也可能翻车", ["WAIT", "TANK"], ["FLIP", "RAGE"], { V: 2, N: 1 }),
+      option("B", "什么都可能发生，强队也可能翻车", ["WAIT", "TANK"], ["Z-LATAN", "RAGE"], { V: 2, N: 1 }),
       option("C", "全世界的人都在看同一件事", ["HYPE", "HUMBL-E"], ["YAPP", "W-L"], { S: 2, G: 1 }),
       option("D", "能见证历史性的时刻", ["GOAT", "W-L"], ["1100", "REPLAY"], { N: 2, R: 1 })
     ]
@@ -162,7 +166,7 @@ const QUESTIONS = [
     title: "世界杯决赛点球大战，你支持的队第三个罚，之前已经罚丢一个，你怎么想？",
     options: [
       option("A", "稳稳罚进就行，别玩花的", ["BEAUT", "CHESS"], ["OJBK", "W"], { V: -1, R: 1 }),
-      option("B", "越紧张越刺激，来吧", ["RAGE", "SCORP"], ["FLIP", "MEME"], { V: 2, E: 1 }),
+      option("B", "越紧张越刺激，来吧", ["RAGE", "SCORP"], ["Z-LATAN", "MEME"], { V: 2, E: 1 }),
       option("C", "紧张到不敢看，但又想看", ["WAIT", "MEME"], ["HYPE", "YAPP"], { V: 1, E: 1 }),
       option("D", "先看对方门将的站位再判断", ["NPC", "xG"], ["CHESS", "REPLAY"], { R: 2, V: -1 })
     ]
@@ -177,7 +181,7 @@ const QUESTIONS = [
       option("A", "太冒险了，先稳住再说", ["TANK", "CHESS"], ["OJBK", "xG"], { V: -1, R: 2 }),
       option("B", "必须搏，不搏没机会", ["RUN!", "OJBK"], ["RAGE", "HYPE"], { V: 2, E: 1 }),
       option("C", "看看效果，不行再调整", ["VAR", "ROAST"], ["TANK", "W"], { R: 1, V: -1 }),
-      option("D", "管他呢，反正好看就行", ["FLIP", "BEAUT"], ["MEME", "SCORP"], { V: 1, N: 1 })
+      option("D", "管他呢，反正好看就行", ["Z-LATAN", "BEAUT"], ["MEME", "SCORP"], { V: 1, N: 1 })
     ]
   },
   {
@@ -226,7 +230,7 @@ const QUESTIONS = [
     part: "",
     title: "以下哪种世界杯内容最能吸引你点进去？",
     options: [
-      option("A", "精彩进球集锦和比赛回顾", ["REPLAY", "BEAUT"], ["RUN!", "FLIP"], { N: 2, V: 1 }),
+      option("A", "精彩进球集锦和比赛回顾", ["REPLAY", "BEAUT"], ["RUN!", "Z-LATAN"], { N: 2, V: 1 }),
       option("B", "争议判罚和裁判讨论", ["VAR", "ROAST"], ["RAGE", "SALT"], { R: 1, G: 1 }),
       option("C", "球员八卦和场外花絮", ["TSUKK", "MEME"], ["SALT", "YAPP"], { S: 2, E: 1 }),
       option("D", "战术分析和数据解读", ["CHESS", "xG"], ["LORE", "NPC"], { R: 2, N: -1 })
@@ -255,7 +259,7 @@ const QUESTIONS = [
       option("A", "专业——能给我讲战术的", ["CHESS", "VAR"], ["REPLAY", "xG"], { R: 2, S: -1 }),
       option("B", "搞笑——能一起玩梗的", ["MEME", "YAPP"], ["TSUKK", "SALT"], { S: 2, E: 1 }),
       option("C", "忠诚——输了也能陪我骂的", ["TANK", "W-L"], ["SALT", "HYPE"], { G: 2, E: 1 }),
-      option("D", "激情——进球时能一起跳起来的", ["HYPE", "RUN!"], ["RAGE", "FLIP"], { E: 2, V: 1 })
+      option("D", "激情——进球时能一起跳起来的", ["HYPE", "RUN!"], ["RAGE", "Z-LATAN"], { E: 2, V: 1 })
     ]
   }
 ];
@@ -883,6 +887,29 @@ function loadImageAsset(src) {
   });
 }
 
+function canvasToBlob(canvas) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) {
+        resolve(blob);
+      } else {
+        reject(new Error("Canvas export returned empty blob."));
+      }
+    }, "image/png");
+  });
+}
+
+function triggerBlobDownload(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.download = filename;
+  link.href = url;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 function roundRectPath(ctx, x, y, width, height, radius) {
   const r = Math.min(radius, width / 2, height / 2);
   ctx.beginPath();
@@ -961,10 +988,17 @@ function drawContainImage(ctx, img, x, y, width, height) {
   ctx.drawImage(img, dx, dy, drawWidth, drawHeight);
 }
 
+function getDimensionGrade(value) {
+  if (value >= 85) return "A";
+  if (value >= 70) return "B";
+  if (value >= 50) return "C";
+  return "D";
+}
+
 function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
   const centerX = x + size / 2;
   const centerY = y + size / 2;
-  const maxRadius = size * 0.29;
+  const maxRadius = size * 0.25;
   const dimensionOrder = ["E", "R", "S", "N", "V", "G"];
   const angleStep = (Math.PI * 2) / dimensionOrder.length;
   const startAngle = -Math.PI / 2;
@@ -1043,7 +1077,7 @@ function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
     ctx.strokeStyle = "#fffaf2";
     ctx.stroke();
 
-    const labelRadius = maxRadius + 38;
+    const labelRadius = maxRadius + 34;
     const angle = startAngle + angleStep * idx;
     const lx = centerX + labelRadius * Math.cos(angle);
     const ly = centerY + labelRadius * Math.sin(angle);
@@ -1053,6 +1087,23 @@ function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
     const dim = dimensions.find((item) => item.code === point.code);
     ctx.fillStyle = "#1d2a2f";
     ctx.fillText(dim ? dim.name : point.code, lx, ly);
+
+    const gradeRadius = maxRadius + 8;
+    const gx = centerX + gradeRadius * Math.cos(angle);
+    const gy = centerY + gradeRadius * Math.sin(angle);
+    const grade = getDimensionGrade(point.value);
+    ctx.fillStyle = "#fffaf2";
+    ctx.beginPath();
+    ctx.arc(gx, gy, 14, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "rgba(29, 42, 47, 0.14)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillStyle = "#0f5b52";
+    ctx.font = "700 18px 'Space Grotesk', 'Noto Sans SC', sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(grade, gx, gy + 1);
   });
 
   ctx.restore();
@@ -1104,11 +1155,12 @@ async function saveResultImage() {
     fillRoundedRect(ctx, cardX, cardY, cardW, cardH, 42, "rgba(255, 251, 244, 0.9)");
     strokeRoundedRect(ctx, cardX, cardY, cardW, cardH, 42, "rgba(29, 42, 47, 0.08)", 2);
 
-    const logoMaxWidth = 250;
-    const logoScale = Math.min(logoMaxWidth / logoImg.width, 90 / logoImg.height);
+    const logoMaxWidth = 660;
+    const logoScale = Math.min(logoMaxWidth / logoImg.width, 240 / logoImg.height);
     const logoW = logoImg.width * logoScale;
     const logoH = logoImg.height * logoScale;
-    ctx.drawImage(logoImg, cardX + cardW - 56 - logoW, cardY + 46, logoW, logoH);
+    const logoCenterX = cardX + cardW - 250;
+    ctx.drawImage(logoImg, logoCenterX - logoW / 2, cardY + 38, logoW, logoH);
 
     ctx.fillStyle = "#54656b";
     ctx.font = "500 34px 'Noto Sans SC', sans-serif";
@@ -1125,10 +1177,10 @@ async function saveResultImage() {
     ctx.fillText(result.winner.displayCode || result.winner.code, cardX + 70, cardY + 242);
 
     const portraitBox = {
-      x: cardX + 60,
+      x: cardX + 110,
       y: cardY + 330,
-      w: 760,
-      h: 980
+      w: cardW - 220,
+      h: 760
     };
     fillRoundedRect(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34, "linear-gradient");
     const portraitGradient = ctx.createLinearGradient(portraitBox.x, portraitBox.y, portraitBox.x, portraitBox.y + portraitBox.h);
@@ -1140,62 +1192,57 @@ async function saveResultImage() {
     ctx.save();
     roundRectPath(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34);
     ctx.clip();
-    drawContainImage(ctx, portraitImg, portraitBox.x + 10, portraitBox.y + 20, portraitBox.w - 20, portraitBox.h - 70);
+    drawContainImage(ctx, portraitImg, portraitBox.x + 24, portraitBox.y + 24, portraitBox.w - 48, portraitBox.h - 96);
     ctx.restore();
 
     if (result.winner.quote) {
-      fillRoundedRect(ctx, portraitBox.x + 38, portraitBox.y + portraitBox.h - 138, portraitBox.w - 76, 88, 22, "rgba(255, 248, 240, 0.92)");
-      strokeRoundedRect(ctx, portraitBox.x + 38, portraitBox.y + portraitBox.h - 138, portraitBox.w - 76, 88, 22, "rgba(213, 111, 42, 0.18)", 2);
       ctx.fillStyle = "#784f34";
-      ctx.font = "600 28px 'Noto Sans SC', sans-serif";
+      ctx.font = "600 32px 'Noto Sans SC', sans-serif";
       ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText(`"${result.winner.quote}"`, portraitBox.x + portraitBox.w / 2, portraitBox.y + portraitBox.h - 94);
+      ctx.textBaseline = "alphabetic";
+      ctx.fillText(`"${result.winner.quote}"`, portraitBox.x + portraitBox.w / 2, portraitBox.y + portraitBox.h - 28);
     }
 
-    const radarBox = {
-      x: cardX + 870,
-      y: cardY + 930,
-      w: 390,
-      h: 360
-    };
-    fillRoundedRect(ctx, radarBox.x, radarBox.y, radarBox.w, radarBox.h, 30, "rgba(249, 245, 237, 0.96)");
-    strokeRoundedRect(ctx, radarBox.x, radarBox.y, radarBox.w, radarBox.h, 30, "rgba(29, 42, 47, 0.08)", 2);
-    ctx.fillStyle = "#1d2a2f";
-    ctx.font = "700 28px 'Noto Sans SC', sans-serif";
-    ctx.textAlign = "left";
-    ctx.textBaseline = "top";
-    ctx.fillText("看球搭子面板", radarBox.x + 26, radarBox.y + 22);
-    drawResultRadarToCanvas(ctx, radarBox.x + 20, radarBox.y + 54, 320, result.dimensions);
-
     ctx.fillStyle = "#4c5d63";
-    ctx.font = "500 28px 'Noto Sans SC', sans-serif";
-    ctx.textAlign = "left";
+    ctx.font = "500 30px 'Noto Sans SC', sans-serif";
+    ctx.textAlign = "center";
     ctx.textBaseline = "top";
-    drawWrappedText(
+    const summaryBottomY = drawWrappedText(
       ctx,
       result.winner.shortLabel,
-      cardX + 870,
-      cardY + 360,
-      310,
-      42
+      cardX + cardW / 2,
+      portraitBox.y + portraitBox.h + 44,
+      860,
+      44
     );
 
-    const linkY = cardY + cardH - 92;
+    const radarBox = {
+      x: cardX + 210,
+      y: summaryBottomY + 24,
+      w: cardW - 420,
+      h: 300
+    };
+    drawResultRadarToCanvas(ctx, radarBox.x + (radarBox.w - 330) / 2, radarBox.y, 330, result.dimensions);
+
+    const linkY = cardY + cardH - 84;
     ctx.fillStyle = "#0f5b52";
-    ctx.font = "600 28px 'Noto Sans SC', sans-serif";
+    ctx.font = "600 26px 'Noto Sans SC', sans-serif";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
     ctx.fillText("访问MatchMate，认识你的AI看球搭子！", cardX + 70, linkY);
     ctx.fillStyle = "#617076";
-    ctx.font = "500 24px 'Space Grotesk', 'Noto Sans SC', sans-serif";
-    ctx.fillText("www.matchmate.tv", cardX + 70, linkY + 42);
+    ctx.font = "500 22px 'Space Grotesk', 'Noto Sans SC', sans-serif";
+    ctx.fillText("www.matchmate.tv", cardX + 70, linkY + 38);
 
-    const link = document.createElement("a");
     const fileCode = String(result.winner.code || "result").toLowerCase().replace(/[^a-z0-9!-]+/g, "-");
-    link.download = `${fileCode}-result-card.png`;
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+    const blob = await canvasToBlob(canvas);
+    triggerBlobDownload(blob, `${fileCode}-result-card.png`);
   } catch (error) {
     console.error(error);
+    const hint = window.location.protocol === "file:"
+      ? "\n当前像是直接用 file:// 打开的页面。请改用本地服务器预览再试。"
+      : "";
+    window.alert(`保存结果图案失败，请重试或打开浏览器控制台查看错误。${hint}`);
   } finally {
     if (button) {
       button.disabled = false;

@@ -315,7 +315,7 @@ body::after {
   height: 100%;
   width: 0;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  background: linear-gradient(90deg, #006847 0%, #d52b1e 40%, #3c3b6e 72%, #3c3b6e 100%);
   transition: width 220ms ease;
 }
 
@@ -440,6 +440,14 @@ body::after {
   background: transparent;
   color: var(--ink);
   border: 1px solid var(--line);
+}
+
+#save-image-button,
+.save-image-button {
+  background: linear-gradient(135deg, #1f4b99, #12336f);
+  color: #f8fbff;
+  border: 1px solid rgba(18, 51, 111, 0.28);
+  box-shadow: 0 10px 24px rgba(18, 51, 111, 0.18);
 }
 
 .primary-button:disabled {
