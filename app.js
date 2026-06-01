@@ -1,39 +1,39 @@
 const ROLE_ORDER = [
-  "RAGE", "NPC", "TANK", "WAIT", "CHESS", "RUN!", "Z-LATAN",
-  "GOAT", "xG", "REPLAY", "LORE", "MEME", "YAPP",
-  "HYPE", "SALT", "OJBK", "ROAST", "HUMBL-E", "W-L", "TSUKK",
-  "BEAUT", "W", "1100", "VAR",
-  "LEGEND", "CHAOS", "SCORP"
+  "MOU", "Tintin", "Ma-Kui", "le-fu", "PEP", "8-PE", "Z-LATAN",
+  "GOAT", "DAT-A", "WAN-SUI", "cctv-he", "Bot-tle", "LAO-8",
+  "CN-12", "FAN-ZY", "BURGER", "MA-DING", "STAY-H", "TUI-Q", "HEI-HEI",
+  "NEY-MAR", "TEN-GOD", "1100", "CARD-MA",
+  "LEGEND", "ZI-DANE", "DINHO"
 ];
 
 const ROLES = {
-  "RAGE":   { code: "RAGE",   title: "狂人",     group: "看球反应组", tag: "嘴上骂裁判手上砸遥控器",     shortLabel: "情绪来得快去得也快，骂完三分钟又在群里发哈哈哈哈", quote: "我就是特殊的那个", image: "./images_new/rage.png" },
-  "NPC":    { code: "NPC",    title: "沉默者",   group: "看球反应组", tag: "全场最安静但脑子里在跑弹幕",   shortLabel: "不说话不代表没想法，赛后能给你复盘每个细节", quote: "Let Me Talk", image: "./images_new/npc.png" },
-  "TANK":   { code: "TANK",   title: "坦克",     group: "看球反应组", tag: "落后三球还在发还有机会",       shortLabel: "逆风局的精神支柱（自封的），被骂也不改", quote: "图赫尔是个外行", image: "./images_new/tank.png" },
-  "WAIT":   { code: "WAIT",   title: "等等党",   group: "看球反应组", tag: "等一个进球等到花都谢了",       shortLabel: "全场就等那一脚，进了一起飞没进原地去世", quote: "韩国可以拿下，晋级不成问题", image: "./images_new/wait.png" },
-  "CHESS":  { code: "CHESS",  title: "下棋人",   group: "看球反应组", tag: "看球时自动脑补战术板",         shortLabel: "这个球应该分边是他的口头禅，看球像在下棋", quote: "Nobody Talk!", image: "./images_new/chess.png" },
-  "RUN!":   { code: "RUN!",   title: "起飞型",   group: "看球反应组", tag: "边路一过人他就站起来",         shortLabel: "看球时坐不住，进球会从沙发上弹起来", quote: "这是我的时代？", image: "./images_new/run.png" },
+  "MOU":   { code: "MOU",   title: "狂人",     group: "看球反应组", tag: "嘴上骂裁判手上砸遥控器",     shortLabel: "情绪来得快去得也快，骂完三分钟又在群里发哈哈哈哈", quote: "我就是特殊的那个", image: "./images_new/rage.png" },
+  "Tintin":    { code: "Tintin",    title: "丁丁",   group: "看球反应组", tag: "全场最安静但脑子里在跑弹幕",   shortLabel: "不说话不代表没想法，赛后能给你复盘每个细节", quote: "Let Me Talk", image: "./images_new/npc.png" },
+  "Ma-Kui":   { code: "Ma-Kui",   title: "航母",     group: "看球反应组", tag: "落后三球还在发还有机会",       shortLabel: "逆风局的精神支柱（自封的），被骂也不改", quote: "图赫尔是个外行", image: "./images_new/tank.png" },
+  "le-fu":   { code: "le-fu",   title: "勒夫",   group: "看球反应组", tag: "等一个进球等到花都谢了",       shortLabel: "全场就等那一脚，进了一起飞没进原地去世", quote: "韩国可以拿下，晋级不成问题", image: "./images_new/wait.png" },
+  "PEP":  { code: "PEP",  title: "瓜帅",   group: "看球反应组", tag: "看球时自动脑补战术板",         shortLabel: "这个球应该分边是他的口头禅，看球像在下棋", quote: "Nobody Talk!", image: "./images_new/chess.png" },
+  "8-PE":   { code: "8-PE",   title: "姆总",   group: "看球反应组", tag: "边路一过人他就站起来",         shortLabel: "看球时坐不住，进球会从沙发上弹起来", quote: "这是我的时代？", image: "./images_new/run.png" },
   "Z-LATAN": { code: "Z-LATAN", title: "奉先",   group: "看球反应组", tag: "比赛可以输但花活不能少",       shortLabel: "0-4落后还在等一个倒钩，觉得足球是艺术不是战争", quote: "世界上只有两种人：兹拉坦和其他人", image: "./images_new/z-latan.png" },
   "GOAT":   { code: "GOAT",   title: "山羊",     group: "赛后话题组", tag: "聊着聊着就开始排历史前十",     shortLabel: "任何话题都能拐到那两位呢，永恒辩论发起者", quote: "永恒的辩题", image: "./images_new/goat_2.png", imageAlt: "./images_new/goat.png", imageAltChance: 0.15 },
-  "xG":     { code: "xG",     title: "数据怪",   group: "赛后话题组", tag: "赛后第一件事打开MatchMate看数据", shortLabel: "用MatchMate的评分说服你那个进球其实是运气", quote: "这个数据很有意思", image: "./images_new/xg.png" },
-  "REPLAY": { code: "REPLAY", title: "回放侠",   group: "赛后话题组", tag: "你再看一遍这个球",             shortLabel: "喜欢反复看关键画面，能从一个犯规里看出三层含义", quote: "意大利万岁！", image: "./images_new/replay.png" },
-  "LORE":   { code: "LORE",   title: "考据党",   group: "赛后话题组", tag: "聊球自动附赠球员生平",         shortLabel: "你知道他当年在乌迪内斯的时候能把任何球员聊成传记", quote: "足球就是足球", image: "./images_new/lore.png" },
-  "MEME":   { code: "MEME",   title: "梗王",     group: "赛后话题组", tag: "比赛还没结束梗图已经做好了",   shortLabel: "看球不是为了看球，是为了第一时间截到能发群的表情包", quote: "我就是我", image: "./images_new/meme.png" },
-  "YAPP":   { code: "YAPP",   title: "碎嘴子",   group: "赛后话题组", tag: "赛后能聊到凌晨三点",           shortLabel: "别人说睡了他还能再发二十条语音，看球是社交不是运动", quote: "我跟你说啊", image: "./images_new/yapp.png" },
-  "HYPE":   { code: "HYPE",   title: "气氛组",   group: "搭子风格组", tag: "一个人就是一支啦啦队",         shortLabel: "和他看球永远不会冷场，进球时比球员还激动", quote: "下一场一定赢", image: "./images_new/hype.png" },
-  "SALT":   { code: "SALT",   title: "老咸鱼",   group: "搭子风格组", tag: "输了赢了都骂",                 shortLabel: "嘴上永远不满意，但每场都不落，是最忠实的黑粉", quote: "脸都不要了", image: "./images_new/salt.png" },
-  "OJBK":   { code: "OJBK",   title: "点头侠",   group: "搭子风格组", tag: "对对对你说得对",               shortLabel: "擅长附和，让每个人都觉得自己说得有道理", quote: "大家都很好", image: "./images_new/ojbk.png" },
-  "ROAST":  { code: "ROAST",  title: "毒舌",     group: "搭子风格组", tag: "该说的难听话一句不少",         shortLabel: "不怕得罪人，觉得真话比好话有用，骂球员从不手软", quote: "真话不好听", image: "./images_new/roast.png" },
-  "HUMBL-E": { code: "HUMBL-E", title: "谦逊者",   group: "搭子风格组", tag: "进了球也不庆祝，发个STAY HUMBLE就完事", shortLabel: "进球后比谁都平静，但赛后默默把数据截图发群里", quote: "STAY HUMBLE", image: "./images_new/humbl-e.png" },
-  "W-L":    { code: "W-L",    title: "陪骂侠",   group: "搭子风格组", tag: "输了一起骂赢了一起吹",         shortLabel: "情绪价值拉满的看球搭子，你需要什么他就给什么", quote: "我xxx，退钱！", image: "./images_new/wl.png" },
-  "TSUKK":  { code: "TSUKK",  title: "捧哏",     group: "搭子风格组", tag: "你讲他接你冷他暖",             shortLabel: "永远知道什么时候该接梗什么时候该捧场，气氛永远到位", quote: "嘿嘿", image: "./images_new/tsukk.png" },
-  "BEAUT":  { code: "BEAUT",  title: "漂亮主义", group: "足球哲学组", tag: "宁可输也不能踢得丑",           shortLabel: "对丑陋赢球的容忍度为零，看球审美至上", quote: "足球是艺术", image: "./images_new/beaut.png" },
-  "W":      { code: "W",      title: "赢学家",   group: "足球哲学组", tag: "能赢就行要什么自行车",         shortLabel: "结果导向，过程不重要，3分到手就是好球", quote: "我们踢得不错", image: "./images_new/w.png" },
-  "1100":   { code: "1100",   displayCode: "1100(宋)",   title: "怀旧派",   group: "足球哲学组", tag: "以前的足球才叫足球",           shortLabel: "觉得现在什么都差点意思，聊球必提以前", quote: "我刚开始看足球的那个时候...", image: "./images_new/1100.png" },
-  "VAR":    { code: "VAR",    title: "规则怪",   group: "足球哲学组", tag: "争议第一反应翻规则手册",       shortLabel: "看VAR比看进球认真，觉得公平是足球的底线", quote: "规则就是规则", image: "./images_new/var.png" },
+  "DAT-A":     { code: "DAT-A",     title: "詹指",   group: "赛后话题组", tag: "赛后第一件事打开MatchMate看数据", shortLabel: "用MatchMate的评分说服你那个进球其实是运气", quote: "这个数据很有意思", image: "./images_new/xg.png" },
+  "WAN-SUI": { code: "WAN-SUI", title: "健翔",   group: "赛后话题组", tag: "你再看一遍这个球",             shortLabel: "喜欢反复看关键画面，能从一个犯规里看出三层含义", quote: "意大利万岁！", image: "./images_new/replay.png" },
+  "cctv-he":   { code: "cctv-he",   title: "贺·罗纳尔多·炜",   group: "赛后话题组", tag: "聊球自动附赠球员生平",         shortLabel: "你知道他当年在乌迪内斯的时候能把任何球员聊成传记", quote: "足球就是足球", image: "./images_new/lore.png" },
+  "Bot-tle":   { code: "Bot-tle",   title: "瓶子哥",     group: "赛后话题组", tag: "比赛还没结束梗图已经做好了",   shortLabel: "看球不是为了看球，是为了第一时间截到能发群的表情包", quote: "我就是我", image: "./images_new/meme.png" },
+  "LAO-8":   { code: "LAO-8",   title: "李老八",   group: "赛后话题组", tag: "赛后能聊到凌晨三点",           shortLabel: "别人说睡了他还能再发二十条语音，看球是社交不是运动", quote: "我跟你说啊", image: "./images_new/yapp.png" },
+  "CN-12":   { code: "CN-12",   title: "第12人",   group: "搭子风格组", tag: "一个人就是一支啦啦队",         shortLabel: "和他看球永远不会冷场，进球时比球员还激动", quote: "下一场一定赢", image: "./images_new/hype.png" },
+  "FAN-ZY":   { code: "FAN-ZY",   title: "范将军",   group: "搭子风格组", tag: "输了赢了都骂",                 shortLabel: "嘴上永远不满意，但每场都不落，是最忠实的黑粉", quote: "脸都不要了", image: "./images_new/salt.png" },
+  "BURGER":   { code: "BURGER",   title: "汉堡王",   group: "搭子风格组", tag: "对对对你说得对",               shortLabel: "擅长附和，让每个人都觉得自己说得有道理", quote: "大家都很好", image: "./images_new/ojbk.png" },
+  "MA-DING":  { code: "MA-DING",  title: "大马丁",     group: "搭子风格组", tag: "该说的难听话一句不少",         shortLabel: "不怕得罪人，觉得真话比好话有用，骂球员从不手软", quote: "真话不好听", image: "./images_new/roast.png" },
+  "STAY-H": { code: "STAY-H", title: "哈宝",   group: "搭子风格组", tag: "进了球也不庆祝，发个STAY HUMBLE就完事", shortLabel: "进球后比谁都平静，但赛后默默把数据截图发群里", quote: "STAY HUMBLE", image: "./images_new/humbl-e.png" },
+  "TUI-Q":    { code: "TUI-Q",    title: "退钱哥",   group: "搭子风格组", tag: "输了一起骂赢了一起吹",         shortLabel: "情绪价值拉满的看球搭子，你需要什么他就给什么", quote: "我xxx，退钱！", image: "./images_new/wl.png" },
+  "HEI-HEI":  { code: "HEI-HEI",  title: "张嘿嘿",     group: "搭子风格组", tag: "你讲他接你冷他暖",             shortLabel: "永远知道什么时候该接梗什么时候该捧场，气氛永远到位", quote: "嘿嘿", image: "./images_new/tsukk.png" },
+  "NEY-MAR":  { code: "NEY-MAR",  title: "内马尔", group: "足球哲学组", tag: "宁可输也不能踢得丑",           shortLabel: "对丑陋赢球的容忍度为零，看球审美至上", quote: "足球是艺术", image: "./images_new/beaut.png" },
+  "TEN-GOD":      { code: "TEN-GOD",      title: "滕圣",   group: "足球哲学组", tag: "能赢就行要什么自行车",         shortLabel: "结果导向，过程不重要，3分到手就是好球", quote: "我们踢得不错", image: "./images_new/w.png" },
+  "1100":   { code: "1100",   displayCode: "1100(宋)",   title: "高俅",   group: "足球哲学组", tag: "以前的足球才叫足球",           shortLabel: "觉得现在什么都差点意思，聊球必提以前", quote: "我刚开始看足球的那个时候...", image: "./images_new/1100.png" },
+  "CARD-MA":    { code: "CARD-MA",    title: "卡牌大师",   group: "足球哲学组", tag: "争议第一反应翻规则手册",       shortLabel: "看VAR比看进球认真，觉得公平是足球的底线", quote: "规则就是规则", image: "./images_new/var.png" },
   "LEGEND": { code: "LEGEND", title: "传奇",     group: "特殊人格",   tag: "被时间封印的名字",             shortLabel: "总能在老比赛里找到新东西，聊球自带历史纵深", quote: "足球之神有两个名字", image: "./images_new/legend.png" },
-  "CHAOS":  { code: "CHAOS",  title: "混沌",     group: "特殊人格",   tag: "越乱越来劲",                   shortLabel: "别人看球怕意外，他看球就盼意外", quote: "Why Always Me", image: "./images_new/chaos.png" },
-  "SCORP":  { code: "SCORP",  title: "蝎子",     group: "特殊人格",   tag: "稳定之外也要留给传奇空间",     shortLabel: "正经分析他也会，但他更愿意等那个不可能的瞬间", quote: "规则是用来打破的", image: "./images_new/scorp.png" }
+  "ZI-DANE":  { code: "ZI-DANE",  title: "齐祖",     group: "特殊人格",   tag: "越乱越来劲",                   shortLabel: "别人看球怕意外，他看球就盼意外", quote: "Why Always Me", image: "./images_new/chaos.png" },
+  "DINHO":  { code: "DINHO",  title: "小罗",     group: "特殊人格",   tag: "稳定之外也要留给传奇空间",     shortLabel: "正经分析他也会，但他更愿意等那个不可能的瞬间", quote: "规则是用来打破的", image: "./images_new/scorp.png" }
 };
 
 const DIMENSION_META = {
@@ -61,10 +61,10 @@ const QUESTIONS = [
     part: "",
     title: "2022卡塔尔世界杯决赛，阿根廷被法国97秒连扳两球追平，你的第一反应？",
     options: [
-      option("A", "直接站起来骂出声，差点把手机摔了", ["RAGE", "HYPE"], ["MEME", "RUN!"], { E: 2, V: 1 }),
-      option("B", "心里一沉，但没说什么，默默继续看", ["NPC", "TANK"], ["OJBK", "CHESS"], { E: -1, R: 1 }),
-      option("C", "发了一条朋友圈：'我不看了'，但其实还在看", ["SALT", "MEME"], ["YAPP", "ROAST"], { E: 1, S: 1 }),
-      option("D", "虽然难受，但已经开始想'这场决赛可以聊一辈子'", ["YAPP", "LORE"], ["GOAT", "W-L"], { N: 2, S: 1 })
+      option("A", "直接站起来骂出声，差点把手机摔了", ["MOU", "CN-12"], ["Bot-tle", "8-PE"], { E: 2, V: 1 }),
+      option("B", "心里一沉，但没说什么，默默继续看", ["Tintin", "Ma-Kui"], ["BURGER", "PEP"], { E: -1, R: 1 }),
+      option("C", "发了一条朋友圈：'我不看了'，但其实还在看", ["FAN-ZY", "Bot-tle"], ["LAO-8", "MA-DING"], { E: 1, S: 1 }),
+      option("D", "虽然难受，但已经开始想'这场决赛可以聊一辈子'", ["LAO-8", "cctv-he"], ["GOAT", "TUI-Q"], { N: 2, S: 1 })
     ]
   },
   {
@@ -74,10 +74,10 @@ const QUESTIONS = [
     part: "",
     title: "世界杯上看到一个让你激动的进球，你通常怎么表达？",
     options: [
-      option("A", "大喊一声，不管旁边有没有人", ["HYPE", "RUN!"], ["RAGE", "Z-LATAN"], { E: 2, G: 1 }),
-      option("B", "心里很激动，但表面不动声色", ["NPC", "OJBK"], ["TANK", "CHESS"], { E: -1, R: 1 }),
-      option("C", "马上发群里：'快看这个球！'", ["W-L", "HUMBL-E"], ["YAPP", "TSUKK"], { S: 2, E: 1 }),
-      option("D", "默默倒回去再看一遍", ["REPLAY", "xG"], ["CHESS", "NPC"], { R: 2, S: -1 })
+      option("A", "大喊一声，不管旁边有没有人", ["CN-12", "8-PE"], ["MOU", "Z-LATAN"], { E: 2, G: 1 }),
+      option("B", "心里很激动，但表面不动声色", ["Tintin", "BURGER"], ["Ma-Kui", "PEP"], { E: -1, R: 1 }),
+      option("C", "马上发群里：'快看这个球！'", ["TUI-Q", "STAY-H"], ["LAO-8", "HEI-HEI"], { S: 2, E: 1 }),
+      option("D", "默默倒回去再看一遍", ["WAN-SUI", "DAT-A"], ["PEP", "Tintin"], { R: 2, S: -1 })
     ]
   },
   {
@@ -87,10 +87,10 @@ const QUESTIONS = [
     part: "",
     title: "看世界杯比赛时，你更关注什么？",
     options: [
-      option("A", "谁进了球，比分多少就行", ["W", "WAIT"], ["TANK", "OJBK"], { R: 1, N: -1 }),
-      option("B", "球队的整体打法和配合", ["VAR", "xG"], ["REPLAY", "LORE"], { R: 2, N: 1 }),
-      option("C", "精彩的个人技术和过人", ["Z-LATAN", "BEAUT"], ["RUN!", "SCORP"], { N: 2, V: 1 }),
-      option("D", "场上的气氛和球员的情绪", ["HYPE", "RAGE"], ["MEME", "W-L"], { E: 2, G: 1 })
+      option("A", "谁进了球，比分多少就行", ["TEN-GOD", "le-fu"], ["Ma-Kui", "BURGER"], { R: 1, N: -1 }),
+      option("B", "球队的整体打法和配合", ["CARD-MA", "DAT-A"], ["WAN-SUI", "cctv-he"], { R: 2, N: 1 }),
+      option("C", "精彩的个人技术和过人", ["Z-LATAN", "NEY-MAR"], ["8-PE", "DINHO"], { N: 2, V: 1 }),
+      option("D", "场上的气氛和球员的情绪", ["CN-12", "MOU"], ["Bot-tle", "TUI-Q"], { E: 2, G: 1 })
     ]
   },
   {
@@ -100,10 +100,10 @@ const QUESTIONS = [
     part: "",
     title: "2022卡塔尔世界杯巴西被克罗地亚淘汰出局，赛后你更想聊什么？",
     options: [
-      option("A", "'巴西到底输在哪？'", ["CHESS", "xG"], ["ROAST", "VAR"], { R: 2, G: 1 }),
-      option("B", "'内马尔那个进球我以为稳了啊'", ["REPLAY", "ROAST"], ["WAIT", "SALT"], { N: 2, E: 1 }),
-      option("C", "点球大战太刺激了", ["Z-LATAN", "RAGE"], ["HYPE", "MEME"], { V: 2, E: 1 }),
-      option("D", "巴西又要等下一届了，四年真快", ["LORE", "1100"], ["LEGEND", "HUMBL-E"], { N: 2, R: 1 })
+      option("A", "'巴西到底输在哪？'", ["PEP", "DAT-A"], ["MA-DING", "CARD-MA"], { R: 2, G: 1 }),
+      option("B", "'内马尔那个进球我以为稳了啊'", ["WAN-SUI", "MA-DING"], ["le-fu", "FAN-ZY"], { N: 2, E: 1 }),
+      option("C", "点球大战太刺激了", ["Z-LATAN", "MOU"], ["CN-12", "Bot-tle"], { V: 2, E: 1 }),
+      option("D", "巴西又要等下一届了，四年真快", ["cctv-he", "1100"], ["LEGEND", "STAY-H"], { N: 2, R: 1 })
     ]
   },
   {
@@ -113,10 +113,10 @@ const QUESTIONS = [
     part: "",
     title: "世界杯期间你更喜欢怎么看球？",
     options: [
-      option("A", "一个人安静看，不想被打扰", ["NPC", "OJBK"], ["REPLAY", "xG"], { S: -1, R: 1 }),
-      option("B", "约几个朋友一起看，边看边聊", ["HYPE", "W-L"], ["TSUKK", "TANK"], { S: 1, E: 1 }),
-      option("C", "去球迷广场的大屏前，和陌生人一起喊", ["RUN!", "RAGE"], ["CHAOS", "Z-LATAN"], { E: 2, V: 1 }),
-      option("D", "群里一起刷屏，消息比球赛还热闹", ["YAPP", "MEME"], ["SALT", "HUMBL-E"], { S: 2, G: 1 })
+      option("A", "一个人安静看，不想被打扰", ["Tintin", "BURGER"], ["WAN-SUI", "DAT-A"], { S: -1, R: 1 }),
+      option("B", "约几个朋友一起看，边看边聊", ["CN-12", "TUI-Q"], ["HEI-HEI", "Ma-Kui"], { S: 1, E: 1 }),
+      option("C", "去球迷广场的大屏前，和陌生人一起喊", ["8-PE", "MOU"], ["ZI-DANE", "Z-LATAN"], { E: 2, V: 1 }),
+      option("D", "群里一起刷屏，消息比球赛还热闹", ["LAO-8", "Bot-tle"], ["FAN-ZY", "STAY-H"], { S: 2, G: 1 })
     ]
   },
   {
@@ -126,10 +126,10 @@ const QUESTIONS = [
     part: "",
     title: "2022卡塔尔世界杯梅西夺冠后，你第一件事做什么？",
     options: [
-      option("A", "自己消化一下，发个朋友圈", ["NPC", "TANK"], ["OJBK", "BEAUT"], { S: -1, N: 1 }),
-      option("B", "打开群聊开聊，消息已经99+了", ["YAPP", "W-L"], ["HYPE", "SALT"], { S: 2, E: 1 }),
-      option("C", "去MatchMate上看梅西的决赛评分", ["xG", "REPLAY"], ["CHESS", "VAR"], { R: 2, S: -1 }),
-      option("D", "给朋友安利'你必须看这场回放'", ["HUMBL-E", "TSUKK"], ["LORE", "W"], { S: 1, N: 1 })
+      option("A", "自己消化一下，发个朋友圈", ["Tintin", "Ma-Kui"], ["BURGER", "NEY-MAR"], { S: -1, N: 1 }),
+      option("B", "打开群聊开聊，消息已经99+了", ["LAO-8", "TUI-Q"], ["CN-12", "FAN-ZY"], { S: 2, E: 1 }),
+      option("C", "去MatchMate上看梅西的决赛评分", ["DAT-A", "WAN-SUI"], ["PEP", "CARD-MA"], { R: 2, S: -1 }),
+      option("D", "给朋友安利'你必须看这场回放'", ["STAY-H", "HEI-HEI"], ["cctv-he", "TEN-GOD"], { S: 1, N: 1 })
     ]
   },
   {
@@ -139,10 +139,10 @@ const QUESTIONS = [
     part: "",
     title: "以下哪个世界杯瞬间最让你有代入感？",
     options: [
-      option("A", "弱队爆冷赢球，赛后全国放假庆祝", ["W", "GOAT"], ["LORE", "1100"], { N: 2, G: 1 }),
-      option("B", "加时赛最后一分钟绝杀晋级", ["WAIT", "RAGE"], ["HYPE", "Z-LATAN"], { V: 2, N: 1 }),
-      option("C", "年轻球员一战成名，身价暴涨", ["HUMBL-E", "SALT"], ["RUN!", "MEME"], { N: 1, E: 1 }),
-      option("D", "传奇球星最后一届世界杯的告别", ["1100", "LORE"], ["BEAUT", "W-L"], { N: 2, V: -1 })
+      option("A", "弱队爆冷赢球，赛后全国放假庆祝", ["TEN-GOD", "GOAT"], ["cctv-he", "1100"], { N: 2, G: 1 }),
+      option("B", "加时赛最后一分钟绝杀晋级", ["le-fu", "MOU"], ["CN-12", "Z-LATAN"], { V: 2, N: 1 }),
+      option("C", "年轻球员一战成名，身价暴涨", ["STAY-H", "FAN-ZY"], ["8-PE", "Bot-tle"], { N: 1, E: 1 }),
+      option("D", "传奇球星最后一届世界杯的告别", ["1100", "cctv-he"], ["NEY-MAR", "TUI-Q"], { N: 2, V: -1 })
     ]
   },
   {
@@ -152,10 +152,10 @@ const QUESTIONS = [
     part: "",
     title: "你觉得世界杯最大的魅力是什么？",
     options: [
-      option("A", "四年一次的仪式感，错过要再等四年", ["1100", "LORE"], ["W", "BEAUT"], { N: 2, R: 1 }),
-      option("B", "什么都可能发生，强队也可能翻车", ["WAIT", "TANK"], ["Z-LATAN", "RAGE"], { V: 2, N: 1 }),
-      option("C", "全世界的人都在看同一件事", ["HYPE", "HUMBL-E"], ["YAPP", "W-L"], { S: 2, G: 1 }),
-      option("D", "能见证历史性的时刻", ["GOAT", "W-L"], ["1100", "REPLAY"], { N: 2, R: 1 })
+      option("A", "四年一次的仪式感，错过要再等四年", ["1100", "cctv-he"], ["TEN-GOD", "NEY-MAR"], { N: 2, R: 1 }),
+      option("B", "什么都可能发生，强队也可能翻车", ["le-fu", "Ma-Kui"], ["Z-LATAN", "MOU"], { V: 2, N: 1 }),
+      option("C", "全世界的人都在看同一件事", ["CN-12", "STAY-H"], ["LAO-8", "TUI-Q"], { S: 2, G: 1 }),
+      option("D", "能见证历史性的时刻", ["GOAT", "TUI-Q"], ["1100", "WAN-SUI"], { N: 2, R: 1 })
     ]
   },
   {
@@ -165,10 +165,10 @@ const QUESTIONS = [
     part: "",
     title: "世界杯决赛点球大战，你支持的队第三个罚，之前已经罚丢一个，你怎么想？",
     options: [
-      option("A", "稳稳罚进就行，别玩花的", ["BEAUT", "CHESS"], ["OJBK", "W"], { V: -1, R: 1 }),
-      option("B", "越紧张越刺激，来吧", ["RAGE", "SCORP"], ["Z-LATAN", "MEME"], { V: 2, E: 1 }),
-      option("C", "紧张到不敢看，但又想看", ["WAIT", "MEME"], ["HYPE", "YAPP"], { V: 1, E: 1 }),
-      option("D", "先看对方门将的站位再判断", ["NPC", "xG"], ["CHESS", "REPLAY"], { R: 2, V: -1 })
+      option("A", "稳稳罚进就行，别玩花的", ["NEY-MAR", "PEP"], ["BURGER", "TEN-GOD"], { V: -1, R: 1 }),
+      option("B", "越紧张越刺激，来吧", ["MOU", "DINHO"], ["Z-LATAN", "Bot-tle"], { V: 2, E: 1 }),
+      option("C", "紧张到不敢看，但又想看", ["le-fu", "Bot-tle"], ["CN-12", "LAO-8"], { V: 1, E: 1 }),
+      option("D", "先看对方门将的站位再判断", ["Tintin", "DAT-A"], ["PEP", "WAN-SUI"], { R: 2, V: -1 })
     ]
   },
   {
@@ -178,10 +178,10 @@ const QUESTIONS = [
     part: "",
     title: "世界杯淘汰赛你支持的队落后一球，教练换上三个前锋搏命，你觉得？",
     options: [
-      option("A", "太冒险了，先稳住再说", ["TANK", "CHESS"], ["OJBK", "xG"], { V: -1, R: 2 }),
-      option("B", "必须搏，不搏没机会", ["RUN!", "OJBK"], ["RAGE", "HYPE"], { V: 2, E: 1 }),
-      option("C", "看看效果，不行再调整", ["VAR", "ROAST"], ["TANK", "W"], { R: 1, V: -1 }),
-      option("D", "管他呢，反正好看就行", ["Z-LATAN", "BEAUT"], ["MEME", "SCORP"], { V: 1, N: 1 })
+      option("A", "太冒险了，先稳住再说", ["Ma-Kui", "PEP"], ["BURGER", "DAT-A"], { V: -1, R: 2 }),
+      option("B", "必须搏，不搏没机会", ["8-PE", "BURGER"], ["MOU", "CN-12"], { V: 2, E: 1 }),
+      option("C", "看看效果，不行再调整", ["CARD-MA", "MA-DING"], ["Ma-Kui", "TEN-GOD"], { R: 1, V: -1 }),
+      option("D", "管他呢，反正好看就行", ["Z-LATAN", "NEY-MAR"], ["Bot-tle", "DINHO"], { V: 1, N: 1 })
     ]
   },
   {
@@ -191,10 +191,10 @@ const QUESTIONS = [
     part: "",
     title: "世界杯某场比赛后，全网都在吹一支球队，但你没那么看好，你会？",
     options: [
-      option("A", "说出来，'别光看结果，他们踢得没那么好'", ["ROAST", "W-L"], ["SALT", "VAR"], { G: 1, E: 1 }),
-      option("B", "先看看别人怎么说再决定要不要表态", ["W", "OJBK"], ["TANK", "CHESS"], { G: -1, R: 1 }),
-      option("C", "算了不说了，说了会被喷", ["TANK", "SALT"], ["WAIT", "OJBK"], { G: -1, E: 1 }),
-      option("D", "换个角度说，'确实不错但别吹过头'", ["TSUKK", "HUMBL-E"], ["YAPP", "LORE"], { G: 1, S: 1 })
+      option("A", "说出来，'别光看结果，他们踢得没那么好'", ["MA-DING", "TUI-Q"], ["FAN-ZY", "CARD-MA"], { G: 1, E: 1 }),
+      option("B", "先看看别人怎么说再决定要不要表态", ["TEN-GOD", "BURGER"], ["Ma-Kui", "PEP"], { G: -1, R: 1 }),
+      option("C", "算了不说了，说了会被喷", ["Ma-Kui", "FAN-ZY"], ["le-fu", "BURGER"], { G: -1, E: 1 }),
+      option("D", "换个角度说，'确实不错但别吹过头'", ["HEI-HEI", "STAY-H"], ["LAO-8", "cctv-he"], { G: 1, S: 1 })
     ]
   },
   {
@@ -204,10 +204,10 @@ const QUESTIONS = [
     part: "",
     title: "世界杯开赛前，朋友圈全是预测和讨论，你会？",
     options: [
-      option("A", "跟着一起聊，发自己的预测", ["YAPP", "HYPE"], ["W-L", "HUMBL-E"], { G: 2, S: 1 }),
-      option("B", "看看就好，不太参与", ["ROAST", "OJBK"], ["TANK", "CHESS"], { G: -1, S: -1 }),
-      option("C", "发一篇认真的分析长文", ["VAR", "xG"], ["CHESS", "LORE"], { R: 2, G: 1 }),
-      option("D", "发个搞笑的梗图参与一下", ["MEME", "SALT"], ["ROAST", "TSUKK"], { G: 1, E: 1 })
+      option("A", "跟着一起聊，发自己的预测", ["LAO-8", "CN-12"], ["TUI-Q", "STAY-H"], { G: 2, S: 1 }),
+      option("B", "看看就好，不太参与", ["MA-DING", "BURGER"], ["Ma-Kui", "PEP"], { G: -1, S: -1 }),
+      option("C", "发一篇认真的分析长文", ["CARD-MA", "DAT-A"], ["PEP", "cctv-he"], { R: 2, G: 1 }),
+      option("D", "发个搞笑的梗图参与一下", ["Bot-tle", "FAN-ZY"], ["MA-DING", "HEI-HEI"], { G: 1, E: 1 })
     ]
   },
   {
@@ -217,10 +217,10 @@ const QUESTIONS = [
     part: "",
     title: "2026世界杯在北美三国举办，你最关心的是？",
     options: [
-      option("A", "48支球队的新赛制是什么规则", ["CHESS", "xG"], ["VAR", "LORE"], { R: 2, N: 1 }),
-      option("B", "哪些比赛要熬夜，哪些不用", ["WAIT", "SALT"], ["TANK", "OJBK"], { R: 1, V: -1 }),
-      option("C", "有哪些球星可能是最后一届", ["GOAT", "1100"], ["LEGEND", "HUMBL-E"], { N: 2, S: 1 }),
-      option("D", "无所谓，到时候看就行", ["OJBK", "W"], ["NPC", "TANK"], { R: -1, V: -1 })
+      option("A", "48支球队的新赛制是什么规则", ["PEP", "DAT-A"], ["CARD-MA", "cctv-he"], { R: 2, N: 1 }),
+      option("B", "哪些比赛要熬夜，哪些不用", ["le-fu", "FAN-ZY"], ["Ma-Kui", "BURGER"], { R: 1, V: -1 }),
+      option("C", "有哪些球星可能是最后一届", ["GOAT", "1100"], ["LEGEND", "STAY-H"], { N: 2, S: 1 }),
+      option("D", "无所谓，到时候看就行", ["BURGER", "TEN-GOD"], ["Tintin", "Ma-Kui"], { R: -1, V: -1 })
     ]
   },
   {
@@ -230,10 +230,10 @@ const QUESTIONS = [
     part: "",
     title: "以下哪种世界杯内容最能吸引你点进去？",
     options: [
-      option("A", "精彩进球集锦和比赛回顾", ["REPLAY", "BEAUT"], ["RUN!", "Z-LATAN"], { N: 2, V: 1 }),
-      option("B", "争议判罚和裁判讨论", ["VAR", "ROAST"], ["RAGE", "SALT"], { R: 1, G: 1 }),
-      option("C", "球员八卦和场外花絮", ["TSUKK", "MEME"], ["SALT", "YAPP"], { S: 2, E: 1 }),
-      option("D", "战术分析和数据解读", ["CHESS", "xG"], ["LORE", "NPC"], { R: 2, N: -1 })
+      option("A", "精彩进球集锦和比赛回顾", ["WAN-SUI", "NEY-MAR"], ["8-PE", "Z-LATAN"], { N: 2, V: 1 }),
+      option("B", "争议判罚和裁判讨论", ["CARD-MA", "MA-DING"], ["MOU", "FAN-ZY"], { R: 1, G: 1 }),
+      option("C", "球员八卦和场外花絮", ["HEI-HEI", "Bot-tle"], ["FAN-ZY", "LAO-8"], { S: 2, E: 1 }),
+      option("D", "战术分析和数据解读", ["PEP", "DAT-A"], ["cctv-he", "Tintin"], { R: 2, N: -1 })
     ]
   },
   {
@@ -243,10 +243,10 @@ const QUESTIONS = [
     part: "",
     title: "如果你能去现场看一场世界杯比赛，你选？",
     options: [
-      option("A", "决赛，不管谁踢都值", ["LEGEND", "HYPE"], ["GOAT", "HUMBL-E"], { N: 2, E: 1 }),
-      option("B", "弱队打强队，等着看冷门", ["CHAOS", "RAGE"], ["SALT", "MEME"], { V: 2, N: 1 }),
-      option("C", "自己国家队的比赛", ["TANK", "W-L"], ["HYPE", "YAPP"], { G: 2, E: 1 }),
-      option("D", "有梅西C罗的那场", ["GOAT", "WAIT"], ["TSUKK", "REPLAY"], { N: 1, S: 1 })
+      option("A", "决赛，不管谁踢都值", ["LEGEND", "CN-12"], ["GOAT", "STAY-H"], { N: 2, E: 1 }),
+      option("B", "弱队打强队，等着看冷门", ["ZI-DANE", "MOU"], ["FAN-ZY", "Bot-tle"], { V: 2, N: 1 }),
+      option("C", "自己国家队的比赛", ["Ma-Kui", "TUI-Q"], ["CN-12", "LAO-8"], { G: 2, E: 1 }),
+      option("D", "有梅西C罗的那场", ["GOAT", "le-fu"], ["HEI-HEI", "WAN-SUI"], { N: 1, S: 1 })
     ]
   },
   {
@@ -256,10 +256,10 @@ const QUESTIONS = [
     part: "",
     title: "用一个词形容你理想中的看球搭子？",
     options: [
-      option("A", "专业——能给我讲战术的", ["CHESS", "VAR"], ["REPLAY", "xG"], { R: 2, S: -1 }),
-      option("B", "搞笑——能一起玩梗的", ["MEME", "YAPP"], ["TSUKK", "SALT"], { S: 2, E: 1 }),
-      option("C", "忠诚——输了也能陪我骂的", ["TANK", "W-L"], ["SALT", "HYPE"], { G: 2, E: 1 }),
-      option("D", "激情——进球时能一起跳起来的", ["HYPE", "RUN!"], ["RAGE", "Z-LATAN"], { E: 2, V: 1 })
+      option("A", "专业——能给我讲战术的", ["PEP", "CARD-MA"], ["WAN-SUI", "DAT-A"], { R: 2, S: -1 }),
+      option("B", "搞笑——能一起玩梗的", ["Bot-tle", "LAO-8"], ["HEI-HEI", "FAN-ZY"], { S: 2, E: 1 }),
+      option("C", "忠诚——输了也能陪我骂的", ["Ma-Kui", "TUI-Q"], ["FAN-ZY", "CN-12"], { G: 2, E: 1 }),
+      option("D", "激情——进球时能一起跳起来的", ["CN-12", "8-PE"], ["MOU", "Z-LATAN"], { E: 2, V: 1 })
     ]
   }
 ];
@@ -451,22 +451,22 @@ function applyHiddenTrigger(summary, limit) {
     hiddenCandidates.push("LEGEND");
   }
 
-  // CHAOS 混沌：进入前5 + Q9选B或Q10选B + V维度≥80
+  // ZI-DANE 齐祖：进入前5 + Q9选B或Q10选B + V维度≥80
   if (
-    topFive.includes("CHAOS") &&
+    topFive.includes("ZI-DANE") &&
     (getAnswerLabel("Q9") === "B" || getAnswerLabel("Q10") === "B") &&
     dimensions.V >= 80
   ) {
-    hiddenCandidates.push("CHAOS");
+    hiddenCandidates.push("ZI-DANE");
   }
 
-  // SCORP 蝎子：进入前5 + Q9选C + V维度≥75
+  // DINHO 小罗：进入前5 + Q9选C + V维度≥75
   if (
-    topFive.includes("SCORP") &&
+    topFive.includes("DINHO") &&
     getAnswerLabel("Q9") === "C" &&
     dimensions.V >= 75
   ) {
-    hiddenCandidates.push("SCORP");
+    hiddenCandidates.push("DINHO");
   }
 
   if (hiddenCandidates.length === 0) {

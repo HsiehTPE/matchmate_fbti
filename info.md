@@ -22,21 +22,20 @@ http://localhost:8080/index.html
 可以通过 `result` 参数直接打开指定人格结果页：
 
 ```text
-http://localhost:8080/index.html?result=NPC
+http://localhost:8080/index.html?result=Tintin
 ```
 
 更多例子：
 
-- `http://localhost:8080/index.html?result=RAGE`
+- `http://localhost:8080/index.html?result=MOU`
 - `http://localhost:8080/index.html?result=GOAT`
-- `http://localhost:8080/index.html?result=xG`
-- `http://localhost:8080/index.html?result=RUN%21`
+- `http://localhost:8080/index.html?result=DAT-A`
+- `http://localhost:8080/index.html?result=8-PE`
 - `http://localhost:8080/index.html?result=Z-LATAN`
 
 说明：
 
-- `RUN!` 这类带特殊字符的 code，建议做 URL 编码，例如 `RUN%21`
-- `xG` 区分大小写，建议按角色定义里的原始 code 写
+- `DAT-A` 区分大小写，建议按角色定义里的原始 code 写
 
 ## 直接进入答题页
 
@@ -77,11 +76,11 @@ Ctrl + F5
 线上地址格式：
 
 ```text
-https://hsiehtpe.github.io/matchmate_fbti/?result=NPC
+https://hsiehtpe.github.io/matchmate_fbti/?result=Tintin
 ```
 
 例如：
 
-- `https://hsiehtpe.github.io/matchmate_fbti/?result=RAGE`
+- `https://hsiehtpe.github.io/matchmate_fbti/?result=MOU`
 - `https://hsiehtpe.github.io/matchmate_fbti/?result=GOAT`
 - `https://hsiehtpe.github.io/matchmate_fbti/?result=Z-LATAN`
