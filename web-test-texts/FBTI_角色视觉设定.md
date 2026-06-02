@@ -152,8 +152,8 @@
 | --- | --- | --- |
 | A 站立前倾 | MOU、MA-DING、CN-12、STAY-H | 身体前冲，适合强表达 |
 | B 缩肩抱手 | TINTIN、LE-FU、FAN-ZY、1100 | 情绪内收，适合观察或忍耐 |
-| C 持物展示 | PEP、DAT-A、CARD-MA、WAN-SUI、BOT-TLE | 双手有动作，适合工具型人格 |
-| D 叉腰控场 | MA-KUI、BURGER、TEN-GOD、LEGEND | 稳住、评判、存在感强 |
+| C 持物展示 | PEP、DAT-A、CARD-MA、WAN-SUI、BEI-GUO | 双手有动作，适合工具型人格 |
+| D 叉腰控场 | MA-KUI、CR7、TEN-GOD、LEGEND | 稳住、评判、存在感强 |
 | E 动态跨步 | 8-PE、Z-LATAN、ZI-DANE、DINHO | 肢体打开，适合戏剧角色 |
 
 ---
@@ -171,21 +171,21 @@
 | `PEP` | 瓜帅 | 战术、分边、推演 | 单手举战术板，另一手比划线路 | 战术板 | 冷静、微皱眉 | 墨绿 + 白 | 头旁可有简化箭头或圆点线路 | ✅ 已有 prompt。保留瓜迪奥拉识别度，突出战术偏执和临场推演感。动作采用经典"惊吓倒地/滑倒坐地"的戏剧瞬间，仍需保留教练指挥者气质 |
 | `8-PE` | 姆总 | 弹起、冲动、站不住 | 半跳起或脚后跟离地 | 围巾飞扬 | 惊呼笑 | 电蓝 + 白 | 身体重心上提，像下一秒会冲出画面 | ✅ 已有 prompt。保留姆巴佩识别度，突出爆发启动和弹射出去的速度感。动作采用 2022 世界杯决赛凌空抽射得分的经典瞬间，人物应有强烈向前起飞的张力 |
 | `Z-LATAN` | 奉先 | 花活、戏剧、球感至上 | 身体后仰，做夸张起脚准备 | 足球 | 自信坏笑 | 紫红 + 黑 | 球悬在半空，肢体线条最夸张 | ✅ 已有 prompt。保留伊布拉希莫维奇识别度，突出戏剧感、自恋感和超现实脚法。动作采用瑞典国家队半场倒钩射门的经典瞬间，人物应有巨大舒展度和空中统治感 |
-| `GOAT` | 山羊 | 历史排名、辩论、永恒话题 | 单手托下巴，另一手抬起像发言 | 小奖杯或卷轴 | 笃定、略挑眉 | 金棕 + 深蓝 | 头顶可有简化山羊角轮廓影子 | ✅ 已有 prompt。做成梅西与 C 罗的"永恒第一之争"双人拼贴人格。前景放梅西和 C 罗，隐藏彩蛋加入勒布朗制造跨项目梗感。整体必须少细节、大块面、强几何拼接感 |
+| `LEO` | 里奥 | 天选足球人、从容、命运感 | 侧身控球，头微微偏转 | 足球 | 安静专注 | 天蓝 + 白 | 轮廓简洁，保持 LEO.png 的柔和低多边形风格 | ✅ 已有 prompt。参考 `LEO.png`，做成阿根廷蓝白配色的里奥形象。大块面、简化五官、全身控球姿态，重点是天赋感和命运感，不要真实队徽或文字 |
 | `DAT-A` | 詹指 | 模型、概率、评分 | 双手捧平板，身体微侧 | 数据屏 | 面无表情 | 青绿 + 深灰 | 屏幕上有柱状图或数字点阵 | ✅ 已有 prompt。保留詹俊识别度，突出数据流解说和专业分析气质。中国男解说员形象，戴耳机或手持话筒，表情专注。可加入抽象数据板、战术板或小图表元素，但不要出现文字和数字 |
 | `WAN-SUI` | 健翔 | 复盘、定格、重看 | 低头看屏，另一手点屏幕 | 手机或小屏幕 | 专注皱眉 | 海军蓝 + 银灰 | 道具屏幕里出现播放键图形 | ✅ 已有 prompt。主体为中国足球解说员黄健翔，戴耳麦，表情极度激动。动作像正在激情呐喊，身体前倾，手臂张开或握拳。可加入抽象足球、蓝色意大利氛围色块作为服装配色提示，不要画背景和文字 |
 | `CCTV-HE` | 贺·罗纳尔多·炜 | 典故、来历、旧闻 | 单手翻书，另一手抬指 | 小书册 | 温和认真 | 棕褐 + 墨绿 | 书页可露出书签、旧纸感配色 | ✅ 已有 prompt。成熟儒雅的中国男主持人气质，穿西装，手持话筒或坐在解说席前的姿态。表情沉稳、有文学感，像正在深情解说足球比赛。不要出现 CCTV 字样或任何文字 |
-| `BOT-TLE` | 瓶子哥 | 截图、玩梗、表情包 | 身体歪斜，举手机展示 | 手机 | 坏笑 | 亮黄 + 黑 | 手机上是大块简化表情图形 | ✅ 已有 prompt。曼城喝水哥球迷形象，蓝色曼城球迷服装或蓝色围巾。核心动作是举着或喝着透明水瓶，表情认真又带喜剧感。重点突出"喝水瓶"的瞬间，可做半身像让水瓶动作更清楚 |
+| `BEI-GUO` | 本泽马 | 背锅、黑衣、冷面幽默 | 双手插兜，身体微微前倾 | 背后的锅 | 冷静严肃 | 黑 + 灰 | 头大身短，锅必须明显露出 | ✅ 已有 prompt。参考黑衣眼罩背锅形象，做成 MBTI 式扁平低多边形卡通。本泽马中文名，核心句子“我只是个背锅的”。不要剑感，锅是幽默道具 |
 | `LAO-8` | 李老八 | 语音、群聊、停不下来 | 一手叉腰一手外摆，嘴张开 | 手机或对话气泡 | 连珠炮式张嘴 | 天蓝 + 白 | 周围可有两个简化气泡符号 | ✅ 已有 prompt。中国网络主播气质，表情夸张、有节目效果。可以戴耳机、坐姿或半身直播姿态。重点是"足球梗王 / 主播点评"的感觉，不要出现直播平台 logo 或文字 |
 | `CN-12` | 第12人 | 啦啦队、带动全场 | 双手高举，脚尖外张 | 喇叭或应援棒 | 大笑欢呼 | 橙黄 + 湖蓝 | 肢体最大，像在喊"进了" | ✅ 已有 prompt。中国国足球迷形象，红色球迷服或红色围巾。表情激动、真诚、带一点苦中作乐的足球迷气质。可手持加油围巾、喇叭或挥舞手臂，不要出现具体文字或真实队徽 |
 | `FAN-ZY` | 范将军 | 牢骚、忠诚、嘴硬 | 抱臂侧站，头偏过去 | 小抱枕或毛毯 | 撇嘴 | 卡其 + 灰蓝 | 眼神嫌弃，但站姿不走 | ✅ 已有 prompt。保留范志毅识别度，突出嘴硬心软和中国足球怨念本体的梗感。抱臂侧站头偏过去，眼神嫌弃但站姿不走，卡其 + 灰蓝配色 |
-| `BURGER` | 汉堡王 | 附和、缓冲、润滑 | 双手摊开，轻轻前伸 | 无主道具 | 温和笑 | 草绿 + 奶白 | 头部轻微点动的感觉最重要 | ✅ 已有 prompt。参考阿扎尔脸型、发型和球员气质。主题是汉堡王梗：一手拿汉堡，身材略圆润，表情轻松。服装可以是足球训练服或球衣风格，不要出现真实品牌 logo |
+| `CR7` | 罗哥 | 征服、自信、胜利宣言 | 全身控球站姿，头偏侧看 | 足球 | 自信微笑 | 葡萄牙红 + 绿 | 身形挺拔但保持卡通比例 | ✅ 已有 prompt。参考 `CR7.png`，做成葡萄牙红绿配色的罗哥形象。核心句子“从欧洲到沙特，我来到、我征服”。不要真实队徽、品牌或文字 |
 | `MA-DING` | 大马丁 | 真话、扎心、输出 | 单手叉腰，另一手做点评姿势 | 话筒或记分牌 | 斜嘴冷笑 | 黑红 + 灰 | 眉毛锐利，像随时准备开喷 | ✅ 已有 prompt。阿根廷守门员马丁内斯形象，手套明显，阿根廷蓝白配色球衣风格。表情自信、挑衅、心理战强。可做扑救后张开双臂、抱球或庆祝姿态，不要出现真实队徽或文字 |
 | `STAY-H` | 哈宝 | 谦逊、低调、进球机器 | 身体前送，双手递出东西 | 进球纪念品或比赛用球 | 平静微笑 | 亮绿 + 白 | 像在分享进球荣誉而不是独占 | ✅ 已有 prompt。保留哈兰德识别度，突出进球机器却始终保持谦逊的反差感。身体前送双手递出东西，平静微笑不张扬，像在分享进球荣誉而不是独占 |
 | `TUI-Q` | 退钱哥 | 陪伴、共情、同频 | 一手搭肩式动作，另一手握拳 | 啤酒杯或纸杯 | 既激动又理解 | 蓝绿 + 橙 | 适合做最有"搭子感"的角色 | ✅ 已有 prompt。中国知名球迷"退钱哥"何胜形象。情绪激动、愤怒又有喜剧张力，动作像在看台或采访区大声控诉，手臂前伸或握拳。服装可以是普通球迷外套、球迷围巾，不要出现"退钱"等文字 |
 | `HEI-HEI` | 张嘿嘿 | 接梗、托场、氛围调节 | 身体侧转，一手做"请继续" | 小鼓掌手势，无需重道具 | 机灵笑 | 青蓝 + 柠黄 | 五官轻快，像总能接住别人 | ✅ 已有 prompt。保留张路识别度，突出解说搭档中的捧哏气质和标志性"嘿嘿"笑。身体侧转一手做"请继续"，机灵笑，五官轻快像总能接住别人 |
 | `NEY-MAR` | 内马尔 | 审美、细节、观赏性 | 单手扶脸或轻托下巴 | 丝带感线条或玫瑰球 | 微笑挑眉 | 酒红 + 米白 | 角色动作要优雅，不能糙 | ✅ 已有 prompt。罗纳尔迪尼奥形象，长卷发或头带、标志性大笑容。巴西足球天才气质，动作轻松灵动。可以脚踩足球或做花式控球动作，球衣用黄绿配色暗示巴西风格，不要画真实队徽和文字 |
-| `TEN-GOD` | 滕圣 | 结果、效率、务实 | 双手抱在胸前，站得笔直 | 小计分牌 | 冷静满意 | 藏青 + 金 | 最像"结论已经出来了"的人 | 保留滕哈格识别度，突出"我们踢得不错"的赢了也说过程好的务实感。双手抱在胸前站得笔直，冷静满意，最像"结论已经出来了"的人 |
+| `TEN-GOD` | 滕圣 | 结果、效率、务实 | 双手抱在胸前，站得笔直 | 小计分牌 | 冷静满意 | 藏青 + 金 | 最像"结论已经出来了"的人 | 保留滕哈格识别度，突出"两个机会都算上，比赛其实我们赢了"的赢了也说过程好的务实感。双手抱在胸前站得笔直，冷静满意，最像"结论已经出来了"的人 |
 | `1100` | 高俅 | 旧时代、滤镜、往昔最好 | 略佝偻放松站姿 | 老卷轴或蹴鞠球 | 怀念笑 | 复古棕 + 暗红 | 配色要旧，不要鲜艳现代感 | ✅ 已有 prompt。宋代官员形象，深色官服、圆领、幞头官帽。气质精明、会踢球、略带权臣感。可以加入一个古代皮球或蹴鞠球作为道具。低多边形卡通化，不要写实历史画像 |
 | `CARD-MA` | 卡牌大师 | 公平、条文、判罚 | 一手举规则本，一手指向前方 | 规则手册 | 严肃、紧盯 | 黑白 + 荧光绿 | 最适合用直线、边框感强化秩序 | ✅ 已有 prompt。中国裁判马宁梗角色，黑色裁判服或深色裁判制服。手里高举黄牌或红牌，牌面纯色无文字。表情严肃、果断，动作像正在判罚。可以配一个哨子作为小道具 |
 | `LEGEND` | 传奇 | 被封印、史诗、名字很重 | 正立站姿，手持象征物 | 冠冕、披肩或徽章 | 平静庄重 | 黑金 + 深紫 | 轮廓最稳，像"镇场图腾" | 做成贝利 + 马拉多纳双人背靠背传奇，一人一个方向。背靠背站姿各持一半冠冕 / 徽章，黑金 + 深紫配色，轮廓最稳像"镇场图腾" |
@@ -202,7 +202,7 @@
 
 - `MOU`：代表即时情绪
 - `PEP`：代表战术脑
-- `BOT-TLE`：代表社交传播
+- `BEI-GUO`：代表社交传播
 - `CN-12`：代表现场气氛
 - `NEY-MAR`：代表审美立场
 - `LEGEND`：代表人格宇宙的上限
@@ -210,7 +210,7 @@
 排布建议：
 
 - 中间主角：`CN-12` 或 `LEGEND`
-- 左右动态角色：`MOU`、`BOT-TLE`
+- 左右动态角色：`MOU`、`BEI-GUO`
 - 两侧稳定角色：`PEP`、`NEY-MAR`
 - 最边缘可放一个 `ZI-DANE` 做节奏破坏点
 
@@ -294,7 +294,7 @@ MOU
 
 - `MOU`
 - `PEP`
-- `BOT-TLE`
+- `BEI-GUO`
 - `CN-12`
 - `NEY-MAR`
 - `CARD-MA`
@@ -315,11 +315,11 @@ MOU
 ### 第三波：做异常值和高记忆点
 
 - `Z-LATAN`
-- `GOAT`
+- `LEO`
 - `CCTV-HE`
 - `LAO-8`
 - `FAN-ZY`
-- `BURGER`
+- `CR7`
 - `TUI-Q`
 - `HEI-HEI`
 - `LEGEND`
@@ -339,15 +339,15 @@ MOU
 - `PEP.png`
 - `8-PE.png`
 - `Z-LATAN.png`
-- `GOAT.png`（另有 `GOAT-ALT.png` 隐藏彩蛋版）
+- `LEO.png`
 - `DAT-A.png`
 - `WAN-SUI.png`
 - `CCTV-HE.png`
-- `BOT-TLE.png`
+- `BEI-GUO.png`
 - `LAO-8.png`
 - `CN-12.png`
 - `FAN-ZY.png`
-- `BURGER.png`
+- `CR7.png`
 - `MA-DING.png`
 - `STAY-H.png`
 - `TUI-Q.png`
@@ -395,3 +395,53 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 放进当前结果页卡片后，不会因为留白、姿态或重心失衡而显得飘
 
 这份设定表的目的不是一次定死所有细节，而是先把"原创人格角色系统"从散点想法，收束成能批量生产的统一规范。
+
+---
+
+## MBTI 参考风格 Prompt
+
+用于根据 MBTI 风格参考图生成透明背景人格角色。参考图只用于提取视觉风格，不复制原角色。
+
+```text
+Create a transparent-background PNG character asset in the style of the provided MBTI reference image.
+
+Use the reference only for visual style, not for copying the exact character.
+
+Style:
+- Flat low-poly vector/cartoon character
+- Geometric polygon shapes
+- Simplified facial features
+- Cute MBTI/personality-avatar feel
+- Slightly exaggerated head and compact body
+- Clean angular silhouette
+- Minimal shading with large flat color planes
+- Playful, friendly, expressive
+
+Character requirements:
+- Full-body standing character
+- Centered composition with generous padding
+- Transparent background
+- No scene, no props unless specified
+- No text, no logo, no watermark
+- Use a distinctive outfit, hairstyle, and pose that communicate personality
+- Keep the design readable at small size, like a quiz result avatar
+
+Visual details:
+- Use large triangular and polygonal facets for hair, face, clothes, arms, and legs
+- Eyes can be simple dots or small geometric shapes
+- Mouth should be simple and expressive
+- Hands and feet should be stylized and simple
+- Avoid realistic anatomy
+- Avoid painterly rendering
+- Avoid 3D realism
+- Avoid gradients that make it look glossy or realistic
+
+Character concept:
+[Write the target character/personality here. For FBTI, describe the football-personality role, outfit, expression, pose, and one optional prop. Do not use real club logos, national team crests, brand logos, or readable text.]
+
+Output:
+- PNG with transparent background
+- Full character visible from head to feet
+- Crisp edges
+- High resolution
+```

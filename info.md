@@ -28,7 +28,7 @@ http://localhost:8080/index.html?result=TINTIN
 更多例子：
 
 - `http://localhost:8080/index.html?result=MOU`
-- `http://localhost:8080/index.html?result=GOAT`
+- `http://localhost:8080/index.html?result=LEO`
 - `http://localhost:8080/index.html?result=DAT-A`
 - `http://localhost:8080/index.html?result=8-PE`
 - `http://localhost:8080/index.html?result=Z-LATAN`
@@ -82,5 +82,5 @@ https://hsiehtpe.github.io/matchmate_fbti/?result=TINTIN
 例如：
 
 - `https://hsiehtpe.github.io/matchmate_fbti/?result=MOU`
-- `https://hsiehtpe.github.io/matchmate_fbti/?result=GOAT`
+- `https://hsiehtpe.github.io/matchmate_fbti/?result=LEO`
 - `https://hsiehtpe.github.io/matchmate_fbti/?result=Z-LATAN`
