@@ -128,7 +128,7 @@
 
 名言：意大利万岁！
 
-图片：`images_new/WAN-SUI-v2.png`
+图片：`images_new/WAN-SUI.png`
 
 ### `CCTV-HE` | 贺·罗纳尔多·炜
 

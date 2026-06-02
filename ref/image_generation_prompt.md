@@ -150,7 +150,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 不要出现“退钱”等文字，靠表情和动作表达梗。
 - 低多边形卡通化，透明背景。
 
-### `images_new/WAN-SUI-v2.png`
+### `images_new/WAN-SUI.png`
 
 参考图：`ref/aa0f2f28cd640091078be3a9d1b773d9.png`
 

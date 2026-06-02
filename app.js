@@ -16,7 +16,7 @@ const ROLES = {
   "Z-LATAN": { code: "Z-LATAN", title: "奉先",   group: "看球反应组", tag: "比赛可以输但花活不能少",       shortLabel: "0-4落后还在等一个倒钩，觉得足球是艺术不是战争", quote: "世界上只有两种人：兹拉坦和其他人", image: "./images_new/Z-LATAN.png" },
   "GOAT":   { code: "GOAT",   title: "山羊",     group: "赛后话题组", tag: "聊着聊着就开始排历史前十",     shortLabel: "任何话题都能拐到那两位呢，永恒辩论发起者", quote: "永恒的辩题", image: "./images_new/GOAT.png", imageAlt: "./images_new/GOAT-ALT.png", imageAltChance: 0.15 },
   "DAT-A":     { code: "DAT-A",     title: "詹指",   group: "赛后话题组", tag: "赛后第一件事打开MatchMate看数据", shortLabel: "用MatchMate的评分说服你那个进球其实是运气", quote: "这个数据很有意思", image: "./images_new/DAT-A-v2.png" },
-  "WAN-SUI": { code: "WAN-SUI", title: "健翔",   group: "赛后话题组", tag: "你再看一遍这个球",             shortLabel: "喜欢反复看关键画面，能从一个犯规里看出三层含义", quote: "意大利万岁！", image: "./images_new/WAN-SUI-v2.png" },
+  "WAN-SUI": { code: "WAN-SUI", title: "健翔",   group: "赛后话题组", tag: "你再看一遍这个球",             shortLabel: "喜欢反复看关键画面，能从一个犯规里看出三层含义", quote: "意大利万岁！", image: "./images_new/WAN-SUI.png" },
   "CCTV-HE":   { code: "CCTV-HE",   title: "贺·罗纳尔多·炜",   group: "赛后话题组", tag: "聊球自动附赠球员生平",         shortLabel: "你知道他当年在乌迪内斯的时候能把任何球员聊成传记", quote: "足球就是足球", image: "./images_new/CCTV-HE-v2.png" },
   "BOT-TLE":   { code: "BOT-TLE",   title: "瓶子哥",     group: "赛后话题组", tag: "比赛还没结束梗图已经做好了",   shortLabel: "看球不是为了看球，是为了第一时间截到能发群的表情包", quote: "我就是我", image: "./images_new/BOT-TLE-v2.png" },
   "LAO-8":   { code: "LAO-8",   title: "李老八",   group: "赛后话题组", tag: "赛后能聊到凌晨三点",           shortLabel: "别人说睡了他还能再发二十条语音，看球是社交不是运动", quote: "我跟你说啊", image: "./images_new/LAO-8-v2.png" },

@@ -366,7 +366,7 @@ MOU
 - `Z-LATAN.png`
 - `GOAT.png`（另有 `GOAT-ALT.png` 隐藏彩蛋版）
 - `DAT-A-v2.png`
-- `WAN-SUI-v2.png`
+- `WAN-SUI.png`
 - `CCTV-HE-v2.png`
 - `BOT-TLE-v2.png`
 - `LAO-8-v2.png`
