@@ -340,25 +340,25 @@ MOU
 - `8-PE.png`
 - `Z-LATAN.png`
 - `GOAT.png`（另有 `GOAT-ALT.png` 隐藏彩蛋版）
-- `DAT-A.png`
-- `WAN-SUI.png`
-- `CCTV-HE.png`
-- `BOT-TLE.png`
-- `LAO-8.png`
-- `CN-12.png`
+- `DAT-A-v2.png`
+- `WAN-SUI-v2.png`
+- `CCTV-HE-v2.png`
+- `BOT-TLE-v2.png`
+- `LAO-8-v2.png`
+- `CN-12-v2.png`
 - `FAN-ZY.png`
-- `BURGER.png`
-- `MA-DING.png`
+- `BURGER-v2.png`
+- `MA-DING-v2.png`
 - `STAY-H.png`
-- `TUI-Q.png`
+- `TUI-Q-v2.png`
 - `HEI-HEI.png`
 - `NEY-MAR.png`
 - `TEN-GOD.png`
-- `1100.png`
-- `CARD-MA.png`
+- `1100-v2.png`
+- `CARD-MA-v2.png`
 - `LEGEND.png`
-- `ZI-DANE.png`
-- `DINHO.png`
+- `ZI-DANE-v2.png`
+- `DINHO-v2.png`
 
 ---
 

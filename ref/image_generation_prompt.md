@@ -20,7 +20,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 
 ## 逐张图片要求
 
-### `images_new/1100.png`
+### `images_new/1100-v2.png`
 
 生成宋代官员形象，角色是高俅。
 
@@ -30,7 +30,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 低多边形卡通化，不要写实历史画像。
 - 透明背景。
 
-### `images_new/BOT-TLE.png`
+### `images_new/BOT-TLE-v2.png`
 
 参考图：`ref/06d84760b6b82db7bccf3818d4d9273f.png`
 
@@ -42,7 +42,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 可以做半身像，让水瓶动作更清楚。
 - 低多边形卡通化，透明背景。
 
-### `images_new/BURGER.png`
+### `images_new/BURGER-v2.png`
 
 参考图：`ref/c26b43cf718431cfb04e01ce0ead54ee.png`
 
@@ -54,7 +54,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 不要生成真实 Burger King 标志或文字。
 - 低多边形卡通化，透明背景。
 
-### `images_new/CARD-MA.png`
+### `images_new/CARD-MA-v2.png`
 
 参考图：`ref/9f867569c1295d0d9fe374aff8acdccb.png`
 
@@ -66,7 +66,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 可以配一个哨子作为小道具。
 - 低多边形卡通化，透明背景。
 
-### `images_new/CCTV-HE.png`
+### `images_new/CCTV-HE-v2.png`
 
 参考图：`ref/062ff77435aff82197c29468a6588369.png`
 
@@ -78,7 +78,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 不要出现 CCTV 字样或任何文字。
 - 低多边形卡通化，透明背景。
 
-### `images_new/CN-12.png`
+### `images_new/CN-12-v2.png`
 
 参考图：`ref/26dee1306318145db6fcc681eeeeb69d.png`
 
@@ -90,7 +90,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 不要出现具体文字、国旗文字或真实队徽。
 - 低多边形卡通化，透明背景。
 
-### `images_new/DAT-A.png`
+### `images_new/DAT-A-v2.png`
 
 参考图：`ref/d5012f466f9a54ac71867d31fd0bd3a2.png`
 
@@ -102,7 +102,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 气质专业、语速很快、信息量很大。
 - 低多边形卡通化，透明背景。
 
-### `images_new/DINHO.png`
+### `images_new/DINHO-v2.png`
 
 参考图：`ref/84c32d8eda95c70c3a388077217bf103.png`
 
@@ -114,7 +114,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 球衣用黄绿配色暗示巴西风格，但不要画真实队徽和文字。
 - 低多边形卡通化，透明背景。
 
-### `images_new/LAO-8.png`
+### `images_new/LAO-8-v2.png`
 
 参考图：`ref/feb31a4b5cf04b66b0abd026a6e3aad9.png`
 
@@ -126,7 +126,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 动作可以是指点屏幕、张嘴输出观点。
 - 低多边形卡通化，透明背景。
 
-### `images_new/MA-DING.png`
+### `images_new/MA-DING-v2.png`
 
 参考图：`ref/882b44e58966224315b386f47af407f4.png`
 
@@ -138,7 +138,7 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 可以做扑救后张开双臂、抱球或庆祝姿态。
 - 低多边形卡通化，透明背景。
 
-### `images_new/TUI-Q.png`
+### `images_new/TUI-Q-v2.png`
 
 参考图：`ref/a6f1962e5650d380e3cf7cdd61eecd23.png`
 
@@ -150,19 +150,19 @@ photorealistic, real photo, realistic skin pores, background, stadium background
 - 不要出现“退钱”等文字，靠表情和动作表达梗。
 - 低多边形卡通化，透明背景。
 
-### `images_new/WAN-SUI.png`
+### `images_new/WAN-SUI-v2.png`
 
 参考图：`ref/aa0f2f28cd640091078be3a9d1b773d9.png`
 
 生成 2006 世界杯“格罗索制造点球 + 黄健翔意大利万岁”名场面梗角色。
 
-- 主体可以是中国足球解说员黄健翔，戴耳麦，表情极度激动。
+<!-- - 主体可以是中国足球解说员黄健翔，戴耳麦，表情极度激动。
 - 动作像正在激情呐喊，身体前倾，手臂张开或握拳。
 - 可加入一个抽象足球、蓝色意大利氛围色块作为服装配色提示，但不要画背景和文字。
 - 不要生成完整比赛场景，重点放在解说员爆发瞬间。
-- 低多边形卡通化，透明背景。
+- 低多边形卡通化，透明背景。 -->
 
-### `images_new/ZI-DANE.png`
+### `images_new/ZI-DANE-v2.png`
 
 参考图：`ref/36c2e1978ff80ee814ecaa60844d8b7c.png`
 
