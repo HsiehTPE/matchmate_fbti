@@ -1,4 +1,7 @@
-﻿const ROLE_ORDER = [
+﻿// ─── 配置开关 ───
+const SHOW_QR = true; // true = 生成图左下角显示二维码，false = 不显示
+
+const ROLE_ORDER = [
   "MOU", "TINTIN", "MA-KUI", "LE-FU", "PEP", "8-PE", "Z-LATAN",
   "LEO", "DAT-A", "WAN-SUI", "CCTV-HE", "BEI-GUO", "LAO-8",
   "CN-12", "FAN-ZY", "CR7", "MA-DING", "STAY-H", "TUI-Q", "HEI-HEI",
@@ -1297,9 +1300,10 @@ async function saveResultImage() {
   }
 
   try {
-    const [portraitImg, logoImg] = await Promise.all([
+    const [portraitImg, logoImg, qrImg] = await Promise.all([
       loadImageAsset(resultPortrait.currentSrc || resultPortrait.src),
-      loadImageAsset(new URL("./main_logo.png", window.location.href).href)
+      loadImageAsset(new URL("./main_logo.png", window.location.href).href),
+      SHOW_QR ? loadImageAsset(new URL("./matchmate_qr.png", window.location.href).href) : Promise.resolve(null)
     ]);
 
     const canvas = document.createElement("canvas");
@@ -1461,15 +1465,25 @@ async function saveResultImage() {
       profileW
     );
 
-    const linkY = cardY + cardH - 84;
+    // Bottom-left: QR code + link text
+    const qrSize = 120;
+    const qrX = cardX + 70;
+    const qrY = cardY + cardH - 70 - qrSize;
+    if (SHOW_QR && qrImg) {
+      ctx.drawImage(qrImg, qrX, qrY, qrSize, qrSize);
+    }
+
+    const linkTextX = SHOW_QR ? qrX + qrSize + 16 : qrX;
+    const linkTextY = SHOW_QR ? qrY + 12 : qrY;
     ctx.fillStyle = "#0f5b52";
-    ctx.font = "600 26px 'Noto Sans SC', sans-serif";
+    ctx.font = "600 24px 'Noto Sans SC', sans-serif";
     ctx.textAlign = "left";
     ctx.textBaseline = "top";
-    ctx.fillText("访问MatchMate，认识你的AI看球搭子！", cardX + 70, linkY);
+    ctx.fillText("访问MatchMate", linkTextX, linkTextY);
+    ctx.fillText("认识你的AI看球搭子！", linkTextX, linkTextY + 34);
     ctx.fillStyle = "#617076";
-    ctx.font = "500 22px 'Space Grotesk', 'Noto Sans SC', sans-serif";
-    ctx.fillText("www.matchmate.tv", cardX + 70, linkY + 38);
+    ctx.font = "500 20px 'Space Grotesk', 'Noto Sans SC', sans-serif";
+    ctx.fillText("www.matchmate.tv", linkTextX, linkTextY + 72);
 
     const fileCode = String(result.winner.code || "result").toLowerCase().replace(/[^a-z0-9!-]+/g, "-");
     const blob = await canvasToBlob(canvas);
