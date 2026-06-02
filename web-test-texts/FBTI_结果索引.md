@@ -116,7 +116,7 @@
 
 名言：这个数据很有意思
 
-图片：`images_new/DAT-A-v2.png`
+图片：`images_new/DAT-A.png`
 
 ### `WAN-SUI` | 健翔
 
@@ -140,7 +140,7 @@
 
 名言：足球就是足球
 
-图片：`images_new/CCTV-HE-v2.png`
+图片：`images_new/CCTV-HE.png`
 
 ### `BOT-TLE` | 瓶子哥
 
@@ -152,7 +152,7 @@
 
 名言：我就是我
 
-图片：`images_new/BOT-TLE-v2.png`
+图片：`images_new/BOT-TLE.png`
 
 ### `LAO-8` | 李老八
 
@@ -164,7 +164,7 @@
 
 名言：我跟你说啊
 
-图片：`images_new/LAO-8-v2.png`
+图片：`images_new/LAO-8.png`
 
 ---
 
@@ -180,7 +180,7 @@
 
 名言：下一场一定赢
 
-图片：`images_new/CN-12-v2.png`
+图片：`images_new/CN-12.png`
 
 ### `FAN-ZY` | 范将军
 
@@ -204,7 +204,7 @@
 
 名言：大家都很好
 
-图片：`images_new/BURGER-v2.png`
+图片：`images_new/BURGER.png`
 
 ### `MA-DING` | 大马丁
 
@@ -216,7 +216,7 @@
 
 名言：真话不好听
 
-图片：`images_new/MA-DING-v2.png`
+图片：`images_new/MA-DING.png`
 
 ### `STAY-H` | 哈宝
 
@@ -240,7 +240,7 @@
 
 名言：我xxx，退钱！
 
-图片：`images_new/TUI-Q-v2.png`
+图片：`images_new/TUI-Q.png`
 
 ### `HEI-HEI` | 张嘿嘿
 
@@ -292,7 +292,7 @@
 
 名言：我刚开始看足球的那个时候...
 
-图片：`images_new/1100-v2.png`
+图片：`images_new/1100.png`
 
 ### `CARD-MA` | 卡牌大师
 
@@ -304,7 +304,7 @@
 
 名言：规则就是规则
 
-图片：`images_new/CARD-MA-v2.png`
+图片：`images_new/CARD-MA.png`
 
 ---
 
@@ -332,7 +332,7 @@
 
 名言：Why Always Me
 
-图片：`images_new/ZI-DANE-v2.png`
+图片：`images_new/ZI-DANE.png`
 
 ### `DINHO` | 小罗
 
@@ -344,4 +344,4 @@
 
 名言：规则是用来打破的
 
-图片：`images_new/DINHO-v2.png`
+图片：`images_new/DINHO.png`
