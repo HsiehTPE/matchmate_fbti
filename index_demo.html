@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>看球搭子人格测试 | FBTI Web Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-topbar">
+        <div class="brand-wordmark">MatchMate · FBTI</div>
+        <a
+          class="brand-link"
+          href="https://www.matchmate.tv/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="打开 MatchMate 官网"
+        >
+          <img
+            class="brand-logo"
+            src="./main_logo.png"
+            alt="MatchMate Logo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"
+          >
+          <span class="brand-fallback">MatchMate</span>
+        </a>
+      </div>
+      <!-- <div class="hero-badge">FBTI · Full Quiz · 2026.05</div> -->
+      <h1>看球搭子人格测试</h1>
+      <p class="hero-copy">
+        测一测，你到底是哪一款 MatchMate 看球搭子
+      </p>
+      <div class="hero-meta">
+        
+        <span><strong>27</strong> 种看球搭子</span>
+        <span><strong>16</strong> 道世界杯题目</span>
+        <span><strong>3</strong> 个隐藏人格</span>
+      </div>
+      <button id="start-button" class="primary-button">开始测试</button>
+      <div class="hero-player-strip" aria-hidden="true">
+        <img class="hero-player hero-player-china" src="./images_new/FAN-ZY.png" alt="">
+        <img class="hero-player hero-player-left" src="./images_new/CR7.png" alt="">
+        <img class="hero-player hero-player-center" src="./images_new/STAY-H.png" alt="">
+        <img class="hero-player hero-player-right" src="./images_new/LEO.png" alt="">
+        <img class="hero-player" src="./images_new/NEY-MAR.png" alt="">
+        <img class="hero-player hero-player-china hero-player-mirror" src="./images_new/LEGEND.png" alt="">
+      </div>
+    </header>
+
+    <main class="quiz-stage">
+      <section id="quiz-panel" class="panel hidden" aria-live="polite">
+        <div class="quiz-header">
+          <button id="home-button" class="ghost-button quiz-home-button" type="button">返回首页</button>
+          <div class="quiz-brandbar">
+            <a
+              class="quiz-brand-link"
+              href="https://www.matchmate.tv/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="打开 MatchMate 官网"
+            >
+              <img
+                class="quiz-brand-logo"
+                src="./main_logo.png"
+                alt="MatchMate Logo"
+                onerror="this.style.display='none';"
+              >
+              <span class="quiz-brand-copy">
+                <span class="quiz-brand-wordmark">MatchMate · FBTI</span>
+                <span class="quiz-brand-subtitle">你是什么看球搭子？</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="progress-row">
+          <div>
+            <p id="part-label" class="eyebrow"></p>
+            <h2 id="question-index" class="section-title"></h2>
+          </div>
+          <div class="progress-copy">
+            <span id="progress-text"></span>
+          </div>
+        </div>
+        <div class="progress-bar" aria-hidden="true">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <article class="question-card">
+          <h3 id="question-text" class="question-text"></h3>
+          <div id="options-list" class="options-list"></div>
+        </article>
+        <div class="nav-row">
+          <button id="prev-button" class="ghost-button" type="button">上一题</button>
+          <button id="next-button" class="primary-button" type="button" disabled>下一题</button>
+        </div>
+      </section>
+
+      <section id="result-panel" class="panel hidden" aria-live="polite">
+        <div class="result-header">
+          <p id="result-phase" class="eyebrow hidden"></p>
+          <p class="result-prompt">你的看球搭子类型是：</p>
+          <h3 id="result-title" class="result-title"></h3>
+          <h2 id="result-code" class="result-code"></h2>
+          <div class="result-portrait-shell">
+            <img id="result-portrait" class="result-portrait" alt="">
+            <p id="result-quote" class="result-quote"></p>
+          </div>
+          <p id="result-group" class="result-group hidden"></p>
+          <p id="result-short-label" class="result-short-label"></p>
+          <div id="hidden-badge" class="hidden-badge hidden">隐藏人格</div>
+        </div>
+
+        <div class="result-grid">
+          <section class="result-card result-card--radar">
+            <h4>看球搭子面板</h4>
+            <div id="radar-chart" class="radar-chart"></div>
+            <div id="dimension-legend" class="dimension-legend"></div>
+          </section>
+          <div class="result-right-col">
+            <section class="result-card">
+              <h4>相近人格</h4>
+              <div id="role-breakdown" class="score-list"></div>
+            </section>
+            <section class="result-card">
+              <h4>适合和你一起看球的人</h4>
+              <div id="result-neighbors" class="people-tags"></div>
+            </section>
+          </div>
+        </div>
+
+        <section class="result-story">
+          <div class="story-lead">
+            <p class="eyebrow">Reading</p>
+            <h4 id="result-oneliner" class="story-oneliner"></h4>
+            <p id="result-profile" class="story-profile"></p>
+          </div>
+          <div class="story-columns">
+            <article class="story-card">
+              <h4>你看球时更容易在意</h4>
+              <div id="result-focus" class="quote-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <div class="result-actions">
+          <div class="result-action-cell">
+            <button id="save-image-button" class="ghost-button save-image-button" type="button">保存结果图案</button>
+            <p id="hidden-unlock-hint" class="hidden-unlock-hint">重新测试来解锁隐藏看球搭子！</p>
+          </div>
+          <div class="result-action-cell">
+            <button id="copy-button" class="ghost-button" type="button">复制结果文案</button>
+          </div>
+          <div class="result-action-cell">
+            <button id="restart-button" class="primary-button" type="button">重新测试</button>
+          </div>
+        </div>
+        <a
+          class="result-cta-link"
+          href="https://www.matchmate.tv/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          访问 MatchMate，认识你的 AI 看球搭子！
+        </a>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app_demo.js"></script>
+</body>
+</html>
