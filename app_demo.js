@@ -148,6 +148,36 @@ const ROLE_SCORE_BIAS = {
   "FAN-ZY": 2.5
 };
 
+const ROLE_SIMILARITY = {
+  "MOU": ["PEP", "TEN-GOD", "MA-KUI", "LE-FU", "FAN-ZY"],
+  "TINTIN": ["PEP", "DAT-A", "CARD-MA", "LEO", "HEI-HEI"],
+  "MA-KUI": ["MOU", "TUI-Q", "CN-12", "FAN-ZY", "BEI-GUO"],
+  "LE-FU": ["PEP", "TEN-GOD", "1100", "MOU", "STAY-H"],
+  "PEP": ["TINTIN", "DAT-A", "CARD-MA", "TEN-GOD", "MOU"],
+  "8-PE": ["CR7", "LEO", "NEY-MAR", "STAY-H", "MA-DING"],
+  "Z-LATAN": ["DINHO", "NEY-MAR", "CR7", "ZI-DANE", "LEGEND"],
+  "LEO": ["CR7", "8-PE", "NEY-MAR", "LEGEND", "DINHO"],
+  "DAT-A": ["HEI-HEI", "TINTIN", "PEP", "CARD-MA", "CCTV-HE"],
+  "WAN-SUI": ["CCTV-HE", "DAT-A", "LAO-8", "HEI-HEI", "1100"],
+  "CCTV-HE": ["WAN-SUI", "DAT-A", "1100", "LEGEND", "HEI-HEI"],
+  "BEI-GUO": ["CR7", "LEO", "MA-KUI", "FAN-ZY", "STAY-H"],
+  "LAO-8": ["HEI-HEI", "WAN-SUI", "TUI-Q", "FAN-ZY", "CN-12"],
+  "CN-12": ["TUI-Q", "LAO-8", "MA-KUI", "FAN-ZY", "HEI-HEI"],
+  "FAN-ZY": ["TUI-Q", "CN-12", "MA-KUI", "MOU", "BEI-GUO"],
+  "CR7": ["BEI-GUO", "LEO", "8-PE", "NEY-MAR", "Z-LATAN"],
+  "MA-DING": ["LEO", "NEY-MAR", "CR7", "ZI-DANE", "TUI-Q"],
+  "STAY-H": ["PEP", "TINTIN", "8-PE", "CR7", "LE-FU"],
+  "TUI-Q": ["CN-12", "FAN-ZY", "LAO-8", "MA-KUI", "HEI-HEI"],
+  "HEI-HEI": ["DAT-A", "LAO-8", "WAN-SUI", "CCTV-HE", "TUI-Q"],
+  "NEY-MAR": ["LEO", "8-PE", "CR7", "DINHO", "Z-LATAN"],
+  "TEN-GOD": ["PEP", "MOU", "LE-FU", "STAY-H", "CARD-MA"],
+  "1100": ["LEGEND", "CCTV-HE", "WAN-SUI", "LE-FU", "DINHO"],
+  "CARD-MA": ["DAT-A", "PEP", "TINTIN", "TEN-GOD", "MA-DING"],
+  "LEGEND": ["LEO", "DINHO", "ZI-DANE", "1100", "CCTV-HE"],
+  "ZI-DANE": ["LEGEND", "DINHO", "CR7", "LEO", "Z-LATAN"],
+  "DINHO": ["NEY-MAR", "LEGEND", "Z-LATAN", "LEO", "ZI-DANE"]
+};
+
 function option(label, text, primary, secondary, dimensions) {
   return { label, text, primary, secondary, dimensions };
 }
@@ -541,6 +571,50 @@ function getRoleDimensionRanking(roleCode, fallbackTotals) {
     .sort((left, right) => right.value - left.value);
 }
 
+function getDimensionDistance(leftCode, rightCode) {
+  const leftProfile = ROLE_DIMENSIONS[leftCode];
+  const rightProfile = ROLE_DIMENSIONS[rightCode];
+  if (!leftProfile || !rightProfile) {
+    return Number.POSITIVE_INFINITY;
+  }
+
+  return Object.keys(DIMENSION_META).reduce((total, dimension) => {
+    const difference = (leftProfile[dimension] || 0) - (rightProfile[dimension] || 0);
+    return total + difference * difference;
+  }, 0);
+}
+
+function getSimilarRoleCodes(roleCode, limit = 5) {
+  const picked = [];
+  const allowHidden = ROLES[roleCode]?.group === "特殊人格";
+  const addCode = (code) => {
+    if (
+      code &&
+      code !== roleCode &&
+      ROLES[code] &&
+      (allowHidden || ROLES[code].group !== "特殊人格") &&
+      !picked.includes(code)
+    ) {
+      picked.push(code);
+    }
+  };
+
+  (ROLE_SIMILARITY[roleCode] || []).forEach(addCode);
+
+  [...ROLE_ORDER]
+    .filter((code) => code !== roleCode && !picked.includes(code))
+    .sort((left, right) => {
+      const distanceDifference = getDimensionDistance(roleCode, left) - getDimensionDistance(roleCode, right);
+      if (distanceDifference !== 0) {
+        return distanceDifference;
+      }
+      return ROLE_ORDER.indexOf(left) - ROLE_ORDER.indexOf(right);
+    })
+    .forEach(addCode);
+
+  return picked.slice(0, limit);
+}
+
 function getAnswerLabel(questionId) {
   const questionIndexLocal = QUESTIONS.findIndex((question) => question.id === questionId);
   if (questionIndexLocal === -1) {
@@ -628,7 +702,7 @@ function buildResult(limit) {
 
 function buildNarrative(result) {
   const topDimensions = result.dimensions.slice(0, 3);
-  const topRoles = result.rankedRoles.filter((code) => code !== result.winner.code).slice(0, 3);
+  const topRoles = getSimilarRoleCodes(result.winner.code, 3);
   const fallbackProfile = `这类人看球时通常会优先从"${topDimensions.map((item) => item.name).join(" / ")}"进入比赛，所以你的判断和情绪落点会比较稳定地收束到"${result.winner.tag}"这一类视角。`;
 
   return {
@@ -845,16 +919,13 @@ function applyResultToView(result, phaseLabel) {
 
   renderRadarChart(radarChart, dimensionLegend, result.dimensions);
 
-  // 过滤掉自己的人格，只显示相近人格
-  const similarRoles = result.rankedRoles
-    .filter((code) => code !== result.winner.code)
-    .slice(0, 5);
+  const similarRoles = getSimilarRoleCodes(result.winner.code, 5);
 
   renderBreakdown(
     roleBreakdown,
-    similarRoles.map((code) => ({
+    similarRoles.map((code, index) => ({
       name: `${ROLES[code].title} · ${ROLES[code].group}`,
-      value: `${result.roleScores[code]} 分`
+      value: `第${index + 1}顺位`
     }))
   );
 
