@@ -1159,41 +1159,49 @@ function strokeRoundedRect(ctx, x, y, width, height, radius, strokeStyle, lineWi
   ctx.restore();
 }
 
+function wrapTextLines(ctx, text, maxWidth) {
+  const lines = [];
+  const leadingPunctuation = "，。！？；：、）】》」』”’.,!?;:)]}";
+  const chars = Array.from(String(text || ""));
+  let line = "";
+
+  chars.forEach((char) => {
+    const next = line + char;
+    if (ctx.measureText(next).width > maxWidth && line) {
+      if (leadingPunctuation.includes(char)) {
+        lines.push(next);
+        line = "";
+      } else {
+        lines.push(line);
+        line = char;
+      }
+    } else {
+      line = next;
+    }
+  });
+
+  if (line) {
+    lines.push(line);
+  }
+
+  return lines;
+}
+
 function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight) {
   const paragraphs = String(text || "").split("\n");
   let offsetY = y;
-  const leadingPunctuation = "，。！？；：、）】》」』”’.,!?;:)]}";
 
   paragraphs.forEach((paragraph, paragraphIndex) => {
-    const chars = Array.from(paragraph || "");
-    let line = "";
-
-    if (!chars.length) {
+    const lines = wrapTextLines(ctx, paragraph, maxWidth);
+    if (!lines.length) {
       offsetY += lineHeight;
       return;
     }
 
-    chars.forEach((char) => {
-      const next = line + char;
-      if (ctx.measureText(next).width > maxWidth && line) {
-        if (leadingPunctuation.includes(char)) {
-          ctx.fillText(next, x, offsetY);
-          offsetY += lineHeight;
-          line = "";
-          return;
-        }
-        ctx.fillText(line, x, offsetY);
-        offsetY += lineHeight;
-        line = char;
-      } else {
-        line = next;
-      }
-    });
-
-    if (line) {
+    lines.forEach((line) => {
       ctx.fillText(line, x, offsetY);
       offsetY += lineHeight;
-    }
+    });
 
     if (paragraphIndex < paragraphs.length - 1) {
       offsetY += Math.floor(lineHeight * 0.35);
@@ -1201,6 +1209,140 @@ function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight) {
   });
 
   return offsetY;
+}
+
+function drawCenteredWrappedText(ctx, text, centerX, y, maxWidth, lineHeight) {
+  const lines = wrapTextLines(ctx, text, maxWidth);
+  lines.forEach((line, index) => {
+    ctx.fillText(line, centerX, y + index * lineHeight);
+  });
+  return y + lines.length * lineHeight;
+}
+
+function splitTextBalanced(ctx, text, maxWidth, maxLines = 3) {
+  const source = String(text || "");
+  const chars = Array.from(source);
+  if (!chars.length) {
+    return [];
+  }
+  if (ctx.measureText(source).width <= maxWidth) {
+    return [source];
+  }
+
+  const lineCount = Math.min(maxLines, Math.max(2, Math.ceil(ctx.measureText(source).width / maxWidth)));
+  const candidates = [];
+
+  function collect(start, breaks) {
+    if (breaks.length === lineCount - 1) {
+      const breakPoints = [...breaks, chars.length];
+      let previous = 0;
+      const lines = breakPoints.map((breakPoint) => {
+        const line = chars.slice(previous, breakPoint).join("");
+        previous = breakPoint;
+        return line;
+      });
+      if (lines.every((line) => line && ctx.measureText(line).width <= maxWidth)) {
+        candidates.push(lines);
+      }
+      return;
+    }
+
+    const remainingBreaks = lineCount - 1 - breaks.length;
+    const maxEnd = chars.length - remainingBreaks;
+    for (let end = start + 1; end <= maxEnd; end += 1) {
+      const line = chars.slice(start, end).join("");
+      if (ctx.measureText(line).width <= maxWidth) {
+        collect(end, [...breaks, end]);
+      }
+    }
+  }
+
+  collect(0, []);
+
+  if (!candidates.length) {
+    return wrapTextLines(ctx, source, maxWidth);
+  }
+
+  const targetLength = chars.length / lineCount;
+  return candidates
+    .map((lines) => {
+      const widths = lines.map((line) => ctx.measureText(line).width);
+      const lengths = lines.map((line) => Array.from(line).length);
+      return {
+        lines,
+        score:
+          (Math.max(...widths) - Math.min(...widths)) +
+          (Math.max(...lengths) - Math.min(...lengths)) * 18 +
+          lengths.reduce((total, length) => total + Math.abs(length - targetLength), 0) * 8
+      };
+    })
+    .sort((left, right) => left.score - right.score)[0].lines;
+}
+
+function drawLeftCaptionBlock(ctx, quoteText, shortText, centerX, y, maxWidth, maxHeight) {
+  const render = (scale, shouldDraw) => {
+    let offsetY = y;
+    const quoteFont = Math.round(40 * scale);
+    const quoteLineH = Math.round(46 * scale);
+    const shortFont = Math.round(32 * scale);
+    const shortLineH = Math.round(38 * scale);
+    const gap = Math.round(14 * scale);
+
+    if (quoteText) {
+      let adjustedQuoteFont = quoteFont;
+      let adjustedQuoteLineH = quoteLineH;
+      ctx.font = `600 ${quoteFont}px 'Noto Sans SC', sans-serif`;
+      if (ctx.measureText(quoteText).width > maxWidth) {
+        while (adjustedQuoteFont > Math.round(quoteFont * 0.72)) {
+          adjustedQuoteFont -= 1;
+          adjustedQuoteLineH = Math.round(quoteLineH * (adjustedQuoteFont / quoteFont));
+          ctx.font = `600 ${adjustedQuoteFont}px 'Noto Sans SC', sans-serif`;
+          if (ctx.measureText(quoteText).width <= maxWidth) {
+            break;
+          }
+        }
+      }
+      const quoteLines = ctx.measureText(quoteText).width <= maxWidth
+        ? [quoteText]
+        : splitTextBalanced(ctx, quoteText, maxWidth, 2);
+      if (shouldDraw) {
+        ctx.fillStyle = "#784f34";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+        quoteLines.forEach((line, index) => {
+          ctx.fillText(line, centerX, offsetY + index * adjustedQuoteLineH);
+        });
+      }
+      offsetY += quoteLines.length * adjustedQuoteLineH + gap;
+    }
+
+    ctx.font = `500 ${shortFont}px 'Noto Sans SC', sans-serif`;
+    const shortLines = splitTextBalanced(ctx, shortText, maxWidth, 3);
+    if (shouldDraw) {
+      ctx.fillStyle = "#4c5d63";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "top";
+      shortLines.forEach((line, index) => {
+        ctx.fillText(line, centerX, offsetY + index * shortLineH);
+      });
+    }
+    offsetY += shortLines.length * shortLineH;
+
+    return offsetY;
+  };
+
+  let low = 0.6;
+  let high = 1;
+  for (let i = 0; i < 14; i += 1) {
+    const mid = (low + high) / 2;
+    if (render(mid, false) <= y + maxHeight) {
+      low = mid;
+    } else {
+      high = mid;
+    }
+  }
+
+  return render(low, true);
 }
 
 function drawContainImage(ctx, img, x, y, width, height) {
@@ -1212,85 +1354,114 @@ function drawContainImage(ctx, img, x, y, width, height) {
   ctx.drawImage(img, dx, dy, drawWidth, drawHeight);
 }
 
-function drawProfileTextToCanvas(ctx, text, x, y, maxWidth) {
-  let offsetY = y;
-  let inSpeechSection = false;
+function drawProfileTextToCanvas(ctx, text, x, y, maxWidth, maxHeight = Number.POSITIVE_INFINITY) {
+  const lines = String(text || "").split("\n");
 
-  String(text || "").split("\n").forEach((line) => {
-    if (!line.trim()) {
-      if (inSpeechSection) {
+  const render = (scale, shouldDraw) => {
+    let offsetY = y;
+    let inSpeechSection = false;
+    const subtitleFont = Math.round(30 * scale);
+    const subtitleLineH = Math.round(42 * scale);
+    const bodyFont = Math.round(27 * scale);
+    const bodyLineH = Math.round(39 * scale);
+    const speechFont = Math.round(24 * scale);
+    const speechLineH = Math.round(32 * scale);
+    const paragraphGap = Math.round(18 * scale);
+    const subtitleGap = Math.round(12 * scale);
+    const bubbleGap = Math.round(10 * scale);
+    const bubblePadX = Math.round(16 * scale);
+    const bubblePadY = Math.round(8 * scale);
+    const bubbleRadius = Math.round(12 * scale);
+
+    lines.forEach((line) => {
+      if (!line.trim()) {
         inSpeechSection = false;
-        offsetY += 18;
-      } else {
-        offsetY += 18;
+        offsetY += paragraphGap;
+        return;
       }
-      return;
-    }
 
-    const isSubtitle = /^作为看球搭子的(常见发言|气质)：$/.test(line);
-    const isSpeechSubtitle = /^作为看球搭子的常见发言：$/.test(line);
-    const isQuoteLine = inSpeechSection && !isSubtitle;
+      const isSubtitle = /^作为看球搭子的(常见发言|气质)：$/.test(line);
+      const isSpeechSubtitle = /^作为看球搭子的常见发言：$/.test(line);
+      const isQuoteLine = inSpeechSection && !isSubtitle;
 
-    if (isSubtitle) {
-      inSpeechSection = isSpeechSubtitle;
-      ctx.fillStyle = "#18262b";
-      ctx.font = "700 30px 'Noto Sans SC', sans-serif";
-      offsetY = drawWrappedText(ctx, line, x, offsetY, maxWidth, 42);
-      offsetY += 12;
-      return;
-    }
-
-    if (isQuoteLine) {
-      // Split line into complete sentences by sentence-ending punctuation
-      const phrases = line
-        .split(/(?<=[？！。])/)
-        .map((s) => s.trim())
-        .filter(Boolean);
-
-      const padX = 16;
-      const padY = 8;
-      const bubbleGap = 12;
-      const bubbleRadius = 12;
-      const lineHeight = 34;
-      const bubbleHeight = padY * 2 + lineHeight;
-
-      ctx.textAlign = "left";
-      ctx.textBaseline = "middle";
-
-      let curY = offsetY;
-
-      phrases.forEach((phrase) => {
-        ctx.save();
-        ctx.fillStyle = "rgba(213, 111, 42, 0.12)";
-        roundRectPath(ctx, x, curY, maxWidth, bubbleHeight, bubbleRadius);
-        ctx.fill();
-        ctx.strokeStyle = "rgba(213, 111, 42, 0.18)";
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-        ctx.restore();
-
-        let fontSize = 24;
-        ctx.font = `600 ${fontSize}px 'Noto Sans SC', sans-serif`;
-        while (fontSize > 18 && ctx.measureText(phrase).width > maxWidth - padX * 2) {
-          fontSize -= 1;
-          ctx.font = `600 ${fontSize}px 'Noto Sans SC', sans-serif`;
+      if (isSubtitle) {
+        inSpeechSection = isSpeechSubtitle;
+        ctx.font = `700 ${subtitleFont}px 'Noto Sans SC', sans-serif`;
+        const wrapped = wrapTextLines(ctx, line, maxWidth);
+        if (shouldDraw) {
+          ctx.fillStyle = "#18262b";
+          wrapped.forEach((wrappedLine, index) => {
+            ctx.fillText(wrappedLine, x, offsetY + index * subtitleLineH);
+          });
         }
-        ctx.fillStyle = "#6f430d";
-        ctx.fillText(phrase, x + padX, curY + bubbleHeight / 2 + 1);
-        curY += bubbleHeight + bubbleGap;
-      });
+        offsetY += wrapped.length * subtitleLineH + subtitleGap;
+        return;
+      }
 
-      offsetY = curY + 8;
-      return;
+      if (isQuoteLine) {
+        const phrases = line
+          .split(/(?<=[？！。])/)
+          .map((s) => s.trim())
+          .filter(Boolean);
+
+        ctx.font = `600 ${speechFont}px 'Noto Sans SC', sans-serif`;
+        phrases.forEach((phrase) => {
+          const wrapped = wrapTextLines(ctx, phrase, maxWidth - bubblePadX * 2);
+          const bubbleHeight = bubblePadY * 2 + wrapped.length * speechLineH;
+
+          if (shouldDraw) {
+            ctx.save();
+            ctx.fillStyle = "rgba(213, 111, 42, 0.12)";
+            roundRectPath(ctx, x, offsetY, maxWidth, bubbleHeight, bubbleRadius);
+            ctx.fill();
+            ctx.strokeStyle = "rgba(213, 111, 42, 0.18)";
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.fillStyle = "#6f430d";
+            ctx.textAlign = "left";
+            ctx.textBaseline = "top";
+            wrapped.forEach((wrappedLine, index) => {
+              ctx.fillText(wrappedLine, x + bubblePadX, offsetY + bubblePadY + index * speechLineH);
+            });
+          }
+
+          offsetY += bubbleHeight + bubbleGap;
+        });
+        offsetY += Math.round(6 * scale);
+        return;
+      }
+
+      ctx.font = `500 ${bodyFont}px 'Noto Sans SC', sans-serif`;
+      const wrapped = wrapTextLines(ctx, line, maxWidth);
+      if (shouldDraw) {
+        ctx.fillStyle = "#4c5d63";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "top";
+        wrapped.forEach((wrappedLine, index) => {
+          ctx.fillText(wrappedLine, x, offsetY + index * bodyLineH);
+        });
+      }
+      offsetY += wrapped.length * bodyLineH + Math.round(4 * scale);
+    });
+
+    return offsetY;
+  };
+
+  let low = 0.18;
+  let high = 1;
+  for (let i = 0; i < 18; i += 1) {
+    const mid = (low + high) / 2;
+    if (render(mid, false) <= y + maxHeight) {
+      low = mid;
+    } else {
+      high = mid;
     }
+  }
+  const scale = low;
 
-    // Normal text line
-    ctx.fillStyle = "#4c5d63";
-    ctx.font = "500 27px 'Noto Sans SC', sans-serif";
-    offsetY = drawWrappedText(ctx, line, x, offsetY, maxWidth, 39);
-    offsetY += 4;
-  });
-  return offsetY;
+  return render(scale, true);
 }
 
 function getDimensionGrade(value) {
@@ -1528,8 +1699,8 @@ async function saveResultImage() {
     }
 
     // --- Layout constants: fixed two-column composition ---
-    const contentTop = cardY + 330;
-    const contentBottom = cardY + cardH - 100;
+    const contentTop = cardY + 300;
+    const contentBottom = cardY + cardH - 60;
     const columnGap = 36;
     const leftX = cardX + 70;
     const leftW = 500;
@@ -1539,7 +1710,7 @@ async function saveResultImage() {
     const rightColH = contentBottom - rightColTop;
 
     // --- Left column: portrait + quote + shortLabel ---
-    const portraitH = 800;
+    const portraitH = 780;
     const portraitBox = {
       x: leftX,
       y: rightColTop,
@@ -1555,50 +1726,34 @@ async function saveResultImage() {
     ctx.save();
     roundRectPath(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34);
     ctx.clip();
-    drawContainImage(ctx, portraitImg, portraitBox.x + 24, portraitBox.y + 24, portraitBox.w - 48, portraitBox.h - 48);
+    drawContainImage(ctx, portraitImg, portraitBox.x + 16, portraitBox.y + 16, portraitBox.w - 32, portraitBox.h - 32);
     ctx.restore();
 
     let leftBottom = portraitBox.y + portraitBox.h;
 
-    if (result.winner.quote) {
-      const quoteY = leftBottom + 20;
-      const quoteText = `"${result.winner.quote}"`;
-      const quoteMaxW = leftW - 20;
-      ctx.fillStyle = "#784f34";
-      ctx.font = "600 40px 'Noto Sans SC', sans-serif";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "top";
-      const quoteLines = splitTextEvenly(ctx, quoteText, quoteMaxW);
-      const quoteLineH = 42;
-      quoteLines.forEach((line, i) => {
-        ctx.fillText(line, leftX + leftW / 2, quoteY + i * quoteLineH);
-      });
-      leftBottom = quoteY + quoteLines.length * quoteLineH;
-    }
-
-    // ShortLabel below quote
-    const slText = result.winner.shortLabel;
-    const slMaxW = leftW - 20;
-    ctx.fillStyle = "#4c5d63";
-    ctx.font = "500 32px 'Noto Sans SC', sans-serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "top";
-    const slLines = splitTextEvenly(ctx, slText, slMaxW);
-    const slLineH = 36;
-    slLines.forEach((line, i) => {
-      ctx.fillText(line, leftX + leftW / 2, leftBottom + 16 + i * slLineH);
-    });
+    const leftFooterTop = cardY + cardH - 70 - 120;
+    const captionY = leftBottom + 22;
+    const captionMaxH = leftFooterTop - captionY - 24;
+    drawLeftCaptionBlock(
+      ctx,
+      result.winner.quote ? `"${result.winner.quote}"` : "",
+      result.winner.shortLabel,
+      leftX + leftW / 2,
+      captionY,
+      leftW - 26,
+      captionMaxH
+    );
 
     // --- Right column: radar (top) + profile text (bottom) ---
     fillRoundedRect(ctx, rightX, rightColTop, rightW, rightColH, 30, "rgba(255, 255, 255, 0.72)");
     strokeRoundedRect(ctx, rightX, rightColTop, rightW, rightColH, 30, "rgba(29, 42, 47, 0.08)", 2);
 
     // Radar: fixed size at top, centered in its area
-    const radarAreaH = 450;
-    const radarSize = 450;
+    const radarAreaH = 395;
+    const radarSize = 405;
     const radarCenterX = rightX + rightW / 2;
-    const radarCenterY = rightColTop + radarAreaH / 2;
-    const drawRadarSize = radarSize * 1.3; // leave some padding
+    const radarCenterY = rightColTop + radarAreaH / 2 + 18;
+    const drawRadarSize = radarSize * 1.2; // leave some padding
     drawResultRadarToCanvas(ctx, radarCenterX - drawRadarSize / 2, radarCenterY - drawRadarSize / 2, drawRadarSize, result.dimensions);
 
     // Profile text below radar area
@@ -1606,7 +1761,11 @@ async function saveResultImage() {
     const profileX = rightX + profilePad;
     const profileY = rightColTop + radarAreaH + 6;
     const profileW = rightW - profilePad * 2;
+    const profileMaxH = contentBottom - profileY - 22;
 
+    ctx.save();
+    roundRectPath(ctx, rightX, rightColTop, rightW, rightColH, 30);
+    ctx.clip();
     ctx.textAlign = "left";
     ctx.textBaseline = "top";
     drawProfileTextToCanvas(
@@ -1614,8 +1773,10 @@ async function saveResultImage() {
       narrative.profile,
       profileX,
       profileY,
-      profileW
+      profileW,
+      profileMaxH
     );
+    ctx.restore();
 
     // Bottom-left: QR code + link text
     const qrSize = 120;
