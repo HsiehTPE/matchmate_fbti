@@ -375,6 +375,10 @@ body::after {
 }
 
 .option-button {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
   width: 100%;
   text-align: left;
   padding: 18px 20px;
@@ -403,7 +407,6 @@ body::after {
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  margin-right: 12px;
   font-family: "Space Grotesk", sans-serif;
   font-size: 14px;
   background: rgba(15, 91, 82, 0.1);
@@ -411,7 +414,7 @@ body::after {
 }
 
 .option-text {
-  display: inline;
+  display: block;
   font-size: 16px;
   line-height: 1.75;
 }
@@ -532,6 +535,83 @@ body::after {
 .primary-button:hover:not(:disabled),
 .ghost-button:hover:not(:disabled) {
   transform: translateY(-1px);
+}
+
+.save-preview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.save-preview-modal.hidden {
+  display: none;
+}
+
+.save-preview-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 18, 20, 0.58);
+  backdrop-filter: blur(6px);
+}
+
+.save-preview-panel {
+  position: relative;
+  z-index: 1;
+  width: min(480px, 100%);
+  max-height: min(92vh, 760px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(252, 249, 241, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  box-shadow: 0 24px 70px rgba(10, 18, 20, 0.28);
+}
+
+.save-preview-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: start;
+}
+
+.save-preview-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.save-preview-header p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.save-preview-close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.save-preview-image {
+  display: block;
+  width: 100%;
+  max-height: calc(92vh - 104px);
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fffaf2;
+  -webkit-touch-callout: default;
+  user-select: auto;
 }
 
 .result-header {
@@ -929,6 +1009,8 @@ body::after {
   }
 
   .option-button {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 8px;
     padding: 11px 12px;
     border-radius: 14px;
   }
@@ -936,7 +1018,6 @@ body::after {
   .option-label {
     width: 28px;
     height: 28px;
-    margin-right: 8px;
     font-size: 12px;
   }
 

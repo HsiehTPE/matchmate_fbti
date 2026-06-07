@@ -172,6 +172,20 @@
     </main>
   </div>
 
+  <div id="save-preview-modal" class="save-preview-modal hidden" role="dialog" aria-modal="true" aria-labelledby="save-preview-title">
+    <div class="save-preview-backdrop" data-close-save-preview></div>
+    <div class="save-preview-panel">
+      <div class="save-preview-header">
+        <div>
+          <h3 id="save-preview-title">长按保存结果图</h3>
+          <p id="save-preview-copy">在微信里长按图片，选择“保存图片”。</p>
+        </div>
+        <button class="save-preview-close" type="button" aria-label="关闭" data-close-save-preview>×</button>
+      </div>
+      <img id="save-preview-image" class="save-preview-image" alt="MatchMate 结果图">
+    </div>
+  </div>
+
   <script src="./app.js"></script>
 </body>
 </html>

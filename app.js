@@ -326,9 +326,9 @@ const QUESTIONS = [
     title: "世界杯决赛踢到点球大战，双方轮流罚球定胜负，你更像哪种状态？",
     options: [
       option("A", "先观察罚球的人和守门员，这种时刻也不只是靠运气", ["MA-DING", "TEN-GOD"], ["PEP", "CARD-MA"], { R: 2, V: 1, N: 1 }),
-      option("B", "关键球就该交给最强的人，别问，问就是相信他能进", ["CR7", "LEO"], ["8-PE", "NEY-MAR"], { E: 1, R: 1, V: 1 }),
+      option("B", "攥紧拳头屏住呼吸，心率跟着每一脚射门起伏", ["CR7", "LEO"], ["8-PE", "NEY-MAR"], { E: 1, R: 1, V: 1 }),
       option("C", "太紧张了，必须先在群里喊两句，大家一起扛一下", ["TUI-Q", "LAO-8"], ["CN-12", "FAN-ZY"], { E: 1, S: 2, N: 1 }),
-      option("D", "越到这种时候越像电影结尾，最好来个让人记住很多年的画面", ["ZI-DANE", "DINHO"], ["Z-LATAN", "LEGEND"], { N: 2, V: 2, E: 1 })
+      option("D", "尽情享受比赛，这可是世界杯决赛的点球大战", ["ZI-DANE", "DINHO"], ["Z-LATAN", "LEGEND"], { N: 2, V: 2, E: 1 })
     ]
   },
   {
@@ -442,6 +442,9 @@ const resultFocus = document.querySelector("#result-focus");
 const resultNeighbors = document.querySelector("#result-neighbors");
 const hiddenBadge = document.querySelector("#hidden-badge");
 const saveImageButton = document.querySelector("#save-image-button");
+const savePreviewModal = document.querySelector("#save-preview-modal");
+const savePreviewImage = document.querySelector("#save-preview-image");
+const savePreviewCopy = document.querySelector("#save-preview-copy");
 const hiddenUnlockHint = document.querySelector("#hidden-unlock-hint");
 const copyButton = document.querySelector("#copy-button");
 const restartButton = document.querySelector("#restart-button");
@@ -1178,6 +1181,33 @@ function triggerBlobDownload(blob, filename) {
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+function isWeChatBrowser() {
+  return /MicroMessenger/i.test(window.navigator.userAgent || "");
+}
+
+function openSavePreview(imageSrc, isWeChat) {
+  if (!savePreviewModal || !savePreviewImage) {
+    return false;
+  }
+  savePreviewImage.src = imageSrc;
+  if (savePreviewCopy) {
+    savePreviewCopy.textContent = isWeChat
+      ? "在微信里长按图片，选择“保存图片”。"
+      : "长按图片保存，或返回后再次点击按钮下载。";
+  }
+  savePreviewModal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+  return true;
+}
+
+function closeSavePreview() {
+  if (!savePreviewModal) {
+    return;
+  }
+  savePreviewModal.classList.add("hidden");
+  document.body.style.overflow = "";
+}
+
 function roundRectPath(ctx, x, y, width, height, radius) {
   const r = Math.min(radius, width / 2, height / 2);
   ctx.beginPath();
@@ -1850,8 +1880,12 @@ async function saveResultImage() {
     ctx.fillText("www.matchmate.tv", linkTextX, linkTextY + 72);
 
     const fileCode = String(result.winner.code || "result").toLowerCase().replace(/[^a-z0-9!-]+/g, "-");
-    const blob = await canvasToBlob(canvas);
-    triggerBlobDownload(blob, `${fileCode}-result-card.png`);
+    if (isWeChatBrowser()) {
+      openSavePreview(canvas.toDataURL("image/png"), true);
+    } else {
+      const blob = await canvasToBlob(canvas);
+      triggerBlobDownload(blob, `${fileCode}-result-card.png`);
+    }
   } catch (error) {
     console.error(error);
     const hint = window.location.protocol === "file:"
@@ -1901,6 +1935,16 @@ prevButton.addEventListener("click", goPrev);
 if (saveImageButton) {
   saveImageButton.addEventListener("click", saveResultImage);
 }
+
+document.querySelectorAll("[data-close-save-preview]").forEach((button) => {
+  button.addEventListener("click", closeSavePreview);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeSavePreview();
+  }
+});
 copyButton.addEventListener("click", async () => {
   await copyText(buildCopyText(QUESTIONS.length, ""));
 });
