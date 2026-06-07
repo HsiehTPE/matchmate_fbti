@@ -811,11 +811,11 @@ body::after {
   }
 
   .question-media-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(96px, 0.8fr) minmax(150px, 1.35fr);
   }
 
   .question-media-image {
-    height: 190px;
+    height: 150px;
   }
 
   .quiz-home-button {

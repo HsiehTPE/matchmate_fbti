@@ -203,16 +203,8 @@ const QUESTIONS = [
     part: "",
     title: "库拉索是加勒比海附近的小地方，首次出现在世界杯舞台上，你最先想到什么？",
     media: {
-      items: [
-        {
-          src: "./assets/curacao-flag.svg",
-          alt: "库拉索国旗"
-        },
-        {
-          src: "./assets/curacao-caribbean.svg",
-          alt: "库拉索在加勒比海的位置地图"
-        }
-      ],
+      src: "./assets/curacao-combined.svg",
+      alt: "库拉索国旗和地理位置地图",
       caption: ""
     },
     options: [
@@ -255,10 +247,10 @@ const QUESTIONS = [
     part: "",
     title: "一支热门球队在淘汰赛里爆冷出局，你第一反应更像哪种？",
     options: [
-      option("A", "先冷静看看他们哪里没踢好，不能只说一句运气差", ["NEY-MAR", "DAT-A"], ["PEP", "LEO"], { R: 2, N: 1 }),
-      option("B", "这种时候最看心态，热门队一慌就真的会出事", ["MA-DING", "LE-FU"], ["ZI-DANE", "Z-LATAN"], { V: 2, N: 1, E: 1 }),
-      option("C", "马上进群复盘，谁背锅、谁尽力、谁离谱都得聊清楚", ["LAO-8", "BEI-GUO"], ["WAN-SUI", "TUI-Q"], { S: 2, N: 1, G: 1 }),
-      option("D", "会记住这种强队出局的剧情，世界杯就是会突然改剧本", ["CCTV-HE", "1100"], ["LEGEND", "FAN-ZY"], { N: 2, S: 1 })
+      option("A", "看看复盘和赛场数据表现，弄清楚到底输在哪里", ["DAT-A", "PEP"], ["CARD-MA", "TINTIN"], { R: 2, N: 1 }),
+      option("B", "看看社媒上的舆论风向，大家对爆冷都是什么看法", ["HEI-HEI", "WAN-SUI"], ["FAN-ZY", "TUI-Q"], { S: 2, G: 1, E: 1 }),
+      option("C", "和朋友复盘，谁背锅、谁尽力、谁离谱都得聊清楚", ["LAO-8", "BEI-GUO"], ["WAN-SUI", "TUI-Q"], { S: 2, N: 1, G: 1 }),
+      option("D", "足球是圆的，强队爆冷就是世界杯的精彩之一", ["CCTV-HE", "1100"], ["LEGEND", "ZI-DANE"], { N: 2, V: 1, S: 1 })
     ]
   },
   {
@@ -292,12 +284,12 @@ const QUESTIONS = [
     sourceNumber: 5,
     stage: 1,
     part: "",
-    title: "一支球队终于圆梦夺冠，终场哨响后你更像会先做哪件事？",
+    title: "世界杯决赛终场哨响，新冠军即将捧杯，你第一时间更想做什么？",
     options: [
-      option("A", "先回想他们一路怎么走到最后，冠军不是突然来的", ["LEO", "LEGEND"], ["TINTIN", "CCTV-HE"], { R: 2, N: 1, E: 1 }),
-      option("B", "点开群聊，大家已经在刷屏庆祝和复盘了", ["CN-12", "LAO-8"], ["WAN-SUI", "TUI-Q"], { S: 2, E: 1, G: 1 }),
-      option("C", "去MatchMate看评分，给情绪配一份数据报告", ["DAT-A", "PEP"], ["CARD-MA", "STAY-H"], { R: 2, S: 1, V: 1 }),
-      option("D", "开始聊命运、坚持和那种不可能复制的夺冠剧本", ["CR7", "NEY-MAR"], ["DINHO", "ZI-DANE"], { N: 2, E: 1, R: 1 })
+      option("A", "其实很多细节没看懂，但会被解说、镜头和弹幕带到有点感动", ["CN-12", "HEI-HEI"], ["WAN-SUI", "CCTV-HE"], { E: 1, S: 2, G: 1 }),
+      option("B", "点开群聊，和大家一起刷屏等捧杯那一刻", ["CN-12", "LAO-8"], ["WAN-SUI", "TUI-Q"], { S: 2, E: 1, G: 1 }),
+      option("C", "去MatchMate看评分和关键数据，给这场决赛补一份复盘", ["DAT-A", "PEP"], ["CARD-MA", "STAY-H"], { R: 2, S: 1, V: 1 }),
+      option("D", "开始聊这届世界杯的命运感、冠军剧本和以后会被记住的画面", ["CR7", "NEY-MAR"], ["DINHO", "ZI-DANE"], { N: 2, E: 1, R: 1 })
     ]
   },
   {
@@ -366,7 +358,7 @@ const QUESTIONS = [
     options: [
       option("A", "可以拼，但别一下全乱了，至少要知道球往哪传", ["PEP", "CARD-MA"], ["TINTIN", "DAT-A"], { R: 2, V: 1 }),
       option("B", "都快回家了还不冲？这时候就该赌一把", ["ZI-DANE", "CR7"], ["MOU", "8-PE"], { E: 1, V: 2, N: 1 }),
-      option("C", "只要能多创造几次机会，这个换人就有得聊", ["TEN-GOD", "LE-FU"], ["STAY-H", "MA-KUI"], { R: 1, S: 1, N: 1, V: 1 }),
+      option("C", "看着像最后一搏，但我心里已经有点觉得追不回来了", ["STAY-H", "BEI-GUO"], ["LE-FU", "MA-KUI"], { E: -1, S: -1, R: 1, V: 1 }),
       option("D", "我想看到他们真敢攻，输也别输得太憋屈", ["NEY-MAR", "Z-LATAN"], ["DINHO", "MA-DING"], { N: 2, V: 1, E: 1 })
     ]
   },
