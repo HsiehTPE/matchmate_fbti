@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-labelledby="title desc">
+  <title id="title">库拉索国旗</title>
+  <desc id="desc">蓝色旗面，中部偏下有黄色横条，左上角有两颗白色星星。</desc>
+  <rect width="360" height="220" rx="18" fill="#002b7f"/>
+  <rect y="130" width="360" height="30" fill="#f9e814"/>
+  <path d="M80 44 l10 31 h33 l-27 20 10 31 -26 -19 -27 19 10 -31 -27 -20 h33z" fill="#fff"/>
+  <path d="M150 84 l7 21 h22 l-18 13 7 22 -18 -13 -18 13 7 -22 -18 -13 h22z" fill="#fff"/>
+</svg>

@@ -43,6 +43,31 @@ http://localhost:8080/index.html?result=TINTIN
 http://localhost:8080/index.html?panel=quiz
 ```
 
+## 直接进入指定题目页
+
+可以通过 `question` 参数直接打开指定题目，数字对应页面上显示的题号：
+
+```text
+http://localhost:8080/index.html?question=12
+```
+
+更多例子：
+
+- `http://localhost:8080/index.html?question=1`
+- `http://localhost:8080/index.html?question=2`
+- `http://localhost:8080/index.html?question=16`
+
+线上地址格式：
+
+```text
+https://hsiehtpe.github.io/matchmate_fbti/?question=12
+```
+
+说明：
+
+- `question=12` 会直接进入页面第 12 题，而不是内部题库 id。
+- 如果传入超过题目范围的数字，会自动限制到有效范围内。
+
 ## 保存结果图案
 
 进入任意结果页后，点击底部 `保存结果图案` 按钮即可下载结果图。

@@ -188,9 +188,9 @@ const QUESTIONS = [
     sourceNumber: 14,
     stage: 2,
     part: "",
-    title: "2026世界杯在北美三国举办，你最先关心哪件事？",
+    title: "2026世界杯在北美三国举办，你最关心什么？",
     options: [
-      option("A", "先搞清楚这届怎么玩，别看到一半才发现规则变了", ["PEP", "CARD-MA"], ["DAT-A", "TEN-GOD"], { R: 2, N: 1 }),
+      option("A", "先搞清楚48支队伍怎么踢，别看到一半才发现规则变了", ["PEP", "CARD-MA"], ["DAT-A", "TEN-GOD"], { R: 2, N: 1 }),
       option("B", "先看比赛时间，哪些能熬夜看，哪些只能第二天补", ["LE-FU", "STAY-H"], ["FAN-ZY", "MA-KUI"], { R: 1, V: 1 }),
       option("C", "先看有哪些熟悉的球星，这可能是他们最后几次大赛了", ["LEO", "CR7"], ["LEGEND", "CCTV-HE"], { E: 1, R: 1, N: 1 }),
       option("D", "参赛队更多，认识新球队和看冷门的机会也更多了", ["CN-12", "LAO-8"], ["TUI-Q", "HEI-HEI"], { S: 2, G: 1 })
@@ -201,12 +201,77 @@ const QUESTIONS = [
     sourceNumber: 7,
     stage: 1,
     part: "",
-    title: "提到库拉索这个国家，你脑子里最先冒出来的印象是什么？",
+    title: "库拉索是加勒比海附近的小地方，首次出现在世界杯舞台上，你最先想到什么？",
+    media: {
+      items: [
+        {
+          src: "./assets/curacao-flag.svg",
+          alt: "库拉索国旗"
+        },
+        {
+          src: "./assets/curacao-caribbean.svg",
+          alt: "库拉索在加勒比海的位置地图"
+        }
+      ],
+      caption: ""
+    },
     options: [
       option("A", "先去查它在哪儿、有什么背景，说不定比名字更有意思", ["DAT-A", "PEP"], ["TINTIN", "CARD-MA"], { R: 2, S: 1 }),
       option("B", "名字很陌生，反而会让我觉得它可能藏着点惊喜", ["ZI-DANE", "LE-FU"], ["MA-KUI", "8-PE"], { V: 2, N: 1, E: 1 }),
       option("C", "会有点好奇，一个不常被提起的地方也有自己的故事", ["CCTV-HE", "LEGEND"], ["WAN-SUI", "LEO"], { N: 2, S: 1, R: 1 }),
-      option("D", "第一反应是发给朋友：这个国家你听过吗？", ["HEI-HEI", "CN-12"], ["LAO-8", "TUI-Q"], { S: 2, G: 1, E: 1 })
+      option("D", "国足都还没进世界杯，它先来了？这事必须发群里聊聊", ["HEI-HEI", "CN-12"], ["LAO-8", "TUI-Q"], { S: 2, G: 1, E: 1 })
+    ]
+  },
+  {
+    id: "Q1",
+    sourceNumber: 1,
+    stage: 1,
+    part: "",
+    title: "看世界杯时，你的注意力最可能放在哪？",
+    options: [
+      option("A", "信息和细节，越能解释清楚越吸引我", ["DAT-A", "CARD-MA"], ["PEP", "TINTIN"], { R: 2, S: 1 }),
+      option("B", "关键人物的表现，感觉气氛会被一个人带起来", ["8-PE", "CR7"], ["LEO", "NEY-MAR"], { E: 2, V: 1, N: 1 }),
+      option("C", "背后的故事和记忆点，越有来历越想听下去", ["1100", "CCTV-HE"], ["LEGEND", "WAN-SUI"], { N: 2, S: 1, R: 1 }),
+      option("D", "现场气氛和大家的反应，热闹起来我也容易被带动", ["CN-12", "TUI-Q"], ["FAN-ZY", "LAO-8"], { E: 2, S: 1, G: 1 })
+    ]
+  },
+  {
+    id: "Q2",
+    sourceNumber: 2,
+    stage: 1,
+    part: "",
+    title: "世界杯上看到一个神仙进球，你第一时间的反应是什么？",
+    options: [
+      option("A", "直接喊出来，这种球就算不懂也知道很厉害", ["8-PE", "CN-12"], ["CR7", "MA-DING"], { E: 2, V: 1, S: 1 }),
+      option("B", "想再看一遍回放，看看他到底怎么做到的", ["LEO", "TINTIN"], ["DAT-A", "NEY-MAR"], { R: 2, E: 1 }),
+      option("C", "觉得这球太漂亮了，会想保存下来反复看", ["Z-LATAN", "DINHO"], ["NEY-MAR", "CR7"], { N: 2, R: 1, V: 1 }),
+      option("D", "立刻发给朋友：快看这个球，真的离谱", ["LAO-8", "HEI-HEI"], ["WAN-SUI", "TUI-Q"], { S: 2, G: 1, E: 1 })
+    ]
+  },
+  {
+    id: "Q3",
+    sourceNumber: 3,
+    stage: 1,
+    part: "",
+    title: "一支热门球队在淘汰赛里爆冷出局，你第一反应更像哪种？",
+    options: [
+      option("A", "先冷静看看他们哪里没踢好，不能只说一句运气差", ["NEY-MAR", "DAT-A"], ["PEP", "LEO"], { R: 2, N: 1 }),
+      option("B", "这种时候最看心态，热门队一慌就真的会出事", ["MA-DING", "LE-FU"], ["ZI-DANE", "Z-LATAN"], { V: 2, N: 1, E: 1 }),
+      option("C", "马上进群复盘，谁背锅、谁尽力、谁离谱都得聊清楚", ["LAO-8", "BEI-GUO"], ["WAN-SUI", "TUI-Q"], { S: 2, N: 1, G: 1 }),
+      option("D", "会记住这种强队出局的剧情，世界杯就是会突然改剧本", ["CCTV-HE", "1100"], ["LEGEND", "FAN-ZY"], { N: 2, S: 1 })
+    ]
+  },
+  {
+    id: "Q4",
+    sourceNumber: 4,
+    stage: 1,
+    part: "",
+    title: "世界杯除了比赛本身，最容易让你联想到什么？",
+    options: [
+      option("A", "想了解办一届世界杯要花多少钱、能带来多少关注", ["TINTIN", "STAY-H"], ["PEP", "CARD-MA"], { R: 2, V: 1, S: -1 }),
+      option("B", "会被举办地种草，开始想象以后能不能去那边旅行", ["MA-KUI", "HEI-HEI"], ["LAO-8", "TUI-Q"], { S: 2, G: 1, E: 1 }),
+      option("C", "更在意城市、街头和球迷节日感，感觉全世界都在一起热闹", ["CN-12", "8-PE"], ["MOU", "CR7"], { E: 2, S: 1, V: 1 }),
+      option("D", "会想到国家形象、文化符号和一个地方被世界看见的机会", ["CR7", "FAN-ZY"], ["Z-LATAN", "MA-DING"], { E: 1, N: 1, G: 1 })
     ]
   },
   {
@@ -220,58 +285,6 @@ const QUESTIONS = [
       option("B", "感觉他们自带主角光环，一出场就像强队该有的样子", ["CR7", "TEN-GOD"], ["PEP", "STAY-H"], { R: 1, V: 1, S: 1 }),
       option("C", "名气很大，但如果踢得一般，我也会直接说失望", ["MOU", "FAN-ZY"], ["TUI-Q", "MA-DING"], { E: 2, G: 1 }),
       option("D", "黄色球衣、明星球员、五次冠军，至少聊天时很容易接上", ["HEI-HEI", "WAN-SUI"], ["LAO-8", "CCTV-HE"], { S: 2, G: 1, E: 1 })
-    ]
-  },
-  {
-    id: "Q1",
-    sourceNumber: 1,
-    stage: 1,
-    part: "",
-    title: "看世界杯时，你的注意力最容易被什么抓走？",
-    options: [
-      option("A", "信息和细节，越能解释清楚越吸引我", ["DAT-A", "CARD-MA"], ["PEP", "TINTIN"], { R: 2, S: 1 }),
-      option("B", "关键人物的表现，感觉气氛会被一个人带起来", ["8-PE", "CR7"], ["LEO", "NEY-MAR"], { E: 2, V: 1, N: 1 }),
-      option("C", "背后的故事和记忆点，越有来历越想听下去", ["1100", "CCTV-HE"], ["LEGEND", "WAN-SUI"], { N: 2, S: 1, R: 1 }),
-      option("D", "现场气氛和大家的反应，热闹起来我也容易被带动", ["CN-12", "TUI-Q"], ["FAN-ZY", "LAO-8"], { E: 2, S: 1, G: 1 })
-    ]
-  },
-  {
-    id: "Q2",
-    sourceNumber: 2,
-    stage: 1,
-    part: "",
-    title: "世界杯上看到一个神仙进球，你通常怎么处理这份激动？",
-    options: [
-      option("A", "直接喊出来，这种球就算不懂也知道很厉害", ["8-PE", "CN-12"], ["CR7", "MA-DING"], { E: 2, V: 1, S: 1 }),
-      option("B", "想再看一遍回放，看看他到底怎么做到的", ["LEO", "TINTIN"], ["DAT-A", "NEY-MAR"], { R: 2, E: 1 }),
-      option("C", "觉得这球太漂亮了，会想保存下来反复看", ["Z-LATAN", "DINHO"], ["NEY-MAR", "CR7"], { N: 2, R: 1, V: 1 }),
-      option("D", "立刻发给朋友：快看这个球，真的离谱", ["LAO-8", "HEI-HEI"], ["WAN-SUI", "TUI-Q"], { S: 2, G: 1, E: 1 })
-    ]
-  },
-  {
-    id: "Q3",
-    sourceNumber: 3,
-    stage: 1,
-    part: "",
-    title: "一支热门球队在淘汰赛里爆冷出局，赛后你更想把话题带到哪？",
-    options: [
-      option("A", "先看看他们到底哪里出了问题，不能只用运气解释", ["NEY-MAR", "DAT-A"], ["PEP", "LEO"], { R: 2, N: 1 }),
-      option("B", "越到关键时刻越看心态，谁先慌谁就容易掉链子", ["MA-DING", "LE-FU"], ["ZI-DANE", "Z-LATAN"], { V: 2, N: 1, E: 1 }),
-      option("C", "群里肯定要复盘到很晚，顺手把这口锅怎么分讲清楚", ["LAO-8", "BEI-GUO"], ["WAN-SUI", "TUI-Q"], { S: 2, N: 1, G: 1 }),
-      option("D", "强队出局、黑马晋级、遗憾告别，这种剧情以后会反复被提起", ["CCTV-HE", "1100"], ["LEGEND", "FAN-ZY"], { N: 2, S: 1 })
-    ]
-  },
-  {
-    id: "Q4",
-    sourceNumber: 4,
-    stage: 1,
-    part: "",
-    title: "世界杯除了比赛本身，还会让你联想到什么？",
-    options: [
-      option("A", "想了解办一届世界杯要花多少钱、能带来多少关注", ["TINTIN", "STAY-H"], ["PEP", "CARD-MA"], { R: 2, V: 1, S: -1 }),
-      option("B", "会被举办地种草，开始想象以后能不能去那边旅行", ["MA-KUI", "HEI-HEI"], ["LAO-8", "TUI-Q"], { S: 2, G: 1, E: 1 }),
-      option("C", "更在意城市、街头和球迷节日感，感觉全世界都在一起热闹", ["CN-12", "8-PE"], ["MOU", "CR7"], { E: 2, S: 1, V: 1 }),
-      option("D", "会想到国家形象、文化符号和一个地方被世界看见的机会", ["CR7", "FAN-ZY"], ["Z-LATAN", "MA-DING"], { E: 1, N: 1, G: 1 })
     ]
   },
   {
@@ -305,7 +318,7 @@ const QUESTIONS = [
     sourceNumber: 8,
     stage: 1,
     part: "",
-    title: "挑选世界杯重点直播赛事，你的选择是？",
+    title: "挑选世界杯重点直播赛事，你最优先考虑的是？",
     options: [
       option("A", "决赛这种压轴大场面，哪怕熬夜也要看直播", ["LEGEND", "CR7"], ["CN-12", "LEO"], { E: 1, R: 1, N: 2 }),
       option("B", "强队打弱队也不跳过，万一爆冷就赚到了", ["ZI-DANE", "LE-FU"], ["MOU", "Z-LATAN"], { V: 2, N: 1 }),
@@ -318,7 +331,7 @@ const QUESTIONS = [
     sourceNumber: 9,
     stage: 2,
     part: "",
-    title: "世界杯决赛拖到最后一刻，双方轮流派人罚一个超关键的球，你更像哪种状态？",
+    title: "世界杯决赛踢到点球大战，双方轮流罚球定胜负，你更像哪种状态？",
     options: [
       option("A", "先观察罚球的人和守门员，这种时刻也不只是靠运气", ["MA-DING", "TEN-GOD"], ["PEP", "CARD-MA"], { R: 2, V: 1, N: 1 }),
       option("B", "关键球就该交给最强的人，别问，问就是相信他能进", ["CR7", "LEO"], ["8-PE", "NEY-MAR"], { E: 1, R: 1, V: 1 }),
@@ -332,6 +345,11 @@ const QUESTIONS = [
     stage: 2,
     part: "",
     title: "2022卡塔尔世界杯决赛，姆巴佩97秒连进两球把法国拉回来的时候，你当时更像哪种状态？",
+    media: {
+      src: "./assets/mbappe-final-goal.jpg",
+      alt: "姆巴佩在世界杯决赛中射门",
+      caption: "2022世界杯决赛，法国在尾声阶段连追两球。"
+    },
     options: [
       option("A", "法国这边先别疯，先看节奏和站位，比赛还没完", ["TINTIN", "PEP"], ["DAT-A", "CARD-MA"], { R: 2, E: 1 }),
       option("B", "已经彻底起飞了，这种时候就该相信巨星把命续上", ["CR7", "8-PE"], ["LEO", "CN-12"], { E: 2, V: 1, N: 1 }),
@@ -344,7 +362,7 @@ const QUESTIONS = [
     sourceNumber: 11,
     stage: 2,
     part: "",
-    title: "世界杯淘汰赛快结束还落后，教练换上更多进攻球员想追一个进球，你怎么看？",
+    title: "世界杯淘汰赛还剩十几分钟，你支持的队1-2落后，教练换上更多进攻球员想追一个进球，你怎么看？",
     options: [
       option("A", "可以拼，但别一下全乱了，至少要知道球往哪传", ["PEP", "CARD-MA"], ["TINTIN", "DAT-A"], { R: 2, V: 1 }),
       option("B", "都快回家了还不冲？这时候就该赌一把", ["ZI-DANE", "CR7"], ["MOU", "8-PE"], { E: 1, V: 2, N: 1 }),
@@ -357,7 +375,7 @@ const QUESTIONS = [
     sourceNumber: 13,
     stage: 2,
     part: "",
-    title: "世界杯开赛前，朋友圈全是预测和讨论，你更像哪种操作？",
+    title: "某场比赛开赛前，朋友圈全是预测和讨论，你更倾向哪种反应？",
     options: [
       option("A", "认真看几篇分析，再决定自己更看好谁", ["DAT-A", "PEP"], ["TINTIN", "CARD-MA"], { R: 2, S: 1 }),
       option("B", "随手押一个热门剧本，猜错了也算参与气氛", ["CR7", "MA-DING"], ["8-PE", "LE-FU"], { V: 2, E: 1 }),
@@ -407,6 +425,9 @@ const questionIndex = document.querySelector("#question-index");
 const progressText = document.querySelector("#progress-text");
 const progressFill = document.querySelector("#progress-fill");
 const questionText = document.querySelector("#question-text");
+const questionMedia = document.querySelector("#question-media");
+const questionMediaGrid = document.querySelector("#question-media-grid");
+const questionMediaCaption = document.querySelector("#question-media-caption");
 const optionsList = document.querySelector("#options-list");
 const homeButton = document.querySelector("#home-button");
 const prevButton = document.querySelector("#prev-button");
@@ -453,6 +474,25 @@ function renderQuestion(index) {
   progressText.textContent = `${Math.min(getVisibleQuestionNumber(index), total)} / ${total}`;
   progressFill.style.width = `${(getVisibleQuestionNumber(index) / total) * 100}%`;
   questionText.textContent = question.title;
+  const mediaItems = question.media?.items || (question.media?.src ? [question.media] : []);
+  if (mediaItems.length > 0) {
+    questionMedia.classList.remove("hidden");
+    questionMediaGrid.innerHTML = "";
+    questionMediaGrid.classList.toggle("single", mediaItems.length === 1);
+    mediaItems.forEach((mediaItem) => {
+      const image = document.createElement("img");
+      image.className = "question-media-image";
+      image.src = mediaItem.src;
+      image.alt = mediaItem.alt || "";
+      questionMediaGrid.appendChild(image);
+    });
+    questionMediaCaption.textContent = question.media.caption || "";
+    questionMediaCaption.classList.toggle("hidden", !question.media.caption);
+  } else {
+    questionMedia.classList.add("hidden");
+    questionMediaGrid.innerHTML = "";
+    questionMediaCaption.textContent = "";
+  }
 
   optionsList.innerHTML = "";
   question.options.forEach((item, optionIndex) => {
@@ -1838,11 +1878,23 @@ function applyDebugShortcut() {
   const params = new URLSearchParams(window.location.search);
   const forcedCode = params.get("result");
   const panel = params.get("panel");
+  const questionParam = params.get("question");
 
   if (forcedCode) {
     if (showForcedResult(forcedCode)) {
       return;
     }
+  }
+
+  if (questionParam) {
+    const questionNumber = Number.parseInt(questionParam, 10);
+    const targetIndex = Number.isFinite(questionNumber)
+      ? Math.max(0, Math.min(QUESTIONS.length - 1, questionNumber - 1))
+      : 0;
+    resetQuizState();
+    appState.currentIndex = targetIndex;
+    openQuizPanel();
+    return;
   }
 
   if (panel === "quiz") {
