@@ -950,6 +950,7 @@ function applyResultToView(result, phaseLabel) {
 
   resultPhase.textContent = "";
   resultPhase.classList.add("hidden");
+  resultPanel.classList.toggle("is-hidden-result", result.isHidden);
   resultPortraitShell.dataset.roleCode = result.winner.code;
   const roleImage = result.winner.imageAlt && Math.random() < result.winner.imageAltChance
     ? result.winner.imageAlt
@@ -1360,7 +1361,9 @@ function splitTextBalanced(ctx, text, maxWidth, maxLines = 3) {
     .sort((left, right) => left.score - right.score)[0].lines;
 }
 
-function drawLeftCaptionBlock(ctx, quoteText, shortText, centerX, y, maxWidth, maxHeight) {
+function drawLeftCaptionBlock(ctx, quoteText, shortText, centerX, y, maxWidth, maxHeight, theme = {}) {
+  const quoteColor = theme.captionQuote || "#784f34";
+  const shortColor = theme.captionShort || "#4c5d63";
   const render = (scale, shouldDraw) => {
     let offsetY = y;
     const quoteFont = Math.round(40 * scale);
@@ -1387,7 +1390,7 @@ function drawLeftCaptionBlock(ctx, quoteText, shortText, centerX, y, maxWidth, m
         ? [quoteText]
         : splitTextBalanced(ctx, quoteText, maxWidth, 2);
       if (shouldDraw) {
-        ctx.fillStyle = "#784f34";
+        ctx.fillStyle = quoteColor;
         ctx.textAlign = "center";
         ctx.textBaseline = "top";
         quoteLines.forEach((line, index) => {
@@ -1400,7 +1403,7 @@ function drawLeftCaptionBlock(ctx, quoteText, shortText, centerX, y, maxWidth, m
     ctx.font = `500 ${shortFont}px 'Noto Sans SC', sans-serif`;
     const shortLines = splitTextBalanced(ctx, shortText, maxWidth, 3);
     if (shouldDraw) {
-      ctx.fillStyle = "#4c5d63";
+      ctx.fillStyle = shortColor;
       ctx.textAlign = "center";
       ctx.textBaseline = "top";
       shortLines.forEach((line, index) => {
@@ -1435,7 +1438,12 @@ function drawContainImage(ctx, img, x, y, width, height) {
   ctx.drawImage(img, dx, dy, drawWidth, drawHeight);
 }
 
-function drawProfileTextToCanvas(ctx, text, x, y, maxWidth, maxHeight = Number.POSITIVE_INFINITY) {
+function drawProfileTextToCanvas(ctx, text, x, y, maxWidth, maxHeight = Number.POSITIVE_INFINITY, theme = {}) {
+  const subtitleColor = theme.profileSubtitle || "#18262b";
+  const bodyColor = theme.profileBody || "#4c5d63";
+  const speechBg = theme.speechBg || "rgba(213, 111, 42, 0.12)";
+  const speechBorder = theme.speechBorder || "rgba(213, 111, 42, 0.18)";
+  const speechText = theme.speechText || "#6f430d";
   const lines = String(text || "").split("\n");
 
   const render = (scale, shouldDraw) => {
@@ -1470,7 +1478,7 @@ function drawProfileTextToCanvas(ctx, text, x, y, maxWidth, maxHeight = Number.P
         ctx.font = `700 ${subtitleFont}px 'Noto Sans SC', sans-serif`;
         const wrapped = wrapTextLines(ctx, line, maxWidth);
         if (shouldDraw) {
-          ctx.fillStyle = "#18262b";
+          ctx.fillStyle = subtitleColor;
           wrapped.forEach((wrappedLine, index) => {
             ctx.fillText(wrappedLine, x, offsetY + index * subtitleLineH);
           });
@@ -1492,15 +1500,15 @@ function drawProfileTextToCanvas(ctx, text, x, y, maxWidth, maxHeight = Number.P
 
           if (shouldDraw) {
             ctx.save();
-            ctx.fillStyle = "rgba(213, 111, 42, 0.12)";
+            ctx.fillStyle = speechBg;
             roundRectPath(ctx, x, offsetY, maxWidth, bubbleHeight, bubbleRadius);
             ctx.fill();
-            ctx.strokeStyle = "rgba(213, 111, 42, 0.18)";
+            ctx.strokeStyle = speechBorder;
             ctx.lineWidth = 1.5;
             ctx.stroke();
             ctx.restore();
 
-            ctx.fillStyle = "#6f430d";
+            ctx.fillStyle = speechText;
             ctx.textAlign = "left";
             ctx.textBaseline = "top";
             wrapped.forEach((wrappedLine, index) => {
@@ -1517,7 +1525,7 @@ function drawProfileTextToCanvas(ctx, text, x, y, maxWidth, maxHeight = Number.P
       ctx.font = `500 ${bodyFont}px 'Noto Sans SC', sans-serif`;
       const wrapped = wrapTextLines(ctx, line, maxWidth);
       if (shouldDraw) {
-        ctx.fillStyle = "#4c5d63";
+        ctx.fillStyle = bodyColor;
         ctx.textAlign = "left";
         ctx.textBaseline = "top";
         wrapped.forEach((wrappedLine, index) => {
@@ -1553,7 +1561,17 @@ function getDimensionGrade(value) {
   return "D";
 }
 
-function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
+function drawResultRadarToCanvas(ctx, x, y, size, dimensions, theme = {}) {
+  const gridStroke = theme.radarGrid || "rgba(29, 42, 47, 0.12)";
+  const axisStroke = theme.radarAxis || "rgba(29, 42, 47, 0.08)";
+  const polygonFill = theme.radarFill || "rgba(15, 91, 82, 0.18)";
+  const polygonStroke = theme.radarStroke || "#0f5b52";
+  const dotFill = theme.radarDot || "#0f5b52";
+  const dotStroke = theme.radarDotStroke || "#fffaf2";
+  const labelFill = theme.radarLabel || "#1d2a2f";
+  const gradeBg = theme.radarGradeBg || "#fffaf2";
+  const gradeStroke = theme.radarGradeStroke || "rgba(29, 42, 47, 0.14)";
+  const gradeFill = theme.radarGradeText || "#0f5b52";
   const centerX = x + size / 2;
   const centerY = y + size / 2;
   const maxRadius = size * 0.25;
@@ -1578,7 +1596,7 @@ function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
       }
     });
     ctx.closePath();
-    ctx.strokeStyle = "rgba(29, 42, 47, 0.12)";
+    ctx.strokeStyle = gridStroke;
     ctx.lineWidth = 2;
     ctx.stroke();
   }
@@ -1590,7 +1608,7 @@ function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
     ctx.beginPath();
     ctx.moveTo(centerX, centerY);
     ctx.lineTo(px, py);
-    ctx.strokeStyle = "rgba(29, 42, 47, 0.08)";
+    ctx.strokeStyle = axisStroke;
     ctx.lineWidth = 2;
     ctx.stroke();
   });
@@ -1617,8 +1635,8 @@ function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
     }
   });
   ctx.closePath();
-  ctx.fillStyle = "rgba(15, 91, 82, 0.18)";
-  ctx.strokeStyle = "#0f5b52";
+  ctx.fillStyle = polygonFill;
+  ctx.strokeStyle = polygonStroke;
   ctx.lineWidth = 4;
   ctx.fill();
   ctx.stroke();
@@ -1627,10 +1645,10 @@ function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
     // Data point dot
     ctx.beginPath();
     ctx.arc(point.x, point.y, 8, 0, Math.PI * 2);
-    ctx.fillStyle = "#0f5b52";
+    ctx.fillStyle = dotFill;
     ctx.fill();
     ctx.lineWidth = 4;
-    ctx.strokeStyle = "#fffaf2";
+    ctx.strokeStyle = dotStroke;
     ctx.stroke();
 
     // Dimension label
@@ -1642,7 +1660,7 @@ function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
     ctx.textAlign = align;
     ctx.textBaseline = idx === 0 ? "bottom" : idx === 3 ? "top" : "middle";
     ctx.font = "600 22px 'Noto Sans SC', sans-serif";
-    ctx.fillStyle = "#1d2a2f";
+    ctx.fillStyle = labelFill;
     const dim = dimensions.find((item) => item.code === point.code);
     ctx.fillText(dim ? dim.name : point.code, lx, ly);
 
@@ -1651,14 +1669,14 @@ function drawResultRadarToCanvas(ctx, x, y, size, dimensions) {
     const gx = centerX + gradeRadius * Math.cos(angle);
     const gy = centerY + gradeRadius * Math.sin(angle);
     const grade = getDimensionGrade(point.value);
-    ctx.fillStyle = "#fffaf2";
+    ctx.fillStyle = gradeBg;
     ctx.beginPath();
     ctx.arc(gx, gy, 14, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "rgba(29, 42, 47, 0.14)";
+    ctx.strokeStyle = gradeStroke;
     ctx.lineWidth = 2;
     ctx.stroke();
-    ctx.fillStyle = "#0f5b52";
+    ctx.fillStyle = gradeFill;
     ctx.font = "700 18px 'Space Grotesk', 'Noto Sans SC', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -1695,6 +1713,73 @@ async function saveResultImage() {
     return;
   }
   const narrative = buildNarrative(result);
+  const isHiddenCard = result.isHidden;
+  const saveTheme = isHiddenCard
+    ? {
+        bgStart: "#263244",
+        bgEnd: "#8a6033",
+        bgOrb: "rgba(242, 211, 107, 0.16)",
+        bgOrbAlt: "rgba(213, 111, 42, 0.16)",
+        cardFill: "rgba(31, 43, 54, 0.9)",
+        cardStroke: "rgba(242, 211, 107, 0.58)",
+        cardStrokeWidth: 5,
+        prompt: "#e8d6b0",
+        title: "#fff8ea",
+        code: "#f2d36b",
+        badgeFill: "#111827",
+        badgeStroke: "rgba(242, 211, 107, 0.88)",
+        badgeText: "#fff8ea",
+        portraitTop: "rgba(24, 34, 45, 0.78)",
+        portraitBottom: "rgba(14, 22, 31, 0.86)",
+        portraitStroke: "rgba(242, 211, 107, 0.58)",
+        portraitStrokeWidth: 4,
+        rightFill: "rgba(24, 34, 45, 0.68)",
+        rightStroke: "rgba(242, 211, 107, 0.34)",
+        rightStrokeWidth: 2,
+        captionQuote: "#f2d36b",
+        captionShort: "#e8d6b0",
+        profileSubtitle: "#fff8ea",
+        profileBody: "#e8d6b0",
+        speechBg: "rgba(242, 211, 107, 0.12)",
+        speechBorder: "rgba(242, 211, 107, 0.2)",
+        speechText: "#fff8ea",
+        radarGrid: "rgba(242, 211, 107, 0.26)",
+        radarAxis: "rgba(242, 211, 107, 0.18)",
+        radarFill: "rgba(242, 211, 107, 0.16)",
+        radarStroke: "#f2d36b",
+        radarDot: "#f2d36b",
+        radarDotStroke: "#1f2b36",
+        radarLabel: "#fff8ea",
+        radarGradeBg: "#111827",
+        radarGradeStroke: "rgba(242, 211, 107, 0.42)",
+        radarGradeText: "#f2d36b",
+        linkPrimary: "#f2d36b",
+        linkMuted: "#e8d6b0"
+      }
+    : {
+        bgStart: "#f7f2e9",
+        bgEnd: "#efe7d9",
+        bgOrb: "rgba(15, 91, 82, 0.08)",
+        bgOrbAlt: "rgba(15, 91, 82, 0.08)",
+        cardFill: "rgba(255, 251, 244, 0.9)",
+        cardStroke: "rgba(29, 42, 47, 0.08)",
+        cardStrokeWidth: 2,
+        prompt: "#54656b",
+        title: "#18262b",
+        code: "#0f5b52",
+        badgeFill: "#f2d36b",
+        badgeStroke: "rgba(137, 93, 22, 0.34)",
+        badgeText: "#6f430d",
+        portraitTop: "rgba(255,255,255,0.92)",
+        portraitBottom: "rgba(244,239,229,0.96)",
+        portraitStroke: "rgba(29, 42, 47, 0.08)",
+        portraitStrokeWidth: 2,
+        rightFill: "rgba(255, 255, 255, 0.72)",
+        rightStroke: "rgba(29, 42, 47, 0.08)",
+        rightStrokeWidth: 2,
+        linkPrimary: "#0f5b52",
+        linkMuted: "#617076"
+      };
 
   const button = saveImageButton;
   const originalLabel = button ? button.textContent : "";
@@ -1706,7 +1791,7 @@ async function saveResultImage() {
   try {
     const [portraitImg, logoImg, qrImg] = await Promise.all([
       loadImageAsset(resultPortrait.currentSrc || resultPortrait.src),
-      loadImageAsset(new URL("./main_logo.png", window.location.href).href),
+      loadImageAsset(new URL("./main_logo_clean.png", window.location.href).href),
       SHOW_QR ? loadImageAsset(new URL("./matchmate_qr.png", window.location.href).href) : Promise.resolve(null)
     ]);
 
@@ -1716,15 +1801,16 @@ async function saveResultImage() {
     const ctx = canvas.getContext("2d");
 
     const bgGradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    bgGradient.addColorStop(0, "#f7f2e9");
-    bgGradient.addColorStop(1, "#efe7d9");
+    bgGradient.addColorStop(0, saveTheme.bgStart);
+    bgGradient.addColorStop(1, saveTheme.bgEnd);
     ctx.fillStyle = bgGradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "rgba(15, 91, 82, 0.08)";
+    ctx.fillStyle = saveTheme.bgOrb;
     ctx.beginPath();
     ctx.arc(1180, 230, 220, 0, Math.PI * 2);
     ctx.fill();
+    ctx.fillStyle = saveTheme.bgOrbAlt;
     ctx.beginPath();
     ctx.arc(220, 1480, 260, 0, Math.PI * 2);
     ctx.fill();
@@ -1734,8 +1820,8 @@ async function saveResultImage() {
     const cardW = canvas.width - 140;
     const cardH = canvas.height - 140;
 
-    fillRoundedRect(ctx, cardX, cardY, cardW, cardH, 42, "rgba(255, 251, 244, 0.9)");
-    strokeRoundedRect(ctx, cardX, cardY, cardW, cardH, 42, "rgba(29, 42, 47, 0.08)", 2);
+    fillRoundedRect(ctx, cardX, cardY, cardW, cardH, 42, saveTheme.cardFill);
+    strokeRoundedRect(ctx, cardX, cardY, cardW, cardH, 42, saveTheme.cardStroke, saveTheme.cardStrokeWidth);
 
     const logoMaxWidth = 660;
     const logoScale = Math.min(logoMaxWidth / logoImg.width, 240 / logoImg.height);
@@ -1744,17 +1830,17 @@ async function saveResultImage() {
     const logoCenterX = cardX + cardW - 250;
     ctx.drawImage(logoImg, logoCenterX - logoW / 2, cardY + 38, logoW, logoH);
 
-    ctx.fillStyle = "#54656b";
+    ctx.fillStyle = saveTheme.prompt;
     ctx.font = "500 34px 'Noto Sans SC', sans-serif";
     ctx.textAlign = "left";
     ctx.textBaseline = "top";
     ctx.fillText("你的看球搭子类型是：", cardX + 70, cardY + 70);
 
-    ctx.fillStyle = "#18262b";
+    ctx.fillStyle = saveTheme.title;
     ctx.font = "700 92px 'Noto Serif SC', serif";
     ctx.fillText(result.winner.title, cardX + 70, cardY + 132);
 
-    ctx.fillStyle = "#0f5b52";
+    ctx.fillStyle = saveTheme.code;
     ctx.font = "700 54px 'Space Grotesk', 'Noto Sans SC', sans-serif";
     const codeX = cardX + 70;
     const codeY = cardY + 242;
@@ -1771,9 +1857,9 @@ async function saveResultImage() {
       const maxBadgeX = cardX + cardW - 70 - badgeW;
       const badgeX = Math.min(codeX + codeW + badgeGap, maxBadgeX);
       const badgeY = codeY + 8;
-      fillRoundedRect(ctx, badgeX, badgeY, badgeW, badgeH, 20, "#f2d36b");
-      strokeRoundedRect(ctx, badgeX, badgeY, badgeW, badgeH, 20, "rgba(137, 93, 22, 0.34)", 2);
-      ctx.fillStyle = "#6f430d";
+      fillRoundedRect(ctx, badgeX, badgeY, badgeW, badgeH, 20, saveTheme.badgeFill);
+      strokeRoundedRect(ctx, badgeX, badgeY, badgeW, badgeH, 20, saveTheme.badgeStroke, isHiddenCard ? 3 : 2);
+      ctx.fillStyle = saveTheme.badgeText;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(badgeText, badgeX + badgeW / 2, badgeY + badgeH / 2 + 1);
@@ -1799,10 +1885,10 @@ async function saveResultImage() {
       h: portraitH
     };
     const portraitGradient = ctx.createLinearGradient(portraitBox.x, portraitBox.y, portraitBox.x, portraitBox.y + portraitBox.h);
-    portraitGradient.addColorStop(0, "rgba(255,255,255,0.92)");
-    portraitGradient.addColorStop(1, "rgba(244,239,229,0.96)");
+    portraitGradient.addColorStop(0, saveTheme.portraitTop);
+    portraitGradient.addColorStop(1, saveTheme.portraitBottom);
     fillRoundedRect(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34, portraitGradient);
-    strokeRoundedRect(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34, "rgba(29, 42, 47, 0.08)", 2);
+    strokeRoundedRect(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34, saveTheme.portraitStroke, saveTheme.portraitStrokeWidth);
 
     ctx.save();
     roundRectPath(ctx, portraitBox.x, portraitBox.y, portraitBox.w, portraitBox.h, 34);
@@ -1822,12 +1908,13 @@ async function saveResultImage() {
       leftX + leftW / 2,
       captionY,
       leftW - 26,
-      captionMaxH
+      captionMaxH,
+      saveTheme
     );
 
     // --- Right column: radar (top) + profile text (bottom) ---
-    fillRoundedRect(ctx, rightX, rightColTop, rightW, rightColH, 30, "rgba(255, 255, 255, 0.72)");
-    strokeRoundedRect(ctx, rightX, rightColTop, rightW, rightColH, 30, "rgba(29, 42, 47, 0.08)", 2);
+    fillRoundedRect(ctx, rightX, rightColTop, rightW, rightColH, 30, saveTheme.rightFill);
+    strokeRoundedRect(ctx, rightX, rightColTop, rightW, rightColH, 30, saveTheme.rightStroke, saveTheme.rightStrokeWidth);
 
     // Radar: fixed size at top, centered in its area
     const radarAreaH = 395;
@@ -1835,7 +1922,7 @@ async function saveResultImage() {
     const radarCenterX = rightX + rightW / 2;
     const radarCenterY = rightColTop + radarAreaH / 2 + 18;
     const drawRadarSize = radarSize * 1.2; // leave some padding
-    drawResultRadarToCanvas(ctx, radarCenterX - drawRadarSize / 2, radarCenterY - drawRadarSize / 2, drawRadarSize, result.dimensions);
+    drawResultRadarToCanvas(ctx, radarCenterX - drawRadarSize / 2, radarCenterY - drawRadarSize / 2, drawRadarSize, result.dimensions, saveTheme);
 
     // Profile text below radar area
     const profilePad = 34;
@@ -1855,7 +1942,8 @@ async function saveResultImage() {
       profileX,
       profileY,
       profileW,
-      profileMaxH
+      profileMaxH,
+      saveTheme
     );
     ctx.restore();
 
@@ -1869,13 +1957,13 @@ async function saveResultImage() {
 
     const linkTextX = SHOW_QR ? qrX + qrSize + 16 : qrX;
     const linkTextY = SHOW_QR ? qrY + 12 : qrY;
-    ctx.fillStyle = "#0f5b52";
+    ctx.fillStyle = saveTheme.linkPrimary;
     ctx.font = "600 24px 'Noto Sans SC', sans-serif";
     ctx.textAlign = "left";
     ctx.textBaseline = "top";
     ctx.fillText("访问MatchMate", linkTextX, linkTextY);
     ctx.fillText("认识你的AI看球搭子！", linkTextX, linkTextY + 34);
-    ctx.fillStyle = "#617076";
+    ctx.fillStyle = saveTheme.linkMuted;
     ctx.font = "500 20px 'Space Grotesk', 'Noto Sans SC', sans-serif";
     ctx.fillText("fbti.matchmate.chat", linkTextX, linkTextY + 72);
 

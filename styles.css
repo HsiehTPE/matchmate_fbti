@@ -871,6 +871,142 @@ body::after {
   white-space: nowrap;
 }
 
+#result-panel.is-hidden-result {
+  --hidden-bg: #243342;
+  --hidden-stage: rgba(24, 34, 45, 0.78);
+  --hidden-gold: #f2d36b;
+  --hidden-gold-soft: rgba(242, 211, 107, 0.18);
+  --hidden-text: #fff8ea;
+  --hidden-muted: #e8d6b0;
+  background:
+    radial-gradient(circle at 88% 8%, rgba(242, 211, 107, 0.18), transparent 30%),
+    radial-gradient(circle at 12% 88%, rgba(213, 111, 42, 0.2), transparent 32%),
+    linear-gradient(135deg, #263244 0%, #365047 54%, #8a6033 100%);
+  border-color: rgba(242, 211, 107, 0.58);
+  border-width: 2px;
+  color: var(--hidden-text);
+}
+
+#result-panel.is-hidden-result .result-header {
+  border-bottom-color: rgba(242, 211, 107, 0.24);
+}
+
+#result-panel.is-hidden-result .result-prompt,
+#result-panel.is-hidden-result .result-title,
+#result-panel.is-hidden-result .result-quote,
+#result-panel.is-hidden-result .story-oneliner,
+#result-panel.is-hidden-result .result-card h4,
+#result-panel.is-hidden-result .story-card h4,
+#result-panel.is-hidden-result .profile-subtitle,
+#result-panel.is-hidden-result .score-name,
+#result-panel.is-hidden-result .legend-name {
+  color: var(--hidden-text);
+}
+
+#result-panel.is-hidden-result .result-code,
+#result-panel.is-hidden-result .eyebrow,
+#result-panel.is-hidden-result .score-value {
+  color: var(--hidden-gold);
+}
+
+#result-panel.is-hidden-result .result-group,
+#result-panel.is-hidden-result .result-short-label,
+#result-panel.is-hidden-result .story-profile,
+#result-panel.is-hidden-result .story-vibe,
+#result-panel.is-hidden-result .result-card p,
+#result-panel.is-hidden-result .legend-level,
+#result-panel.is-hidden-result .result-cta-link {
+  color: var(--hidden-muted);
+}
+
+#result-panel.is-hidden-result .result-portrait-shell {
+  position: relative;
+  background:
+    radial-gradient(circle at center, rgba(242, 211, 107, 0.28), transparent 54%),
+    linear-gradient(180deg, rgba(24, 34, 45, 0.8), rgba(14, 22, 31, 0.86));
+  border: 4px solid rgba(242, 211, 107, 0.58);
+  box-shadow: inset 0 0 0 1px rgba(242, 211, 107, 0.16), 0 22px 42px rgba(6, 10, 16, 0.24);
+}
+
+#result-panel.is-hidden-result .result-portrait-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0,
+    rgba(255, 255, 255, 0.06) 2px,
+    transparent 2px,
+    transparent 9px
+  );
+  pointer-events: none;
+}
+
+#result-panel.is-hidden-result .hidden-badge {
+  background: #111827;
+  border: 2px solid rgba(242, 211, 107, 0.88);
+  color: var(--hidden-text);
+  box-shadow: 0 10px 28px rgba(6, 10, 16, 0.24);
+}
+
+#result-panel.is-hidden-result .result-card,
+#result-panel.is-hidden-result .story-lead,
+#result-panel.is-hidden-result .story-card {
+  background: rgba(24, 34, 45, 0.68);
+  border: 1px solid rgba(242, 211, 107, 0.34);
+}
+
+#result-panel.is-hidden-result .quote-item {
+  background: rgba(242, 211, 107, 0.12);
+  border: 1px solid rgba(242, 211, 107, 0.2);
+  color: var(--hidden-text);
+}
+
+#result-panel.is-hidden-result .people-tag,
+#result-panel.is-hidden-result .legend-item {
+  background: rgba(242, 211, 107, 0.12);
+  border-color: rgba(242, 211, 107, 0.26);
+  color: var(--hidden-text);
+}
+
+#result-panel.is-hidden-result .score-row {
+  border-bottom-color: rgba(242, 211, 107, 0.2);
+}
+
+#result-panel.is-hidden-result .legend-bar {
+  background: rgba(255, 248, 234, 0.12);
+}
+
+#result-panel.is-hidden-result .radar-chart svg text {
+  fill: var(--hidden-text);
+}
+
+#result-panel.is-hidden-result .radar-chart svg polygon {
+  stroke: rgba(242, 211, 107, 0.26);
+}
+
+#result-panel.is-hidden-result .radar-chart svg line {
+  stroke: rgba(242, 211, 107, 0.18);
+}
+
+#result-panel.is-hidden-result #save-image-button,
+#result-panel.is-hidden-result .save-image-button {
+  background: linear-gradient(135deg, #f2d36b, #b7842b);
+  color: #111827;
+  border-color: rgba(242, 211, 107, 0.5);
+  box-shadow: 0 12px 26px rgba(242, 211, 107, 0.22);
+}
+
+#result-panel.is-hidden-result .primary-button {
+  background: linear-gradient(135deg, #f2d36b, #b7842b);
+  color: #111827;
+}
+
+#result-panel.is-hidden-result .ghost-button {
+  border-color: rgba(242, 211, 107, 0.32);
+  color: var(--hidden-text);
+}
+
 @media (max-width: 820px) {
   .page-shell {
     width: min(100% - 14px, 1080px);
