@@ -208,6 +208,7 @@ body::after {
 
 .panel {
   padding: 28px;
+  position: relative;
 }
 
 .hidden {
@@ -221,20 +222,18 @@ body::after {
   align-items: end;
 }
 
-.quiz-header {
-  position: relative;
-  margin-bottom: 20px;
-}
-
 .quiz-home-button {
   position: absolute;
-  left: 0;
-  top: 0;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
 }
 
 .quiz-brandbar {
   display: flex;
+  flex: 1 1 auto;
   justify-content: center;
+  align-items: end;
 }
 
 .quiz-brand-link {
@@ -794,20 +793,14 @@ body::after {
 
 @media (max-width: 820px) {
   .page-shell {
-    width: min(100% - 20px, 1080px);
-    padding-top: 16px;
+    width: min(100% - 14px, 1080px);
+    padding: 8px 0 20px;
   }
 
   .hero,
   .panel {
-    padding: 22px;
-    border-radius: 22px;
-  }
-
-  .quiz-header {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    padding: 16px;
+    border-radius: 18px;
   }
 
   .question-media-grid {
@@ -819,8 +812,10 @@ body::after {
   }
 
   .quiz-home-button {
-    position: static;
-    align-self: flex-start;
+    top: 10px;
+    right: 10px;
+    padding: 7px 10px;
+    font-size: 12px;
   }
 
   .hero-topbar {
@@ -847,11 +842,32 @@ body::after {
   }
 
   .progress-row,
-  .nav-row,
   .result-actions,
   .action-stack {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .progress-row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 8px;
+    padding-right: 76px;
+  }
+
+  .progress-row > div:first-of-type {
+    min-width: 44px;
+  }
+
+  .progress-copy {
+    font-size: 11px;
+    text-align: right;
+  }
+
+  .progress-bar {
+    height: 8px;
+    margin-top: 10px;
   }
 
   .result-actions {
@@ -862,8 +878,32 @@ body::after {
     gap: 8px;
   }
 
+  .quiz-brand-logo {
+    width: 54px;
+  }
+
+  .quiz-brand-copy {
+    gap: 1px;
+    text-align: left;
+  }
+
   .quiz-brand-wordmark {
-    font-size: 14px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .quiz-brand-subtitle {
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .eyebrow {
+    margin-bottom: 2px;
+    font-size: 10px;
+  }
+
+  .section-title {
+    font-size: 24px;
   }
 
   .result-grid,
@@ -872,7 +912,47 @@ body::after {
   }
 
   .question-card {
-    padding: 22px;
+    margin-top: 14px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .question-text {
+    font-size: 20px;
+    line-height: 1.35;
+    min-height: auto;
+  }
+
+  .options-list {
+    gap: 9px;
+    margin-top: 14px;
+  }
+
+  .option-button {
+    padding: 11px 12px;
+    border-radius: 14px;
+  }
+
+  .option-label {
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    font-size: 12px;
+  }
+
+  .option-text {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .nav-row {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .nav-row button {
+    flex: 1 1 0;
+    min-width: 0;
   }
 }
 

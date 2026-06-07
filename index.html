@@ -54,8 +54,12 @@
 
     <main class="quiz-stage">
       <section id="quiz-panel" class="panel hidden" aria-live="polite">
-        <div class="quiz-header">
-          <button id="home-button" class="ghost-button quiz-home-button" type="button">返回首页</button>
+        <button id="home-button" class="ghost-button quiz-home-button" type="button">返回首页</button>
+        <div class="progress-row">
+          <div>
+            <p id="part-label" class="eyebrow"></p>
+            <h2 id="question-index" class="section-title"></h2>
+          </div>
           <div class="quiz-brandbar">
             <a
               class="quiz-brand-link"
@@ -75,12 +79,6 @@
                 <span class="quiz-brand-subtitle">你是什么看球搭子？</span>
               </span>
             </a>
-          </div>
-        </div>
-        <div class="progress-row">
-          <div>
-            <p id="part-label" class="eyebrow"></p>
-            <h2 id="question-index" class="section-title"></h2>
           </div>
           <div class="progress-copy">
             <span id="progress-text"></span>
