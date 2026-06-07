@@ -191,9 +191,9 @@ const QUESTIONS = [
     title: "2026世界杯在北美三国举办，你最关心什么？",
     options: [
       option("A", "先搞清楚48支队伍怎么踢，别看到一半才发现规则变了", ["PEP", "CARD-MA"], ["DAT-A", "TEN-GOD"], { R: 2, N: 1 }),
-      option("B", "先看比赛时间，哪些能熬夜看，哪些只能第二天补", ["LE-FU", "STAY-H"], ["FAN-ZY", "MA-KUI"], { R: 1, V: 1 }),
+      option("B", "先看时差和赛程安排，哪些比赛值得熬夜追", ["LE-FU", "STAY-H"], ["FAN-ZY", "MA-KUI"], { R: 1, V: 1 }),
       option("C", "先看有哪些熟悉的球星，这可能是他们最后几次大赛了", ["LEO", "CR7"], ["LEGEND", "CCTV-HE"], { E: 1, R: 1, N: 1 }),
-      option("D", "参赛队更多，认识新球队和看冷门的机会也更多了", ["CN-12", "LAO-8"], ["TUI-Q", "HEI-HEI"], { S: 2, G: 1 })
+      option("D", "先看都有哪些球队参赛，顺便发现更多冷门故事", ["CN-12", "LAO-8"], ["TUI-Q", "HEI-HEI"], { S: 2, G: 1 })
     ]
   },
   {

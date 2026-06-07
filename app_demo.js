@@ -1850,4 +1850,3 @@ window.debugGoToResult = showForcedResult;
 window.debugStartQuiz = restartQuiz;
 
 applyDebugShortcut();
-
