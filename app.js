@@ -273,9 +273,9 @@ const QUESTIONS = [
     part: "",
     title: "提到世界杯热门球队巴西，你脑子里最先冒出来的印象是什么？",
     options: [
-      option("A", "先看看他们现在到底强不强，热门也要看实际表现", ["DAT-A", "BEI-GUO"], ["CARD-MA", "TINTIN"], { R: 2, N: 1 }),
-      option("B", "感觉他们自带主角光环，一出场就像强队该有的样子", ["CR7", "TEN-GOD"], ["PEP", "STAY-H"], { R: 1, V: 1, S: 1 }),
-      option("C", "名气很大，但如果踢得一般，我也会直接说失望", ["MOU", "FAN-ZY"], ["TUI-Q", "MA-DING"], { E: 2, G: 1 }),
+      option("A", "看看近期比赛表现如何，现在实力怎么样", ["DAT-A", "BEI-GUO"], ["CARD-MA", "TINTIN"], { R: 2, N: 1 }),
+      option("B", "想起球队历史战绩和风格文化", ["CR7", "TEN-GOD"], ["PEP", "STAY-H"], { R: 1, V: 1, S: 1 }),
+      option("C", "好奇大家对这支队伍现在最关注的点是什么，热闹吃瓜", ["MOU", "FAN-ZY"], ["TUI-Q", "MA-DING"], { E: 2, G: 1 }),
       option("D", "黄色球衣、明星球员、五次冠军，至少聊天时很容易接上", ["HEI-HEI", "WAN-SUI"], ["LAO-8", "CCTV-HE"], { S: 2, G: 1, E: 1 })
     ]
   },
@@ -343,10 +343,10 @@ const QUESTIONS = [
       caption: "2022世界杯决赛，法国在尾声阶段连追两球。"
     },
     options: [
-      option("A", "法国这边先别疯，先看节奏和站位，比赛还没完", ["TINTIN", "PEP"], ["DAT-A", "CARD-MA"], { R: 2, E: 1 }),
-      option("B", "已经彻底起飞了，这种时候就该相信巨星把命续上", ["CR7", "8-PE"], ["LEO", "CN-12"], { E: 2, V: 1, N: 1 }),
+      option("A", "彻底起飞了，这种时候就该相信姆巴佩还能把命续上", ["CR7", "8-PE"], ["LEO", "CN-12"], { E: 2, V: 1, N: 1 }),
+      option("B", "刚才还稳得不行，现在只想赶紧把节奏压回去", ["MOU", "TUI-Q"], ["MA-KUI", "LE-FU"], { E: 2, S: 1, N: 1 }),
       option("C", "不管站哪边都得承认，这就是会写进决赛史的反扑", ["WAN-SUI", "CCTV-HE"], ["LEGEND", "ZI-DANE"], { N: 2, S: 1, R: 1 }),
-      option("D", "先炸一下，法国球迷这两分钟情绪坐过山车也太真实了", ["MOU", "TUI-Q"], ["MA-KUI", "LAO-8"], { E: 2, S: 1, N: 1 })
+      option("D", "刚弄清楚局面就连进两个，原来世界杯决赛能这么刺激", ["HEI-HEI", "CN-12"], ["LAO-8", "TINTIN"], { S: 2, G: 1, E: 1 })
     ]
   },
   {
@@ -358,7 +358,7 @@ const QUESTIONS = [
     options: [
       option("A", "可以拼，但别一下全乱了，至少要知道球往哪传", ["PEP", "CARD-MA"], ["TINTIN", "DAT-A"], { R: 2, V: 1 }),
       option("B", "都快回家了还不冲？这时候就该赌一把", ["ZI-DANE", "CR7"], ["MOU", "8-PE"], { E: 1, V: 2, N: 1 }),
-      option("C", "看着像最后一搏，但我心里已经有点觉得追不回来了", ["STAY-H", "BEI-GUO"], ["LE-FU", "MA-KUI"], { E: -1, S: -1, R: 1, V: 1 }),
+      option("C", "风险不小啊，一旦再丢球就彻底崩盘", ["STAY-H", "BEI-GUO"], ["LE-FU", "MA-KUI"], { E: -1, S: -1, R: 1, V: 1 }),
       option("D", "我想看到他们真敢攻，输也别输得太憋屈", ["NEY-MAR", "Z-LATAN"], ["DINHO", "MA-DING"], { N: 2, V: 1, E: 1 })
     ]
   },
