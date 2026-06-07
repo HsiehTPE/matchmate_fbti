@@ -1052,7 +1052,7 @@ function buildCopyText(limit, phaseLabel) {
     `${result.winner.shortLabel}`,
     ``,
     `访问MatchMate，认识你的AI看球搭子！`,
-    `https://www.matchmate.chat/`
+    `https://fbti.matchmate.chat/`
   ].join("\n");
 }
 
@@ -1071,7 +1071,7 @@ function buildCopyText(limit, phaseLabel) {
     result.winner.quote ? `“${result.winner.quote}”` : ``,
     ``,
     `访问MatchMate，认识你的AI看球搭子！`,
-    `https://www.matchmate.chat/`
+    `https://fbti.matchmate.chat/`
   ].filter(Boolean).join("\n");
 }
 
@@ -1094,7 +1094,7 @@ function buildCopyText(limit, phaseLabel) {
     narrative.profile,
     "",
     "\u8bbf\u95eeMatchMate\uff0c\u8ba4\u8bc6\u4f60\u7684AI\u770b\u7403\u642d\u5b50\uff01",
-    "https://www.matchmate.chat/"
+    "https://fbti.matchmate.chat/"
   ].filter(Boolean).join("\n");
 }
 
@@ -1799,7 +1799,7 @@ async function saveResultImage() {
     ctx.fillText("认识你的AI看球搭子！", linkTextX, linkTextY + 34);
     ctx.fillStyle = "#617076";
     ctx.font = "500 20px 'Space Grotesk', 'Noto Sans SC', sans-serif";
-    ctx.fillText("www.matchmate.chat", linkTextX, linkTextY + 72);
+    ctx.fillText("fbti.matchmate.chat", linkTextX, linkTextY + 72);
 
     const fileCode = String(result.winner.code || "result").toLowerCase().replace(/[^a-z0-9!-]+/g, "-");
     const blob = await canvasToBlob(canvas);
