@@ -16,7 +16,7 @@
         <div class="brand-wordmark">MatchMate · FBTI</div>
         <a
           class="brand-link"
-          href="https://fbti.matchmate.chat/"
+          href="https://www.matchmate.tv/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="打开 MatchMate 官网"
@@ -50,6 +50,20 @@
         <img class="hero-player" src="./images_new/NEY-MAR.png" alt="">
         <img class="hero-player hero-player-china hero-player-mirror" src="./images_new/LEGEND.png" alt="">
       </div>
+      <nav class="hero-social" aria-label="关注 MatchMate">
+        <button class="hero-social-item" type="button" data-social="wechat" aria-label="公众号">
+          <img class="hero-social-img" src="./assets/icon-wechat.png" alt="公众号" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="hero-social-fallback">公众号</span>
+        </button>
+        <button class="hero-social-item" type="button" data-social="xhs" aria-label="小红书">
+          <img class="hero-social-img" src="./assets/icon-xhs.png" alt="小红书" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="hero-social-fallback">小红书</span>
+        </button>
+        <button class="hero-social-item" type="button" data-social="contact" aria-label="联系我们">
+          <img class="hero-social-img" src="./assets/icon-mail.png" alt="联系我们" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+          <span class="hero-social-fallback">联系我们</span>
+        </button>
+      </nav>
     </header>
 
     <main class="quiz-stage">
@@ -168,6 +182,20 @@
         >
           访问 MatchMate，认识你的 AI 看球搭子！
         </a>
+        <nav class="hero-social hero-social--footer" aria-label="关注 MatchMate">
+          <button class="hero-social-item" type="button" data-social="wechat" aria-label="公众号">
+            <img class="hero-social-img" src="./assets/icon-wechat.png" alt="公众号" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+            <span class="hero-social-fallback">公众号</span>
+          </button>
+          <button class="hero-social-item" type="button" data-social="xhs" aria-label="小红书">
+            <img class="hero-social-img" src="./assets/icon-xhs.png" alt="小红书" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+            <span class="hero-social-fallback">小红书</span>
+          </button>
+          <button class="hero-social-item" type="button" data-social="contact" aria-label="联系我们">
+            <img class="hero-social-img" src="./assets/icon-mail.png" alt="联系我们" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+            <span class="hero-social-fallback">联系我们</span>
+          </button>
+        </nav>
       </section>
     </main>
   </div>
@@ -183,6 +211,26 @@
         <button class="save-preview-close" type="button" aria-label="关闭" data-close-save-preview>×</button>
       </div>
       <img id="save-preview-image" class="save-preview-image" alt="MatchMate 结果图">
+    </div>
+  </div>
+
+  <div id="social-modal" class="social-modal hidden" role="dialog" aria-modal="true" aria-labelledby="social-modal-title">
+    <div class="social-modal-backdrop" data-close-social></div>
+    <div class="social-modal-panel">
+      <div class="social-modal-header">
+        <div>
+          <h3 id="social-modal-title">关注我们</h3>
+          <p id="social-modal-copy" class="social-modal-copy"></p>
+        </div>
+        <button class="social-modal-close" type="button" aria-label="关闭" data-close-social>×</button>
+      </div>
+      <img id="social-modal-image" class="social-modal-image" alt="">
+      <div id="social-modal-placeholder" class="social-modal-placeholder hidden">二维码即将上线</div>
+      <div id="social-modal-email" class="social-modal-email hidden">
+        <span id="social-modal-email-text" class="social-modal-email-text">matchmate_ai@163.com</span>
+        <button id="social-modal-copy-btn" class="ghost-button social-modal-copy-btn" type="button">复制邮箱</button>
+      </div>
+      <a id="social-modal-link" class="primary-button social-modal-link hidden" target="_blank" rel="noopener noreferrer">前往主页</a>
     </div>
   </div>
 

@@ -1209,6 +1209,96 @@ function closeSavePreview() {
   document.body.style.overflow = "";
 }
 
+const socialModal = document.querySelector("#social-modal");
+const socialModalTitle = document.querySelector("#social-modal-title");
+const socialModalCopy = document.querySelector("#social-modal-copy");
+const socialModalImage = document.querySelector("#social-modal-image");
+const socialModalPlaceholder = document.querySelector("#social-modal-placeholder");
+const socialModalEmail = document.querySelector("#social-modal-email");
+const socialModalLink = document.querySelector("#social-modal-link");
+
+if (socialModalImage) {
+  socialModalImage.addEventListener("load", () => {
+    socialModalImage.classList.remove("is-missing");
+    if (socialModalPlaceholder) {
+      socialModalPlaceholder.classList.add("hidden");
+    }
+  });
+  socialModalImage.addEventListener("error", () => {
+    socialModalImage.classList.add("is-missing");
+    // 若该入口已带「前往主页」跳转按钮(如小红书),就不显示「二维码即将上线」占位
+    const hasLink = socialModalLink && !socialModalLink.classList.contains("hidden");
+    if (socialModalPlaceholder && !hasLink) {
+      socialModalPlaceholder.classList.remove("hidden");
+    }
+  });
+}
+
+const CONTACT_EMAIL = "matchmate_ai@163.com";
+const SOCIAL_CONTENT = {
+  wechat: {
+    title: "关注 MatchMate 公众号",
+    copy: "微信里长按二维码，识别关注公众号",
+    image: "./assets/qr-wechat.jpg",
+  },
+  xhs: {
+    title: "在小红书找到我们",
+    copy: "点击下方按钮，前往我们的小红书主页",
+    link: "https://www.xiaohongshu.com/user/profile/630711410000000012003e0a?xsec_token=AB7n_ieBf67R-5crn10MxeBJjWdIrNl5f3zuyglhTVeJE%3D&xsec_source=pc_note",
+    linkLabel: "前往小红书主页",
+  },
+  contact: {
+    title: "联系我们",
+    copy: "合作 / 反馈，欢迎来信",
+    email: true,
+  },
+};
+
+function openSocialModal(kind) {
+  const data = SOCIAL_CONTENT[kind];
+  if (!socialModal || !data) {
+    return;
+  }
+  socialModalTitle.textContent = data.title;
+  socialModalCopy.textContent = data.copy || "";
+
+  // 二维码 / 图片
+  socialModalPlaceholder.classList.add("hidden");
+  if (data.image) {
+    socialModalImage.classList.remove("is-missing", "hidden");
+    socialModalImage.src = data.image;
+  } else {
+    socialModalImage.classList.add("hidden");
+    socialModalImage.removeAttribute("src");
+  }
+
+  // 跳转按钮(小红书:弹窗里点它跳主页)
+  if (socialModalLink) {
+    if (data.link) {
+      socialModalLink.href = data.link;
+      socialModalLink.textContent = data.linkLabel || "前往主页";
+      socialModalLink.classList.remove("hidden");
+    } else {
+      socialModalLink.classList.add("hidden");
+      socialModalLink.removeAttribute("href");
+    }
+  }
+
+  // 邮箱(联系我们)
+  socialModalEmail.classList.toggle("hidden", !data.email);
+
+  socialModal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeSocialModal() {
+  if (!socialModal) {
+    return;
+  }
+  socialModal.classList.add("hidden");
+  document.body.style.overflow = "";
+}
+
 function roundRectPath(ctx, x, y, width, height, radius) {
   const r = Math.min(radius, width / 2, height / 2);
   ctx.beginPath();
@@ -2028,9 +2118,31 @@ document.querySelectorAll("[data-close-save-preview]").forEach((button) => {
   button.addEventListener("click", closeSavePreview);
 });
 
+document.querySelectorAll("[data-social]").forEach((button) => {
+  button.addEventListener("click", () => {
+    openSocialModal(button.getAttribute("data-social"));
+  });
+});
+
+document.querySelectorAll("[data-close-social]").forEach((button) => {
+  button.addEventListener("click", closeSocialModal);
+});
+
+const socialCopyBtn = document.querySelector("#social-modal-copy-btn");
+if (socialCopyBtn) {
+  socialCopyBtn.addEventListener("click", async () => {
+    const ok = await copyText(CONTACT_EMAIL);
+    socialCopyBtn.textContent = ok ? "已复制 ✓" : "复制失败，请手动复制";
+    window.setTimeout(() => {
+      socialCopyBtn.textContent = "复制邮箱";
+    }, 1800);
+  });
+}
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeSavePreview();
+    closeSocialModal();
   }
 });
 copyButton.addEventListener("click", async () => {

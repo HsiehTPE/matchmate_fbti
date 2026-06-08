@@ -1266,3 +1266,200 @@ body::after {
     padding: 15px;
   }
 }
+
+/* ---- 社交入口(公众号 / 小红书 / 联系我们) ----
+   图标本身已是「磨砂浅色 pill」(内含金边+磨砂底),
+   所以按钮本体保持透明,图片即按钮,避免 pill 套 pill。
+   封面 hero 和 结算页 footer 共用同一套样式与同一个弹窗。 */
+.hero-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.hero-social--footer {
+  margin-top: 18px;
+}
+
+.hero-social-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+
+.hero-social-item:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.hero-social-img {
+  display: block;
+  width: clamp(84px, 24vw, 140px);
+  height: auto;
+  object-fit: contain;
+}
+
+/* 仅在对应图标尚未到位时显示的占位 pill */
+.hero-social-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: clamp(84px, 24vw, 140px);
+  height: clamp(36px, 10vw, 50px);
+  border-radius: 16px;
+  border: 1px solid rgba(193, 161, 99, 0.55);
+  background: rgba(255, 255, 255, 0.42);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+/* ---- 社交弹窗(克隆 save-preview 风格) ---- */
+.social-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.social-modal.hidden {
+  display: none;
+}
+
+.social-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 18, 20, 0.58);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.social-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(360px, 100%);
+  max-height: min(92vh, 620px);
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(252, 249, 241, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  box-shadow: 0 24px 70px rgba(10, 18, 20, 0.28);
+}
+
+.social-modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: start;
+}
+
+.social-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.social-modal-copy {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.social-modal-close {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.social-modal-image {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fffaf2;
+  -webkit-touch-callout: default;
+  user-select: auto;
+}
+
+.social-modal-image.hidden,
+.social-modal-image.is-missing {
+  display: none;
+}
+
+.social-modal-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 120px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.social-modal-placeholder.hidden {
+  display: none;
+}
+
+.social-modal-email {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 8px 0 4px;
+}
+
+.social-modal-email.hidden {
+  display: none;
+}
+
+.social-modal-email-text {
+  font-family: "Space Grotesk", "Noto Sans SC", sans-serif;
+  font-size: 19px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  user-select: all;
+}
+
+.social-modal-copy-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.social-modal-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  gap: 6px;
+  padding: 12px 24px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.social-modal-link.hidden {
+  display: none;
+}
