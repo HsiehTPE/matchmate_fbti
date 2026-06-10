@@ -459,6 +459,14 @@ body::after {
   white-space: nowrap;
 }
 
+/* 操作行/悬浮栏按钮字体与「分享赢好礼」金 pill 统一(button 默认不继承页面衬线字体) */
+.result-actions button,
+.result-dock button {
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
 .hidden-unlock-hint {
   margin: 0;
   color: var(--muted);
@@ -1283,10 +1291,6 @@ body::after {
   margin-top: 18px;
 }
 
-.hero-social--result {
-  margin-top: 0;
-}
-
 .social-pill {
   display: inline-flex;
   align-items: center;
@@ -1400,16 +1404,7 @@ body::after {
   }
 }
 
-/* ---- 结算页顶部 活动+入口区 ---- */
-.result-follow {
-  display: grid;
-  justify-items: center;
-  gap: 12px;
-  margin: 20px 0 6px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
-
+/* ---- 「分享赢好礼」金 pill(结算页操作行 + 底部悬浮栏) ---- */
 .promo-button {
   display: inline-flex;
   align-items: center;
@@ -1436,16 +1431,6 @@ body::after {
 .promo-button-emoji {
   font-size: 17px;
   line-height: 1;
-}
-
-.promo-button-tag {
-  padding: 3px 9px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.55);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: #6b5320;
 }
 
 @keyframes promo-glow {
@@ -1536,6 +1521,95 @@ body::after {
   display: none;
 }
 
+/* 「两步参与」:海报下方的分享动线(①保存结果图 ②去发布)。
+   sticky 钉在弹窗底部:海报完整可滚动阅读,动作按钮始终可见。 */
+.promo-steps {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  gap: 10px;
+  margin: 14px -16px -16px;
+  padding: 12px 16px 16px;
+  background: linear-gradient(to bottom, rgba(252, 249, 241, 0), rgba(252, 249, 241, 0.97) 30%);
+}
+
+.promo-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  text-align: left;
+  font-family: inherit;
+}
+
+button.promo-step {
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+button.promo-step:hover {
+  border-color: rgba(193, 161, 99, 0.7);
+  background: linear-gradient(135deg, rgba(233, 211, 160, 0.35), rgba(255, 255, 255, 0.8));
+}
+
+.promo-step-num {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #cfa961, #e9d3a0);
+  color: #33270f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.promo-step-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.promo-step-copy strong {
+  color: var(--ink);
+  font-size: 14.5px;
+}
+
+.promo-step-copy small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.promo-step-targets {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.promo-step-targets button {
+  padding: 8px 16px;
+  border: 1px solid rgba(193, 161, 99, 0.55);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.66), rgba(246, 236, 214, 0.5));
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.promo-step-targets button:hover {
+  border-color: rgba(193, 161, 99, 0.85);
+  transform: translateY(-1px);
+}
+
 /* ---- 底部渐变悬浮操作栏(结果页) ----
    按钮固定在视口底部上层;栏上沿是 透明→米色 渐变,正文滚到按钮
    后面时平滑淡出。渐变区点击穿透,只有按钮可点。滚到原按钮排时
@@ -1578,6 +1652,10 @@ body::after {
   box-shadow: 0 4px 14px rgba(15, 91, 82, 0.28);
 }
 
+.result-dock .promo-button {
+  padding: 12px 18px;
+}
+
 .result-dock.is-active {
   display: block;
 }
@@ -1597,7 +1675,8 @@ body::after {
   }
 
   .result-dock .ghost-button,
-  .result-dock .primary-button {
+  .result-dock .primary-button,
+  .result-dock .promo-button {
     padding: 12px 14px;
     font-size: 13.5px;
   }

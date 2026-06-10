@@ -446,7 +446,6 @@ const savePreviewModal = document.querySelector("#save-preview-modal");
 const savePreviewImage = document.querySelector("#save-preview-image");
 const savePreviewCopy = document.querySelector("#save-preview-copy");
 const hiddenUnlockHint = document.querySelector("#hidden-unlock-hint");
-const copyButton = document.querySelector("#copy-button");
 const restartButton = document.querySelector("#restart-button");
 let currentRenderedResult = null;
 
@@ -1083,71 +1082,6 @@ function goPrev() {
   }
   appState.currentIndex -= 1;
   renderQuestion(appState.currentIndex);
-}
-
-async function copyText(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch (error) {
-    return false;
-  }
-}
-
-function buildCopyText(limit, phaseLabel) {
-  const result = buildResult(limit);
-  return [
-    `看球搭子人格测试`,
-    `${phaseLabel}`,
-    `${result.winner.code} · ${result.winner.title}`,
-    `${result.winner.group} / ${result.winner.tag}`,
-    `${result.winner.shortLabel}`,
-    ``,
-    `访问MatchMate，认识你的AI看球搭子！`,
-    `https://fbti.matchmate.chat/`
-  ].join("\n");
-}
-
-function buildCopyText(limit, phaseLabel) {
-  const result = currentRenderedResult || buildResult(limit);
-  const displayCode = result.winner.displayCode || result.winner.code;
-
-  return [
-    `看球搭子人格测试`,
-    phaseLabel || ``,
-    `你的看球搭子类型是：`,
-    `${result.winner.title}`,
-    `${displayCode}`,
-    `${result.winner.group} / ${result.winner.tag}`,
-    `${result.winner.shortLabel}`,
-    result.winner.quote ? `“${result.winner.quote}”` : ``,
-    ``,
-    `访问MatchMate，认识你的AI看球搭子！`,
-    `https://fbti.matchmate.chat/`
-  ].filter(Boolean).join("\n");
-}
-
-function buildCopyText(limit, phaseLabel) {
-  const result = currentRenderedResult || buildResult(limit);
-  const narrative = buildNarrative(result);
-  const displayCode = result.winner.displayCode || result.winner.code;
-  const quoteLine = result.winner.quote ? `"${result.winner.quote}"` : "";
-
-  return [
-    "\u770b\u7403\u642d\u5b50\u4eba\u683c\u6d4b\u8bd5",
-    phaseLabel || "",
-    "\u4f60\u7684\u770b\u7403\u642d\u5b50\u7c7b\u578b\u662f\uff1a",
-    result.winner.title,
-    displayCode,
-    `${result.winner.group} / ${result.winner.tag}`,
-    result.winner.shortLabel,
-    quoteLine,
-    "",
-    narrative.profile,
-    "",
-    "\u8bbf\u95eeMatchMate\uff0c\u8ba4\u8bc6\u4f60\u7684AI\u770b\u7403\u642d\u5b50\uff01",
-    "https://fbti.matchmate.chat/"
-  ].filter(Boolean).join("\n");
 }
 
 function loadImageAsset(src) {
@@ -2168,6 +2102,19 @@ promoTabs.forEach((tab) => {
 document.querySelectorAll("[data-close-promo]").forEach((button) => {
   button.addEventListener("click", closePromoModal);
 });
+// 弹窗「两步参与」:①保存结果图(图内自带测试入口二维码) ②去微信/小红书发布。
+// 先关活动弹窗再开下一层,避免同层 z-index 下被 promo-modal 盖住。
+document.querySelectorAll("[data-promo-action]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const action = button.getAttribute("data-promo-action");
+    closePromoModal();
+    if (action === "save") {
+      saveResultImage();
+    } else {
+      openSocialModal(action);
+    }
+  });
+});
 // 活动海报未上传时显示占位文案(海报到位后放进 assets/ 同名文件即自动展示)
 document.querySelectorAll(".promo-poster").forEach((poster) => {
   poster.addEventListener("error", () => {
@@ -2224,9 +2171,6 @@ document.addEventListener("keydown", (event) => {
     closeSocialModal();
     closePromoModal();
   }
-});
-copyButton.addEventListener("click", async () => {
-  await copyText(buildCopyText(QUESTIONS.length, ""));
 });
 restartButton.addEventListener("click", restartQuiz);
 

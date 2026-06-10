@@ -155,32 +155,6 @@
           <div id="hidden-badge" class="hidden-badge hidden">隐藏人格</div>
         </div>
 
-        <div class="result-follow">
-          <button id="promo-button" class="promo-button" type="button">
-            <span class="promo-button-emoji" aria-hidden="true">🎁</span>
-            <span>分享赢好礼</span>
-            <span class="promo-button-tag">活动进行中</span>
-          </button>
-          <nav class="hero-social hero-social--result" aria-label="MatchMate 入口">
-            <button class="social-pill social-pill--art" type="button" data-social="wechat" aria-label="微信群聊与公众号">
-              <img class="social-pill-art" src="./assets/pill-wechat.png" alt="">
-              <span class="social-pill-label">微信</span>
-            </button>
-            <button class="social-pill social-pill--art" type="button" data-social="xhs" aria-label="小红书">
-              <img class="social-pill-art" src="./assets/pill-xhs.png" alt="">
-              <span class="social-pill-label">小红书</span>
-            </button>
-            <a class="social-pill social-pill--art" href="https://www.matchmate.tv/" target="_blank" rel="noopener noreferrer">
-              <img class="social-pill-art" src="./assets/pill-site.png" alt="">
-              <span class="social-pill-label">官网</span>
-            </a>
-            <a class="social-pill social-pill--art" href="https://www.matchmate.tv/predict/" target="_blank" rel="noopener noreferrer">
-              <img class="social-pill-art" src="./assets/pill-predict.png" alt="">
-              <span class="social-pill-label">AI 预测</span>
-            </a>
-          </nav>
-        </div>
-
         <div class="result-grid">
           <section class="result-card result-card--radar">
             <h4>看球搭子面板</h4>
@@ -219,7 +193,10 @@
             <p id="hidden-unlock-hint" class="hidden-unlock-hint">重新测试来解锁隐藏看球搭子！</p>
           </div>
           <div class="result-action-cell">
-            <button id="copy-button" class="ghost-button" type="button">复制文案</button>
+            <button id="promo-button" class="promo-button" type="button">
+              <span class="promo-button-emoji" aria-hidden="true">🎁</span>
+              <span>分享赢好礼</span>
+            </button>
           </div>
           <div class="result-action-cell">
             <button id="restart-button" class="primary-button" type="button">重新测试</button>
@@ -305,6 +282,25 @@
           <strong>活动海报准备中</strong>
           <span>保存结果图分享给朋友，开奖福利敬请期待</span>
         </div>
+        <div class="promo-steps">
+          <button class="promo-step" type="button" data-promo-action="save">
+            <span class="promo-step-num">1</span>
+            <span class="promo-step-copy">
+              <strong>保存结果图</strong>
+              <small>图内自带测试入口二维码</small>
+            </span>
+          </button>
+          <div class="promo-step promo-step--publish">
+            <span class="promo-step-num">2</span>
+            <span class="promo-step-copy">
+              <strong>发布到</strong>
+            </span>
+            <span class="promo-step-targets">
+              <button type="button" data-promo-action="wechat">微信</button>
+              <button type="button" data-promo-action="xhs">小红书</button>
+            </span>
+          </div>
+        </div>
       </div>
       <div class="promo-pane hidden" data-promo-pane="2">
         <img class="promo-poster" src="./assets/promo-activity-2.jpg" alt="活动二：解锁隐藏人格">
@@ -321,7 +317,7 @@
   <div id="result-dock" class="result-dock">
     <div class="result-dock-inner">
       <button type="button" class="ghost-button" data-dock-proxy="save-image-button">保存图片</button>
-      <button type="button" class="ghost-button" data-dock-proxy="copy-button">复制文案</button>
+      <button type="button" class="promo-button" data-dock-proxy="promo-button">🎁 分享赢好礼</button>
       <button type="button" class="primary-button" data-dock-proxy="restart-button">重新测试</button>
     </div>
   </div>
