@@ -1212,34 +1212,17 @@ function closeSavePreview() {
 const socialModal = document.querySelector("#social-modal");
 const socialModalTitle = document.querySelector("#social-modal-title");
 const socialModalCopy = document.querySelector("#social-modal-copy");
-const socialModalImage = document.querySelector("#social-modal-image");
-const socialModalPlaceholder = document.querySelector("#social-modal-placeholder");
-const socialModalEmail = document.querySelector("#social-modal-email");
+const socialModalMedia = document.querySelector("#social-modal-media");
 const socialModalLink = document.querySelector("#social-modal-link");
 
-if (socialModalImage) {
-  socialModalImage.addEventListener("load", () => {
-    socialModalImage.classList.remove("is-missing");
-    if (socialModalPlaceholder) {
-      socialModalPlaceholder.classList.add("hidden");
-    }
-  });
-  socialModalImage.addEventListener("error", () => {
-    socialModalImage.classList.add("is-missing");
-    // 若该入口已带「前往主页」跳转按钮(如小红书),就不显示「二维码即将上线」占位
-    const hasLink = socialModalLink && !socialModalLink.classList.contains("hidden");
-    if (socialModalPlaceholder && !hasLink) {
-      socialModalPlaceholder.classList.remove("hidden");
-    }
-  });
-}
-
-const CONTACT_EMAIL = "matchmate_ai@163.com";
 const SOCIAL_CONTENT = {
   wechat: {
-    title: "关注 MatchMate 公众号",
-    copy: "微信里长按二维码，识别关注公众号",
-    image: "./assets/qr-wechat.jpg",
+    title: "微信扫码，组队看球",
+    copy: "微信里长按二维码识别：进球迷群聊球，或关注公众号",
+    qrs: [
+      { src: "./assets/qr-wechat-group.jpg", caption: "扫码加入球迷群" },
+      { src: "./assets/qr-wechat.jpg", caption: "扫码关注公众号" },
+    ],
   },
   xhs: {
     title: "在小红书找到我们",
@@ -1247,12 +1230,39 @@ const SOCIAL_CONTENT = {
     link: "https://www.xiaohongshu.com/user/profile/630711410000000012003e0a?xsec_token=AB7n_ieBf67R-5crn10MxeBJjWdIrNl5f3zuyglhTVeJE%3D&xsec_source=pc_note",
     linkLabel: "前往小红书主页",
   },
-  contact: {
-    title: "联系我们",
-    copy: "合作 / 反馈，欢迎来信",
-    email: true,
-  },
 };
+
+function renderSocialMedia(data) {
+  if (!socialModalMedia) {
+    return;
+  }
+  socialModalMedia.innerHTML = "";
+  const qrs = data.qrs || (data.image ? [{ src: data.image, caption: "" }] : []);
+  qrs.forEach((qr) => {
+    const figure = document.createElement("figure");
+    figure.className = "social-modal-qr";
+    const img = document.createElement("img");
+    img.className = "social-modal-qr-img";
+    img.alt = qr.caption || data.title;
+    img.addEventListener("error", () => {
+      const placeholder = document.createElement("div");
+      placeholder.className = "social-modal-placeholder";
+      placeholder.textContent = "二维码即将上线";
+      figure.replaceChild(placeholder, img);
+    });
+    img.src = qr.src;
+    figure.appendChild(img);
+    if (qr.caption) {
+      const caption = document.createElement("figcaption");
+      caption.className = "social-modal-qr-caption";
+      caption.textContent = qr.caption;
+      figure.appendChild(caption);
+    }
+    socialModalMedia.appendChild(figure);
+  });
+  socialModalMedia.classList.toggle("social-modal-media--dual", qrs.length > 1);
+  socialModalMedia.classList.toggle("hidden", qrs.length === 0);
+}
 
 function openSocialModal(kind) {
   const data = SOCIAL_CONTENT[kind];
@@ -1262,15 +1272,8 @@ function openSocialModal(kind) {
   socialModalTitle.textContent = data.title;
   socialModalCopy.textContent = data.copy || "";
 
-  // 二维码 / 图片
-  socialModalPlaceholder.classList.add("hidden");
-  if (data.image) {
-    socialModalImage.classList.remove("is-missing", "hidden");
-    socialModalImage.src = data.image;
-  } else {
-    socialModalImage.classList.add("hidden");
-    socialModalImage.removeAttribute("src");
-  }
+  // 二维码 / 图片(微信:群聊码+公众号码双码)
+  renderSocialMedia(data);
 
   // 跳转按钮(小红书:弹窗里点它跳主页)
   if (socialModalLink) {
@@ -1283,9 +1286,6 @@ function openSocialModal(kind) {
       socialModalLink.removeAttribute("href");
     }
   }
-
-  // 邮箱(联系我们)
-  socialModalEmail.classList.toggle("hidden", !data.email);
 
   socialModal.classList.remove("hidden");
   document.body.style.overflow = "hidden";
@@ -2128,21 +2128,101 @@ document.querySelectorAll("[data-close-social]").forEach((button) => {
   button.addEventListener("click", closeSocialModal);
 });
 
-const socialCopyBtn = document.querySelector("#social-modal-copy-btn");
-if (socialCopyBtn) {
-  socialCopyBtn.addEventListener("click", async () => {
-    const ok = await copyText(CONTACT_EMAIL);
-    socialCopyBtn.textContent = ok ? "已复制 ✓" : "复制失败，请手动复制";
-    window.setTimeout(() => {
-      socialCopyBtn.textContent = "复制邮箱";
-    }, 1800);
+// ---- 活动弹窗(分享赢好礼 / 解锁隐藏人格) ----
+const promoModal = document.querySelector("#promo-modal");
+const promoButton = document.querySelector("#promo-button");
+const promoTabs = document.querySelectorAll("[data-promo-tab]");
+const promoPanes = document.querySelectorAll("[data-promo-pane]");
+
+function switchPromoTab(key) {
+  promoTabs.forEach((tab) => {
+    tab.classList.toggle("is-active", tab.getAttribute("data-promo-tab") === key);
   });
+  promoPanes.forEach((pane) => {
+    pane.classList.toggle("hidden", pane.getAttribute("data-promo-pane") !== key);
+  });
+}
+
+function openPromoModal() {
+  if (!promoModal) {
+    return;
+  }
+  promoModal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closePromoModal() {
+  if (!promoModal) {
+    return;
+  }
+  promoModal.classList.add("hidden");
+  document.body.style.overflow = "";
+}
+
+if (promoButton) {
+  promoButton.addEventListener("click", openPromoModal);
+}
+promoTabs.forEach((tab) => {
+  tab.addEventListener("click", () => switchPromoTab(tab.getAttribute("data-promo-tab")));
+});
+document.querySelectorAll("[data-close-promo]").forEach((button) => {
+  button.addEventListener("click", closePromoModal);
+});
+// 活动海报未上传时显示占位文案(海报到位后放进 assets/ 同名文件即自动展示)
+document.querySelectorAll(".promo-poster").forEach((poster) => {
+  poster.addEventListener("error", () => {
+    poster.classList.add("is-missing");
+    const placeholder = poster.parentElement.querySelector(".promo-placeholder");
+    if (placeholder) {
+      placeholder.classList.remove("hidden");
+    }
+  });
+  if (poster.complete && poster.naturalWidth === 0) {
+    poster.dispatchEvent(new Event("error"));
+  }
+});
+
+// ---- 底部渐变悬浮操作栏(结果页) ----
+const resultDock = document.querySelector("#result-dock");
+const resultActionsRow = document.querySelector(".result-actions");
+
+document.querySelectorAll("[data-dock-proxy]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.getElementById(button.getAttribute("data-dock-proxy"));
+    if (target) {
+      target.click();
+    }
+  });
+});
+
+// 滚到原按钮排附近时悬浮栏淡出,避免两排叠加
+if (resultDock && resultActionsRow && "IntersectionObserver" in window) {
+  const dockObserver = new IntersectionObserver(
+    (entries) => {
+      resultDock.classList.toggle("is-docked", entries[0].isIntersecting);
+    },
+    { threshold: 0.1 }
+  );
+  dockObserver.observe(resultActionsRow);
+}
+
+// 悬浮栏跟随结果页显隐(栏在 body 层,不随 #result-panel 的 hidden 自动消失)
+if (resultDock && resultPanel) {
+  const syncDockVisibility = () => {
+    resultDock.classList.toggle("is-active", !resultPanel.classList.contains("hidden"));
+  };
+  new MutationObserver(syncDockVisibility).observe(resultPanel, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+  syncDockVisibility();
 }
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeSavePreview();
     closeSocialModal();
+    closePromoModal();
   }
 });
 copyButton.addEventListener("click", async () => {
