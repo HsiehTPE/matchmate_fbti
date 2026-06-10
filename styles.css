@@ -1355,6 +1355,51 @@ body::after {
   }
 }
 
+/* --quiet:封面页脚线风格 —— 细分隔线 + 细线条小图标一行,
+   低调不抢「开始测试」CTA;大金 pill 只在结算页出现 */
+.hero-social--quiet {
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  gap: 26px;
+}
+
+.quiet-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 2px;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 150ms ease, color 150ms ease;
+}
+
+.quiet-link:hover {
+  opacity: 1;
+  color: var(--ink);
+}
+
+.quiet-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: rgba(150, 122, 64, 0.9); /* 金棕描边,呼应纸面金线 */
+  flex: 0 0 auto;
+}
+
+@media (max-width: 480px) {
+  .hero-social--quiet {
+    gap: 16px;
+  }
+}
+
 /* ---- 结算页顶部 活动+入口区 ---- */
 .result-follow {
   display: grid;

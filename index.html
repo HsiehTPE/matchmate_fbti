@@ -50,22 +50,43 @@
         <img class="hero-player" src="./images_new/NEY-MAR.png" alt="">
         <img class="hero-player hero-player-china hero-player-mirror" src="./images_new/LEGEND.png" alt="">
       </div>
-      <nav class="hero-social" aria-label="MatchMate 入口">
-        <button class="social-pill social-pill--art" type="button" data-social="wechat" aria-label="微信群聊与公众号">
-          <img class="social-pill-art" src="./assets/pill-wechat.png" alt="">
-          <span class="social-pill-label">微信</span>
+      <!-- 封面入口走低调页脚线风格(细线图标),大金 pill 只保留在结算页 -->
+      <nav class="hero-social hero-social--quiet" aria-label="MatchMate 入口">
+        <button class="quiet-link" type="button" data-social="wechat" aria-label="微信群聊与公众号">
+          <svg class="quiet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="9.5" cy="9" rx="6.5" ry="5.2"/>
+            <path d="M6.5 13.6 5.4 16.4l3.1-1.6"/>
+            <circle cx="7.2" cy="8.2" r="0.8" fill="currentColor" stroke="none"/>
+            <circle cx="11.8" cy="8.2" r="0.8" fill="currentColor" stroke="none"/>
+            <ellipse cx="16.2" cy="14.8" rx="5" ry="4.1"/>
+            <path d="M18.9 18.1 19.8 20.4l-2.7-1.4"/>
+            <circle cx="14.4" cy="14" r="0.7" fill="currentColor" stroke="none"/>
+            <circle cx="18" cy="14" r="0.7" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>微信</span>
         </button>
-        <button class="social-pill social-pill--art" type="button" data-social="xhs" aria-label="小红书">
-          <img class="social-pill-art" src="./assets/pill-xhs.png" alt="">
-          <span class="social-pill-label">小红书</span>
+        <button class="quiet-link" type="button" data-social="xhs" aria-label="小红书">
+          <svg class="quiet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3.5" y="5" width="17" height="14" rx="3.5"/>
+            <text x="12" y="15.3" text-anchor="middle" font-size="7" font-weight="600" fill="currentColor" stroke="none" font-family="'Noto Sans SC','PingFang SC',sans-serif">小红书</text>
+          </svg>
+          <span>小红书</span>
         </button>
-        <a class="social-pill social-pill--art" href="https://www.matchmate.tv/" target="_blank" rel="noopener noreferrer">
-          <img class="social-pill-art" src="./assets/pill-site.png" alt="">
-          <span class="social-pill-label">官网</span>
+        <a class="quiet-link" href="https://www.matchmate.tv/" target="_blank" rel="noopener noreferrer">
+          <svg class="quiet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5"/>
+            <path d="M3.5 12h17"/>
+            <path d="M12 3.5c3.2 2.7 3.2 14.3 0 17c-3.2-2.7-3.2-14.3 0-17z"/>
+          </svg>
+          <span>官网</span>
         </a>
-        <a class="social-pill social-pill--art" href="https://www.matchmate.tv/predict/" target="_blank" rel="noopener noreferrer">
-          <img class="social-pill-art" src="./assets/pill-predict.png" alt="">
-          <span class="social-pill-label">AI 预测</span>
+        <a class="quiet-link" href="https://www.matchmate.tv/predict/" target="_blank" rel="noopener noreferrer">
+          <svg class="quiet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5h16"/>
+            <path d="M5 15.5l4-4.2 3 2.6 4.8-5.4"/>
+            <path d="M13.8 8.5h3v3"/>
+          </svg>
+          <span>AI 预测</span>
         </a>
       </nav>
     </header>
