@@ -1,3 +1,13 @@
+/* Space Grotesk 自托管(变量字体,latin 子集 6.7K,wght 覆盖 500-700):
+   只用于拉丁字母品牌字,大陆拿不到 Google Fonts 也能稳定渲染 */
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url("./assets/fonts/space-grotesk-latin.woff2") format("woff2");
+}
+
 :root {
   --bg: #f4efe5;
   --paper: rgba(252, 249, 241, 0.88);
@@ -16,9 +26,10 @@
 
 body {
   margin: 0;
-  font-family: "Noto Serif SC", serif;
+  /* webfont 拿不到时(大陆为常态)按系统中文衬线回退,避免风格随机漂移 */
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
   color: var(--ink);
-  background: #eef1f4 url("./bg_image.png") center center / cover no-repeat fixed;
+  background: #eef1f4 url("./bg_image.jpg") center center / cover no-repeat fixed;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -548,7 +559,7 @@ body::after {
 .save-preview-modal {
   position: fixed;
   inset: 0;
-  z-index: 20;
+  z-index: 21; /* 比 social/promo(20) 高一层:三步卡点「保存」时直接叠在活动弹窗上 */
   display: grid;
   place-items: center;
   padding: 18px;

@@ -6,7 +6,9 @@
   <title>看球搭子人格测试 | FBTI Web Quiz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <!-- 非阻塞加载:大陆访问不到 Google Fonts,阻塞式 link 会白屏到超时;
+       拿不到时走 styles.css 的系统字体回退栈。Space Grotesk 已自托管(assets/fonts/) -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -23,7 +25,7 @@
         >
           <img
             class="brand-logo"
-            src="./main_logo.png"
+            src="./main_logo_sm.png"
             alt="MatchMate Logo"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"
           >
@@ -43,12 +45,13 @@
       </div>
       <button id="start-button" class="primary-button">开始测试</button>
       <div class="hero-player-strip" aria-hidden="true">
-        <img class="hero-player hero-player-china" src="./images_new/FAN-ZY.png" alt="">
-        <img class="hero-player hero-player-left" src="./images_new/CR7.png" alt="">
-        <img class="hero-player hero-player-center" src="./images_new/STAY-H.png" alt="">
-        <img class="hero-player hero-player-right" src="./images_new/LEO.png" alt="">
-        <img class="hero-player" src="./images_new/NEY-MAR.png" alt="">
-        <img class="hero-player hero-player-china hero-player-mirror" src="./images_new/LEGEND.png" alt="">
+        <!-- -sm 缩略图(高340px):封面渲染高仅 168px,原图 1400px+ 留给结果页 -->
+        <img class="hero-player hero-player-china" src="./images_new/FAN-ZY-sm.png" alt="">
+        <img class="hero-player hero-player-left" src="./images_new/CR7-sm.png" alt="">
+        <img class="hero-player hero-player-center" src="./images_new/STAY-H-sm.png" alt="">
+        <img class="hero-player hero-player-right" src="./images_new/LEO-sm.png" alt="">
+        <img class="hero-player" src="./images_new/NEY-MAR-sm.png" alt="">
+        <img class="hero-player hero-player-china hero-player-mirror" src="./images_new/LEGEND-sm.png" alt="">
       </div>
       <!-- 封面入口走低调页脚线风格(细线图标),大金 pill 只保留在结算页 -->
       <nav class="hero-social hero-social--quiet" aria-label="MatchMate 入口">
@@ -102,14 +105,14 @@
           <div class="quiz-brandbar">
             <a
               class="quiz-brand-link"
-              href="https://fbti.matchmate.chat/"
+              href="https://www.matchmate.tv/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="打开 MatchMate 官网"
             >
               <img
                 class="quiz-brand-logo"
-                src="./main_logo.png"
+                src="./main_logo_sm.png"
                 alt="MatchMate Logo"
                 onerror="this.style.display='none';"
               >
@@ -203,7 +206,7 @@
         </div>
         <a
           class="result-cta-link"
-          href="https://fbti.matchmate.chat/"
+          href="https://www.matchmate.tv/"
           target="_blank"
           rel="noopener noreferrer"
         >

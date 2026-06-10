@@ -1029,6 +1029,11 @@ function resetQuizState() {
 }
 
 function returnToHome() {
+  const quizInProgress = quizPanel && !quizPanel.classList.contains("hidden")
+    && appState.answers.some((answer) => answer !== null);
+  if (quizInProgress && !window.confirm("返回首页将清空当前作答，确定吗？")) {
+    return;
+  }
   resetQuizState();
   hideAllPanels();
   hero.classList.remove("hidden");
@@ -1120,6 +1125,12 @@ function isWeChatBrowser() {
   return /MicroMessenger/i.test(window.navigator.userAgent || "");
 }
 
+function isMobileBrowser() {
+  // UA 兜不住新 iPad(报 Macintosh),用 hover 能力补判
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(window.navigator.userAgent || "")
+    || !window.matchMedia("(hover: hover)").matches;
+}
+
 function openSavePreview(imageSrc, isWeChat) {
   if (!savePreviewModal || !savePreviewImage) {
     return false;
@@ -1140,7 +1151,9 @@ function closeSavePreview() {
     return;
   }
   savePreviewModal.classList.add("hidden");
-  document.body.style.overflow = "";
+  // 活动弹窗还开着时保持滚动锁(保存预览以更高 z-index 叠在其上)
+  const promoStillOpen = promoModal && !promoModal.classList.contains("hidden");
+  document.body.style.overflow = promoStillOpen ? "hidden" : "";
 }
 
 const socialModal = document.querySelector("#social-modal");
@@ -2000,8 +2013,10 @@ async function saveResultImage() {
     ctx.fillText("fbti.matchmate.chat", linkTextX, linkTextY + 72);
 
     const fileCode = String(result.winner.code || "result").toLowerCase().replace(/[^a-z0-9!-]+/g, "-");
-    if (isWeChatBrowser()) {
-      openSavePreview(canvas.toDataURL("image/png"), true);
+    // 移动端统一走长按预览:小红书/QQ 等内置 webview 会静默拦截 <a download>,
+    // 程序化下载只留给桌面浏览器
+    if (isMobileBrowser()) {
+      openSavePreview(canvas.toDataURL("image/png"), isWeChatBrowser());
     } else {
       const blob = await canvasToBlob(canvas);
       triggerBlobDownload(blob, `${fileCode}-result-card.png`);
@@ -2111,16 +2126,17 @@ document.querySelectorAll("[data-close-promo]").forEach((button) => {
   button.addEventListener("click", closePromoModal);
 });
 // 弹窗「三步参与」对齐海报:①保存结果图 ②发朋友圈集赞(无点击动作) ③截图发公众号后台兑奖。
-// 先关活动弹窗再开下一层,避免同层 z-index 下被 promo-modal 盖住。
+// ③走 social-modal(同层 z-index 会被 promo-modal 盖住,故先关再开);①的保存预览 z-index 更高,直接叠加。
 document.querySelectorAll("[data-promo-action]").forEach((button) => {
   button.addEventListener("click", () => {
     const action = button.getAttribute("data-promo-action");
-    closePromoModal();
     if (action === "save") {
+      // 保存预览 z-index 更高,直接叠在活动弹窗上;关闭预览即回到三步卡,兑奖动线不中断
       saveResultImage();
-    } else {
-      openSocialModal(action);
+      return;
     }
+    closePromoModal();
+    openSocialModal(action);
   });
 });
 // 活动海报未上传时显示占位文案(海报到位后放进 assets/ 同名文件即自动展示)
