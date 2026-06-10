@@ -78,7 +78,7 @@
             <path d="M3.5 12h17"/>
             <path d="M12 3.5c3.2 2.7 3.2 14.3 0 17c-3.2-2.7-3.2-14.3 0-17z"/>
           </svg>
-          <span>MatchMate官网</span>
+          <span>官网</span>
         </a>
         <a class="quiet-link" href="https://www.matchmate.tv/predict/" target="_blank" rel="noopener noreferrer">
           <svg class="quiet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -300,6 +300,22 @@
               <strong>截图发公众号后台兑奖</strong>
             </span>
           </button>
+          <!-- 一键关注:方形金徽章(ref/make-badges.py 合成),走 data-promo-action
+               先关本弹窗再开下一层,避免同层 z-index 被盖 -->
+          <div class="promo-follow">
+            <p class="promo-follow-label">也可以直接找到我们</p>
+            <div class="promo-follow-row">
+              <button class="promo-follow-pill" type="button" data-promo-action="wechat" aria-label="微信群聊与公众号">
+                <img class="promo-follow-art" src="./assets/badge-wechat.png" alt="微信">
+              </button>
+              <button class="promo-follow-pill" type="button" data-promo-action="xhs" aria-label="小红书">
+                <img class="promo-follow-art" src="./assets/badge-xhs.png" alt="小红书">
+              </button>
+              <a class="promo-follow-pill" href="https://www.matchmate.tv/" target="_blank" rel="noopener noreferrer" aria-label="MatchMate 官网">
+                <img class="promo-follow-art" src="./assets/badge-site.png" alt="MatchMate 官网">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="promo-pane hidden" data-promo-pane="2">
@@ -316,6 +332,38 @@
   <!-- 结果页底部悬浮操作栏:必须挂在 body 层(置于 .panel 内会被其 backdrop-filter 劫持 fixed 定位基准) -->
   <div id="result-dock" class="result-dock">
     <div class="result-dock-inner">
+      <!-- 官方入口细线行:结算常显+截图必带;[data-social] 加载时静态绑定,静态HTML即接线 -->
+      <nav class="dock-follow" aria-label="MatchMate 入口">
+        <span class="dock-follow-label">找到我们</span>
+        <button class="quiet-link" type="button" data-social="wechat" aria-label="微信群聊与公众号">
+          <svg class="quiet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="9.5" cy="9" rx="6.5" ry="5.2"/>
+            <path d="M6.5 13.6 5.4 16.4l3.1-1.6"/>
+            <circle cx="7.2" cy="8.2" r="0.8" fill="currentColor" stroke="none"/>
+            <circle cx="11.8" cy="8.2" r="0.8" fill="currentColor" stroke="none"/>
+            <ellipse cx="16.2" cy="14.8" rx="5" ry="4.1"/>
+            <path d="M18.9 18.1 19.8 20.4l-2.7-1.4"/>
+            <circle cx="14.4" cy="14" r="0.7" fill="currentColor" stroke="none"/>
+            <circle cx="18" cy="14" r="0.7" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>微信</span>
+        </button>
+        <button class="quiet-link" type="button" data-social="xhs" aria-label="小红书">
+          <svg class="quiet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 6.8c-1.7-1.5-4-2.1-6.8-2.1v12.8c2.8 0 5.1.6 6.8 2.1 1.7-1.5 4-2.1 6.8-2.1V4.7c-2.8 0-5.1.6-6.8 2.1"/>
+            <path d="M12 6.8v12.8"/>
+          </svg>
+          <span>小红书</span>
+        </button>
+        <a class="quiet-link" href="https://www.matchmate.tv/" target="_blank" rel="noopener noreferrer">
+          <svg class="quiet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5"/>
+            <path d="M3.5 12h17"/>
+            <path d="M12 3.5c3.2 2.7 3.2 14.3 0 17c-3.2-2.7-3.2-14.3 0-17z"/>
+          </svg>
+          <span>官网</span>
+        </a>
+      </nav>
       <button type="button" class="ghost-button" data-dock-proxy="save-image-button">保存图片</button>
       <button type="button" class="promo-button" data-dock-proxy="promo-button">分享赢好礼</button>
       <button type="button" class="primary-button" data-dock-proxy="restart-button">重新测试</button>
