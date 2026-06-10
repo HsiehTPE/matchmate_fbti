@@ -2069,11 +2069,11 @@ async function saveResultImage() {
     const hint = window.location.protocol === "file:"
       ? "\n当前像是直接用 file:// 打开的页面。请改用本地服务器预览再试。"
       : "";
-    window.alert(`保存结果图案失败，请重试或打开浏览器控制台查看错误。${hint}`);
+    window.alert(`保存图片失败，请重试或打开浏览器控制台查看错误。${hint}`);
   } finally {
     if (button) {
       button.disabled = false;
-      button.textContent = originalLabel || "保存结果图案";
+      button.textContent = originalLabel || "保存图片";
     }
   }
 }

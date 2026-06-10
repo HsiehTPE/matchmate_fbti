@@ -1311,35 +1311,48 @@ body::after {
   box-shadow: 0 6px 16px rgba(160, 130, 70, 0.2);
 }
 
-.social-pill-glyph {
-  display: block;
-  width: 26px;
-  height: auto;
-  flex: 0 0 auto;
-}
-
-.social-pill-glyph--xhs {
-  width: 30px;
-}
-
-.social-pill-logo {
-  display: block;
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  flex: 0 0 auto;
-}
-
-.social-pill-emoji {
-  font-size: 18px;
-  line-height: 1;
-}
-
 .social-pill-label {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
+}
+
+/* --art:整张磨砂金 pill 图作为按钮主体,小字标签挂下方;
+   按钮本体去掉 CSS 底色边框,避免 pill 套 pill */
+.social-pill--art {
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.social-pill--art:hover {
+  box-shadow: none;
+}
+
+.social-pill-art {
+  display: block;
+  height: 48px;
+  width: auto;
+  border-radius: 14px; /* 贴合图内金边圆角,剪掉四角白底 */
+  box-shadow: 0 3px 12px rgba(160, 130, 70, 0.18);
+}
+
+.social-pill--art .social-pill-label {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+@media (max-width: 480px) {
+  .social-pill-art {
+    height: 42px;
+    border-radius: 12px;
+  }
 }
 
 /* ---- 结算页顶部 活动+入口区 ---- */
