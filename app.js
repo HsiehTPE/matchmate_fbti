@@ -1164,6 +1164,14 @@ const SOCIAL_CONTENT = {
     link: "https://www.xiaohongshu.com/user/profile/630711410000000012003e0a?xsec_token=AB7n_ieBf67R-5crn10MxeBJjWdIrNl5f3zuyglhTVeJE%3D&xsec_source=pc_note",
     linkLabel: "前往小红书主页",
   },
+  // 兑奖专用:只给公众号码,不混群聊码(活动闭环=朋友圈集赞截图发公众号后台)
+  "wechat-mp": {
+    title: "截图发公众号后台兑奖",
+    copy: "微信扫码关注「看球搭子 MatchMate AI」，把朋友圈集赞截图发到公众号后台，达标即可兑奖",
+    qrs: [
+      { src: "./assets/qr-wechat.jpg", caption: "扫码关注公众号" },
+    ],
+  },
 };
 
 function renderSocialMedia(data) {
@@ -2102,7 +2110,7 @@ promoTabs.forEach((tab) => {
 document.querySelectorAll("[data-close-promo]").forEach((button) => {
   button.addEventListener("click", closePromoModal);
 });
-// 弹窗「两步参与」:①保存结果图(图内自带测试入口二维码) ②去微信/小红书发布。
+// 弹窗「三步参与」对齐海报:①保存结果图 ②发朋友圈集赞(无点击动作) ③截图发公众号后台兑奖。
 // 先关活动弹窗再开下一层,避免同层 z-index 下被 promo-modal 盖住。
 document.querySelectorAll("[data-promo-action]").forEach((button) => {
   button.addEventListener("click", () => {
@@ -2127,6 +2135,10 @@ document.querySelectorAll(".promo-poster").forEach((poster) => {
   if (poster.complete && poster.naturalWidth === 0) {
     poster.dispatchEvent(new Event("error"));
   }
+  // 弹窗内海报受面板宽度所限(桌面端尤甚),点击新开原图
+  poster.addEventListener("click", () => {
+    window.open(poster.src, "_blank", "noopener");
+  });
 });
 
 // ---- 底部渐变悬浮操作栏(结果页) ----
