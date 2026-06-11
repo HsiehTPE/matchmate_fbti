@@ -184,47 +184,16 @@ function option(label, text, primary, secondary, dimensions) {
 
 const QUESTIONS = [
   {
-    id: "Q14",
-    sourceNumber: 14,
-    stage: 2,
-    part: "",
-    title: "2026世界杯在北美三国举办，你最关心什么？",
-    options: [
-      option("A", "先搞清楚48支队伍怎么踢，别看到一半才发现规则变了", ["PEP", "CARD-MA"], ["DAT-A", "TEN-GOD"], { R: 2, N: 1 }),
-      option("B", "先看时差和赛程安排，哪些比赛值得熬夜追", ["LE-FU", "STAY-H"], ["FAN-ZY", "MA-KUI"], { R: 1, V: 1 }),
-      option("C", "先看有哪些熟悉的球星，这可能是他们最后几次大赛了", ["LEO", "CR7"], ["LEGEND", "CCTV-HE"], { E: 1, R: 1, N: 1 }),
-      option("D", "先看都有哪些球队参赛，顺便发现更多冷门故事", ["CN-12", "LAO-8"], ["TUI-Q", "HEI-HEI"], { S: 2, G: 1 })
-    ]
-  },
-  {
-    id: "Q7",
-    sourceNumber: 7,
-    stage: 1,
-    part: "",
-    title: "库拉索是加勒比海附近的小地方，首次出现在世界杯舞台上，你最先想到什么？",
-    media: {
-      src: "./assets/curacao-combined.png",
-      alt: "库拉索国旗和地理位置地图",
-      caption: ""
-    },
-    options: [
-      option("A", "先去查它在哪儿、有什么背景，说不定比名字更有意思", ["DAT-A", "PEP"], ["TINTIN", "CARD-MA"], { R: 2, S: 1 }),
-      option("B", "名字很陌生，反而会让我觉得它可能藏着点惊喜", ["ZI-DANE", "LE-FU"], ["MA-KUI", "8-PE"], { V: 2, N: 1, E: 1 }),
-      option("C", "会有点好奇，一个不常被提起的地方也有自己的故事", ["CCTV-HE", "LEGEND"], ["WAN-SUI", "LEO"], { N: 2, S: 1, R: 1 }),
-      option("D", "国足都还没进世界杯，它先来了？这事必须发群里聊聊", ["HEI-HEI", "CN-12"], ["LAO-8", "TUI-Q"], { S: 2, G: 1, E: 1 })
-    ]
-  },
-  {
     id: "Q1",
     sourceNumber: 1,
     stage: 1,
     part: "",
-    title: "看世界杯时，你的注意力最可能放在哪？",
+    title: "2026世界杯由美加墨三国合办，以下4件事中你最关心什么？",
     options: [
-      option("A", "信息和细节，越能解释清楚越吸引我", ["DAT-A", "CARD-MA"], ["PEP", "TINTIN"], { R: 2, S: 1 }),
-      option("B", "关键人物的表现，感觉气氛会被一个人带起来", ["8-PE", "CR7"], ["LEO", "NEY-MAR"], { E: 2, V: 1, N: 1 }),
-      option("C", "背后的故事和记忆点，越有来历越想听下去", ["1100", "CCTV-HE"], ["LEGEND", "WAN-SUI"], { N: 2, S: 1, R: 1 }),
-      option("D", "现场气氛和大家的反应，热闹起来我也容易被带动", ["CN-12", "TUI-Q"], ["FAN-ZY", "LAO-8"], { E: 2, S: 1, G: 1 })
+      option("A", "32队变48队，规则改制有什么新花样？", ["PEP", "CARD-MA"], ["DAT-A", "TEN-GOD"], { R: 2, N: 1 }),
+      option("B", "北美的比赛，哪些比赛值得我熬夜？", ["LE-FU", "STAY-H"], ["FAN-ZY", "MA-KUI"], { R: 1, V: 1 }),
+      option("C", "有哪几个球星是最后一届？", ["LEO", "CR7"], ["LEGEND", "CCTV-HE"], { E: 1, R: 1, N: 1 }),
+      option("D", "今年有哪个球队会成为黑马？", ["ZI-DANE", "CN-12"], ["TUI-Q", "HEI-HEI"], { V: 2, N: 1 })
     ]
   },
   {
@@ -232,12 +201,17 @@ const QUESTIONS = [
     sourceNumber: 2,
     stage: 1,
     part: "",
-    title: "世界杯上看到一个神仙进球，你第一时间的反应是什么？",
+    title: "人口不到20万的库拉索首次踢进世界杯，你的第一反应是？",
+    media: {
+      src: "./assets/curacao-combined.png",
+      alt: "库拉索国旗和地理位置地图",
+      caption: ""
+    },
     options: [
-      option("A", "直接喊出来，这种球就算不懂也知道很厉害", ["8-PE", "CN-12"], ["CR7", "MA-DING"], { E: 2, V: 1, S: 1 }),
-      option("B", "想再看一遍回放，看看他到底怎么做到的", ["LEO", "TINTIN"], ["DAT-A", "NEY-MAR"], { R: 2, E: 1 }),
-      option("C", "觉得这球太漂亮了，会想保存下来反复看", ["Z-LATAN", "DINHO"], ["NEY-MAR", "CR7"], { N: 2, R: 1, V: 1 }),
-      option("D", "立刻发给朋友：快看这个球，真的离谱", ["LAO-8", "HEI-HEI"], ["WAN-SUI", "TUI-Q"], { S: 2, G: 1, E: 1 })
+      option("A", "这是国家吗？没听过啊", ["TUI-Q", "CN-12"], ["HEI-HEI", "LAO-8"], { S: 1, G: 2 }),
+      option("B", "值得尊敬，会不会成为黑马啊？", ["ZI-DANE", "LE-FU"], ["MA-KUI", "DINHO"], { V: 2, N: 1, E: 1 }),
+      option("C", "完全扯淡，估计小组赛要被胖揍了", ["MA-DING", "FAN-ZY"], ["MOU", "STAY-H"], { E: 1, R: 1, N: 1 }),
+      option("D", "库拉索都进了，为什么国足没进？", ["HEI-HEI", "CN-12"], ["LAO-8", "TUI-Q"], { S: 2, G: 1, E: 1 })
     ]
   },
   {
@@ -245,12 +219,12 @@ const QUESTIONS = [
     sourceNumber: 3,
     stage: 1,
     part: "",
-    title: "一支热门球队在淘汰赛里爆冷出局，你第一反应更像哪种？",
+    title: "看世界杯比赛时，你最关注什么？",
     options: [
-      option("A", "看看复盘和赛场数据表现，弄清楚到底输在哪里", ["DAT-A", "PEP"], ["CARD-MA", "TINTIN"], { R: 2, N: 1 }),
-      option("B", "看看社媒上的舆论风向，大家对爆冷都是什么看法", ["HEI-HEI", "WAN-SUI"], ["FAN-ZY", "TUI-Q"], { S: 2, G: 1, E: 1 }),
-      option("C", "和朋友复盘，谁背锅、谁尽力、谁离谱都得聊清楚", ["LAO-8", "BEI-GUO"], ["WAN-SUI", "TUI-Q"], { S: 2, N: 1, G: 1 }),
-      option("D", "足球是圆的，强队爆冷就是世界杯的精彩之一", ["CCTV-HE", "1100"], ["LEGEND", "ZI-DANE"], { N: 2, V: 1, S: 1 })
+      option("A", "整体的战术打法", ["PEP", "DAT-A"], ["TINTIN", "CARD-MA"], { R: 2 }),
+      option("B", "球星的表现", ["8-PE", "CR7"], ["LEO", "NEY-MAR"], { E: 2, V: 1, N: 1 }),
+      option("C", "赛场之外的故事和八卦", ["1100", "CCTV-HE"], ["LEGEND", "WAN-SUI"], { N: 2, S: 1, G: 1 }),
+      option("D", "胜负和比分", ["TEN-GOD", "TUI-Q"], ["FAN-ZY", "MA-DING"], { V: 2, E: 1 })
     ]
   },
   {
@@ -258,25 +232,12 @@ const QUESTIONS = [
     sourceNumber: 4,
     stage: 1,
     part: "",
-    title: "世界杯除了比赛本身，最容易让你联想到什么？",
+    title: "当看到超级漂亮的进球时，你的第一反应是？",
     options: [
-      option("A", "想了解办一届世界杯要花多少钱、能带来多少关注", ["TINTIN", "STAY-H"], ["PEP", "CARD-MA"], { R: 2, V: 1, S: -1 }),
-      option("B", "会被举办地种草，开始想象以后能不能去那边旅行", ["MA-KUI", "HEI-HEI"], ["LAO-8", "TUI-Q"], { S: 2, G: 1, E: 1 }),
-      option("C", "更在意城市、街头和球迷节日感，感觉全世界都在一起热闹", ["CN-12", "8-PE"], ["MOU", "CR7"], { E: 2, S: 1, V: 1 }),
-      option("D", "会想到国家形象、文化符号和一个地方被世界看见的机会", ["CR7", "FAN-ZY"], ["Z-LATAN", "MA-DING"], { E: 1, N: 1, G: 1 })
-    ]
-  },
-  {
-    id: "Q12",
-    sourceNumber: 12,
-    stage: 2,
-    part: "",
-    title: "提到世界杯热门球队巴西，你脑子里最先冒出来的印象是什么？",
-    options: [
-      option("A", "看看近期比赛表现如何，现在实力怎么样", ["DAT-A", "BEI-GUO"], ["CARD-MA", "TINTIN"], { R: 2, N: 1 }),
-      option("B", "想起球队历史战绩和风格文化", ["CR7", "TEN-GOD"], ["PEP", "STAY-H"], { R: 1, V: 1, S: 1 }),
-      option("C", "好奇大家对这支队伍现在最关注的点是什么，热闹吃瓜", ["MOU", "FAN-ZY"], ["TUI-Q", "MA-DING"], { E: 2, G: 1 }),
-      option("D", "黄色球衣、明星球员、五次冠军，至少聊天时很容易接上", ["HEI-HEI", "WAN-SUI"], ["LAO-8", "CCTV-HE"], { S: 2, G: 1, E: 1 })
+      option("A", "大喊一声“卧槽”", ["8-PE", "CN-12"], ["CR7", "MA-DING"], { E: 2, V: 1, S: 1 }),
+      option("B", "开始琢磨这球怎么踢出来的，并幻想下次自己也来上这么一脚", ["LEO", "DINHO"], ["TINTIN", "DAT-A"], { R: 2, E: 1 }),
+      option("C", "默默看回放，甚至把GIF保存下来", ["Z-LATAN", "DINHO"], ["NEY-MAR", "CR7"], { N: 2, R: 1, V: 1 }),
+      option("D", "立马去群聊或弹幕开始暴风输出", ["LAO-8", "HEI-HEI"], ["WAN-SUI", "TUI-Q"], { S: 2, G: 1, E: 1 })
     ]
   },
   {
@@ -284,12 +245,12 @@ const QUESTIONS = [
     sourceNumber: 5,
     stage: 1,
     part: "",
-    title: "世界杯决赛终场哨响，新冠军即将捧杯，你第一时间更想做什么？",
+    title: "当夺冠大热小组赛就爆冷出局，你对此怎么看？",
     options: [
-      option("A", "其实很多细节没看懂，但会被解说、镜头和弹幕带到有点感动", ["CN-12", "HEI-HEI"], ["WAN-SUI", "CCTV-HE"], { E: 1, S: 2, G: 1 }),
-      option("B", "点开群聊，和大家一起刷屏等捧杯那一刻", ["CN-12", "LAO-8"], ["WAN-SUI", "TUI-Q"], { S: 2, E: 1, G: 1 }),
-      option("C", "去MatchMate看评分和关键数据，给这场决赛补一份复盘", ["DAT-A", "PEP"], ["CARD-MA", "STAY-H"], { R: 2, S: 1, V: 1 }),
-      option("D", "开始聊这届世界杯的命运感、冠军剧本和以后会被记住的画面", ["CR7", "NEY-MAR"], ["DINHO", "ZI-DANE"], { N: 2, E: 1, R: 1 })
+      option("A", "这怎么会被淘汰？我去研究下问题出在哪儿", ["DAT-A", "PEP"], ["CARD-MA", "TINTIN"], { R: 2, N: 1 }),
+      option("B", "这肯定得上热搜了，去围观一波", ["HEI-HEI", "WAN-SUI"], ["FAN-ZY", "TUI-Q"], { S: 2, G: 1, E: 1 }),
+      option("C", "太残酷了，这么强的队伍说走就走", ["TUI-Q", "CN-12"], ["MA-KUI", "LE-FU"], { E: 1, N: 1, S: 1 }),
+      option("D", "天呐，这就是世界杯啊，太有魅力了", ["CCTV-HE", "1100"], ["LEGEND", "ZI-DANE"], { N: 2, V: 1, S: 1 })
     ]
   },
   {
@@ -297,12 +258,25 @@ const QUESTIONS = [
     sourceNumber: 6,
     stage: 1,
     part: "",
-    title: "以下哪个世界杯瞬间最容易让你代入？",
+    title: "以下4个关于世界杯的数字，你最好奇的是？",
     options: [
-      option("A", "弱队爆冷，但你第一反应是他们到底赢在哪", ["TEN-GOD", "LE-FU"], ["MA-KUI", "MOU"], { R: 1, N: 1, V: 1 }),
-      option("B", "加时最后一分钟绝杀，直接把客厅变成看台", ["8-PE", "CR7"], ["CN-12", "MA-DING"], { E: 2, V: 1, N: 1 }),
-      option("C", "传奇球星谢幕，连慢镜头都像在讲一段历史", ["1100", "CCTV-HE"], ["LEGEND", "LEO"], { N: 2, S: 1, R: 1 }),
-      option("D", "一脚天马行空的处理，正经比赛突然变成艺术片", ["DINHO", "Z-LATAN"], ["NEY-MAR", "HEI-HEI"], { N: 2, R: 1, G: 1 })
+      option("A", "办一届世界杯要花的金额", ["TINTIN", "STAY-H"], ["PEP", "CARD-MA"], { R: 2, V: 1, S: -1 }),
+      option("B", "总共有几个主办城市", ["LAO-8", "HEI-HEI"], ["MA-KUI", "TUI-Q"], { S: 2, G: 1, E: 1 }),
+      option("C", "整届比赛会进多少个球", ["DAT-A", "NEY-MAR"], ["TINTIN", "LE-FU"], { R: 2, V: 1 }),
+      option("D", "全世界有多少人看世界杯", ["CN-12", "8-PE"], ["MOU", "CR7"], { E: 2, S: 1, G: 1 })
+    ]
+  },
+  {
+    id: "Q7",
+    sourceNumber: 7,
+    stage: 1,
+    part: "",
+    title: "34岁巴西球星内马尔带伤入选世界杯大名单，你最赞同以下哪个观点？",
+    options: [
+      option("A", "理应入选！即便伤了也需要他镇场子", ["CR7", "LEGEND"], ["LEO", "Z-LATAN"], { N: 2, E: 1 }),
+      option("B", "尊重但不理解，应该以国家队利益为重啊！", ["CARD-MA", "BEI-GUO"], ["PEP", "DAT-A"], { R: 2, N: 1 }),
+      option("C", "不好说，万一反转了能踢呢", ["LE-FU", "TEN-GOD"], ["ZI-DANE", "MA-KUI"], { V: 2, N: 1 }),
+      option("D", "太无语了！伤了还招他进来干啥？当吉祥物？", ["MOU", "FAN-ZY"], ["MA-DING", "TUI-Q"], { E: 2, S: 1 })
     ]
   },
   {
@@ -310,12 +284,12 @@ const QUESTIONS = [
     sourceNumber: 8,
     stage: 1,
     part: "",
-    title: "挑选世界杯重点直播赛事，你最优先考虑的是？",
+    title: "世界杯决赛终场哨响，你第一时间会做什么？",
     options: [
-      option("A", "决赛这种压轴大场面，哪怕熬夜也要看直播", ["LEGEND", "CR7"], ["CN-12", "LEO"], { E: 1, R: 1, N: 2 }),
-      option("B", "强队打弱队也不跳过，万一爆冷就赚到了", ["ZI-DANE", "LE-FU"], ["MOU", "Z-LATAN"], { V: 2, N: 1 }),
-      option("C", "有自己支持的队就优先看，别的可以先放一放", ["CN-12", "TUI-Q"], ["MA-KUI", "LAO-8"], { E: 1, S: 2, G: 1 }),
-      option("D", "有技术好、踢得好看的球星那场，比分平也值得看", ["DINHO", "NEY-MAR"], ["Z-LATAN", "CCTV-HE"], { N: 2, R: 1, E: 1 })
+      option("A", "先发个朋友圈再说", ["LAO-8", "TUI-Q"], ["WAN-SUI", "CN-12"], { S: 2, G: 1, N: 1 }),
+      option("B", "点开群聊，和大家一起水群", ["CN-12", "LAO-8"], ["WAN-SUI", "TUI-Q"], { S: 2, E: 1, G: 1 }),
+      option("C", "去MatchMate看评分和关键数据，并且检查一下AI预测的准不准", ["DAT-A", "PEP"], ["CARD-MA", "STAY-H"], { R: 2, S: 1, V: 1 }),
+      option("D", "直接开始睡觉，明天又是新的一天", ["TINTIN", "TEN-GOD"], ["STAY-H", "BEI-GUO"], { E: -1, S: -1, R: 1 })
     ]
   },
   {
@@ -323,12 +297,12 @@ const QUESTIONS = [
     sourceNumber: 9,
     stage: 2,
     part: "",
-    title: "世界杯决赛踢到点球大战，双方轮流罚球定胜负，你更像哪种状态？",
+    title: "以下哪个世界杯瞬间，最让你感动？",
     options: [
-      option("A", "先观察罚球的人和守门员，这种时刻也不只是靠运气", ["MA-DING", "TEN-GOD"], ["PEP", "CARD-MA"], { R: 2, V: 1, N: 1 }),
-      option("B", "攥紧拳头屏住呼吸，心率跟着每一脚射门起伏", ["CR7", "LEO"], ["8-PE", "NEY-MAR"], { E: 1, R: 1, V: 1 }),
-      option("C", "太紧张了，必须先在群里喊两句，大家一起扛一下", ["TUI-Q", "LAO-8"], ["CN-12", "FAN-ZY"], { E: 1, S: 2, N: 1 }),
-      option("D", "尽情享受比赛，这可是世界杯决赛的点球大战", ["ZI-DANE", "DINHO"], ["Z-LATAN", "LEGEND"], { N: 2, V: 2, E: 1 })
+      option("A", "弱队小国爆冷胜利，对着本国球迷疯狂亲吻队徽", ["MA-KUI", "CN-12"], ["LE-FU", "FAN-ZY"], { E: 1, N: 1, S: 1 }),
+      option("B", "加时最后一分钟绝杀，脱衣庆祝点燃全场", ["8-PE", "CR7"], ["CN-12", "MA-DING"], { E: 2, V: 1, N: 1 }),
+      option("C", "传奇球星含泪谢幕，连慢镜头都像在讲一段历史", ["1100", "CCTV-HE"], ["LEGEND", "LEO"], { N: 2, S: 1, R: 1 }),
+      option("D", "进球后双手指天，致敬逝去的亲人", ["LEO", "WAN-SUI"], ["BEI-GUO", "LEGEND"], { N: 2, E: 1, S: 1 })
     ]
   },
   {
@@ -336,17 +310,12 @@ const QUESTIONS = [
     sourceNumber: 10,
     stage: 2,
     part: "",
-    title: "2022卡塔尔世界杯决赛，姆巴佩97秒连进两球把法国拉回来的时候，你当时更像哪种状态？",
-    media: {
-      src: "./assets/mbappe-final-goal.jpg",
-      alt: "姆巴佩在世界杯决赛中射门",
-      caption: "2022世界杯决赛，法国在尾声阶段连追两球。"
-    },
+    title: "假设有以下四张球票（如果存在），你最想要哪张？",
     options: [
-      option("A", "彻底起飞了，这种时候就该相信姆巴佩还能把命续上", ["CR7", "8-PE"], ["LEO", "CN-12"], { E: 2, V: 1, N: 1 }),
-      option("B", "刚才还稳得不行，现在只想赶紧把节奏压回去", ["MOU", "TUI-Q"], ["MA-KUI", "LE-FU"], { E: 2, S: 1, N: 1 }),
-      option("C", "不管站哪边都得承认，这就是会写进决赛史的反扑", ["WAN-SUI", "CCTV-HE"], ["LEGEND", "ZI-DANE"], { N: 2, S: 1, R: 1 }),
-      option("D", "刚弄清楚局面就连进两个，原来世界杯决赛能这么刺激", ["HEI-HEI", "CN-12"], ["LAO-8", "TINTIN"], { S: 2, G: 1, E: 1 })
+      option("A", "1/4决赛 传统豪门对决：🇪🇸西班牙vs德国🇩🇪", ["LEGEND", "CCTV-HE"], ["PEP", "CR7"], { R: 2, N: 1 }),
+      option("B", "世界杯揭幕战：🇲🇽墨西哥vs南非🇿🇦", ["CN-12", "LAO-8"], ["WAN-SUI", "HEI-HEI"], { S: 2, E: 1, G: 1 }),
+      option("C", "半决赛 亚非球队的证明之战：🇯🇵日本vs摩洛哥🇲🇦", ["CCTV-HE", "LE-FU"], ["MA-KUI", "BEI-GUO"], { N: 1, V: 1, E: 1 }),
+      option("D", "1/16决赛 终极地狱之战：🇺🇸美国vs伊朗🇮🇷", ["ZI-DANE", "MOU"], ["MA-DING", "Z-LATAN"], { V: 2, N: 1, E: 1 })
     ]
   },
   {
@@ -354,12 +323,30 @@ const QUESTIONS = [
     sourceNumber: 11,
     stage: 2,
     part: "",
-    title: "世界杯淘汰赛还剩十几分钟，你支持的队1-2落后，教练换上更多进攻球员想追一个进球，你怎么看？",
+    title: "当点球大战即将开始，你最关注什么？",
     options: [
-      option("A", "可以拼，但别一下全乱了，至少要知道球往哪传", ["PEP", "CARD-MA"], ["TINTIN", "DAT-A"], { R: 2, V: 1 }),
-      option("B", "都快回家了还不冲？这时候就该赌一把", ["ZI-DANE", "CR7"], ["MOU", "8-PE"], { E: 1, V: 2, N: 1 }),
-      option("C", "风险不小啊，一旦再丢球就彻底崩盘", ["STAY-H", "BEI-GUO"], ["LE-FU", "MA-KUI"], { E: -1, S: -1, R: 1, V: 1 }),
-      option("D", "我想看到他们真敢攻，输也别输得太憋屈", ["NEY-MAR", "Z-LATAN"], ["DINHO", "MA-DING"], { N: 2, V: 1, E: 1 })
+      option("A", "两位守门员的神情和肢体动作", ["MA-DING", "TEN-GOD"], ["PEP", "CARD-MA"], { R: 2, V: 1, N: 1 }),
+      option("B", "哪个队先罚，哪个队后罚", ["CARD-MA", "DAT-A"], ["TINTIN", "LE-FU"], { R: 1, V: 2 }),
+      option("C", "王牌球员能不能承担住巨星的压力", ["CR7", "LEO"], ["8-PE", "NEY-MAR"], { E: 1, N: 1, V: 1 }),
+      option("D", "主教练怎么安排罚点球顺序", ["TINTIN", "DAT-A"], ["PEP", "TEN-GOD"], { R: 2, N: 1 })
+    ]
+  },
+  {
+    id: "Q12",
+    sourceNumber: 12,
+    stage: 2,
+    part: "",
+    title: "2022卡塔尔世界杯决赛，姆巴佩97秒连进两球，2:2扳平阿根廷，你怎么看待这件事？",
+    media: {
+      src: "./assets/mbappe-final-goal.jpg",
+      alt: "姆巴佩在世界杯决赛中射门",
+      caption: "2022世界杯决赛，法国在尾声阶段连追两球。"
+    },
+    options: [
+      option("A", "极致的个人能力，实在佩服", ["CR7", "8-PE"], ["LEO", "CN-12"], { E: 2, V: 1, N: 1 }),
+      option("B", "不愧是世界杯，领先多少都不能放松", ["TEN-GOD", "LE-FU"], ["PEP", "MA-KUI"], { R: 2, N: 1 }),
+      option("C", "我已经不记得这件事情了", ["HEI-HEI", "TUI-Q"], ["STAY-H", "BEI-GUO"], { E: -1, S: -1, G: 1 }),
+      option("D", "世界杯决赛踢的这么大开大合，这合理吗？", ["Z-LATAN", "DINHO"], ["ZI-DANE", "NEY-MAR"], { N: 2, V: 1, E: 1 })
     ]
   },
   {
@@ -367,12 +354,25 @@ const QUESTIONS = [
     sourceNumber: 13,
     stage: 2,
     part: "",
-    title: "某场比赛开赛前，朋友圈全是预测和讨论，你更倾向哪种反应？",
+    title: "一场淘汰赛即将结束，你喜欢的球队1-2落后，教练连续换上进攻球员进行最后一搏，你的第一反应是？",
     options: [
-      option("A", "认真看几篇分析，再决定自己更看好谁", ["DAT-A", "PEP"], ["TINTIN", "CARD-MA"], { R: 2, S: 1 }),
-      option("B", "随手押一个热门剧本，猜错了也算参与气氛", ["CR7", "MA-DING"], ["8-PE", "LE-FU"], { V: 2, E: 1 }),
-      option("C", "不管别人怎么预测，我先坚定支持自己的主队", ["CN-12", "TUI-Q"], ["MOU", "MA-KUI"], { E: 2, S: 1, G: 1 }),
-      option("D", "大概率不怎么参与，朋友圈刷到就看一眼划走", ["STAY-H", "BEI-GUO"], ["TINTIN", "HEI-HEI"], { S: -1, E: -1, R: 1 })
+      option("A", "别因为换人，乱了自己的节奏啊", ["PEP", "CARD-MA"], ["TINTIN", "DAT-A"], { R: 2, V: 1 }),
+      option("B", "这时候就该赌一把，不然更待何时？", ["ZI-DANE", "CR7"], ["MOU", "8-PE"], { E: 1, V: 2, N: 1 }),
+      option("C", "万一再丢一个就完蛋了", ["STAY-H", "BEI-GUO"], ["LE-FU", "MA-KUI"], { E: -1, S: -1, R: 1, V: 1 }),
+      option("D", "只要他们真敢攻就好，输也别输得太憋屈", ["NEY-MAR", "DINHO"], ["Z-LATAN", "MA-DING"], { N: 2, V: 1, E: 1 })
+    ]
+  },
+  {
+    id: "Q14",
+    sourceNumber: 14,
+    stage: 2,
+    part: "",
+    title: "当打开朋友圈全是关于某场比赛的预测和讨论，你会怎么做？",
+    options: [
+      option("A", "默默地看他们的分析和讨论", ["DAT-A", "PEP"], ["TINTIN", "CARD-MA"], { R: 2, S: 1 }),
+      option("B", "在别人的评论区随手押一个剧本，猜错了也有参与感", ["CR7", "MA-DING"], ["8-PE", "LE-FU"], { V: 2, E: 1 }),
+      option("C", "我也得发个朋友圈预测一下", ["LAO-8", "WAN-SUI"], ["CN-12", "CR7"], { S: 2, G: 1, E: 1 }),
+      option("D", "懒得参与，朋友圈刷到就看一眼划走", ["STAY-H", "BEI-GUO"], ["TINTIN", "HEI-HEI"], { S: -1, E: -1, R: 1 })
     ]
   },
   {
@@ -380,7 +380,7 @@ const QUESTIONS = [
     sourceNumber: 15,
     stage: 2,
     part: "",
-    title: "刷到世界杯内容时，哪种标题最容易让你点进去？",
+    title: "以下4种标题，哪个让你最想点进去？",
     options: [
       option("A", "一文看懂：这场比赛到底赢在哪、输在哪", ["DAT-A", "TINTIN"], ["PEP", "CARD-MA"], { R: 2, S: 1 }),
       option("B", "神级进球合集：不懂球也会觉得这球太帅了", ["NEY-MAR", "DINHO"], ["Z-LATAN", "8-PE"], { N: 2, R: 1, V: 1 }),
@@ -393,12 +393,12 @@ const QUESTIONS = [
     sourceNumber: 16,
     stage: 2,
     part: "",
-    title: "看世界杯时，你最想和谁一起看？",
+    title: "看世界杯时，你最想和哪种搭子一起看？",
     options: [
-      option("A", "懂球朋友，能把关键球和场上变化讲明白", ["PEP", "DAT-A"], ["TINTIN", "CARD-MA"], { R: 2, S: 1 }),
-      option("B", "情绪搭子，领先一起嗨，落后也能陪你扛住", ["TUI-Q", "MA-KUI"], ["BEI-GUO", "FAN-ZY"], { E: 2, S: 1, G: 1 }),
+      option("A", "懂球的看球搭子，能把关键球和场上变化讲明白", ["PEP", "DAT-A"], ["TINTIN", "CARD-MA"], { R: 2, S: 1 }),
+      option("B", "情绪型看球搭子，领先一起嗨，落后也能陪你扛住", ["TUI-Q", "MA-KUI"], ["BEI-GUO", "FAN-ZY"], { E: 2, S: 1, G: 1 }),
       option("C", "故事型朋友，能把球员、国家和回忆都聊起来", ["LEGEND", "CCTV-HE"], ["1100", "WAN-SUI"], { N: 2, S: 1, R: 1 }),
-      option("D", "一个人看也挺好，打开 MatchMate 边看边找自己的看球节奏", ["CR7", "8-PE"], ["LEO", "NEY-MAR"], { E: 2, V: 1, R: 1 })
+      option("D", "一个人看也挺好，打开 MatchMate AI看球搭子边看边找自己的看球节奏", ["CR7", "8-PE"], ["LEO", "DINHO"], { E: 2, V: 1, R: 1 })
     ]
   }
 ];
@@ -668,6 +668,7 @@ function countAnswerMatches(pairs) {
 function applyHiddenTrigger(summary, limit) {
   const topEight = summary.rankedRoles.slice(0, 8);
   const topTen = summary.rankedRoles.slice(0, 10);
+  const topTwelve = summary.rankedRoles.slice(0, 12);
   const dimensions = getDimensionRanking(summary.dimensionTotals).reduce((accumulator, item) => {
     accumulator[item.code] = item.value;
     return accumulator;
@@ -675,14 +676,17 @@ function applyHiddenTrigger(summary, limit) {
 
   const hiddenCandidates = [];
 
-  // LEGEND 传奇：故事、历史、夺冠历程和大场面倾向明显。
+  // 触发组合与排名窗按 2026-06-11 新题库校准(20万次模拟:三者各 0.65%-0.91%,
+  // 设计目标=每个略低于 1%,详见 dev-louis 仓库 FBTI-题库更新方案.md)。
+
+  // LEGEND 传奇：球星谢幕、豪门底蕴、历史叙事倾向明显。
   if (
     topEight.includes("LEGEND") &&
     countAnswerMatches([
-      ["Q7", "C"],
       ["Q1", "C"],
-      ["Q5", "A"],
-      ["Q8", "A"],
+      ["Q5", "D"],
+      ["Q9", "C"],
+      ["Q10", "A"],
       ["Q16", "C"]
     ]) >= 2 &&
     dimensions.N >= 70
@@ -690,31 +694,31 @@ function applyHiddenTrigger(summary, limit) {
     hiddenCandidates.push("LEGEND");
   }
 
-  // ZI-DANE 齐祖：爆冷、搏命、戏剧结尾和不可预测倾向明显。
+  // ZI-DANE 齐祖：黑马、赌一把、地狱之战和不可预测倾向明显。
   if (
     topTen.includes("ZI-DANE") &&
     countAnswerMatches([
-      ["Q7", "B"],
-      ["Q3", "B"],
-      ["Q6", "B"],
-      ["Q8", "B"],
-      ["Q9", "D"],
-      ["Q10", "B"],
-      ["Q11", "B"]
+      ["Q1", "D"],
+      ["Q2", "B"],
+      ["Q7", "C"],
+      ["Q10", "D"],
+      ["Q12", "D"],
+      ["Q13", "B"]
     ]) >= 2 &&
     dimensions.V >= 70
   ) {
     hiddenCandidates.push("ZI-DANE");
   }
 
-  // DINHO 小罗：漂亮进球、艺术瞬间和好看内容倾向明显。
+  // DINHO 小罗：漂亮进球、幻想来一脚、敢攻别憋屈倾向明显。
+  // 排名窗放宽到前12:新题库里小罗的得分题较少,前8会把触发率压到 0。
   if (
-    topEight.includes("DINHO") &&
+    topTwelve.includes("DINHO") &&
     countAnswerMatches([
-      ["Q2", "C"],
-      ["Q6", "D"],
-      ["Q8", "D"],
-      ["Q11", "D"],
+      ["Q4", "B"],
+      ["Q4", "C"],
+      ["Q12", "D"],
+      ["Q13", "D"],
       ["Q15", "B"]
     ]) >= 2 &&
     dimensions.N >= 70
