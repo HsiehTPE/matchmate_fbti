@@ -271,12 +271,12 @@ const QUESTIONS = [
     sourceNumber: 7,
     stage: 1,
     part: "",
-    title: "34岁巴西球星内马尔带伤入选世界杯大名单，你最赞同以下哪个观点？",
+    title: "熬夜观赛最受不了？",
     options: [
-      option("A", "理应入选！即便伤了也需要他镇场子", ["CR7", "LEGEND"], ["LEO", "Z-LATAN"], { N: 2, E: 1 }),
-      option("B", "尊重但不理解，应该以国家队利益为重啊！", ["CARD-MA", "BEI-GUO"], ["PEP", "DAT-A"], { R: 2, N: 1 }),
-      option("C", "不好说，万一反转了能踢呢", ["LE-FU", "TEN-GOD"], ["ZI-DANE", "MA-KUI"], { V: 2, N: 1 }),
-      option("D", "太无语了！伤了还招他进来干啥？当吉祥物？", ["MOU", "FAN-ZY"], ["MA-DING", "TUI-Q"], { E: 2, S: 1 })
+      option("A", "全程没有进球机会", ["LE-FU", "CR7"], ["TEN-GOD", "CN-12"], { E: 1, V: 1 }),
+      option("B", "防守漏洞，一直被压制", ["MOU", "FAN-ZY"], ["PEP", "BEI-GUO"], { E: 1, R: 1 }),
+      option("C", "比赛平淡，全程无亮点", ["Z-LATAN", "NEY-MAR"], ["ZI-DANE", "MA-DING"], { N: 2, E: 1 }),
+      option("D", "节奏太快，看不清配合", ["CARD-MA", "TINTIN"], ["DAT-A", "TEN-GOD"], { R: 2 })
     ]
   },
   {
@@ -301,7 +301,7 @@ const QUESTIONS = [
     options: [
       option("A", "弱队小国爆冷胜利，对着本国球迷疯狂亲吻队徽", ["MA-KUI", "CN-12"], ["LE-FU", "FAN-ZY"], { E: 1, N: 1, S: 1 }),
       option("B", "加时最后一分钟绝杀，脱衣庆祝点燃全场", ["8-PE", "CR7"], ["CN-12", "MA-DING"], { E: 2, V: 1, N: 1 }),
-      option("C", "传奇球星含泪谢幕，连慢镜头都像在讲一段历史", ["1100", "CCTV-HE"], ["LEGEND", "LEO"], { N: 2, S: 1, R: 1 }),
+      option("C", "传奇球星含泪谢幕，连慢镜头都像在讲一段历史", ["LEGEND", "1100"], ["CCTV-HE", "LEO"], { N: 2, S: 1, R: 1 }),
       option("D", "进球后双手指天，致敬逝去的亲人", ["LEO", "WAN-SUI"], ["BEI-GUO", "LEGEND"], { N: 2, E: 1, S: 1 })
     ]
   },
@@ -327,7 +327,7 @@ const QUESTIONS = [
     options: [
       option("A", "两位守门员的神情和肢体动作", ["MA-DING", "TEN-GOD"], ["PEP", "CARD-MA"], { R: 2, V: 1, N: 1 }),
       option("B", "哪个队先罚，哪个队后罚", ["CARD-MA", "DAT-A"], ["TINTIN", "LE-FU"], { R: 1, V: 2 }),
-      option("C", "王牌球员能不能承担住巨星的压力", ["CR7", "LEO"], ["8-PE", "NEY-MAR"], { E: 1, N: 1, V: 1 }),
+      option("C", "王牌球员能不能承担住巨星的压力", ["CR7", "LEO"], ["LEGEND", "8-PE"], { E: 1, N: 1, V: 1 }),
       option("D", "主教练怎么安排罚点球顺序", ["TINTIN", "DAT-A"], ["PEP", "TEN-GOD"], { R: 2, N: 1 })
     ]
   },
@@ -694,7 +694,7 @@ function applyHiddenTrigger(summary, limit) {
     hiddenCandidates.push("LEGEND");
   }
 
-  // ZI-DANE 齐祖：黑马、赌一把、地狱之战和不可预测倾向明显。
+  // ZI-DANE 齐祖：黑马、赌一把、盼戏剧(Q7C=受不了平淡)和不可预测倾向明显。
   if (
     topTen.includes("ZI-DANE") &&
     countAnswerMatches([
