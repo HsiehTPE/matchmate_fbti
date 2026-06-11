@@ -273,7 +273,7 @@ const QUESTIONS = [
     part: "",
     title: "熬夜观赛最受不了？",
     options: [
-      option("A", "全程没有进球机会", ["LE-FU", "CR7"], ["TEN-GOD", "CN-12"], { E: 1, V: 1 }),
+      option("A", "一直错失进球机会", ["LE-FU", "CR7"], ["TEN-GOD", "CN-12"], { E: 1, V: 1 }),
       option("B", "防守漏洞，一直被压制", ["MOU", "FAN-ZY"], ["PEP", "BEI-GUO"], { E: 1, R: 1 }),
       option("C", "比赛平淡，全程无亮点", ["Z-LATAN", "NEY-MAR"], ["ZI-DANE", "MA-DING"], { N: 2, E: 1 }),
       option("D", "节奏太快，看不清配合", ["CARD-MA", "TINTIN"], ["DAT-A", "TEN-GOD"], { R: 2 })
