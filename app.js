@@ -1838,10 +1838,11 @@ async function saveResultImage() {
   }
 
   try {
-    const [portraitImg, logoImg, qrImg] = await Promise.all([
+    const [portraitImg, logoImg, qrImg, siteQrImg] = await Promise.all([
       loadImageAsset(resultPortrait.currentSrc || resultPortrait.src),
       loadImageAsset(new URL("./main_logo_clean.png", window.location.href).href),
-      SHOW_QR ? loadImageAsset(new URL("./matchmate_qr.png", window.location.href).href) : Promise.resolve(null)
+      SHOW_QR ? loadImageAsset(new URL("./matchmate_qr.png", window.location.href).href) : Promise.resolve(null),
+      SHOW_QR ? loadImageAsset(new URL("./fbti_site_qr.png", window.location.href).href) : Promise.resolve(null)
     ]);
 
     const canvas = document.createElement("canvas");
@@ -1947,7 +1948,12 @@ async function saveResultImage() {
 
     let leftBottom = portraitBox.y + portraitBox.h;
 
-    const leftFooterTop = cardY + cardH - 70 - 120;
+    const footerQrSize = 94;
+    const footerBlockGap = 18;
+    const footerBottomY = cardY + cardH - 70;
+    const siteBlockY = footerBottomY - footerQrSize;
+    const wechatBlockY = siteBlockY - footerBlockGap - footerQrSize;
+    const leftFooterTop = wechatBlockY;
     const captionY = leftBottom + 22;
     const captionMaxH = leftFooterTop - captionY - 24;
     drawLeftCaptionBlock(
@@ -1996,25 +2002,38 @@ async function saveResultImage() {
     );
     ctx.restore();
 
-    // Bottom-left: QR code + link text
-    const qrSize = 120;
-    const qrX = cardX + 70;
-    const qrY = cardY + cardH - 70 - qrSize;
-    if (SHOW_QR && qrImg) {
-      ctx.drawImage(qrImg, qrX, qrY, qrSize, qrSize);
-    }
-
-    const linkTextX = SHOW_QR ? qrX + qrSize + 16 : qrX;
-    const linkTextY = SHOW_QR ? qrY + 12 : qrY;
-    ctx.fillStyle = saveTheme.linkPrimary;
-    ctx.font = "600 24px 'Noto Sans SC', sans-serif";
+    // Bottom-left stacked QR blocks: upper = WeChat group, lower = fbti site.
+    const footerQrX = leftX;
+    const footerTextX = footerQrX + footerQrSize + 16;
     ctx.textAlign = "left";
     ctx.textBaseline = "top";
-    ctx.fillText("访问MatchMate", linkTextX, linkTextY);
-    ctx.fillText("认识你的AI看球搭子！", linkTextX, linkTextY + 34);
+
+    // Upper block: WeChat group QR + 扫码加群 / 组队看球
+    if (SHOW_QR && qrImg) {
+      ctx.drawImage(qrImg, footerQrX, wechatBlockY, footerQrSize, footerQrSize);
+    }
+    const wechatTextX = SHOW_QR ? footerTextX : footerQrX;
+    const wechatTextY = wechatBlockY + 10;
+    ctx.fillStyle = saveTheme.linkPrimary;
+    ctx.font = "600 24px 'Noto Sans SC', sans-serif";
+    ctx.fillText("扫码加群", wechatTextX, wechatTextY);
+    ctx.fillStyle = saveTheme.linkMuted;
+    ctx.font = "500 22px 'Noto Sans SC', sans-serif";
+    ctx.fillText("组队看球", wechatTextX, wechatTextY + 38);
+
+    // Lower block: site QR + brand CTA text
+    if (SHOW_QR && siteQrImg) {
+      ctx.drawImage(siteQrImg, footerQrX, siteBlockY, footerQrSize, footerQrSize);
+    }
+    const siteTextX = SHOW_QR ? footerTextX : footerQrX;
+    const siteTextY = siteBlockY + 4;
+    ctx.fillStyle = saveTheme.linkPrimary;
+    ctx.font = "600 24px 'Noto Sans SC', sans-serif";
+    ctx.fillText("访问MatchMate", siteTextX, siteTextY);
+    ctx.fillText("认识你的AI看球搭子！", siteTextX, siteTextY + 30);
     ctx.fillStyle = saveTheme.linkMuted;
     ctx.font = "500 20px 'Space Grotesk', 'Noto Sans SC', sans-serif";
-    ctx.fillText("fbti.matchmate.chat", linkTextX, linkTextY + 72);
+    ctx.fillText("fbti.matchmate.chat", siteTextX, siteTextY + 66);
 
     const fileCode = String(result.winner.code || "result").toLowerCase().replace(/[^a-z0-9!-]+/g, "-");
     // 移动端统一走长按预览:小红书/QQ 等内置 webview 会静默拦截 <a download>,
