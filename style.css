@@ -5,7 +5,7 @@
   font-style: normal;
   font-weight: 500 700;
   font-display: swap;
-  src: url("./assets/fonts/space-grotesk-latin.woff2") format("woff2");
+  src: url("./images/fonts/space-grotesk-latin.woff2") format("woff2");
 }
 
 :root {
@@ -29,7 +29,7 @@ body {
   /* webfont 拿不到时(大陆为常态)按系统中文衬线回退,避免风格随机漂移 */
   font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
   color: var(--ink);
-  background: #eef1f4 url("./bg_image.jpg") center center / cover no-repeat fixed;
+  background: #eef1f4 url("./images/banner.jpg") center center / cover no-repeat fixed;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;

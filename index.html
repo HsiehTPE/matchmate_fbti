@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- 非阻塞加载:大陆访问不到 Google Fonts,阻塞式 link 会白屏到超时;
-       拿不到时走 styles.css 的系统字体回退栈。Space Grotesk 已自托管(assets/fonts/) -->
+       拿不到时走 style.css 的系统字体回退栈。Space Grotesk 已自托管(images/fonts/) -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="page-shell">
@@ -25,7 +25,7 @@
         >
           <img
             class="brand-logo"
-            src="./main_logo_sm.png"
+            src="./images/logo.png"
             alt="MatchMate Logo"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"
           >
@@ -46,12 +46,12 @@
       <button id="start-button" class="primary-button">开始测试</button>
       <div class="hero-player-strip" aria-hidden="true">
         <!-- -sm 缩略图(高340px):封面渲染高仅 168px,原图 1400px+ 留给结果页 -->
-        <img class="hero-player hero-player-china" src="./images_new/FAN-ZY-sm.png" alt="">
-        <img class="hero-player hero-player-left" src="./images_new/CR7-sm.png" alt="">
-        <img class="hero-player hero-player-center" src="./images_new/STAY-H-sm.png" alt="">
-        <img class="hero-player hero-player-right" src="./images_new/LEO-sm.png" alt="">
-        <img class="hero-player" src="./images_new/NEY-MAR-sm.png" alt="">
-        <img class="hero-player hero-player-china hero-player-mirror" src="./images_new/LEGEND-sm.png" alt="">
+        <img class="hero-player hero-player-china" src="./images/FAN-ZY-sm.png" alt="">
+        <img class="hero-player hero-player-left" src="./images/CR7-sm.png" alt="">
+        <img class="hero-player hero-player-center" src="./images/STAY-H-sm.png" alt="">
+        <img class="hero-player hero-player-right" src="./images/LEO-sm.png" alt="">
+        <img class="hero-player" src="./images/NEY-MAR-sm.png" alt="">
+        <img class="hero-player hero-player-china hero-player-mirror" src="./images/LEGEND-sm.png" alt="">
       </div>
       <!-- 封面入口走低调页脚线风格(细线图标),大金 pill 只保留在结算页 -->
       <nav class="hero-social hero-social--quiet" aria-label="MatchMate 入口">
@@ -112,7 +112,7 @@
             >
               <img
                 class="quiz-brand-logo"
-                src="./main_logo_sm.png"
+                src="./images/logo.png"
                 alt="MatchMate Logo"
                 onerror="this.style.display='none';"
               >
@@ -214,19 +214,19 @@
         </a>
         <nav class="hero-social hero-social--footer" aria-label="MatchMate 入口">
           <button class="social-pill social-pill--art" type="button" data-social="wechat" aria-label="微信群聊与公众号">
-            <img class="social-pill-art" src="./assets/pill-wechat.png" alt="">
+            <img class="social-pill-art" src="./images/pill-wechat.png" alt="">
             <span class="social-pill-label">微信</span>
           </button>
           <button class="social-pill social-pill--art" type="button" data-social="xhs" aria-label="小红书">
-            <img class="social-pill-art" src="./assets/pill-xhs.png" alt="">
+            <img class="social-pill-art" src="./images/pill-xhs.png" alt="">
             <span class="social-pill-label">小红书</span>
           </button>
           <a class="social-pill social-pill--art" href="https://www.matchmate.tv/" target="_blank" rel="noopener noreferrer">
-            <img class="social-pill-art" src="./assets/pill-site.png" alt="">
+            <img class="social-pill-art" src="./images/pill-site.png" alt="">
             <span class="social-pill-label">MatchMate官网</span>
           </a>
           <a class="social-pill social-pill--art" href="https://www.matchmate.tv/predict/" target="_blank" rel="noopener noreferrer">
-            <img class="social-pill-art" src="./assets/pill-predict.png" alt="">
+            <img class="social-pill-art" src="./images/pill-predict.png" alt="">
             <span class="social-pill-label">AI 预测</span>
           </a>
         </nav>
@@ -278,7 +278,7 @@
         <button class="promo-tab" type="button" data-promo-tab="2">🔓 解锁隐藏人格</button>
       </div>
       <div class="promo-pane" data-promo-pane="1">
-        <img class="promo-poster" src="./assets/promo-activity-1.jpg" alt="活动一：分享赢好礼">
+        <img class="promo-poster" src="./images/promo-activity-1.jpg" alt="活动一：分享赢好礼">
         <div class="promo-placeholder hidden">
           <span class="promo-placeholder-emoji" aria-hidden="true">🎁</span>
           <strong>活动海报准备中</strong>
@@ -309,20 +309,20 @@
             <p class="promo-follow-label">也可以直接找到我们</p>
             <div class="promo-follow-row">
               <button class="promo-follow-pill" type="button" data-promo-action="wechat" aria-label="微信群聊与公众号">
-                <img class="promo-follow-art" src="./assets/badge-wechat.png" alt="微信">
+                <img class="promo-follow-art" src="./images/badge-wechat.png" alt="微信">
               </button>
               <button class="promo-follow-pill" type="button" data-promo-action="xhs" aria-label="小红书">
-                <img class="promo-follow-art" src="./assets/badge-xhs.png" alt="小红书">
+                <img class="promo-follow-art" src="./images/badge-xhs.png" alt="小红书">
               </button>
               <a class="promo-follow-pill" href="https://www.matchmate.tv/" target="_blank" rel="noopener noreferrer" aria-label="MatchMate 官网">
-                <img class="promo-follow-art" src="./assets/badge-site.png" alt="MatchMate 官网">
+                <img class="promo-follow-art" src="./images/badge-site.png" alt="MatchMate 官网">
               </a>
             </div>
           </div>
         </div>
       </div>
       <div class="promo-pane hidden" data-promo-pane="2">
-        <img class="promo-poster" src="./assets/promo-activity-2.jpg" alt="活动二：解锁隐藏人格">
+        <img class="promo-poster" src="./images/promo-activity-2.jpg" alt="活动二：解锁隐藏人格">
         <div class="promo-placeholder hidden">
           <span class="promo-placeholder-emoji" aria-hidden="true">🔓</span>
           <strong>活动海报准备中</strong>
@@ -373,6 +373,6 @@
     </div>
   </div>
 
-  <script src="./app.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>

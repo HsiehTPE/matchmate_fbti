@@ -3,7 +3,7 @@ const path = require("path");
 const vm = require("vm");
 const { execFileSync } = require("child_process");
 
-const ROOT = __dirname;
+const ROOT = path.resolve(__dirname, "..", "..");
 const OUT_DIR = path.join(ROOT, "cards");
 const TMP_DIR = path.join(OUT_DIR, ".tmp");
 const WIDTH = 1080;
@@ -11,10 +11,10 @@ const HEIGHT = 1440;
 const HIDDEN_ROLE_CODES = new Set(["LEGEND", "ZI-DANE", "DINHO"]);
 
 function readRoles() {
-  const appSource = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const appSource = fs.readFileSync(path.join(ROOT, "script.js"), "utf8");
   const match = appSource.match(/const ROLES = (\{[\s\S]*?\n\});\n\nconst ROLE_PROFILES/);
   if (!match) {
-    throw new Error("Could not find ROLES definition in app.js.");
+    throw new Error("Could not find ROLES definition in script.js.");
   }
 
   const sandbox = {};

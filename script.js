@@ -10,33 +10,33 @@ const ROLE_ORDER = [
 ];
 
 const ROLES = {
-  "MOU":   { code: "MOU",   title: "狂人",     group: "看球反应组", tag: "嘴上骂裁判手上砸遥控器",     shortLabel: "情绪来得快去得也快，骂完三分钟又在群里发哈哈哈哈", quote: "我就是特殊的那个", image: "./images_new/MOU.png" },
-  "TINTIN":    { code: "TINTIN",    title: "丁丁",   group: "看球反应组", tag: "全场最安静但脑子里在跑弹幕",   shortLabel: "不说话不代表没想法，赛后能给你复盘每个细节", quote: "Let Me Talk", image: "./images_new/TINTIN.png" },
-  "MA-KUI":   { code: "MA-KUI",   title: "航母",     group: "看球反应组", tag: "落后三球还在发还有机会",       shortLabel: "逆风局的精神支柱（自封的），被骂也不改", quote: "图赫尔是个外行", image: "./images_new/MA-KUI.png" },
-  "LE-FU":   { code: "LE-FU",   title: "勒夫",   group: "看球反应组", tag: "等一个进球等到花都谢了",       shortLabel: "全场就等那一脚，进了一起飞没进原地去世", quote: "韩国可以拿下，晋级不成问题", image: "./images_new/LE-FU.png" },
-  "PEP":  { code: "PEP",  title: "瓜帅",   group: "看球反应组", tag: "看球时自动脑补战术板",         shortLabel: "这个球应该分边是他的口头禅，看球像在下棋", quote: "Nobody Talk!", image: "./images_new/PEP.png" },
-  "8-PE":   { code: "8-PE",   title: "姆总",   group: "看球反应组", tag: "边路一过人他就站起来",         shortLabel: "看球时坐不住，进球会从沙发上弹起来", quote: "这是我的时代？", image: "./images_new/8-PE.png" },
-  "Z-LATAN": { code: "Z-LATAN", title: "奉先",   group: "看球反应组", tag: "比赛可以输但花活不能少",       shortLabel: "0-4落后还在等一个倒钩，觉得足球是艺术不是战争", quote: "世界上只有两种人：兹拉坦和其他人", image: "./images_new/Z-LATAN.png" },
-  "LEO":   { code: "LEO",   title: "里奥",     group: "赛后话题组", tag: "天选足球人",     shortLabel: "天赋和命运都站在脚下，关键时刻总能把球带到答案里", quote: "天选足球人", image: "./images_new/LEO.png" },
-  "DAT-A":     { code: "DAT-A",     title: "詹指",   group: "赛后话题组", tag: "赛后第一件事打开MatchMate看数据", shortLabel: "嘴上说只看数据，其实每个异常值都能讲成一段故事", quote: "这个数据很有意思", image: "./images_new/DAT-A.png" },
-  "WAN-SUI": { code: "WAN-SUI", title: "健翔",   group: "赛后话题组", tag: "你再看一遍这个球",             shortLabel: "喜欢反复看关键画面，能从一个犯规里看出三层含义", quote: "意大利万岁！", image: "./images_new/WAN-SUI.png" },
-  "CCTV-HE":   { code: "CCTV-HE",   title: "贺·罗纳尔多·炜",   group: "赛后话题组", tag: "聊球自动附赠球员生平",         shortLabel: "你知道他当年在乌迪内斯的时候能把任何球员聊成传记", quote: "足球就是足球", image: "./images_new/CCTV-HE.png" },
-  "BEI-GUO":   { code: "BEI-GUO",   title: "本泽马",     group: "赛后话题组", tag: "我只是个背锅的",   shortLabel: "锅在背后人很淡定，输了先接锅，赢了也不抢功", quote: "我只是个背锅的", image: "./images_new/BEI-GUO.png" },
-  "LAO-8":   { code: "LAO-8",   title: "李老八",   group: "赛后话题组", tag: "赛后能聊到凌晨三点",           shortLabel: "别人说睡了他还能再发二十条语音，看球是社交不是运动", quote: "我跟你说啊", image: "./images_new/LAO-8.png" },
-  "CN-12":   { code: "CN-12",   title: "第12人",   group: "搭子风格组", tag: "一个人就是一支啦啦队",         shortLabel: "和他看球永远不会冷场，进球时比球员还激动", quote: "下一场一定赢", image: "./images_new/CN-12.png" },
-  "FAN-ZY":   { code: "FAN-ZY",   title: "范将军",   group: "搭子风格组", tag: "输了赢了都骂",                 shortLabel: "嘴上永远不满意，但每场都不落，是最忠实的黑粉", quote: "脸都不要了", image: "./images_new/FAN-ZY.png" },
-  "CR7":   { code: "CR7",   title: "罗哥",   group: "搭子风格组", tag: "从欧洲到沙特，我来到、我征服",               shortLabel: "自信拉满的胜利宣言型搭子，去哪都要把场子变成主场", quote: "从欧洲到沙特，我来到、我征服", image: "./images_new/CR7.png" },
-  "MA-DING":  { code: "MA-DING",  title: "大马丁",     group: "搭子风格组", tag: "该说的难听话一句不少",         shortLabel: "不怕得罪人，嘲讽属性拉满，越到点球大战越来劲", quote: "真话不好听", image: "./images_new/MA-DING.png" },
-  "STAY-H": { code: "STAY-H", title: "哈宝",   group: "搭子风格组", tag: "进了球也不庆祝，发个STAY HUMBLE就完事", shortLabel: "进球后比谁都平静，但赛后默默把数据截图发群里", quote: "STAY HUMBLE", image: "./images_new/STAY-H.png" },
-  "TUI-Q":    { code: "TUI-Q",    title: "退钱哥",   group: "搭子风格组", tag: "输了一起骂赢了一起吹",         shortLabel: "情绪价值拉满的看球搭子，你需要什么他就给什么", quote: "我xxx，退钱！", image: "./images_new/TUI-Q.png" },
-  "HEI-HEI":  { code: "HEI-HEI",  title: "张嘿嘿",     group: "搭子风格组", tag: "你讲他接你冷他暖",             shortLabel: "永远知道什么时候该接梗什么时候该捧场，气氛永远到位", quote: "嘿嘿", image: "./images_new/HEI-HEI.png" },
-  "NEY-MAR":  { code: "NEY-MAR",  title: "内马尔", group: "足球哲学组", tag: "宁可输也不能踢得丑",           shortLabel: "对丑陋赢球的容忍度为零，看球审美至上", quote: "足球是艺术", image: "./images_new/NEY-MAR.png" },
-  "TEN-GOD":      { code: "TEN-GOD",      title: "滕圣",   group: "足球哲学组", tag: "能赢就行要什么自行车",         shortLabel: "再难看的比赛，也能从两个机会里算出赢的角度", quote: "两个机会都算上，比赛其实我们赢了", image: "./images_new/TEN-GOD.png" },
-  "1100":   { code: "1100",   displayCode: "1100(宋)",   title: "高俅",   group: "足球哲学组", tag: "以前的足球才叫足球",           shortLabel: "觉得现在什么都差点意思，聊球必提以前", quote: "我刚开始看足球的那个时候...", image: "./images_new/1100.png" },
-  "CARD-MA":    { code: "CARD-MA",    title: "卡牌大师",   group: "足球哲学组", tag: "争议第一反应翻规则手册",       shortLabel: "看VAR比看进球认真，觉得公平是足球的底线", quote: "规则就是规则", image: "./images_new/CARD-MA.png" },
-  "LEGEND": { code: "LEGEND", title: "传奇",     group: "特殊人格",   tag: "被时间封印的名字",             shortLabel: "总能在老比赛里找到新东西，聊球自带历史纵深", quote: "足球之神有两个名字", image: "./images_new/LEGEND.png" },
-  "ZI-DANE":  { code: "ZI-DANE",  title: "齐祖",     group: "特殊人格",   tag: "越乱越来劲",                   shortLabel: "别人看球怕意外，他看球就盼意外", quote: "优雅，也可以很硬", image: "./images_new/ZI-DANE.png" },
-  "DINHO":  { code: "DINHO",  title: "小罗",     group: "特殊人格",   tag: "稳定之外也要留给传奇空间",     shortLabel: "正经分析他也会，但他更愿意等那个不可能的瞬间", quote: "规则是用来打破的", image: "./images_new/DINHO.png" }
+  "MOU":   { code: "MOU",   title: "狂人",     group: "看球反应组", tag: "嘴上骂裁判手上砸遥控器",     shortLabel: "情绪来得快去得也快，骂完三分钟又在群里发哈哈哈哈", quote: "我就是特殊的那个", image: "./images/MOU.png" },
+  "TINTIN":    { code: "TINTIN",    title: "丁丁",   group: "看球反应组", tag: "全场最安静但脑子里在跑弹幕",   shortLabel: "不说话不代表没想法，赛后能给你复盘每个细节", quote: "Let Me Talk", image: "./images/TINTIN.png" },
+  "MA-KUI":   { code: "MA-KUI",   title: "航母",     group: "看球反应组", tag: "落后三球还在发还有机会",       shortLabel: "逆风局的精神支柱（自封的），被骂也不改", quote: "图赫尔是个外行", image: "./images/MA-KUI.png" },
+  "LE-FU":   { code: "LE-FU",   title: "勒夫",   group: "看球反应组", tag: "等一个进球等到花都谢了",       shortLabel: "全场就等那一脚，进了一起飞没进原地去世", quote: "韩国可以拿下，晋级不成问题", image: "./images/LE-FU.png" },
+  "PEP":  { code: "PEP",  title: "瓜帅",   group: "看球反应组", tag: "看球时自动脑补战术板",         shortLabel: "这个球应该分边是他的口头禅，看球像在下棋", quote: "Nobody Talk!", image: "./images/PEP.png" },
+  "8-PE":   { code: "8-PE",   title: "姆总",   group: "看球反应组", tag: "边路一过人他就站起来",         shortLabel: "看球时坐不住，进球会从沙发上弹起来", quote: "这是我的时代？", image: "./images/8-PE.png" },
+  "Z-LATAN": { code: "Z-LATAN", title: "奉先",   group: "看球反应组", tag: "比赛可以输但花活不能少",       shortLabel: "0-4落后还在等一个倒钩，觉得足球是艺术不是战争", quote: "世界上只有两种人：兹拉坦和其他人", image: "./images/Z-LATAN.png" },
+  "LEO":   { code: "LEO",   title: "里奥",     group: "赛后话题组", tag: "天选足球人",     shortLabel: "天赋和命运都站在脚下，关键时刻总能把球带到答案里", quote: "天选足球人", image: "./images/LEO.png" },
+  "DAT-A":     { code: "DAT-A",     title: "詹指",   group: "赛后话题组", tag: "赛后第一件事打开MatchMate看数据", shortLabel: "嘴上说只看数据，其实每个异常值都能讲成一段故事", quote: "这个数据很有意思", image: "./images/DAT-A.png" },
+  "WAN-SUI": { code: "WAN-SUI", title: "健翔",   group: "赛后话题组", tag: "你再看一遍这个球",             shortLabel: "喜欢反复看关键画面，能从一个犯规里看出三层含义", quote: "意大利万岁！", image: "./images/WAN-SUI.png" },
+  "CCTV-HE":   { code: "CCTV-HE",   title: "贺·罗纳尔多·炜",   group: "赛后话题组", tag: "聊球自动附赠球员生平",         shortLabel: "你知道他当年在乌迪内斯的时候能把任何球员聊成传记", quote: "足球就是足球", image: "./images/CCTV-HE.png" },
+  "BEI-GUO":   { code: "BEI-GUO",   title: "本泽马",     group: "赛后话题组", tag: "我只是个背锅的",   shortLabel: "锅在背后人很淡定，输了先接锅，赢了也不抢功", quote: "我只是个背锅的", image: "./images/BEI-GUO.png" },
+  "LAO-8":   { code: "LAO-8",   title: "李老八",   group: "赛后话题组", tag: "赛后能聊到凌晨三点",           shortLabel: "别人说睡了他还能再发二十条语音，看球是社交不是运动", quote: "我跟你说啊", image: "./images/LAO-8.png" },
+  "CN-12":   { code: "CN-12",   title: "第12人",   group: "搭子风格组", tag: "一个人就是一支啦啦队",         shortLabel: "和他看球永远不会冷场，进球时比球员还激动", quote: "下一场一定赢", image: "./images/CN-12.png" },
+  "FAN-ZY":   { code: "FAN-ZY",   title: "范将军",   group: "搭子风格组", tag: "输了赢了都骂",                 shortLabel: "嘴上永远不满意，但每场都不落，是最忠实的黑粉", quote: "脸都不要了", image: "./images/FAN-ZY.png" },
+  "CR7":   { code: "CR7",   title: "罗哥",   group: "搭子风格组", tag: "从欧洲到沙特，我来到、我征服",               shortLabel: "自信拉满的胜利宣言型搭子，去哪都要把场子变成主场", quote: "从欧洲到沙特，我来到、我征服", image: "./images/CR7.png" },
+  "MA-DING":  { code: "MA-DING",  title: "大马丁",     group: "搭子风格组", tag: "该说的难听话一句不少",         shortLabel: "不怕得罪人，嘲讽属性拉满，越到点球大战越来劲", quote: "真话不好听", image: "./images/MA-DING.png" },
+  "STAY-H": { code: "STAY-H", title: "哈宝",   group: "搭子风格组", tag: "进了球也不庆祝，发个STAY HUMBLE就完事", shortLabel: "进球后比谁都平静，但赛后默默把数据截图发群里", quote: "STAY HUMBLE", image: "./images/STAY-H.png" },
+  "TUI-Q":    { code: "TUI-Q",    title: "退钱哥",   group: "搭子风格组", tag: "输了一起骂赢了一起吹",         shortLabel: "情绪价值拉满的看球搭子，你需要什么他就给什么", quote: "我xxx，退钱！", image: "./images/TUI-Q.png" },
+  "HEI-HEI":  { code: "HEI-HEI",  title: "张嘿嘿",     group: "搭子风格组", tag: "你讲他接你冷他暖",             shortLabel: "永远知道什么时候该接梗什么时候该捧场，气氛永远到位", quote: "嘿嘿", image: "./images/HEI-HEI.png" },
+  "NEY-MAR":  { code: "NEY-MAR",  title: "内马尔", group: "足球哲学组", tag: "宁可输也不能踢得丑",           shortLabel: "对丑陋赢球的容忍度为零，看球审美至上", quote: "足球是艺术", image: "./images/NEY-MAR.png" },
+  "TEN-GOD":      { code: "TEN-GOD",      title: "滕圣",   group: "足球哲学组", tag: "能赢就行要什么自行车",         shortLabel: "再难看的比赛，也能从两个机会里算出赢的角度", quote: "两个机会都算上，比赛其实我们赢了", image: "./images/TEN-GOD.png" },
+  "1100":   { code: "1100",   displayCode: "1100(宋)",   title: "高俅",   group: "足球哲学组", tag: "以前的足球才叫足球",           shortLabel: "觉得现在什么都差点意思，聊球必提以前", quote: "我刚开始看足球的那个时候...", image: "./images/1100.png" },
+  "CARD-MA":    { code: "CARD-MA",    title: "卡牌大师",   group: "足球哲学组", tag: "争议第一反应翻规则手册",       shortLabel: "看VAR比看进球认真，觉得公平是足球的底线", quote: "规则就是规则", image: "./images/CARD-MA.png" },
+  "LEGEND": { code: "LEGEND", title: "传奇",     group: "特殊人格",   tag: "被时间封印的名字",             shortLabel: "总能在老比赛里找到新东西，聊球自带历史纵深", quote: "足球之神有两个名字", image: "./images/LEGEND.png" },
+  "ZI-DANE":  { code: "ZI-DANE",  title: "齐祖",     group: "特殊人格",   tag: "越乱越来劲",                   shortLabel: "别人看球怕意外，他看球就盼意外", quote: "优雅，也可以很硬", image: "./images/ZI-DANE.png" },
+  "DINHO":  { code: "DINHO",  title: "小罗",     group: "特殊人格",   tag: "稳定之外也要留给传奇空间",     shortLabel: "正经分析他也会，但他更愿意等那个不可能的瞬间", quote: "规则是用来打破的", image: "./images/DINHO.png" }
 };
 
 const ROLE_PROFILES = {
@@ -203,7 +203,7 @@ const QUESTIONS = [
     part: "",
     title: "人口不到20万的库拉索首次踢进世界杯，你的第一反应是？",
     media: {
-      src: "./assets/curacao-combined.png",
+      src: "./images/curacao-combined.png",
       alt: "库拉索国旗和地理位置地图",
       caption: ""
     },
@@ -338,7 +338,7 @@ const QUESTIONS = [
     part: "",
     title: "2022卡塔尔世界杯决赛，姆巴佩97秒连进两球，2:2扳平阿根廷，你怎么看待这件事？",
     media: {
-      src: "./assets/mbappe-final-goal.jpg",
+      src: "./images/mbappe-final-goal.jpg",
       alt: "姆巴佩在世界杯决赛中射门",
       caption: "2022世界杯决赛，法国在尾声阶段连追两球。"
     },
@@ -1171,8 +1171,8 @@ const SOCIAL_CONTENT = {
     title: "微信扫码，组队看球",
     copy: "微信里长按二维码识别：进球迷群聊球，或关注公众号",
     qrs: [
-      { src: "./assets/qr-wechat-group.jpg", caption: "扫码加入球迷群" },
-      { src: "./assets/qr-wechat.jpg", caption: "扫码关注公众号" },
+      { src: "./images/qr-wechat-group.jpg", caption: "扫码加入球迷群" },
+      { src: "./images/qr-wechat.jpg", caption: "扫码关注公众号" },
     ],
   },
   xhs: {
@@ -1186,7 +1186,7 @@ const SOCIAL_CONTENT = {
     title: "截图发公众号后台兑奖",
     copy: "微信扫码关注「看球搭子 MatchMate AI」，把朋友圈集赞截图发到公众号后台，达标即可兑奖",
     qrs: [
-      { src: "./assets/qr-wechat.jpg", caption: "扫码关注公众号" },
+      { src: "./images/qr-wechat.jpg", caption: "扫码关注公众号" },
     ],
   },
 };
@@ -2162,7 +2162,7 @@ document.querySelectorAll("[data-promo-action]").forEach((button) => {
     openSocialModal(action);
   });
 });
-// 活动海报未上传时显示占位文案(海报到位后放进 assets/ 同名文件即自动展示)
+// 活动海报未上传时显示占位文案(海报到位后放进 images/ 同名文件即自动展示)
 document.querySelectorAll(".promo-poster").forEach((poster) => {
   poster.addEventListener("error", () => {
     poster.classList.add("is-missing");
