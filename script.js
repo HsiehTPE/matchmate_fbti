@@ -1102,6 +1102,10 @@ function loadImageAsset(src) {
   });
 }
 
+function resolveAssetUrl(path) {
+  return new URL(path, document.baseURI || window.location.href).href;
+}
+
 function canvasToBlob(canvas) {
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
@@ -1840,9 +1844,9 @@ async function saveResultImage() {
   try {
     const [portraitImg, logoImg, qrImg, siteQrImg] = await Promise.all([
       loadImageAsset(resultPortrait.currentSrc || resultPortrait.src),
-      loadImageAsset(new URL("./images/main_logo_clean.png", window.location.href).href),
-      SHOW_QR ? loadImageAsset(new URL("./images/matchmate_qr.png", window.location.href).href) : Promise.resolve(null),
-      SHOW_QR ? loadImageAsset(new URL("./images/fbti_site_qr.png", window.location.href).href) : Promise.resolve(null)
+      loadImageAsset(resolveAssetUrl("./images/main_logo_clean.png")),
+      SHOW_QR ? loadImageAsset(resolveAssetUrl("./images/matchmate_qr.png")) : Promise.resolve(null),
+      SHOW_QR ? loadImageAsset(resolveAssetUrl("./images/fbti_site_qr.png")) : Promise.resolve(null)
     ]);
 
     const canvas = document.createElement("canvas");
