@@ -1097,7 +1097,7 @@ function loadImageAsset(src) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.onload = () => resolve(img);
-    img.onerror = reject;
+    img.onerror = () => reject(new Error(`Failed to load image asset: ${src}`));
     img.src = src;
   });
 }
@@ -1840,9 +1840,9 @@ async function saveResultImage() {
   try {
     const [portraitImg, logoImg, qrImg, siteQrImg] = await Promise.all([
       loadImageAsset(resultPortrait.currentSrc || resultPortrait.src),
-      loadImageAsset(new URL("./main_logo_clean.png", window.location.href).href),
-      SHOW_QR ? loadImageAsset(new URL("./matchmate_qr.png", window.location.href).href) : Promise.resolve(null),
-      SHOW_QR ? loadImageAsset(new URL("./fbti_site_qr.png", window.location.href).href) : Promise.resolve(null)
+      loadImageAsset(new URL("./images/main_logo_clean.png", window.location.href).href),
+      SHOW_QR ? loadImageAsset(new URL("./images/matchmate_qr.png", window.location.href).href) : Promise.resolve(null),
+      SHOW_QR ? loadImageAsset(new URL("./images/fbti_site_qr.png", window.location.href).href) : Promise.resolve(null)
     ]);
 
     const canvas = document.createElement("canvas");
